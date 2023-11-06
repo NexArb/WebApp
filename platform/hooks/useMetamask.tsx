@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, type PropsWithChildren } from "react";
+import React, { useMemo, type PropsWithChildren } from "react";
 
 type ConnectAction = { type: "connect"; wallet: string; balance: string };
 type DisconnectAction = { type: "disconnect" };
@@ -50,9 +50,6 @@ function metamaskReducer(state: State, action: Action): State {
     }
     case "disconnect": {
       window.localStorage.removeItem("metamaskState");
-      if (typeof window.ethereum !== undefined) {
-        window.ethereum?.removeAllListeners("accountsChanged");
-      }
       return { ...state, wallet: null, balance: null };
     }
     case "pageLoaded": {
@@ -78,7 +75,7 @@ const MetamaskContext = React.createContext<
 
 function MetamaskProvider({ children }: PropsWithChildren) {
   const [state, dispatch] = React.useReducer(metamaskReducer, initialState);
-  const value = { state, dispatch };
+  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return (
     <MetamaskContext.Provider value={value}>

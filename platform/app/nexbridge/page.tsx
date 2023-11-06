@@ -1,8 +1,8 @@
 "use client"
 
-const NexBridgeHomePage = () => {
-    return (
-        <>
+const NexBridgeHomePage = () => 
+    (
+        
             <div className="self-stretch h-screen w-screen flex flex-col justify-between">
                 <div className="self-center flex flex-col justify-between w-3/5 ">
                     <div className="flex flex-col gap-8 mt-32 items-center">
@@ -19,8 +19,7 @@ const NexBridgeHomePage = () => {
                     </div>
                 </div>
             </div>
-        </>
     )
-}
+
 
 export default NexBridgeHomePage;

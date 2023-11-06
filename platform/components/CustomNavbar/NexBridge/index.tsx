@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useConnect } from 'wagmi'
 
 const NexBridgeCustomNavbar = () => {
-    const { connect, connectors, error, isLoading, pendingConnector } =
+    const { connect, connectors, isLoading, pendingConnector } =
         useConnect()
     return (
         <nav className="bg-transparent dark:bg-transparent pt-10 mb-6">

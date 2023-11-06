@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import '../globals.css'
 import NexBridgeCustomNavbar from '@/components/CustomNavbar/NexBridge'
-import { MetamaskProvider } from "../../hooks/useMetamask";
 import { Providers } from '../providers';
 
 export const metadata: Metadata = {
@@ -9,11 +8,12 @@ export const metadata: Metadata = {
   description: 'Next Gen Bridge',
 }
 
+type RootLayoutProps = Readonly<{
+  children: React.ReactNode;
+}>;
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: RootLayoutProps){
   return (
     <html lang="en">
       <Providers>

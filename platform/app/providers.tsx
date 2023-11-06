@@ -5,7 +5,11 @@ import { WagmiConfig } from 'wagmi'
 
 import { config } from '../wagmi'
 
-export function Providers({ children }: { children: React.ReactNode }) {
+type ProvidersProps = Readonly<{
+  children: React.ReactNode;
+}>;
+
+export function Providers({ children }: ProvidersProps)  {
   const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => setMounted(true), [])
   return <WagmiConfig config={config}>{mounted && children}</WagmiConfig>
