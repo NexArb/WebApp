@@ -37,17 +37,20 @@ jobs:
         id: detect-package-manager
         run: |
           if [ -f "yarn.lock" ]; then
+            echo "Yarn lock file found."
             echo "::set-output name=manager::yarn"
             echo "::set-output name=command::install"
             echo "::set-output name=runner::yarn"
           elif [ -f "package.json" ]; then
+            echo "Yarn lock file not found, but package.json found."
             echo "::set-output name=manager::npm"
             echo "::set-output name=command::ci"
             echo "::set-output name=runner::npx --no-install"
           else
-            echo "Unable to determine package manager"
+            echo "Neither Yarn lock file nor package.json found. Please check your project structure."
             exit 1
           fi
+        shell: /usr/bin/bash -e {0}
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
