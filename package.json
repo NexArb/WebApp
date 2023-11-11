@@ -10,7 +10,10 @@
 		"format": "prettier . --write",
 		"prepare": "husky install"
 	},
-  "eslintIgnore": ["wagmi.ts","tailwind.config.ts"],
+	"eslintIgnore": [
+		"wagmi.ts",
+		"tailwind.config.ts"
+	],
 	"dependencies": {
 		"@metamask/sdk-react-ui": "^0.11.2",
 		"connectkit": "^1.5.3",
@@ -21,6 +24,7 @@
 		"wagmi": "^1.4.5"
 	},
 	"devDependencies": {
+		"@microsoft/eslint-formatter-sarif": "^3.0.0",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
