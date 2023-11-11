@@ -1,11 +1,8 @@
 "use client"
 import Link from "next/link";
-import { useConnect } from 'wagmi'
 import { ConnectKitButton } from "connectkit";
 
 const NexBridgeCustomNavbar = () => {
-    const { connect, connectors, isLoading, pendingConnector } =
-        useConnect()
     return (
         <nav className="bg-transparent dark:bg-transparent pt-10 mb-6">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
