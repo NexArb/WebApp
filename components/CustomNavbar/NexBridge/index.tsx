@@ -4,7 +4,7 @@ import { ConnectKitButton } from "connectkit";
 import React from "react";
 
 const NexBridgeCustomNavbar = () => {
-    (
+    return (
         <nav className="bg-transparent dark:bg-transparent pt-10 mb-6">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
                 <a className="flex items-center">
