@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@metamask/sdk-react-ui": "^0.11.2",
-    "next": "14.0.1",
+    "next": "^14.0.1",
     "react": "^18",
     "react-dom": "^18",
     "viem": "^1.18.6",

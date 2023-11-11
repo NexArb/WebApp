@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 0.75rem;
+}
+
+.logo {
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+
+.navLinkContainer {
+    margin-top: 20px;
+}
+
+.navLink {
+    padding: 1.5rem;
+}
+
+.protocolButton {
+    border: double 1px transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom right, #12056A, #020A07, #06012E, #09092E, #4A056A), radial-gradient(circle at top right, #10E9A2, #429FD6, #9749FB);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    padding: 8.4px 21px 8.4px 21px;
+    margin-right: 0.75rem;
+}
+
+.joinUsButton {
+    background-color: #0267FF;
+    color: #FFF;
+    border-radius: 36.75px;
+    padding: 8.4px 21px 8.4px 21px;
+}
