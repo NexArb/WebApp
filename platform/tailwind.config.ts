@@ -13,7 +13,7 @@ const config: Config = {
         'pricing-box': `linear-gradient(to right, rgba(164, 183, 255, 0.16), rgba(164, 183, 255, 0.16))`,
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        // mountain: 'url(/img/hero-mountains.png)'
+        'gradient-main': 'linear-gradient(349deg, #4A056A 2.44%, #09092E 14.03%, #000617 32.67%)'
       },
       screens: {
         xs: '400px',
