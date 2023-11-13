@@ -14,6 +14,7 @@ const config: Config = {
         'pricing-box': `linear-gradient(to right, rgba(164, 183, 255, 0.16), rgba(164, 183, 255, 0.16))`,
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'about-page-gradient': 'linear-gradient(to bottom right, #12056A, #020A07, #06012E, #09092E, #4A056A)',
       })
     },
   },
