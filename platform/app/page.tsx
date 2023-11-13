@@ -3,8 +3,7 @@ import CustomTextField from "@/components/CustomTextField";
 
 export default function Home() {
   return (
-    // bg-gradient-to-t from-purple-950 via-slate-900 to-slate-950
-    <main className="flexCenter bg-gradient-main flex-col">
+    <main className="flex flex-col bg-gradient-main">
       <CustomTextField />
       <CustomFooter />
     </main>

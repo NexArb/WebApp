@@ -4,7 +4,7 @@ import React from "react";
 
 const Crew = () => {
   return (
-    <section className="relative mt-96">
+    <section className="flexCenter mb-72 mt-96 flex-col">
       <div className="text-center text-[42px] font-bold leading-[52px]">
         Startup Crew
       </div>

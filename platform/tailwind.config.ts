@@ -15,15 +15,8 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'gradient-main': 'linear-gradient(349deg, #4A056A 2.44%, #09092E 14.03%, #000617 32.67%)'
       },
-      screens: {
-        xs: '400px',
-        '3xl': '1680px',
-      },
-      maxWidth: {
-        '10xl': '1512px',
-      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 }
 export default config
