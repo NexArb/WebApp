@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { PROJECTS } from "@/contants";
+import { PROJECTS } from "@/constants";
 
 const Projects = () => {
   return (

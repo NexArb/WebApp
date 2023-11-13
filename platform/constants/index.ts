@@ -68,10 +68,10 @@ export const CREW = [
 
 export const FooterSocials = [
   {
-    svg: "Facebook",
+    svg: "/img/Facebook.svg",
   },
-  { svg: "Twitter" },
-  { svg: "Instagram" },
-  { svg: "Linkedin" },
-  { svg: "YouTube" },
+  { svg: "/img/Twitter.svg" },
+  { svg: "/img/Instagram.svg" },
+  { svg: "/img/Linkedin.svg" },
+  { svg: "/img/YouTube.svg" },
 ];

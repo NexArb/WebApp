@@ -1,4 +1,4 @@
-import { CREW } from "@/contants";
+import { CREW } from "@/constants";
 import Image from "next/image";
 import React from "react";
 
