@@ -1,20 +1,20 @@
-import type { Metadata } from 'next'
-import { DM_Sans } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google";
+import "./globals.css";
 
-const dmSans = DM_Sans({ subsets: ['latin'] })
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-	title: 'NexArb',
-	description: 'Digital solutions for the future',
+interface RootLayoutProps {
+  readonly children: React.ReactNode;
 }
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
-	return (
+export const metadata: Metadata = {
+  title: "NexArb",
+  description: "Digital solutions for the future",
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
     <html lang="en">
       <body className={`${dmSans.className}`}>{children}</body>
     </html>
