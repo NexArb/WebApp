@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
 
-import Link from "next/link";
-import { FooterSocials } from "@/constants";
-import Contact from "../CustomTextField/Contact";
+import Link from 'next/link'
+import { FooterSocials } from '@/constants'
+import Contact from '../CustomTextField/Contact'
 
 const CustomFooter = () => {
   return (
@@ -38,7 +38,7 @@ const CustomFooter = () => {
               </div>
               <div className="mt-20 flex flex-row gap-5">
                 <Image
-                  src={"/img/fa-phone.svg"}
+                  src={'/img/fa-phone.svg'}
                   alt="logo"
                   width={19}
                   height={19}
@@ -49,7 +49,7 @@ const CustomFooter = () => {
               </div>
               <div className="mt-16 flex flex-row gap-5">
                 <Image
-                  src={"/img/fa-envelope.svg"}
+                  src={'/img/fa-envelope.svg'}
                   alt="logo"
                   width={21}
                   height={16}
@@ -60,7 +60,7 @@ const CustomFooter = () => {
               </div>
               <div className="mt-14 flex flex-row gap-5">
                 <Image
-                  src={"/img/fa-building-o.svg"}
+                  src={'/img/fa-building-o.svg'}
                   alt="logo"
                   width={19}
                   height={19}
@@ -91,7 +91,7 @@ const CustomFooter = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CustomFooter;
+export default CustomFooter

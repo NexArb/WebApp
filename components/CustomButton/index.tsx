@@ -1,13 +1,13 @@
-import React from "react";
-import { useFormStatus } from "react-dom";
+import React from 'react'
+import { useFormStatus } from 'react-dom'
 
 type ProjectItem = {
-  className: string;
-  text: string;
-};
+  className: string
+  text: string
+}
 
 const CustomFooter = ({ className, text }: ProjectItem) => {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus()
   return (
     <button
       type="submit"
@@ -22,7 +22,7 @@ const CustomFooter = ({ className, text }: ProjectItem) => {
         </div>
       )}
     </button>
-  );
-};
+  )
+}
 
-export default CustomFooter;
+export default CustomFooter

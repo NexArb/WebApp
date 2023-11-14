@@ -1,95 +1,95 @@
-"use client"
+'use client'
 
-import React, { useMemo, type PropsWithChildren } from "react";
+import React, { useMemo, type PropsWithChildren } from 'react'
 
-type ConnectAction = { type: "connect"; wallet: string; balance: string };
-type DisconnectAction = { type: "disconnect" };
+type ConnectAction = { type: 'connect'; wallet: string; balance: string }
+type DisconnectAction = { type: 'disconnect' }
 type PageLoadedAction = {
-  type: "pageLoaded";
-  isMetamaskInstalled: boolean;
-  wallet: string | null;
-  balance: string | null;
-};
-type LoadingAction = { type: "loading" };
-type IdleAction = { type: "idle" };
+  type: 'pageLoaded'
+  isMetamaskInstalled: boolean
+  wallet: string | null
+  balance: string | null
+}
+type LoadingAction = { type: 'loading' }
+type IdleAction = { type: 'idle' }
 
 type Action =
   | ConnectAction
   | DisconnectAction
   | PageLoadedAction
   | LoadingAction
-  | IdleAction;
+  | IdleAction
 
-type Dispatch = (action: Action) => void;
+type Dispatch = (action: Action) => void
 
-type Status = "loading" | "idle" | "pageNotLoaded";
+type Status = 'loading' | 'idle' | 'pageNotLoaded'
 
 type State = {
-  wallet: string | null;
-  isMetamaskInstalled: boolean;
-  status: Status;
-  balance: string | null;
-};
+  wallet: string | null
+  isMetamaskInstalled: boolean
+  status: Status
+  balance: string | null
+}
 
 const initialState: State = {
   wallet: null,
   isMetamaskInstalled: false,
-  status: "loading",
-  balance: null,
-} as const;
+  status: 'loading',
+  balance: null
+} as const
 
 function metamaskReducer(state: State, action: Action): State {
   switch (action.type) {
-    case "connect": {
-      const { wallet, balance } = action;
-      const newState = { ...state, wallet, balance, status: "idle" } as State;
-      const info = JSON.stringify(newState);
-      window.localStorage.setItem("metamaskState", info);
+    case 'connect': {
+      const { wallet, balance } = action
+      const newState = { ...state, wallet, balance, status: 'idle' } as State
+      const info = JSON.stringify(newState)
+      window.localStorage.setItem('metamaskState', info)
 
-      return newState;
+      return newState
     }
-    case "disconnect": {
-      window.localStorage.removeItem("metamaskState");
-      return { ...state, wallet: null, balance: null };
+    case 'disconnect': {
+      window.localStorage.removeItem('metamaskState')
+      return { ...state, wallet: null, balance: null }
     }
-    case "pageLoaded": {
-      const { isMetamaskInstalled, balance, wallet } = action;
-      return { ...state, isMetamaskInstalled, status: "idle", wallet, balance };
+    case 'pageLoaded': {
+      const { isMetamaskInstalled, balance, wallet } = action
+      return { ...state, isMetamaskInstalled, status: 'idle', wallet, balance }
     }
-    case "loading": {
-      return { ...state, status: "loading" };
+    case 'loading': {
+      return { ...state, status: 'loading' }
     }
-    case "idle": {
-      return { ...state, status: "idle" };
+    case 'idle': {
+      return { ...state, status: 'idle' }
     }
 
     default: {
-      throw new Error("Unhandled action type");
+      throw new Error('Unhandled action type')
     }
   }
 }
 
 const MetamaskContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
->(undefined);
+>(undefined)
 
 function MetamaskProvider({ children }: PropsWithChildren) {
-  const [state, dispatch] = React.useReducer(metamaskReducer, initialState);
-  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+  const [state, dispatch] = React.useReducer(metamaskReducer, initialState)
+  const value = useMemo(() => ({ state, dispatch }), [state, dispatch])
 
   return (
     <MetamaskContext.Provider value={value}>
       {children}
     </MetamaskContext.Provider>
-  );
+  )
 }
 
 function useMetamask() {
-  const context = React.useContext(MetamaskContext);
+  const context = React.useContext(MetamaskContext)
   if (context === undefined) {
-    throw new Error("useMetamask must be used within a MetamaskProvider");
+    throw new Error('useMetamask must be used within a MetamaskProvider')
   }
-  return context;
+  return context
 }
 
-export { MetamaskProvider, useMetamask };
+export { MetamaskProvider, useMetamask }
