@@ -1,15 +1,17 @@
 "use client"
 import Link from "next/link";
-import { useConnect } from 'wagmi'
+import { ConnectKitButton } from "connectkit";
+import React from "react";
 
 const NexBridgeCustomNavbar = () => {
-    const { connect, connectors, isLoading, pendingConnector } =
-        useConnect()
     return (
         <nav className="bg-transparent dark:bg-transparent pt-10 mb-6">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
                 <a className="flex items-center">
-                    <img src="./img/nexarb_bridge.png" id="Layer1" alt="Logo"/>
+                    <img
+                        src="./img/nexarb_bridge.png"
+                        id="Layer1" 
+                    />
                 </a>
                 <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                     <span className="sr-only">Open main menu</span>
@@ -26,20 +28,8 @@ const NexBridgeCustomNavbar = () => {
                             <Link href="/nexbridge/pricing" className="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</Link>
                         </li>
 
-                        <li className="p-3">
-                            {connectors.map((connector) => (
-                                <button
-                                    disabled={!connector.ready}
-                                    key={connector.id}
-                                    onClick={() => connect({ connector })}
-                                >
-                                    {connector.name}
-                                    {!connector.ready && ' (unsupported)'}
-                                    {isLoading &&
-                                        connector.id === pendingConnector?.id &&
-                                        ' (connecting)'}
-                                </button>
-                            ))}
+                        <li className="p-1">
+                            <ConnectKitButton />
                         </li>
                     </ul>
                 </div>

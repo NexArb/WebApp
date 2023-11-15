@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import '../globals.css'
-import NexBridgeCustomNavbar from '@/components/CustomNavbar/NexBridge'
 import { Providers } from '../providers';
+import React from 'react';
+import NexBridgeCustomNavbar from '../../components/CustomNavbar/NexBridge';
 
 export const metadata: Metadata = {
   title: 'NexBridge',
