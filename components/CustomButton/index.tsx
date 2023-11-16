@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFormStatus } from 'react-dom'
 
-interface ProjectItem {
+type ProjectItem = Readonly<{
   className: string
   text: string
-}
+}>
 
 function CustomButton ({ className, text }: ProjectItem): React.JSX.Element {
   const { pending } = useFormStatus()

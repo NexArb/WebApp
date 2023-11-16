@@ -30,14 +30,14 @@ function Crew (): React.JSX.Element {
   )
 }
 
-interface CrewItemProps {
+type CrewItemProps = Readonly<{
   name: string
   profileImage: string
   job: string
   icon1: string
   icon2: string
   icon3: string
-}
+}>
 
 function CrewItem ({
   name,

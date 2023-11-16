@@ -25,11 +25,11 @@ function Projects (): React.JSX.Element {
   )
 }
 
-interface ProjectItemProps {
+type ProjectItemProps = Readonly<{
   title: string
   image: string
   date: string
-}
+}>
 
 function ProjectItem ({
   title,
