@@ -5,9 +5,9 @@ import React from 'react'
 
 import Link from 'next/link'
 import { FooterSocials } from '@/constants'
-import Contact from '../CustomTextField/Contact'
+import Contact from '@/components/CustomTextfield/Contact'
 
-const CustomFooter = () => {
+function CustomFooter (): React.JSX.Element {
   return (
     <section className="flexCenter relative ">
       <Image
@@ -28,10 +28,10 @@ const CustomFooter = () => {
         <div className="mt-40 flex flex-col">
           <div className="mx-auto flex w-full max-w-[1440px] flex-1 gap-28 px-6 lg:px-20 xl:px-0">
             <div>
-              <div className="mt-14 text-[42px] font-bold leading-[52px]">
+              <div className="mt-14 text-4xl font-bold leading-10">
                 Let’s Keep in Touch
               </div>
-              <div className="mt-8 h-[140.14px] w-[436.83px] text-[22px] font-medium leading-loose">
+              <div className="mt-8 h-36 w-[436px] text-2xl font-medium leading-loose">
                 We have created a new product that will help designers,
                 developers and companies create websites for their startups
                 quickly and easily.
@@ -43,7 +43,7 @@ const CustomFooter = () => {
                   width={19}
                   height={19}
                 />
-                <div className="h-[28.46px] w-[263.85px] text-base font-normal leading-relaxed">
+                <div className="h-7 w-64 text-base font-normal leading-relaxed">
                   +1 555 505 5050
                 </div>
               </div>
@@ -54,7 +54,7 @@ const CustomFooter = () => {
                   width={21}
                   height={16}
                 />
-                <div className="h-[28.46px] w-[251.81px] text-base font-normal leading-relaxed">
+                <div className="h-7 w-64 text-base font-normal leading-relaxed">
                   info@designmodo.com
                 </div>
               </div>
@@ -65,7 +65,7 @@ const CustomFooter = () => {
                   width={19}
                   height={19}
                 />
-                <div className="h-[85.39px] w-[275.89px] text-base font-normal leading-relaxed">
+                <div className="h-20 w-72 text-base font-normal leading-relaxed">
                   San Francisco, CA560 Bush St & 20th Ave, Apt5 San Francisco,
                   230909
                 </div>
@@ -81,7 +81,7 @@ const CustomFooter = () => {
             <div className="flex flex-row gap-6">
               {FooterSocials.map((e) => (
                 <Link href="/" key={e.svg}>
-                  <div className="flexCenter h-[35.70px] w-[35.70px] rounded-lg bg-white bg-opacity-20">
+                  <div className="flexCenter h-9 w-9 rounded-lg bg-white bg-opacity-20">
                     <Image src={e.svg} alt="logo" width={19} height={19} />
                   </div>
                 </Link>

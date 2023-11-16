@@ -6,7 +6,7 @@ import Hero from './Hero'
 import Projects from './Projects'
 import Crew from './Crew'
 
-const CustomTextField = () => {
+function CustomTextField (): React.JSX.Element {
   return (
     <>
       <Hero />

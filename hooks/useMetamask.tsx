@@ -2,16 +2,26 @@
 
 import React, { useMemo, type PropsWithChildren } from 'react'
 
-type ConnectAction = { type: 'connect'; wallet: string; balance: string }
-type DisconnectAction = { type: 'disconnect' }
-type PageLoadedAction = {
+interface ConnectAction {
+  type: 'connect'
+  wallet: string
+  balance: string
+}
+interface DisconnectAction {
+  type: 'disconnect'
+}
+interface PageLoadedAction {
   type: 'pageLoaded'
   isMetamaskInstalled: boolean
   wallet: string | null
   balance: string | null
 }
-type LoadingAction = { type: 'loading' }
-type IdleAction = { type: 'idle' }
+interface LoadingAction {
+  type: 'loading'
+}
+interface IdleAction {
+  type: 'idle'
+}
 
 type Action =
   | ConnectAction
@@ -24,7 +34,7 @@ type Dispatch = (action: Action) => void
 
 type Status = 'loading' | 'idle' | 'pageNotLoaded'
 
-type State = {
+interface State {
   wallet: string | null
   isMetamaskInstalled: boolean
   status: Status
@@ -38,11 +48,11 @@ const initialState: State = {
   balance: null
 } as const
 
-function metamaskReducer(state: State, action: Action): State {
+function metamaskReducer (state: State, action: Action): State {
   switch (action.type) {
     case 'connect': {
       const { wallet, balance } = action
-      const newState = { ...state, wallet, balance, status: 'idle' } as State
+      const newState: State = { ...state, wallet, balance, status: 'idle' }
       const info = JSON.stringify(newState)
       window.localStorage.setItem('metamaskState', info)
 
@@ -70,10 +80,10 @@ function metamaskReducer(state: State, action: Action): State {
 }
 
 const MetamaskContext = React.createContext<
-  { state: State; dispatch: Dispatch } | undefined
+{ state: State, dispatch: Dispatch } | undefined
 >(undefined)
 
-function MetamaskProvider({ children }: PropsWithChildren) {
+function MetamaskProvider ({ children }: PropsWithChildren): React.JSX.Element {
   const [state, dispatch] = React.useReducer(metamaskReducer, initialState)
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch])
 
@@ -84,7 +94,10 @@ function MetamaskProvider({ children }: PropsWithChildren) {
   )
 }
 
-function useMetamask() {
+function useMetamask (): {
+  state: State
+  dispatch: Dispatch
+} {
   const context = React.useContext(MetamaskContext)
   if (context === undefined) {
     throw new Error('useMetamask must be used within a MetamaskProvider')

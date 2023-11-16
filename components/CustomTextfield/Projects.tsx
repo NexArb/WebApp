@@ -2,13 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import { PROJECTS } from '@/constants'
 
-const Projects = () => {
+function Projects (): React.JSX.Element {
   return (
     <section className="flexCenter mt-36 flex-col">
-      <div className="text-[42px] font-bold leading-[52px] lg:w-[228px]">
-        Our Works
-      </div>
-      <div className="mt-6 text-center text-[22px] leading-loose lg:w-[722px]">
+      <div className="text-5xl font-bold leading-10">Our Works</div>
+      <div className="mt-6 text-center text-2xl leading-loose lg:w-[722px]">
         The most important part of the Startup Framework is the samples. The
         samples form a set of 20 usable pages you can use as is or you can add
         new blocks from UI Kit.
@@ -27,19 +25,23 @@ const Projects = () => {
   )
 }
 
-type ProjectItem = {
+interface ProjectItemProps {
   title: string
   image: string
   date: string
 }
 
-const ProjectItem = ({ title, image, date }: ProjectItem) => {
+function ProjectItem ({
+  title,
+  image,
+  date
+}: ProjectItemProps): React.JSX.Element {
   return (
     <li className="flex w-full flex-1 flex-col items-start justify-center">
       <Image src={image} alt="map" width={370} height={280} />
       <div className="mx-auto items-center justify-center">
-        <h2 className="mt-5 text-[22px] font-medium leading-loose">{title}</h2>
-        <p className="mt-2 text-center text-sm leading-relaxed tracking-widest lg:mt-[14px] lg:bg-none">
+        <h2 className="mt-5 text-2xl font-medium leading-loose">{title}</h2>
+        <p className="mt-2 text-center text-sm leading-relaxed tracking-widest lg:mt-4 lg:bg-none">
           {date}
         </p>
       </div>

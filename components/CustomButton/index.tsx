@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFormStatus } from 'react-dom'
 
-type ProjectItem = {
+interface ProjectItem {
   className: string
   text: string
 }
 
-const CustomFooter = ({ className, text }: ProjectItem) => {
+function CustomButton ({ className, text }: ProjectItem): React.JSX.Element {
   const { pending } = useFormStatus()
   return (
     <button
@@ -14,15 +14,17 @@ const CustomFooter = ({ className, text }: ProjectItem) => {
       className={`hover:scale-105} group mx-auto flex items-center justify-center gap-2 rounded-full outline-none transition-all ${className}`}
       disabled={pending}
     >
-      {pending ? (
+      {pending
+        ? (
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
-      ) : (
-        <div className="text-lg font-medium leading-relaxed text-white group-hover:text-xl">
-          {text}
-        </div>
-      )}
+          )
+        : (
+      <div className="text-lg font-medium leading-relaxed text-white group-hover:text-xl">
+        {text}
+      </div>
+          )}
     </button>
   )
 }
 
-export default CustomFooter
+export default CustomButton

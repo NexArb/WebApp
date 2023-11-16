@@ -1,33 +1,20 @@
 import React from 'react'
 
 import CustomButton from '@/components/CustomButton'
+import Input from '@/components/CustomTextfield/Input'
 
-function Contact(): React.JSX.Element {
+function Contact (): React.JSX.Element {
   return (
     <div>
-      <form className="flex h-[624.04px] w-[514.56px] flex-col rounded-[10px] bg-white p-12">
+      <form className="flex h-[624.04px] w-[514.56px] flex-col rounded-lg bg-white p-12">
         <span className="text-sm font-bold uppercase leading-relaxed tracking-widest text-violet-950">
           Your Name
         </span>
-        <input
-          className="borderBlack mt-4 h-14 rounded-full border-2 border-gray-200 px-4"
-          name="name"
-          type="name"
-          required
-          maxLength={500}
-          placeholder="Full name"
-        />
+        <Input name="name" type="name" placeholder="Full name" />
         <span className="mt-8 text-sm font-bold uppercase leading-relaxed tracking-widest text-violet-950">
           INPUT FIELD
         </span>
-        <input
-          className="borderBlack mt-4 h-14 rounded-full border-2 border-gray-200 px-4"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="name@mail.com"
-        />
+        <Input name="senderEmail" type="email" placeholder="name@mail.com" />
         <span className="mt-8 text-sm font-bold uppercase leading-relaxed tracking-widest text-violet-950">
           YOUR MESSAGE
         </span>
@@ -52,7 +39,7 @@ function Contact(): React.JSX.Element {
             Send me a copy
           </p>
           <CustomButton
-            className="h-[54.74px] w-[131.38px] bg-teal-400"
+            className="h-14 w-32 bg-teal-400"
             text="Send"
           />
         </div>

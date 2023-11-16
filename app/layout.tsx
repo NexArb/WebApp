@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 type RootLayoutProps = Readonly<{
   children: React.ReactNode
 }>
-export default function RootLayout({
+export default function RootLayout ({
   children
 }: RootLayoutProps): React.JSX.Element {
   return (

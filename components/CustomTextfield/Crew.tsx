@@ -2,13 +2,13 @@ import { CREW } from '@/constants'
 import Image from 'next/image'
 import React from 'react'
 
-const Crew = () => {
+function Crew (): React.JSX.Element {
   return (
     <section className="flexCenter mb-72 mt-96 flex-col">
-      <div className="text-center text-[42px] font-bold leading-[52px]">
+      <div className="text-center text-5xl font-bold">
         Startup Crew
       </div>
-      <div className="mt-9 text-center text-[22px] font-medium leading-loose lg:w-[754px]">
+      <div className="mt-9 text-center text-2xl font-medium leading-loose lg:w-[754px]">
         The most important part of the Startup Framework is the samples. The
         samples form a set of 25 usable pages you can use as is or you can add
         new blocks from UI Kit.
@@ -30,7 +30,7 @@ const Crew = () => {
   )
 }
 
-type CrewItem = {
+interface CrewItemProps {
   name: string
   profileImage: string
   job: string
@@ -39,18 +39,18 @@ type CrewItem = {
   icon3: string
 }
 
-const CrewItem = ({
+function CrewItem ({
   name,
   job,
   icon1,
   icon2,
   icon3,
   profileImage
-}: CrewItem) => {
+}: CrewItemProps): React.JSX.Element {
   return (
     <li className="flex w-full flex-1 flex-col items-start">
       <Image src={profileImage} alt="profile image" width={100} height={100} />
-      <h2 className="mt-4 text-[22px] font-medium leading-loose">{name}</h2>
+      <h2 className="mt-4 text-2xl font-medium leading-loose">{name}</h2>
       <p className="mt-1 leading-relaxed">{job}</p>
       <div className="mt-5 flex gap-8">
         <Image src={icon1} alt="socials" width={16} height={16} />

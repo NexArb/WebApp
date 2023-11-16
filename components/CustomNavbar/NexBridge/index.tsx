@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ConnectKitButton } from 'connectkit'
 import React from 'react'
 
-const NexBridgeCustomNavbar = () => {
+function NexBridgeCustomNavbar (): React.JSX.Element {
   return (
     <nav className="bg-transparent dark:bg-transparent pt-10 mb-6">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">

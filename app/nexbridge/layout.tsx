@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 import '../globals.css'
 import { Providers } from '../providers'
 import React from 'react'
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 type RootLayoutProps = Readonly<{
   children: React.ReactNode
 }>
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout ({ children }: RootLayoutProps): React.JSX.Element {
   return (
     <html lang="en">
       <Providers>

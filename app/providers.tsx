@@ -9,9 +9,11 @@ type ProvidersProps = Readonly<{
   children: React.ReactNode
 }>
 
-export function Providers({ children }: ProvidersProps) {
+export function Providers ({ children }: ProvidersProps): React.JSX.Element {
   const [mounted, setMounted] = React.useState(false)
-  React.useEffect(() => setMounted(true), [])
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
   return (
     <WagmiConfig config={config}>
       <ConnectKitProvider theme="retro">

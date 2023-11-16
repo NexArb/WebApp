@@ -1,6 +1,6 @@
 import React from 'react'
 
-const index = () => {
+function index (): React.JSX.Element {
   return <div className="relative">index</div>
 }
 
