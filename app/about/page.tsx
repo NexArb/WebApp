@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import AppBar from '@/platform/components/CustomNavbar';
+import AppBar from '@/components/CustomNavbar';
 
 const About = () => {
     return (
