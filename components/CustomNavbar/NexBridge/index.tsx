@@ -52,7 +52,6 @@ function NexBridgeCustomNavbar (): React.JSX.Element {
                 Pricing
               </Link>
             </li>
-
             <li className="p-1">
               <ConnectKitButton />
             </li>
