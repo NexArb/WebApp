@@ -1,7 +1,7 @@
 import React from 'react'
 
 import CustomButton from '@/components/CustomButton'
-import Input from '@/components/CustomTextfield/Input'
+import Input from '@/components/HomePage/Input'
 
 function Contact (): React.JSX.Element {
   return (

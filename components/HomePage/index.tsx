@@ -6,7 +6,7 @@ import Hero from './Hero'
 import Projects from './Projects'
 import Crew from './Crew'
 
-function CustomTextField (): React.JSX.Element {
+function HomePage (): React.JSX.Element {
   return (
     <>
       <Hero />
@@ -16,4 +16,4 @@ function CustomTextField (): React.JSX.Element {
   )
 }
 
-export default CustomTextField
+export default HomePage
