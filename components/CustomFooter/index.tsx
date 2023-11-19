@@ -5,7 +5,7 @@ import React from 'react'
 
 import Link from 'next/link'
 import { FooterSocials } from '@/constants'
-import Contact from '@/components/CustomTextfield/Contact'
+import Contact from '@/components/HomePage/Contact'
 
 function CustomFooter (): React.JSX.Element {
   return (
