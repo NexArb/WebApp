@@ -1,11 +1,9 @@
-import type { Metadata } from 'next'
-import { DM_Sans } from 'next/font/google'
 import './globals.css'
 import React from 'react'
-import CustomFooter from '@/components/CustomFooter'
-import AppBar from '@/components/CustomNavbar'
+import type { Metadata } from 'next'
+import { DM_Sans as dmSansFont } from 'next/font/google'
 
-const dmSans = DM_Sans({ subsets: ['latin'] })
+const dmSans = dmSansFont({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'NexArb',
@@ -16,17 +14,10 @@ type RootLayoutProps = Readonly<{
   children: React.ReactNode
 }>
 
-export default function RootLayout({
-  children
-}: RootLayoutProps): React.JSX.Element {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-
-      <body className={dmSans.className}>
-        <AppBar />
-        {children}
-        <CustomFooter />
-      </body>
+      <body className={`${dmSans.className} text-white`}>{children}</body>
     </html>
   )
 }

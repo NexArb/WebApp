@@ -1,28 +1,58 @@
 {
-	"env": {
-		"browser": true,
-		"es2021": true
-	},
-	"extends": [
-		"plugin:react/recommended",
-		"airbnb",
-		"prettier",
-		"next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-	],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/jsx-runtime",
+    "airbnb",
+    "prettier",
+    "next/core-web-vitals"
+  ],
   "parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
-		},
-		"ecmaVersion": "latest",
-		"sourceType": "module"
-	},
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "overrides": [
     {
       "files": ["postcss.config.js"]
-    },
+    }
   ],
-	"plugins": ["react", "@typescript-eslint"],
-	"rules": {}
+  "plugins": ["react", "@typescript-eslint"],
+
+  "rules": {
+    "no-console": "error",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "react/prop-types": "off", // If you're using TypeScript, prop-types are not needed
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Allows you to skip explicit return types in TypeScript
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }], // Only .tsx files for JSX
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-unresolved": "off", // TypeScript takes care of this
+    "react/jsx-props-no-spreading": "off", // Allowing spread props
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/prefer-default-export": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // eslint wasn't happy about not knowing the react version used
+    }
+  }
 }
