@@ -1,7 +1,7 @@
 {
 	"root": true,
 	"parser": "@babel/eslint-parser",
-	"plugins": ["react", "react-hooks", "jest", "import", "jsdoc"],
+	"plugins": ["react", "react-hooks", "jest", "import", "jsdoc","eslint-plugin-eslint-plugin"],
 	"env": {
 	  "browser": true,
 	  "commonjs": true,
