@@ -4,9 +4,10 @@ import Image from 'next/image'
 import CustomButton from '@/components/CustomButton'
 import CustomNavbar from '@/components/CustomNavbar'
 
-function Hero (): React.JSX.Element {
+function Hero() {
   return (
-    <section className="flexCenter flex-col">
+    <section className="flex flex-col">
+      <CustomNavbar />
       <Image
         src="/img/hero-bg.png"
         alt="mountains"
@@ -21,18 +22,17 @@ function Hero (): React.JSX.Element {
         className="md:hidden"
         quality={95}
       />
-      <CustomNavbar />
       <div className="relative flex min-h-[100vh] flex-col items-end justify-center pb-[7vh]">
         <div className="mx-auto mb-6 text-center text-7xl font-bold leading-[86px] lg:w-[692px]">
           Digital Solutions for the Future
         </div>
-        <div className="mb-16 text-center text-2xl font-medium leading-loose lg:w-[794.88px]">
+        <div className="mx-auto mb-16 text-center text-2xl font-medium leading-loose lg:w-[794.88px]">
           Startup Framework gives you complete freedom over your creative
           process — you don’t have to think about any technical aspects. There
           are no limits and absolutely no coding.{' '}
         </div>
         <CustomButton
-          className="h-16 w-60 bg-gradient-to-l from-emerald-400 via-blue-500 to-purple-500"
+          className="h-16 w-60 bg-gradient-button"
           text="Let's Meet"
         />
       </div>

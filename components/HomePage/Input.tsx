@@ -6,11 +6,7 @@ type InputProps = Readonly<{
   placeholder: string
 }>
 
-export default function Input ({
-  name,
-  type,
-  placeholder
-}: InputProps): React.JSX.Element {
+export default function Input({ name, type, placeholder }: InputProps) {
   return (
     <input
       className="borderBlack mt-4 h-14 rounded-full border-2 border-gray-200 px-4"

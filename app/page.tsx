@@ -1,11 +1,12 @@
 import React from 'react'
-import CustomFooter from '@/components/CustomFooter'
 import HomePage from '@/components/HomePage'
+import HomeFooter from '@/components/CustomFooter/HomeFooter'
 
-export default function Home (): React.JSX.Element {
+export default function Home() {
   return (
-    <div className="flex flex-col bg-gradient-main text-white">
-      <HomePage/>
+    <div className="bg-gradient-main">
+      <HomePage />
+      <HomeFooter />
     </div>
   )
 }

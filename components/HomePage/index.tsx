@@ -6,7 +6,7 @@ import Hero from './Hero'
 import Projects from './Projects'
 import Crew from './Crew'
 
-function HomePage (): React.JSX.Element {
+function HomePage() {
   return (
     <>
       <Hero />

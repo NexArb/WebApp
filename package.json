@@ -12,11 +12,13 @@
 	},
 	"eslintIgnore": [
 		"wagmi.ts",
-		"tailwind.config.ts"
+		"tailwind.config.ts",
+		"./hooks/useMetamask.tsx"
 	],
 	"dependencies": {
 		"@metamask/sdk-react-ui": "^0.11.2",
 		"connectkit": "^1.5.3",
+		"eslint-plugin-jest": "^27.6.0",
 		"next": "14.0.1",
 		"react": "^18",
 		"react-dom": "^18",
