@@ -1,38 +1,128 @@
-import Image from 'next/image';
+'use client'
 
-const AppBar = () => {
+import React, { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+function AppBar() {
+  const [nav, setNav] = useState(false)
+
+  const links = [
+    {
+      id: 1,
+      link: 'About Us',
+      href: 'about'
+    },
+    {
+      id: 2,
+      link: 'Our Team',
+      href: 'team'
+    },
+    {
+      id: 3,
+      link: 'Contact',
+      href: 'contact'
+    },
+    {
+      id: 4,
+      link: 'Solana',
+      href: 'solana'
+    },
+    {
+      id: 5,
+      link: 'Near',
+      href: 'near'
+    },
+    {
+      id: 6,
+      link: 'Join Us',
+      href: 'join'
+    }
+  ]
   return (
-    <nav>
-        <div className="flex justify-evenly items-center p-0">
-            <div className="mt-3 mr-0.5">
-                <Image
-                    src={"/img/nexarb_logo.png"}
-                    width={170}
-                    height={38}
-                    alt='Nexarb Logo'
-                />
-            </div>
-            <div className="mt-5">
-                <a className="p-6" href="#">About Us</a>
-                <a className="p-6" href="#">Our Team</a>
-                <a className="p-6" href="#">Contact</a>
-                <button>
-                    <div className="rounded-full p-px bg-gradient-to-br from-[#9749FB] via-[#429FD6] to-[#10E9A2] mx-2">
-                        <div className="bg-about-page-gradient rounded-full py-1 px-4 text-center">
-                            <a href="#">SOLANA</a>
-                        </div>
-                    </div>
-                </button>
-                <button>
-                    <div className="rounded-full p-px bg-gradient-to-br from-[#9749FB] via-[#429FD6] to-[#10E9A2] mx-2">
-                        <div className="bg-about-page-gradient rounded-full py-1 px-4 text-center">
-                            <a href="#">NEAR</a>
-                        </div>
-                    </div>
-                </button>
-                <button className="bg-blue-500 text-white py-1 px-5 rounded-full mx-2"><a href="#">Join Us</a></button>
-            </div>
+    <nav className="z-10 p-10">
+      <div className="flex items-center justify-evenly p-0">
+        <div className="z-20 mr-0.5 mt-3">
+          <Image
+            src="/img/nexarb_logo.png"
+            width={170}
+            height={38}
+            alt="Nexarb Logo"
+          />
         </div>
+        <div className="mt-4 hidden items-center text-base font-semibold md:flex">
+          <Link className="px-2 lg:px-5" href="/about">
+            About Us
+          </Link>
+          <Link className="px-2 lg:px-5" href="/team">
+            Our Team
+          </Link>
+          <Link className="px-2 lg:px-5" href="/contact">
+            Contact
+          </Link>
+          <Link className="px-1 lg:px-3" href="/solana">
+            <div className="rounded-full bg-gradient-button p-px">
+              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                SOLANA
+              </div>
+            </div>
+          </Link>
+          <Link className="px-1 lg:px-3" href="/near">
+            <div className="mx-2 rounded-full bg-gradient-button p-px">
+              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                NEAR
+              </div>
+            </div>
+          </Link>
+          <Link className="px-1 lg:px-3" href="/join-us">
+            <div className="rounded-full bg-blue-500 px-5 py-1">
+              <span className="text-sm font-medium">Join Us</span>
+            </div>
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          aria-label="nav"
+          onClick={() => setNav(!nav)}
+          className="z-10 pr-4 text-gray-500 md:hidden"
+        >
+          <div className="justify-end space-y-2">
+            <span
+              className={`block h-1 w-9 rounded-sm bg-white 
+                    transition-all duration-300 ease-out ${
+                      nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
+                    }`}
+            />
+            <span
+              className={`mx-3 block h-1 w-6 rounded-sm bg-white 
+                    transition-all duration-300 ease-out ${
+                      nav ? 'hidden' : '-translate-y-0.5'
+                    }`}
+            />
+            <span
+              className={`-mx-1 block h-1 w-10 rounded-sm bg-white 
+                    transition-all duration-300 ease-out ${
+                      nav
+                        ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
+                        : '-translate-y-0.5'
+                    }`}
+            />
+          </div>
+        </button>
+
+        {nav && (
+          <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
+            {links.map(({ id, link }) => (
+              <li key={id} className="cursor-pointer py-4 text-4xl capitalize">
+                <Link onClick={() => setNav(!nav)} href={link}>
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </nav>
   )
 }
