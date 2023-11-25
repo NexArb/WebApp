@@ -63,14 +63,14 @@ function AppBar() {
           <Link className="px-1 lg:px-3" href="/solana">
             <div className="rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                SOLANA
+                ArbSwap
               </div>
             </div>
           </Link>
-          <Link className="px-1 lg:px-3" href="/near">
+          <Link className="px-1 lg:px-3" href="/nexbridge">
             <div className="mx-2 rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                NEAR
+                NexBridge
               </div>
             </div>
           </Link>
