@@ -31,7 +31,7 @@ function Projects() {
         samples form a set of 20 usable pages you can use as is or you can add
         new blocks from UI Kit.
       </div>
-      <div className="mt-10 grid gap-10 md:grid-cols-3 lg:mt-24 lg:gap-20">
+      <div className="mt-10 grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
         {PROJECTS.map((project) => (
           <ProjectItem
             key={project.title}

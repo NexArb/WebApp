@@ -20,7 +20,7 @@ function CrewItem({
   profileImage
 }: CrewItemProps) {
   return (
-    <li className="flex w-full flex-1 flex-col items-start">
+    <li className="flex w-full flex-1 flex-col items-start max-lg:p-10">
       <Image src={profileImage} alt="profile image" width={100} height={100} />
       <h2 className="mt-4 text-2xl font-medium leading-loose">{name}</h2>
       <p className="mt-1 leading-relaxed">{job}</p>
@@ -37,12 +37,12 @@ function Crew() {
   return (
     <section className="flexCenter mb-72 mt-96 flex-col">
       <div className="text-center text-5xl font-bold">Startup Crew</div>
-      <div className="mt-9 text-center text-2xl font-medium leading-loose lg:w-[754px]">
+      <div className="mt-9 p-8 text-center text-2xl font-medium leading-loose lg:w-[754px]">
         The most important part of the Startup Framework is the samples. The
         samples form a set of 25 usable pages you can use as is or you can add
         new blocks from UI Kit.
       </div>
-      <div className="mt-10 flex gap-10 md:grid-cols-3 lg:mt-16 lg:gap-20">
+      <div className="mt-10 grid gap-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-20">
         {CREW.map((crew) => (
           <CrewItem
             key={crew.name}
