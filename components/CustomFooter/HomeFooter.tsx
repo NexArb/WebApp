@@ -25,7 +25,7 @@ function HomeFooter() {
       />
       <div className="flexCenter z-20 flex-col ">
         <div className="mt-40 flex flex-col">
-          <div className="max-xl:flex-col mx-auto flex w-full min-w-full flex-1 gap-28 px-6 lg:px-20 xl:px-0">
+          <div className="mx-auto flex w-full min-w-full flex-1 gap-28 px-6 max-xl:flex-col lg:px-20 xl:px-0">
             <div>
               <div className="mt-14 text-4xl font-bold leading-10">
                 Let’s Keep in Touch
