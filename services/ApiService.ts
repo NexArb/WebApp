@@ -1,7 +1,4 @@
-import axios from "axios"
-
 /*
-
 Examples 
 
 ----- Function With Body -----

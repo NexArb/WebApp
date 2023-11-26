@@ -10,7 +10,10 @@ const Dashboard = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if ((isDisconnected && isConnecting) || (userAddress && userAddress !== address)) {
+        if (isDisconnected && isConnecting) {
+            router.replace("/nexbridge")
+        }
+        else if (userAddress && userAddress !== address) {
             router.replace("/nexbridge")
         }
     }, [isDisconnected, isConnecting, address])

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useAccount } from 'wagmi'
 
 function NexBridgeCustomNavbar() {
-  const { address, isConnecting, isDisconnected } = useAccount();
+  const { address } = useAccount();
 
   useEffect(() => {
     if (address) {
