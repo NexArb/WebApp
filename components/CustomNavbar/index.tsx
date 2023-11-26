@@ -42,6 +42,37 @@ function AppBar() {
   return (
     <nav className="z-10 p-10">
       <div className="flex items-center justify-evenly p-0">
+
+      <button
+          type="button"
+          aria-label="nav"
+          onClick={() => setNav(!nav)}
+          className="z-10 pr-4 text-gray-500 md:hidden"
+        >
+          <div className="justify-end space-y-2">
+            <span
+              className={`block h-1 w-9 rounded-sm bg-white 
+                    transition-all duration-300 ease-out ${
+                      nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
+                    }`}
+            />
+            <span
+              className={`mx-3 block h-1 w-6 rounded-sm bg-white 
+                    transition-all duration-300 ease-out ${
+                      nav ? 'hidden' : '-translate-y-0.5'
+                    }`}
+            />
+            <span
+              className={`-mx-1 block h-1 w-10 rounded-sm bg-white 
+                    transition-all duration-300 ease-out ${
+                      nav
+                        ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
+                        : '-translate-y-0.5'
+                    }`}
+            />
+          </div>
+        </button>
+
         <div className="z-20 mr-0.5 mt-3">
           <Image
             src="/img/nexarb_logo.png"
@@ -80,36 +111,6 @@ function AppBar() {
             </div>
           </Link>
         </div>
-
-        <button
-          type="button"
-          aria-label="nav"
-          onClick={() => setNav(!nav)}
-          className="z-10 pr-4 text-gray-500 md:hidden"
-        >
-          <div className="justify-end space-y-2">
-            <span
-              className={`block h-1 w-9 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
-                    }`}
-            />
-            <span
-              className={`mx-3 block h-1 w-6 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav ? 'hidden' : '-translate-y-0.5'
-                    }`}
-            />
-            <span
-              className={`-mx-1 block h-1 w-10 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav
-                        ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
-                        : '-translate-y-0.5'
-                    }`}
-            />
-          </div>
-        </button>
 
         {nav && (
           <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
