@@ -6,23 +6,14 @@ import CustomNavbar from '@/components/CustomNavbar'
 
 function Hero() {
   return (
-    <section className="flex flex-col">
+    <section  style={{
+      backgroundImage:"url('/img/hero-bg-small.png')",
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      }} className="w-full flex flex-col">
       <CustomNavbar />
-      <Image
-        src="/img/hero-bg.png"
-        alt="mountains"
-        fill
-        className="max-md:hidden"
-        quality={95}
-      />
-      <Image
-        src="/img/hero-bg-small.png"
-        alt="mountains"
-        fill
-        className="md:hidden"
-        quality={95}
-      />
-      <div className="relative flex min-h-[100vh] flex-col items-end justify-center pb-[7vh]">
+      <div className="w-full flex min-h-[100vh] flex-col items-end justify-center pb-[7vh]">
         <div className="mx-auto mb-6 text-center text-7xl font-bold leading-[86px] lg:w-[692px]">
           Digital Solutions for the Future
         </div>
