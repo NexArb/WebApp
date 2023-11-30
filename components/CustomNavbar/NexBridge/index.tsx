@@ -13,8 +13,8 @@ function NexBridgeCustomNavbar() {
           <Image
             src="./img/nexarb_bridge.png"
             id="Layer1"
-			width="120"
-			height="80"
+            width="120"
+            height="80"
             alt="nexarb bridge image"
           />
         </Link>

@@ -76,16 +76,8 @@ const ExchangeRates = (): React.JSX.Element => {
           </div>
         </div>
         <div className="flex justify-center mt-14">
-          <button className="border border-solid border-blue-500 text-blue-500 px-6 py-2 rounded-full">Connect Your Wallet</button>
         </div>
-        <div className="flex justify-end mr-44">
-          <Image
-            src={'/img/cryptocoin.png'}
-            alt='Crypto Coin'
-            width={150}
-            height={150}
-          />
-        </div>
+        
     </div>
   )
 }
