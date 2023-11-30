@@ -2,10 +2,19 @@
 
 import Link from 'next/link'
 import { ConnectKitButton } from 'connectkit'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
+import { useAccount } from 'wagmi'
 
 function NexBridgeCustomNavbar() {
+  const { address } = useAccount();
+
+  useEffect(() => {
+    if (address) {
+      localStorage.setItem("address", address);
+    }
+  }, [address])
+
   return (
     <nav className="mb-6 bg-transparent pt-10 dark:bg-transparent">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
@@ -13,8 +22,8 @@ function NexBridgeCustomNavbar() {
           <Image
             src="./img/nexarb_bridge.png"
             id="Layer1"
-			width="120"
-			height="80"
+            width="120"
+            height="80"
             alt="nexarb bridge image"
           />
         </Link>
@@ -46,21 +55,31 @@ function NexBridgeCustomNavbar() {
           <ul className="mt-4 flex flex-col rounded-lg border bg-gray-50 bg-transparent p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
             <li className="p-3">
               <Link
-                href="/"
+                href="/nexbridge"
                 className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
               >
                 Home
               </Link>
             </li>
-            <li className="p-3">
-              <Link
-                href="/nexbridge/pricing"
-                className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-              >
-                Pricing
-              </Link>
-            </li>
-
+            {address &&
+              <li className="p-3">
+                <Link
+                  href="/nexbridge/pricing"
+                  className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                >
+                  Pricing
+                </Link>
+              </li>
+            }
+            {address &&
+              <li className="p-3">
+                <Link href="/nexbridge/dasboard/[address]" as={`/nexbridge/dashboard/${address}`}
+                  className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                >
+                  Dashboard
+                </Link>
+              </li>
+            }
             <li className="p-1">
               <ConnectKitButton />
             </li>
