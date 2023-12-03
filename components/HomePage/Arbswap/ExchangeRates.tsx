@@ -26,7 +26,7 @@ const ExchangeRates = (): React.JSX.Element => {
     <div className="mt-72">
       <p className="text-5xl text-center">Exchange Rates</p>
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 gap-3 w-2/3 mt-10 p-10">
+        <div className="grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
           <PriceCard symbol='BTC' name='Bitcoin' color='bg-orange-600' />
           <PriceCard symbol='SOL' name='Solana' color='bg-purple-700' />
           <PriceCard symbol='ETH' name='Ethereum' color='bg-blue-500' />

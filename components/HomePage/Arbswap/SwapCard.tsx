@@ -5,24 +5,24 @@ const SwapCard = () => {
     const [selectedOption, setSelectedOption] = useState('buy');
 
     return (
-        <div className="flex justify-center backdrop-blur-lg bg-gray-900 rounded-3xl p-10 w-96 ml-72">
-            <div>
-                <div className="flex border rounded-full border-white justify-between">
-                    <button 
-                        className={`p-2 w-40 rounded-l-full text-white ${selectedOption === 'buy' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
+        <div className="flex justify-center">
+            <div className="w-full lg:w-96 bg-gray-900 backdrop-blur-lg rounded-3xl p-6 lg:p-10">
+                <div className="flex flex-col lg:flex-row justify-between lg:items-center border border-white rounded-full">
+                    <button
+                        className={`w-full lg:w-48 p-2 rounded-l-full text-white ${selectedOption === 'buy' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
                         onClick={() => setSelectedOption('buy')}
                     >
                         Buy SOL
                     </button>
-                    <button 
-                        className={`p-2 w-40 rounded-r-full text-white ${selectedOption === 'sell' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
+                    <button
+                        className={`w-full lg:w-48 p-2 rounded-r-full sm:rounded-b-full text-white ${selectedOption === 'sell' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
                         onClick={() => setSelectedOption('sell')}
                     >
                         Sell SOL
                     </button>
                 </div>
-                <div className="flex justify-between items-center mt-10 text-white">
-                    <span>1 SOL = 24,342 USD</span>
+                <div className="flex flex-col lg:flex-row justify-between items-center mt-4 lg:mt-10 text-white">
+                    <span className="mb-2 lg:mb-0">1 SOL = 24,342 USD</span>
                     <span>12.10.2023 - 22:12</span>
                 </div>
                 <select className="w-full mt-5 text-white backdrop-blur-sm py-3 px-5 bg-gray-900 rounded-full" defaultValue={'coin'} name="coin" id="coin">
@@ -35,12 +35,13 @@ const SwapCard = () => {
                         <span className="bg-green-400 rounded-full px-4 py-1 text-black font-bold">USD</span>
                     </div>
                 </div>
-                <p className="text-xs text-gray-400 mt-3 ml-5">Minimum : 10 USD</p>
-                <div className="flex justify-center">
-                    <button className="bg-gradient-to-l from-green-500 via-blue-500 to-purple-500 mt-5 py-3 px-8 rounded-full text-white" type="submit">Search For Offers</button>
+                <p className="text-xs text-gray-400 mt-3 ml-1 lg:ml-5">Minimum : 10 USD</p>
+                <div className="flex justify-center mt-5">
+                    <button className="bg-gradient-to-l from-green-500 via-blue-500 to-purple-500 py-3 px-8 rounded-full text-white" type="submit">Search For Offers</button>
                 </div>
             </div>
         </div>
+
     )
 }
 export default SwapCard;
