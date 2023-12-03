@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import redstone from "redstone-api";
 import { ResponsiveLine } from '@nivo/line'
 
