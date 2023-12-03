@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function AppBar() {
+function ArbSwapNavbar() {
   const [nav, setNav] = useState(false)
 
   const links = [
@@ -15,29 +15,19 @@ function AppBar() {
     },
     {
       id: 2,
-      link: 'Our Team',
-      href: 'team'
+      link: 'Create Offer',
+      href: 'arbswap/offer'
     },
     {
       id: 3,
-      link: 'Contact',
-      href: 'contact'
+      link: 'Support',
+      href: 'arbswap/support'
     },
     {
       id: 4,
-      link: 'Solana',
-      href: 'solana'
-    },
-    {
-      id: 5,
       link: 'Near',
       href: 'near'
     },
-    {
-      id: 6,
-      link: 'Join Us',
-      href: 'join'
-    }
   ]
   return (
     <nav className="z-10 p-10">
@@ -47,7 +37,7 @@ function AppBar() {
           type="button"
           aria-label="nav"
           onClick={() => setNav(!nav)}
-          className="z-10 pr-4 text-gray-500 md:hidden"
+          className="z-20 pr-4 text-gray-500 md:hidden"
         >
           <div className="justify-end space-y-2">
             <span
@@ -85,35 +75,23 @@ function AppBar() {
           <Link className="px-2 lg:px-5" href="/about">
             About Us
           </Link>
-          <Link className="px-2 lg:px-5" href="/team">
-            Our Team
+          <Link className="px-2 lg:px-5" href="/arbswap/offer">
+            Create Offer
           </Link>
-          <Link className="px-2 lg:px-5" href="/contact">
-            Contact
+          <Link className="px-2 lg:px-5" href="/arbswap/support">
+            Support
           </Link>
-          <Link className="px-1 lg:px-3" href="/arbswap">
+          <Link className="px-1 lg:px-3" href="/solana">
             <div className="rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                ArbSwap
+                Login
               </div>
-            </div>
-          </Link>
-          <Link className="px-1 lg:px-3" href="/nexbridge">
-            <div className="mx-2 rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                NexBridge
-              </div>
-            </div>
-          </Link>
-          <Link className="px-1 lg:px-3" href="/join-us">
-            <div className="rounded-full bg-blue-500 px-5 py-1">
-              <span className="text-sm font-medium">Join Us</span>
             </div>
           </Link>
         </div>
 
         {nav && (
-          <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
+          <ul className="absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
             {links.map(({ id, link }) => (
               <li key={id} className="cursor-pointer py-4 text-4xl capitalize">
                 <Link onClick={() => setNav(!nav)} href={link}>
@@ -128,4 +106,4 @@ function AppBar() {
   )
 }
 
-export default AppBar
+export default ArbSwapNavbar
