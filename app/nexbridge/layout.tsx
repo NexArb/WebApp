@@ -18,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <Providers>
         <body
           style={{
-            background: "url('./img/nexbridge.png')",
+            background: "url('/img/nexbridge.png')",
             backgroundSize: 'cover'
           }}
         >
