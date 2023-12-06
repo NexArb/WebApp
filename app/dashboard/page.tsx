@@ -5,24 +5,10 @@ import AppBar from '@/components/CustomNavbar'
 import React, { Fragment } from 'react'
 import { OfferListing } from '@/constants'
 import Table from './Table'
+import Modal from './Modal'
+import getFormattedDateTime from './CurrentDate'
 
 function page() {
-  const currentDate = new Date()
-
-  const formattedDate = currentDate.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  })
-
-  const formattedTime = currentDate.toLocaleTimeString('en-GB', {
-    hour: '2-digit',
-    minute: '2-digit'
-  })
-
-  // Combine the formatted date and time
-  const formattedDateTime = `${formattedDate} - ${formattedTime}`
-
   return (
     <section className="min-h-screen overflow-hidden bg-gradient-to-t from-purple-950 via-slate-900 to-slate-950">
       <AppBar />
@@ -34,7 +20,7 @@ function page() {
             1 SOL = 24,342 USD
           </div>
           <div className="mt-3 text-xl text-neutral-500">
-            <span>{formattedDateTime}</span>
+            <span>{getFormattedDateTime()}</span>
           </div>
           <form className="mt-8 flex w-full flex-col rounded-lg">
             <select
@@ -130,6 +116,7 @@ function page() {
           </table>
         </div>
       </div>
+      <Modal />
     </section>
   )
 }

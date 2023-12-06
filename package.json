@@ -24,7 +24,8 @@
 		"react": "^18",
 		"react-dom": "^18",
 		"viem": "^1.18.6",
-		"wagmi": "^1.4.5"
+		"wagmi": "^1.4.5",
+		"zustand": "^4.4.7"
 	},
 	"devDependencies": {
 		"@microsoft/eslint-formatter-sarif": "^3.0.0",

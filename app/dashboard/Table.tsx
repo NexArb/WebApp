@@ -1,12 +1,14 @@
 import React from 'react'
 import StarRating from './StarRating'
-import CustomButton from '@/components/CustomButton'
 import { OfferListing } from '@/constants'
-import Link from 'next/link'
+import CustomButton from '@/components/CustomButton'
+import { useModalStore } from '@/lib/store'
 
 type OfferProps = (typeof OfferListing)[number]
 
 function Table({ seller, payment, amount, price }: OfferProps) {
+  const { toggleModal } = useModalStore()
+
   return (
     <tr>
       <td className="px-4 font-medium text-slate-950">
@@ -26,7 +28,12 @@ function Table({ seller, payment, amount, price }: OfferProps) {
       <td className="px-4 text-base font-medium text-slate-950">{amount}</td>
       <td className="px-4 text-base font-medium text-slate-950">{price}</td>
       <td>
-        <Link className="bg-blue-600 px-6 py-2 text-sm" href={{}}>MAKE AN OFFER</Link>
+        <CustomButton
+          classButton="bg-blue-600 px-6 py-2"
+          classText="text-sm"
+          text="MAKE AN OFFER"
+          onClick={toggleModal}
+        />
       </td>
     </tr>
   )

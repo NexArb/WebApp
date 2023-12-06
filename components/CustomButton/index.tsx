@@ -1,13 +1,14 @@
 import React from 'react'
 import { useFormStatus } from 'react-dom'
 
-type ProjectItem = Readonly<{
+type ButtonProps = Readonly<{
   classButton: string
   classText: string
   text: string
+  onClick?: () => void
 }>
 
-function CustomButton({ classButton, classText, text }: ProjectItem) {
+function CustomButton({ classButton, classText, text, onClick }: ButtonProps) {
   const { pending } = useFormStatus()
 
   return (
@@ -15,6 +16,7 @@ function CustomButton({ classButton, classText, text }: ProjectItem) {
       type="submit"
       className={`mx-auto flex items-center justify-center gap-2 rounded-full outline-none ${classButton}`}
       disabled={pending}
+      onClick={() => onClick?.()}
     >
       {pending ? (
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white" />

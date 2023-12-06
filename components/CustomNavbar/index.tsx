@@ -40,10 +40,9 @@ function AppBar() {
     }
   ]
   return (
-    <nav className="z-10 p-10">
+    <nav className="z-20 p-10">
       <div className="flex items-center justify-evenly p-0">
-
-      <button
+        <button
           type="button"
           aria-label="nav"
           onClick={() => setNav(!nav)}
@@ -73,7 +72,7 @@ function AppBar() {
           </div>
         </button>
 
-        <div className="z-20 mr-0.5 mt-3">
+        <div className="mr-0.5 mt-3">
           <Image
             src="/img/nexarb_logo.png"
             width={170}
