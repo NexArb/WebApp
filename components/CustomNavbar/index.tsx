@@ -73,12 +73,14 @@ function AppBar() {
         </button>
 
         <div className="mr-0.5 mt-3">
-          <Image
-            src="/img/nexarb_logo.png"
-            width={170}
-            height={38}
-            alt="Nexarb Logo"
-          />
+          <Link href="/">
+            <Image
+              src="/img/nexarb_logo.png"
+              width={170}
+              height={38}
+              alt="Nexarb Logo"
+            />
+          </Link>
         </div>
         <div className="mt-4 hidden items-center text-base font-semibold md:flex">
           <Link className="px-2 lg:px-5" href="/about">

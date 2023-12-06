@@ -26,8 +26,8 @@ function Hero() {
           are no limits and absolutely no coding.{' '}
         </div>
         <CustomButton
+          classButton="mx-auto mt-4 h-14 rounded-full w-60 bg-gradient-button"
           classText="text-lg"
-          classButton="mt-4 h-14 rounded-full w-60 bg-gradient-button"
           text="Let's Meet"
         />
       </div>

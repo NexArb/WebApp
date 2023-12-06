@@ -14,7 +14,7 @@ function CustomButton({ classButton, classText, text, onClick }: ButtonProps) {
   return (
     <button
       type="submit"
-      className={`mx-auto flex items-center justify-center gap-2 rounded-full outline-none ${classButton}`}
+      className={`rounded-full outline-none ${classButton}`}
       disabled={pending}
       onClick={() => onClick?.()}
     >
