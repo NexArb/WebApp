@@ -1,4 +1,5 @@
 import React from 'react'
+
 import StarRating from './StarRating'
 import { OfferListing } from '@/constants'
 import CustomButton from '@/components/CustomButton'

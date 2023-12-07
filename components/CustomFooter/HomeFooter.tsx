@@ -8,16 +8,19 @@ import CustomFooter from '@/components/CustomFooter'
 
 function HomeFooter() {
   return (
-    <section style={{
-      "background": "url('/img/footer-bg-small.png')",
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-    }} className="flexCenter ">
+    <section
+      style={{
+        background: "url('/img/footer-bg-small.png')",
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
+      }}
+      className="flexCenter "
+    >
       <div className="flexCenter z-20 flex-col ">
         <div className="mt-40 flex flex-col">
           <div className="flex w-full min-w-full flex-1 px-6 max-xl:flex-col lg:px-20 xl:px-0">
-            <div className='w-1/2 px-6 mb-6'>
+            <div className="mb-6 w-1/2 px-6">
               <div className="mt-14 text-4xl font-bold leading-10">
                 Let’s Keep in Touch
               </div>
@@ -26,7 +29,7 @@ function HomeFooter() {
                 developers and companies create websites for their startups
                 quickly and easily.
               </div>
-              <div className='flex flex-col gap-5'>
+              <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-5">
                   <Image
                     src="/img/fa-phone.svg"
@@ -57,7 +60,8 @@ function HomeFooter() {
                     height={19}
                   />
                   <div className="text-base leading-relaxed">
-                    San Francisco, CA560 Bush St & 20th Ave, Apt5 San Francisco, 230909
+                    San Francisco, CA560 Bush St & 20th Ave, Apt5 San Francisco,
+                    230909
                   </div>
                 </div>
               </div>

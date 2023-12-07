@@ -1,10 +1,14 @@
-import { useStepStore } from '@/lib/store'
 import React from 'react'
+
+import { useModalStore, useStepStore } from '@/lib/store'
 import getFormattedDateTime from './CurrentDate'
 import CustomButton from '@/components/CustomButton'
 
-function Pricing() {
-  const { prevStep } = useStepStore()
+function PaymentMethod() {
+  const nextStep = useStepStore((state) => state.nextStep)
+
+  const { showModal, toggleModal } = useModalStore()
+  if (!showModal) return null
 
   return (
     <div className="flex w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
@@ -19,14 +23,25 @@ function Pricing() {
         </div>
       </div>
       <div className="mt-7 grid grid-cols-2">
-        <div className="rounded-bl-3xl rounded-tl-3xl border border-emerald-400  bg-emerald-400 py-1 text-center text-white">
+        <div className="rounded-bl-3xl rounded-tl-3xl border border-blue-600 bg-blue-600 py-1 text-center text-white">
           Buy SOL
         </div>
-        <div className="rounded-br-3xl rounded-tr-3xl border-2 border-emerald-400 bg-white py-1 text-center  text-emerald-400">
+        <div className="rounded-br-3xl rounded-tr-3xl border-2 border-blue-600 bg-white py-1 text-center text-blue-600">
           Sell SOL
         </div>
       </div>
       <form className="flex flex-col">
+        <select
+          className="mt-7 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
+          name="name"
+          defaultValue={'DEFAULT'}
+        >
+          <option hidden disabled value="DEFAULT">
+            Payment Method
+          </option>
+          <option value="xd">xd</option>
+          <option value="xd">xd</option>
+        </select>
         <select
           className="mt-7 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
           name="name"
@@ -38,36 +53,25 @@ function Pricing() {
           <option value="xd">xd</option>
           <option value="xd">xd</option>
         </select>
-        <select
-          className="mt-7 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-          name="name"
-          defaultValue={'DEFAULT'}
-        >
-          <option hidden disabled value="DEFAULT">
-            Price
-          </option>
-          <option value="xd">xd</option>
-          <option value="xd">xd</option>
-        </select>
       </form>
       <span className="ml-1 mt-20 text-lg font-medium text-neutral-500">
-        STEP 2
+        STEP 1
       </span>
-      <span className="ml-1 mt-1">PRICING</span>
+      <span className="ml-1 mt-1">PAYMENT METHOD</span>
       <div className="mt-2 h-4 rounded-lg bg-white p-1">
-        <div className="h-2 w-2/3 rounded bg-emerald-400"></div>
+        <div className="h-2 w-1/3 rounded bg-emerald-400"></div>
       </div>
       <div className="mt-9 grid grid-cols-2 gap-3">
         <CustomButton
-          classButton="border bg-blue-600 py-2"
+          classButton="border bg-zinc-400 py-2"
           classText="text-base font-medium text-white"
-          onClick={prevStep}
+          onClick={toggleModal}
           text="Previous"
         />
         <CustomButton
           classButton="border bg-blue-600 py-2"
           classText="text-base font-medium text-white"
-          // onClick={nextStep}
+          onClick={nextStep}
           text="Next"
         />
       </div>
@@ -75,4 +79,4 @@ function Pricing() {
   )
 }
 
-export default Pricing
+export default PaymentMethod

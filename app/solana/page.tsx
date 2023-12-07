@@ -9,12 +9,12 @@ import Steps from './Steps'
 const Solana = (): React.JSX.Element => {
   return (
     <div className="bg-gradient-to-br from-blue-950 via-black to-purple-900">
-      <Intro/>
-      <ExchangeRates/>
-      <SolanaStatistics/>
-      <Steps/>
-      <SolanaWorld/>
-      <Confidentiality/>
+      <Intro />
+      <ExchangeRates />
+      <SolanaStatistics />
+      <Steps />
+      <SolanaWorld />
+      <Confidentiality />
     </div>
   )
 }

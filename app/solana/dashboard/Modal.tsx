@@ -1,5 +1,6 @@
+import React from 'react'
+
 import { useModalStore, useStepStore } from '@/lib/store'
-import React, { useState } from 'react'
 import PaymentMethod from './PaymentMethod'
 import Pricing from './Pricing'
 
@@ -16,7 +17,7 @@ function Modal() {
       resetStep()
     }
   }
-  console.log(step)
+
   return (
     <div
       id="wrapper"

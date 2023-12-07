@@ -35,7 +35,11 @@ function Contact() {
         placeholder="Message"
       />
       <div className="flexCenter mt-8 flex-1">
-        <CustomButton classText="text-lg" classButton="h-14 w-32 bg-teal-400" text="Send" />
+        <CustomButton
+          classText="text-lg"
+          classButton="h-14 w-32 bg-teal-400"
+          text="Send"
+        />
       </div>
     </form>
   )
