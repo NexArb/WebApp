@@ -8,7 +8,7 @@ type RootLayoutProps = Readonly<{
 
 export default function DashboardLayout({ children }: RootLayoutProps) {
   return (
-    <section>
+    <section className="min-h-screen overflow-hidden bg-gradient-to-t from-purple-950 via-slate-900 to-slate-950">
       <AppBar />
       {children}
     </section>

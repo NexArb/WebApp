@@ -4,13 +4,13 @@ import React, { Fragment } from 'react'
 
 import CustomButton from '@/components/CustomButton'
 import { OfferListing } from '@/constants'
-import Table from './Table'
+import DashboardTable from './DashboardTable'
 import Modal from './Modal'
 import getFormattedDateTime from './CurrentDate'
 
 function page() {
   return (
-    <section className="min-h-screen overflow-hidden bg-gradient-to-t from-purple-950 via-slate-900 to-slate-950">
+    <section className="">
       <div className="flexCenter gap-6 pt-12">
         {/* Left Rectangle */}
         <div className="max-h-[739px] rounded-3xl border bg-zinc-100 p-9 backdrop-blur-3xl">
@@ -108,7 +108,7 @@ function page() {
             <tbody>
               {OfferListing.map((item, index) => (
                 <Fragment key={index}>
-                  <Table {...item} />
+                  <DashboardTable {...item} />
                 </Fragment>
               ))}
             </tbody>

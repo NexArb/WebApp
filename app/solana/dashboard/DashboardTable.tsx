@@ -7,7 +7,7 @@ import { useModalStore } from '@/lib/store'
 
 type OfferProps = (typeof OfferListing)[number]
 
-function Table({ seller, payment, amount, price }: OfferProps) {
+function DashboardTable({ seller, payment, amount, price }: OfferProps) {
   const { toggleModal } = useModalStore()
 
   return (
@@ -40,4 +40,4 @@ function Table({ seller, payment, amount, price }: OfferProps) {
   )
 }
 
-export default Table
+export default DashboardTable
