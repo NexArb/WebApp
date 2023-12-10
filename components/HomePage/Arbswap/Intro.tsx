@@ -11,7 +11,7 @@ const Intro = (): React.JSX.Element => {
         </p>
         <button className="bg-blue-600 py-3 lg:py-4 px-6 lg:px-8 rounded-full mt-6 lg:mt-10">Get Started</button>
       </div>
-        <div className="lg:w-1/2 lg:mt-0 lg:pl-12 mt-6 lg:mt-0 hidden sm:block md:hidden">
+        <div className="lg:w-1/2 lg:mt-0 lg:pl-12 mt-6">
           <SwapCard />
         </div>
     </div>

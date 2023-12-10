@@ -1,21 +1,21 @@
 "use client"
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const SwapCard = () => {
+const SwapCard = (): React.JSX.Element => {
     const [selectedOption, setSelectedOption] = useState('buy');
 
     return (
         <div className="flex justify-center">
-            <div className="w-full lg:w-96 bg-gray-900 backdrop-blur-lg rounded-3xl p-6 lg:p-10">
+            <div className="w-96 lg:w-96 bg-gray-900 backdrop-blur-lg rounded-3xl p-6 lg:p-10">
                 <div className="flex flex-col lg:flex-row justify-between lg:items-center border border-white rounded-full">
                     <button
-                        className={`w-full lg:w-48 p-2 rounded-l-full text-white ${selectedOption === 'buy' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
+                        className={`w-full lg:w-48 p-2 rounded-t-full lg:rounded-l-full text-white ${selectedOption === 'buy' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
                         onClick={() => setSelectedOption('buy')}
                     >
                         Buy SOL
                     </button>
                     <button
-                        className={`w-full lg:w-48 p-2 rounded-r-full sm:rounded-b-full text-white ${selectedOption === 'sell' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
+                        className={`w-full lg:w-48 p-2 rounded-b-full lg:rounded-r-full text-white ${selectedOption === 'sell' ? 'bg-blue-600' : 'bg-transparent text-blue-600'}`}
                         onClick={() => setSelectedOption('sell')}
                     >
                         Sell SOL
