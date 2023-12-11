@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import React from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
 import EditBridgeModal from './EditBridgeModal'
 
 type Item = {
@@ -95,15 +94,6 @@ const BridgeOptions = () => {
 
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false)
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors }
-  // } = useForm()
-
-  // const onSubmit: SubmitHandler<Record<string, any>> = (data) => {
-  //   console.log(data)
-  // }
 
   if (!isModalOpen) {
     return (
