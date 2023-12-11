@@ -4,11 +4,22 @@ import React from 'react'
 const ComposeBridge = () => {
   return (
     <div>
-      <div className="mt-10 w-full px-10 md:px-20 lg:px-40 ">
-        <label className="pl-4 text-lg text-white">From :</label>
-        <input className=" mb-4  w-full rounded-full border-2 border-white bg-transparent" />
-        <label className="pl-4 text-lg text-white">To :</label>
-        <input className="w-full  rounded-full border-2  border-white bg-transparent" />
+      <div className="mt-10 w-full px-10 md:px-20 lg:px-40">
+        <label htmlFor="fromInput" className="pl-4 text-lg text-white">
+          From :
+        </label>
+        <input
+          id="fromInput"
+          className="mb-4 w-full rounded-full border-2 border-white bg-transparent"
+        />
+
+        <label htmlFor="toInput" className="pl-4 text-lg text-white">
+          To :
+        </label>
+        <input
+          id="toInput"
+          className="w-full rounded-full border-2 border-white bg-transparent"
+        />
       </div>
       <div className=" mx-10 mt-10 flex justify-center space-x-4 text-white lg:ml-40 lg:justify-start lg:text-left">
         <Image

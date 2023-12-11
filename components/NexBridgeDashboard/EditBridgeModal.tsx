@@ -33,7 +33,7 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: {errors}
   } = useForm()
 
   // State to track edit mode for each field
@@ -80,6 +80,7 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
                 {item.value} :
               </label>
               <input
+                id={item.key}
                 className={`border-none bg-transparent p-0 uppercase text-white ${
                   editModes[item.key] ? 'border-b-2 border-emerald-500' : ''
                 }`}
