@@ -27,13 +27,12 @@ type EditBridgeModalProps = {
 
 const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
   selectedBridge,
-  isModalOpen,
   setIsModalOpen
 }) => {
   const {
     register,
     handleSubmit,
-    formState: {errors}
+    formState: { errors }
   } = useForm()
 
   // State to track edit mode for each field
@@ -52,12 +51,14 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
 
   const onSubmit: SubmitHandler<Record<string, any>> = (data) => {
     console.log(data)
-    setIsSubmitting(true)
+    if (!errors) {
+      setIsSubmitting(true)
 
-    setTimeout(() => {
-      setIsModalOpen(false)
-      setIsSubmitting(false)
-    }, 2000)
+      setTimeout(() => {
+        setIsModalOpen(false)
+        setIsSubmitting(false)
+      }, 2000)
+    }
     // Add logic for handling form submission
   }
 
