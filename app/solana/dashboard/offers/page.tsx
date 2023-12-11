@@ -9,35 +9,51 @@ import OfferHistory from './OfferHistory'
 
 function Offers() {
   const [component, setComponent] = useState<JSX.Element>(<IncomingOffers />)
+  const [selected, setSelected] = useState<string>('IncomingOffers')
 
   const handleClick = (componentName: string) => {
     if (componentName === 'IncomingOffers') {
       setComponent(<IncomingOffers />)
+      setSelected('IncomingOffers')
     } else if (componentName === 'OffersSent') {
       setComponent(<OffersSent />)
+      setSelected('OffersSent')
     } else if (componentName === 'OfferHistory') {
       setComponent(<OfferHistory />)
+      setSelected('OfferHistory')
     }
   }
 
   return (
-    <section className="flexCenter flex-col">
-      <div className="grid grid-flow-col grid-cols-6 gap-5 p-2">
+    <section className="flex flex-col items-center">
+      <div className="my-4 grid grid-cols-6 gap-5">
         <CustomButton
-          classButton="bg-blue-600 pt-3 h-10 flex w-[140px] justify-center  rounded-3xl"
-          classText="text-xs font-medium text-white"
+          classButton={`${
+            selected === 'IncomingOffers' ? 'bg-blue-600' : 'bg-zinc-100'
+          } pt-3 h-10 flex w-[140px] justify-center rounded-3xl mr-2`}
+          classText={`${
+            selected === 'IncomingOffers' ? 'text-white' : '!text-blue-600'
+          } text-xs font-medium`}
           text="INCOMING OFFER"
           onClick={() => handleClick('IncomingOffers')}
         />
         <CustomButton
-          classButton="bg-zinc-100 pt-3 h-10 flex w-[140px] justify-center border-solid border-blue-600  rounded-3xl"
-          classText="text-xs font-medium !text-blue-600"
+          classButton={`${
+            selected === 'OffersSent' ? 'bg-blue-600' : 'bg-zinc-100'
+          } bg-blue-600 pt-3 h-10 flex w-[140px] justify-center rounded-3xl`}
+          classText={`${
+            selected === 'OffersSent' ? 'text-white' : '!text-blue-600'
+          } text-xs font-medium`}
           text="OFFERS SENT"
           onClick={() => handleClick('OffersSent')}
         />
         <CustomButton
-          classButton="bg-zinc-100 pt-3 h-10 flex w-[140px] justify-center border-solid border-blue-600 rounded-3xl"
-          classText="text-xs font-medium !text-blue-600"
+          classButton={`${
+            selected === 'OfferHistory' ? 'bg-blue-600' : 'bg-zinc-100'
+          } bg-blue-600 pt-3 h-10 flex w-[140px] justify-center rounded-3xl`}
+          classText={`${
+            selected === 'OfferHistory' ? 'text-white' : '!text-blue-600'
+          } text-xs font-medium`}
           text="OFFER HISTORY"
           onClick={() => handleClick('OfferHistory')}
         />
