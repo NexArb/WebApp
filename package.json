@@ -29,6 +29,7 @@
 		"pino-pretty": "^10.2.3",
 		"react": "^18",
 		"react-dom": "^18",
+		"react-hook-form": "^7.49.0",
 		"redstone-api": "^0.4.11",
 		"viem": "^1.18.6",
 		"wagmi": "^1.4.5"

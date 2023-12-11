@@ -1,0 +1,35 @@
+import Image from 'next/image'
+import React from 'react'
+
+const ComposeBridge = () => {
+  return (
+    <div>
+      <div className="mt-10 w-full px-10 md:px-20 lg:px-40 ">
+        <label className="pl-4 text-lg text-white">From :</label>
+        <input className=" mb-4  w-full rounded-full border-2 border-white bg-transparent" />
+        <label className="pl-4 text-lg text-white">To :</label>
+        <input className="w-full  rounded-full border-2  border-white bg-transparent" />
+      </div>
+      <div className=" mx-10 mt-10 flex justify-center space-x-4 text-white lg:ml-40 lg:justify-start lg:text-left">
+        <Image
+          src="/img/rectangle-857.svg"
+          alt="reactangle icon"
+          height={20}
+          width={20}
+        />
+
+        <p className="text-sm">
+          We do not store personal data on our servers and never transfer it to
+          third parties.
+        </p>
+      </div>
+      <div className="flexCenter mt-20">
+        <button className="h-[55px] rounded-full bg-emerald-500 px-20 md:px-40">
+          Start Bridge
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default ComposeBridge

@@ -1,54 +1,43 @@
-"use client"
-import React from 'react'
+'use client'
+import BridgeOptions from '@/components/NexBridgeDashboard/BridgeOptions'
+import ComposeBridge from '@/components/NexBridgeDashboard/ComposeBridge'
+import React, { useState } from 'react'
 
 const Dashboard = () => {
-   const buttons = [
-        { key: 'compose', value: 'Compose' },
-        { key: 'bridgeOptions', value: 'Bridge Options' },
-      ];
-      
-    const [initialActiveButton, setInitialActiveButton] = React.useState(
-        buttons[0].key
-      );
-      const handleButtonClick = (props: any) => {
-        setInitialActiveButton(props)
-        console.log(props);
-      };
+  const buttons = [
+    { key: 'compose', value: 'Compose' },
+    { key: 'bridgeOptions', value: 'Bridge Options' }
+  ]
+
+  const [initialActiveButton, setInitialActiveButton] = useState(buttons[0].key)
+
+  const handleButtonClick = (props: any) => {
+    setInitialActiveButton(props)
+  }
+
   return (
-    <div className='flexCenter '>
-    <div className='min-w-[1155px] h-[616px] justify-center backdrop-blur-md bg-grey-500 border rounded-xl border-white'>
-        <div className='grid grid-cols-2 gap-x-8 mx-40 my-4 '>
-            {buttons.map((button) => (
+    <div className="dashboard flexCenter my-40 font-semibold">
+      <div className="h-[616px] justify-center rounded-2xl bg-gray-700/50 shadow-lg backdrop-blur-md md:min-w-[720px] lg:min-w-[920px] xl:min-w-[1155px]">
+        <div className="mx-12 my-10 grid grid-cols-1 gap-8 px-4 md:mx-40 md:grid-cols-2 ">
+          {buttons.map((button) => (
             <button
-                key={button.key}
-                onClick={() => handleButtonClick(button.key)}
-                className={`${
+              key={button.key}
+              onClick={() => handleButtonClick(button.key)}
+              className={`${
                 initialActiveButton === button.key
-                    ? 'bg-emerald-500'
-                    : 'bg-transparent text-emerald-500 border border-emerald-500'
-                } h-[55px] rounded-full `}
+                  ? 'bg-slate-200'
+                  : 'border border-emerald-500 bg-transparent text-emerald-500'
+              } h-[55px] rounded-full `}
             >
-                {button.value}
+              {button.value}
             </button>
-            ))}
-
-                    
-        
+          ))}
         </div>
-        <div className='w-full px-40 mt-10 '>
-            <label className='text-white text-lg pl-4'>From :</label>
-            <input className=' w-full  rounded-full bg-transparent border-white mb-4'  />
-            <label className='text-white text-lg pl-4'>To :</label>
-            <input className='w-full  rounded-full  border-white bg-transparent'  />
-        </div>
-
-    </div>
- 
+        {initialActiveButton === 'compose' && <ComposeBridge />}
+        {initialActiveButton === 'bridgeOptions' && <BridgeOptions />}
+      </div>
     </div>
   )
- 
-    
-  
 }
 
 export default Dashboard
