@@ -3,7 +3,7 @@ import React from 'react'
 const Steps = (): React.JSX.Element => {
   return (
     <div>
-        <p className="text-5xl text-start ml-52 mt-48">Simple steps to get started</p>
+        <p className="text-5xl text-start lg:text-center lg:mr-[500px] mt-48">Simple steps to get started</p>
         <div className="grid grid-rows-3 grid-flow-col gap-20 justify-evenly mt-24">
           <div>
             <div className="flex">
