@@ -13,7 +13,7 @@ function page() {
     <section className="">
       <div className="flexCenter gap-6 pt-12">
         {/* Left Rectangle */}
-        <div className="max-h-[739px] rounded-3xl border bg-zinc-100 p-9 backdrop-blur-3xl">
+        <div className="h-[739px] rounded-3xl border bg-zinc-100 p-9 backdrop-blur-3xl">
           <div className="text-[32px] font-bold text-slate-950">Buy SOL</div>
           <div className="mt-8 text-xl text-neutral-500">
             1 SOL = 24,342 USD
@@ -93,26 +93,26 @@ function page() {
           </form>
         </div>
         {/* Right Rectangle */}
-        <div className="custom-scrollbar max-h-[739px] max-w-4xl flex-grow scroll-p-96 overflow-y-scroll rounded-3xl border bg-zinc-100 px-7 py-5 backdrop-blur-[100px]">
-          <table className=" mx-auto max-w-full text-black">
-            <thead>
-              <tr className="border-b border-black text-lg text-neutral-400">
-                <th className="px-4 pb-1 pt-2 font-medium">
-                  Seller Information
-                </th>
-                <th className="px-4 pb-1 pt-2 font-medium">Payment Method</th>
-                <th className="px-4 pb-1 pt-2 font-medium">Amount</th>
-                <th className="px-4 pb-1 pt-2 font-medium">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              {OfferListing.map((item, index) => (
-                <Fragment key={index}>
-                  <DashboardTable {...item} />
-                </Fragment>
-              ))}
-            </tbody>
-          </table>
+        <div className="h-[739px] max-w-4xl flex-grow scroll-p-96 rounded-3xl border bg-zinc-100 px-7 backdrop-blur-[100px]">
+          <div className="text-black">
+            <div className="m-5 border-b border-black text-lg font-medium text-neutral-400">
+              <span className="mr-5">Seller Information</span>
+              <span className="mr-12">Payment Method</span>
+              <span className="mr-24">Amount</span>
+              <span className="">Price</span>
+            </div>
+          </div>
+          <div className="custom-scrollbar mx-auto flex h-[739px] w-[850px] flex-col overflow-y-scroll rounded-3xl bg-zinc-100 py-3">
+            <table>
+              <tbody>
+                {OfferListing.map((item, index) => (
+                  <Fragment key={index}>
+                    <DashboardTable {...item} />
+                  </Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <Modal />
