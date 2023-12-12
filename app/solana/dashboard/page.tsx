@@ -105,8 +105,8 @@ function page() {
           <div className="custom-scrollbar mx-auto flex h-[739px] w-[850px] flex-col overflow-y-auto rounded-3xl bg-zinc-100 py-3">
             <table>
               <tbody>
-                {OfferListing.map((item, index) => (
-                  <Fragment key={index}>
+                {OfferListing.map((item) => (
+                  <Fragment key={item.id}>
                     <DashboardTable {...item} />
                   </Fragment>
                 ))}

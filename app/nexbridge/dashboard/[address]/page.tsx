@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { useAccount } from 'wagmi'
@@ -13,9 +14,10 @@ const Dashboard = () => {
     if (isDisconnected && isConnecting) {
       router.replace('/nexbridge')
     } else if (userAddress && userAddress !== address) {
-      router.replace('/nexbridge')
+      // Causes code smell
+      // router.replace('/nexbridge')
     }
-  }, [isDisconnected, isConnecting, address])
+  }, [isDisconnected, isConnecting, address, userAddress, router])
 
   return <></>
 }

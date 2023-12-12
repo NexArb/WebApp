@@ -13,8 +13,8 @@ function IncomingOffers() {
       <div className="custom-scrollbar mx-auto h-[600px] overflow-y-auto bg-zinc-100 backdrop-blur-[100px]">
         <table className="mx-auto max-w-full text-black">
           <tbody>
-            {OfferListing.map((item, index) => (
-              <Fragment key={index}>
+            {OfferListing.map((item) => (
+              <Fragment key={item.id}>
                 <OffersTable {...item} />
               </Fragment>
             ))}

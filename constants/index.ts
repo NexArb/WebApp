@@ -78,6 +78,7 @@ export const FooterSocials = [
 
 export const OfferListing = [
   {
+    id: 1,
     seller: {
       name: 'Seller1',
       star: 2.3
@@ -91,6 +92,7 @@ export const OfferListing = [
     price: '$712,31'
   },
   {
+    id: 2,
     seller: {
       name: 'Seller2',
       star: 4.9
@@ -104,6 +106,7 @@ export const OfferListing = [
     price: '$1566,42'
   },
   {
+    id: 3,
     seller: {
       name: 'Seller3',
       star: 3.7
@@ -117,6 +120,7 @@ export const OfferListing = [
     price: '$899,18'
   },
   {
+    id: 4,
     seller: {
       name: 'Seller4',
       star: 1.5
@@ -130,6 +134,7 @@ export const OfferListing = [
     price: '$432,56'
   },
   {
+    id: 5,
     seller: {
       name: 'Seller5',
       star: 4.2
@@ -143,6 +148,7 @@ export const OfferListing = [
     price: '$789,23'
   },
   {
+    id: 6,
     seller: {
       name: 'Seller6',
       star: 2.8
@@ -156,6 +162,7 @@ export const OfferListing = [
     price: '$1234,56'
   },
   {
+    id: 7,
     seller: {
       name: 'Seller7',
       star: 4.0
@@ -169,6 +176,7 @@ export const OfferListing = [
     price: '$165,42'
   },
   {
+    id: 8,
     seller: {
       name: 'Seller8',
       star: 1.9
@@ -182,6 +190,7 @@ export const OfferListing = [
     price: '$1098,76'
   },
   {
+    id: 9,
     seller: {
       name: 'Seller9',
       star: 3.5
@@ -195,6 +204,7 @@ export const OfferListing = [
     price: '$543,21'
   },
   {
+    id: 10,
     seller: {
       name: 'Seller10',
       star: 4.7
