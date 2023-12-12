@@ -5,8 +5,7 @@ import React from 'react'
 
 function CustomFooter() {
   return (
-    <>
-      {' '}
+    <div className='px-10'>
       <div className="mb-10 mt-48 border bg-white bg-opacity-20" />
       <div className="mb-20 flex justify-between">
         <div className="text-sm leading-7 text-emerald-50">
@@ -22,7 +21,7 @@ function CustomFooter() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

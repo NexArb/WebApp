@@ -20,7 +20,7 @@ function NexBridgeCustomNavbar() {
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
         <Link className="flex items-center" href="/nexbridge">
           <Image
-            src="./img/nexarb_bridge.png"
+            src="/img/nexarb_bridge.png"
             id="Layer1"
             width="120"
             height="80"
