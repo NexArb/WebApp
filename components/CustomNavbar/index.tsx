@@ -3,42 +3,11 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { links } from '@/constants'
 
 function AppBar() {
   const [nav, setNav] = useState(false)
 
-  const links = [
-    {
-      id: 1,
-      link: 'About Us',
-      href: 'about'
-    },
-    {
-      id: 2,
-      link: 'Our Team',
-      href: 'team'
-    },
-    {
-      id: 3,
-      link: 'Contact',
-      href: 'contact'
-    },
-    {
-      id: 4,
-      link: 'Solana',
-      href: 'solana'
-    },
-    {
-      id: 5,
-      link: 'Near',
-      href: 'near'
-    },
-    {
-      id: 6,
-      link: 'Join Us',
-      href: 'join'
-    }
-  ]
   return (
     <nav className="z-20 p-10">
       <div className="flex items-center justify-evenly p-0">

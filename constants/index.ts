@@ -218,3 +218,36 @@ export const OfferListing = [
     price: '$76,54'
   }
 ] as const
+
+export const links = [
+  {
+    id: 1,
+    link: 'About Us',
+    href: 'about'
+  },
+  {
+    id: 2,
+    link: 'Our Team',
+    href: 'team'
+  },
+  {
+    id: 3,
+    link: 'Contact',
+    href: 'contact'
+  },
+  {
+    id: 4,
+    link: 'Solana',
+    href: 'solana'
+  },
+  {
+    id: 5,
+    link: 'Near',
+    href: 'near'
+  },
+  {
+    id: 6,
+    link: 'Join Us',
+    href: 'join'
+  }
+]
