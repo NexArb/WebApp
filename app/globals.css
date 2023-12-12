@@ -2,8 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Dancing+Script:wght@700&family=Open+Sans:wght@500;700&family=PT+Serif:wght@700&family=Plus+Jakarta+Sans:wght@500&family=Poppins:wght@600&family=Roboto+Condensed&family=Roboto:ital@1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
 @layer utilities {
   .flexCenter {
     @apply flex items-center justify-center;
   }
+}
+
+.dashboard {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.bridge-edit input {
+  color: var(--Beyaz, #fff);
+  font-family: "Electrolize", sans-serif;
+  font-size: 18.9px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bridge-edit label {
+  font-family: 'DM Sans', sans-serif;
 }
