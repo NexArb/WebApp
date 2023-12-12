@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 function NexBridgeHomePage() {
   return (
     <div className="flex h-screen w-screen flex-col justify-between self-stretch">

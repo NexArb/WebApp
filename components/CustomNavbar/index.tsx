@@ -3,47 +3,15 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { links } from '@/constants'
 
 function AppBar() {
   const [nav, setNav] = useState(false)
 
-  const links = [
-    {
-      id: 1,
-      link: 'About Us',
-      href: 'about'
-    },
-    {
-      id: 2,
-      link: 'Our Team',
-      href: 'team'
-    },
-    {
-      id: 3,
-      link: 'Contact',
-      href: 'contact'
-    },
-    {
-      id: 4,
-      link: 'Solana',
-      href: 'solana'
-    },
-    {
-      id: 5,
-      link: 'Near',
-      href: 'near'
-    },
-    {
-      id: 6,
-      link: 'Join Us',
-      href: 'join'
-    }
-  ]
   return (
-    <nav className="z-10 p-10">
+    <nav className="z-20 p-10">
       <div className="flex items-center justify-evenly p-0">
-
-      <button
+        <button
           type="button"
           aria-label="nav"
           onClick={() => setNav(!nav)}
@@ -73,13 +41,15 @@ function AppBar() {
           </div>
         </button>
 
-        <div className="z-20 mr-0.5 mt-3">
-          <Image
-            src="/img/nexarb_logo.png"
-            width={170}
-            height={38}
-            alt="Nexarb Logo"
-          />
+        <div className="mr-0.5 mt-3">
+          <Link href="/">
+            <Image
+              src="/img/nexarb_logo.png"
+              width={170}
+              height={38}
+              alt="Nexarb Logo"
+            />
+          </Link>
         </div>
         <div className="mt-4 hidden items-center text-base font-semibold md:flex">
           <Link className="px-2 lg:px-5" href="/about">

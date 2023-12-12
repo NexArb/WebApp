@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 function PriceBox() {
   return (
     <div className="mx-auto max-w-sm overflow-hidden rounded-3xl bg-pricing-box from-purple-700 to-purple-900 p-5 text-white shadow-lg">

@@ -4,8 +4,8 @@ const nextConfig = {
     unoptimized: true
   },
   eslint: {
-    dirs: ['pages', 'utils'],
-  },
+    dirs: ['pages', 'utils']
+  }
 }
 
 module.exports = nextConfig

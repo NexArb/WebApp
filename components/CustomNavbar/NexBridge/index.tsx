@@ -7,11 +7,11 @@ import Image from 'next/image'
 import { useAccount } from 'wagmi'
 
 function NexBridgeCustomNavbar() {
-  const { address } = useAccount();
+  const { address } = useAccount()
 
   useEffect(() => {
     if (address) {
-      localStorage.setItem("address", address);
+      localStorage.setItem('address', address)
     }
   }, [address])
 
@@ -61,7 +61,7 @@ function NexBridgeCustomNavbar() {
                 Home
               </Link>
             </li>
-            {address &&
+            {address && (
               <li className="p-3">
                 <Link
                   href="/nexbridge/pricing"
@@ -70,16 +70,18 @@ function NexBridgeCustomNavbar() {
                   Pricing
                 </Link>
               </li>
-            }
-            {address &&
+            )}
+            {address && (
               <li className="p-3">
-                <Link href="/nexbridge/dasboard/[address]" as={`/nexbridge/dashboard/${address}`}
+                <Link
+                  href="/nexbridge/dasboard/[address]"
+                  as={`/nexbridge/dashboard/${address}`}
                   className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                 >
                   Dashboard
                 </Link>
               </li>
-            }
+            )}
             <li className="p-1">
               <ConnectKitButton />
             </li>
