@@ -30,8 +30,8 @@ function OfferHistory() {
         <div className="custom-scrollbar mx-auto h-[600px] overflow-y-auto bg-zinc-100">
           <table className="mx-auto max-w-full text-black">
             <tbody>
-              {OfferListing.map((item, index) => (
-                <Fragment key={index}>
+              {OfferListing.map((item) => (
+                <Fragment key={item.id}>
                   <HistoryTable {...item} />
                 </Fragment>
               ))}
