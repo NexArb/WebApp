@@ -7,7 +7,7 @@ type OfferProps = (typeof OfferListing)[number]
 
 function DashboardTable({ payment, amount, price }: OfferProps) {
   return (
-    <tr className="flex items-center justify-center text-base font-medium">
+    <tr className="flex items-center justify-center overflow-hidden text-base font-medium">
       <td>
         <div className="inline-flex">
           <span className="p-2">{payment.name}</span>

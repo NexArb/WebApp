@@ -93,7 +93,7 @@ function page() {
           </form>
         </div>
         {/* Right Rectangle */}
-        <div className="h-[739px] max-w-4xl flex-grow scroll-p-96 rounded-3xl border bg-zinc-100 px-7 backdrop-blur-[100px]">
+        <div className="max-h-[739px] max-w-4xl flex-grow scroll-p-96 overflow-hidden rounded-3xl border bg-zinc-100 px-7  backdrop-blur-[100px]">
           <div className="text-black">
             <div className="m-5 border-b border-black text-lg font-medium text-neutral-400">
               <span className="mr-5">Seller Information</span>
@@ -102,7 +102,7 @@ function page() {
               <span className="">Price</span>
             </div>
           </div>
-          <div className="custom-scrollbar mx-auto flex h-[739px] w-[850px] flex-col overflow-y-scroll rounded-3xl bg-zinc-100 py-3">
+          <div className="custom-scrollbar mx-auto flex h-[739px] w-[850px] flex-col overflow-y-auto rounded-3xl bg-zinc-100 py-3">
             <table>
               <tbody>
                 {OfferListing.map((item, index) => (
