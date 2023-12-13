@@ -29,36 +29,54 @@ export const useUserStore = create<UserState>()(
       toggleModal: () => set((state) => ({ showModal: !state.showModal })),
       user: null,
       token: null,
+      error: null,
       isAuthenticated: false,
       login: async (user) => {
-        // Hash the password on the client side
-        const hashedPassword = sha256(user.password)
-        // Send a request to the server to authenticate the user
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: user.email, password: hashedPassword })
-        })
-        const data = await response.json()
-        // Update the user state with the returned data
-        set({ user: data.user })
+        try {
+          // Hash the password on the client side
+          const hashedPassword = sha256(user.password)
+          // Send a request to the server to authenticate the user
+          const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: user.email,
+              password: hashedPassword
+            })
+          })
+          const data = await response.json()
+          // Update the user state with the returned data
+          set({ user: data.user })
+        } catch (error) {
+          console.error('Error during login:', error)
+        }
       },
       register: async (user) => {
-        // Hash the password on the client side
-        const hashedPassword = sha256(user.password)
-        // Send a request to the server to register the user
-        const response = await fetch('/api/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: user.email, password: hashedPassword })
-        })
-        const data = await response.json()
-        // Update the user state with the returned data
-        set({ user: data.user })
+        try {
+          // Hash the password on the client side
+          const hashedPassword = sha256(user.password)
+          // Send a request to the server to register the user
+          const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: user.email,
+              password: hashedPassword
+            })
+          })
+          const data = await response.json()
+          // Update the user state with the returned data
+          set({ user: data.user })
+        } catch (error) {
+          console.error('Error during registration:', error)
+        }
       },
       logout: () => set({ user: null })
     }),
-    { name: 'auth' }
+    {
+      name: 'auth'
+      // skipHydration: true
+    }
   )
 )
 

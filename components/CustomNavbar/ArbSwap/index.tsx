@@ -15,6 +15,7 @@ function ArbSwapNavbar() {
 
   return (
     <nav className="z-10 p-10">
+      <Modal />
       <div className="flex items-center justify-evenly p-0">
         <button
           type="button"

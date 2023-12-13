@@ -22,6 +22,7 @@ export type UserState = {
   isAuthenticated: boolean
   user: User | null
   token: string | null
+  error: string | null
   login: (user: User) => Promise<void>
   register: (user: User) => Promise<void>
   logout: () => void
