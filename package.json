@@ -25,6 +25,7 @@
 		"connectkit": "^1.5.3",
 		"eslint-plugin-jest": "^27.6.0",
 		"i": "^0.3.7",
+		"js-sha256": "^0.10.1",
 		"next": "14.0.1",
 		"npm": "^10.2.4",
 		"pino-pretty": "^10.2.3",

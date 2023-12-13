@@ -2,12 +2,12 @@ import React from 'react'
 
 import { OfferListing } from '@/constants'
 import CustomButton from '@/components/CustomButton'
-import { useModalStore } from '@/lib/store'
+import { useDashboardStore } from '@/lib/store'
 
 type OfferProps = (typeof OfferListing)[number]
 
 function DashboardTable({ seller, payment, amount, price }: OfferProps) {
-  const { toggleModal } = useModalStore()
+  const { toggleModal } = useDashboardStore()
 
   return (
     <tr className="flex items-center justify-center border-b border-solid border-zinc-400">

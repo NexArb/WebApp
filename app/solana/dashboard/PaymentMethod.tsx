@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { useModalStore, useStepStore } from '@/lib/store'
+import { useDashboardStore, useStepStore } from '@/lib/store'
 import getFormattedDateTime from './CurrentDate'
 import CustomButton from '@/components/CustomButton'
 
 function PaymentMethod() {
   const nextStep = useStepStore((state) => state.nextStep)
 
-  const { showModal, toggleModal } = useModalStore()
+  const { showModal, toggleModal } = useDashboardStore()
   if (!showModal) return null
 
   return (

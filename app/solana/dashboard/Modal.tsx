@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 
-import { useModalStore, useStepStore } from '@/lib/store'
+import { useDashboardStore, useStepStore } from '@/lib/store'
 import PaymentMethod from './PaymentMethod'
 import Pricing from './Pricing'
 
 function Modal() {
   const { step, resetStep } = useStepStore()
 
-  const { showModal, toggleModal } = useModalStore()
+  const { showModal, toggleModal } = useDashboardStore()
 
   // Add event listener on component mount and remove on unmount
   useEffect(() => {
