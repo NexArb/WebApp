@@ -21,6 +21,7 @@
 		"@nivo/bar": "^0.84.0",
 		"@nivo/core": "^0.84.0",
 		"@nivo/line": "^0.84.0",
+		"@vercel/speed-insights": "^1.0.2",
 		"axios": "^1.6.2",
 		"connectkit": "^1.5.3",
 		"eslint-plugin-jest": "^27.6.0",

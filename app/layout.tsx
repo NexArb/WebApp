@@ -2,6 +2,7 @@ import './globals.css'
 import React from 'react'
 import type { Metadata } from 'next'
 import { DM_Sans as dmSansFont } from 'next/font/google'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const dmSans = dmSansFont({ subsets: ['latin'] })
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${dmSans.className} text-white`}>{children}</body>
+      <SpeedInsights />
     </html>
   )
 }
