@@ -1,3 +1,4 @@
+import React from "react";
 const ArbSwapFooter = () => {
     return (
         <footer className="text-white">
