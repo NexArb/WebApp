@@ -1,10 +1,9 @@
 import { AxiosError } from 'axios'
-import { DependencyList, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const useNexarbApi = <ResponseBody = any, RequestConfig = any>(
   apiFunction: (config?: RequestConfig) => Promise<{ data: ResponseBody }>,
   requestConfig?: RequestConfig,
-  deps: DependencyList = []
 ) => {
   const [data, setData] = useState<ResponseBody>()
   const [loading, setLoading] = useState<boolean>(true)
@@ -24,7 +23,7 @@ export const useNexarbApi = <ResponseBody = any, RequestConfig = any>(
         setData(undefined)
       })
       .finally(() => setLoading(false))
-  }, [apiFunction, requestConfig, ...deps])
+  }, [apiFunction, requestConfig])
 
   return { loading, data, error }
 }
