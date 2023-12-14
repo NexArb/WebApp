@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard flexCenter my-40 font-semibold">
-      <div className="h-[616px] justify-center rounded-2xl bg-gray-700/50 shadow-lg backdrop-blur-md md:min-w-[720px] lg:min-w-[920px] xl:min-w-[1155px]">
+      <div className="h-full py-4 justify-center rounded-2xl bg-gray-700/50 shadow-lg backdrop-blur-md md:min-w-[720px] lg:min-w-[920px] xl:min-w-[1155px]">
         <div className="mx-12 my-10 grid grid-cols-1 gap-8 px-4 md:mx-40 md:grid-cols-2 ">
           {buttons.map((button) => (
             <button
