@@ -79,6 +79,9 @@ function ArbSwapNavbar() {
           <Link className="px-2 lg:px-5" href="/arbswap/offer">
             Create Offer
           </Link>
+          <Link className="px-2 lg:px-5" href="/arbswap/wallet">
+            Wallet
+          </Link>
           <Link className="px-2 lg:px-5" href="/arbswap/support">
             Support
           </Link>

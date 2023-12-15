@@ -4,9 +4,9 @@ import React, { Fragment } from 'react'
 
 import CustomButton from '@/components/CustomButton'
 import { OfferListing } from '@/constants'
-import DashboardTable from './DashboardTable'
-import Modal from './Modal'
-import getFormattedDateTime from './CurrentDate'
+import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
+import Modal from '@/components/HomePage/Arbswap/Dashboard/Modal'
+import getFormattedDateTime from '@/components/HomePage/Arbswap/Dashboard/CurrentDate'
 
 function page() {
   return (

@@ -24,33 +24,44 @@ export const useStepStore = create<FormState>((set, get) => ({
 
 export const useUserStore = create<UserState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       showModal: false,
       toggleModal: () => set((state) => ({ showModal: !state.showModal })),
+      rememberDevice: false,
+      setRememberDevice: (value: boolean) =>
+        set((state) => ({ rememberDevice: value })),
+      emailOrPhone: '',
+      setEmailOrPhone: (event: React.ChangeEvent<HTMLInputElement>) =>
+        set({ emailOrPhone: event.target.value }),
       user: null,
       token: null,
       error: null,
       isAuthenticated: false,
-      login: async (user) => {
-        try {
-          // Hash the password on the client side
-          const hashedPassword = sha256(user.password)
-          // Send a request to the server to authenticate the user
-          const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: user.email,
-              password: hashedPassword
-            })
-          })
-          const data = await response.json()
-          // Update the user state with the returned data
-          set({ user: data.user })
-        } catch (error) {
-          console.error('Error during login:', error)
-        }
-      },
+      login: (token) => set({ token, isAuthenticated: true }),
+      // async (user) => {
+      //   try {
+      //     // Hash the password on the client side
+      //     const hashedPassword = sha256(user.password)
+      //     // Send a request to the server to authenticate the user
+      //     const response = await fetch('/api/login', {
+      //       method: 'POST',
+      //       headers: { 'Content-Type': 'application/json' },
+      //       body: JSON.stringify({
+      //         email: user.email,
+      //         password: hashedPassword
+      //       })
+      //     })
+      //     const data = await response.json()
+      //     // Update the user state with the returned data
+      //     set({ user: data.user, error: null })
+      //   } catch (error: unknown) {
+      //     if (error instanceof Error) {
+      //       set({ error: error.message })
+      //     } else {
+      //       set({ error: 'An error occurred.' })
+      //     }
+      //   }
+      // },
       register: async (user) => {
         try {
           // Hash the password on the client side
@@ -66,15 +77,19 @@ export const useUserStore = create<UserState>()(
           })
           const data = await response.json()
           // Update the user state with the returned data
-          set({ user: data.user })
-        } catch (error) {
-          console.error('Error during registration:', error)
+          set({ user: data.user, error: null })
+        } catch (error: unknown) {
+          if (error instanceof Error) {
+            set({ error: error.message })
+          } else {
+            set({ error: 'An error occured.' })
+          }
         }
       },
-      logout: () => set({ user: null })
+      logout: () => set({ user: null, error: null })
     }),
     {
-      name: 'auth'
+      name: 'auth',
       // skipHydration: true
     }
   )
