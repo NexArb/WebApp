@@ -63,8 +63,11 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col px-20 md:px-40">
-      <div className="flex justify-between flex-col lg:flex-row  lg:space-x-10 mb-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col px-20 md:px-40"
+    >
+      <div className="mb-4 flex flex-col justify-between  lg:flex-row lg:space-x-10">
         <div className="bridge-edit mb-4 flex w-1/2 flex-col justify-start">
           {editBridgeLabels.map((item, index) => (
             <div className="mt-4 flex justify-between" key={item.key}>
@@ -76,7 +79,11 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
                 }
               >
                 <label
-                  className="min-w-[76px] bg-transparent text-lg text-[#7E7B94]"
+                  className={
+                    index === 0
+                      ? 'w-32 bg-transparent text-lg text-[#7E7B94]'
+                      : 'w-20 bg-transparent text-lg text-[#7E7B94]'
+                  }
                   htmlFor={item.key}
                 >
                   {item.value} :
@@ -131,7 +138,7 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
           </label>
           <textarea
             id="information"
-            className="rounded-lg border-white bg-transparent text-white uppercase"
+            className="rounded-lg border-white bg-transparent uppercase text-white"
             rows={5}
           />
         </div>
@@ -139,7 +146,7 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
 
       <button
         type="submit"
-        className="h-[55px] max-w-[367px] rounded-full bg-emerald-500"
+        className="h-14 max-w-[50%] rounded-full bg-emerald-500"
         disabled={isSubmitting}
       >
         {isSubmitting ? 'Updating...' : 'Update Bridge'}

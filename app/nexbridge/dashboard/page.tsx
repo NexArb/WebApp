@@ -27,7 +27,7 @@ const Dashboard = () => {
                 initialActiveButton === button.key
                   ? 'bg-slate-200'
                   : 'border border-emerald-500 bg-transparent text-emerald-500'
-              } h-[55px] rounded-full `}
+              } h-14 rounded-full `}
             >
               {button.value}
             </button>
