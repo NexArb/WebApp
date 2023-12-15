@@ -19,11 +19,16 @@ export type User = {
 export type UserState = {
   showModal: boolean
   toggleModal: () => void
+  rememberDevice: boolean
+  setRememberDevice: (value: boolean) => void;
+  emailOrPhone: string
+  setEmailOrPhone: (event: React.ChangeEvent<HTMLInputElement>) => void
   isAuthenticated: boolean
   user: User | null
   token: string | null
   error: string | null
-  login: (user: User) => Promise<void>
+  login: (token: string) => void
+  // (user: User) => Promise<void>
   register: (user: User) => Promise<void>
   logout: () => void
 }
