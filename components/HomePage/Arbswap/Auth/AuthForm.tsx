@@ -1,11 +1,12 @@
 import React, { FormEvent, FormEventHandler, useEffect } from 'react'
 
 import { useModalStore, useUserStore } from '@/lib/store'
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
+import Modal from '@/components/CommonComponents/Modal'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function Modal() {
+function AuthForm() {
   const {
     login,
     emailOrPhone,
@@ -14,47 +15,23 @@ function Modal() {
     setRememberDevice
   } = useUserStore()
 
-  const { showModal, toggleModal } = useModalStore()
+  // const { showModal, toggleModal } = useModalStore()
 
-  // Add event listener on component mount and remove on unmount
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        toggleModal()
-      }
-    }
+  // // Add event listener on component mount and remove on unmount
+  // useEffect(() => {
+  //   const handleEsc = (event: KeyboardEvent) => {
+  //     if (event.key === 'Escape') {
+  //       toggleModal()
+  //     }
+  //   }
 
-    window.addEventListener('keydown', handleEsc)
+  //   window.addEventListener('keydown', handleEsc)
 
-    // Clean up event listener on unmount
-    return () => {
-      window.removeEventListener('keydown', handleEsc)
-    }
-  }, [toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
-
-  // If clicked outside don't show modal anymore
-  if (!showModal) return null
-
-  // If it's a keyboard event, only handle if 'Enter' or 'Space' was pressed
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLElement
-    if (target.id === 'wrapper') {
-      if (
-        event instanceof KeyboardEvent &&
-        !['Enter', ' '].includes(event.key)
-      ) {
-        return
-      }
-      toggleModal()
-    }
-  }
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLElement
-    if (target.id === 'wrapper') {
-      toggleModal()
-    }
-  }
+  //   // Clean up event listener on unmount
+  //   return () => {
+  //     window.removeEventListener('keydown', handleEsc)
+  //   }
+  // }, [toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
 
   const handleSubmit: FormEventHandler = async (e: FormEvent) => {
     e.preventDefault()
@@ -83,13 +60,7 @@ function Modal() {
   }
 
   return (
-    <section
-      id="wrapper"
-      onKeyDown={handleKeyDown}
-      onClick={handleClick}
-      className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-      tabIndex={0}
-    >
+    <Modal>
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
         <form onSubmit={handleSubmit} className="flex flex-col">
           <span className="px-4 py-2">Email or Phone number</span>
@@ -119,12 +90,9 @@ function Modal() {
             />
             Remember this device:
           </div>
-          <CustomButton
-            className="mt-4 h-12 bg-gradient-button"
-            onClick={() => {}}
-          >
+          <Button className="mt-4 h-12 bg-gradient-button" onClick={() => {}}>
             Login
-          </CustomButton>
+          </Button>
         </form>
         <div className="p-4 text-[15px]">
           <div className="">
@@ -141,7 +109,7 @@ function Modal() {
             <span className="font-semibold text-emerald-400">Verify here.</span>
           </div>
         </div>
-        <CustomButton
+        <Button
           className="mt-10 h-12 w-full items-center justify-center rounded-[50px] bg-[#9886E5] text-center shadow"
           onClick={() => {}}
         >
@@ -155,10 +123,10 @@ function Modal() {
             />
             Connect Wallet
           </div>
-        </CustomButton>
+        </Button>
       </div>
-    </section>
+    </Modal>
   )
 }
 
-export default Modal
+export default AuthForm

@@ -7,7 +7,7 @@ type ButtonProps = Readonly<{
   onClick?: () => void
 }>
 
-function CustomButton({ className, children, onClick }: ButtonProps) {
+function Button({ className, children, onClick }: ButtonProps) {
   const { pending } = useFormStatus()
 
   return (
@@ -26,4 +26,4 @@ function CustomButton({ className, children, onClick }: ButtonProps) {
   )
 }
 
-export default CustomButton
+export default Button

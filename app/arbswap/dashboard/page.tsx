@@ -2,10 +2,10 @@
 
 import React, { Fragment } from 'react'
 
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 import { OfferListing } from '@/constants'
 import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
-import Modal from '@/components/HomePage/Arbswap/Dashboard/Modal'
+import Modal from '@/components/HomePage/Arbswap/Dashboard/DashboardForm'
 import getFormattedDateTime from '@/components/HomePage/Arbswap/Dashboard/CurrentDate'
 
 function page() {
@@ -84,9 +84,9 @@ function page() {
               </label>
             </div>
             <div className="flexCenter mt-32 flex-1">
-              <CustomButton className="h-12 w-60 bg-gradient-button">
+              <Button className="h-12 w-60 bg-gradient-button">
                 <span className="text-lg">Search for Offers</span>
-              </CustomButton>
+              </Button>
             </div>
           </form>
         </div>

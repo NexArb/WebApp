@@ -2,7 +2,7 @@ import React from 'react'
 
 import StarRating from './StarRating'
 import { OfferListing } from '@/constants'
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 import { useModalStore } from '@/lib/store'
 
 type OfferProps = (typeof OfferListing)[number]
@@ -29,9 +29,9 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
       <td className="px-4 text-base font-medium text-slate-950">{amount}</td>
       <td className="px-4 text-base font-medium text-slate-950">{price}</td>
       <td>
-        <CustomButton className="bg-blue-600 px-6 py-2" onClick={toggleModal}>
+        <Button className="bg-blue-600 px-6 py-2" onClick={toggleModal}>
           <span className="text-sm">MAKE AN OFFER</span>
-        </CustomButton>
+        </Button>
       </td>
     </tr>
   )

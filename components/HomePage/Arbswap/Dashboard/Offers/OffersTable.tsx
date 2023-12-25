@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { OfferListing } from '@/constants'
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 import { useModalStore } from '@/lib/store'
 
 type OfferProps = (typeof OfferListing)[number]
@@ -26,28 +26,28 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
         <span>{price}</span>
       </td>
       <td>
-        <CustomButton
+        <Button
           className="ml-10 mr-6 border border-emerald-400 bg-emerald-400 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
         >
           <span className="text-emerald-400 ">ACCEPT</span>
-        </CustomButton>
+        </Button>
       </td>
       <td>
-        <CustomButton
+        <Button
           className="mr-6 border border-red-600 bg-red-600 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
         >
           <span className="text-red-600">REJECT</span>
-        </CustomButton>
+        </Button>
       </td>
       <td>
-        <CustomButton
+        <Button
           className="mr-5 border border-blue-600 bg-blue-600 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
         >
           <span className="text-blue-600">REPLY</span>
-        </CustomButton>
+        </Button>
       </td>
     </tr>
   )

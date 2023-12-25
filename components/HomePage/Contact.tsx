@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 import Input from '@/components/HomePage/Input'
 
 function Contact() {
@@ -35,9 +35,9 @@ function Contact() {
         placeholder="Message"
       />
       <div className="flexCenter mt-8 flex-1">
-        <CustomButton className="h-14 w-32 bg-teal-400">
+        <Button className="h-14 w-32 bg-teal-400">
           <span className="text-lg">Send</span>
-        </CustomButton>
+        </Button>
       </div>
     </form>
   )

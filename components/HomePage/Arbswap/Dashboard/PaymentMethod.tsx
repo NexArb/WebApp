@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useModalStore, useStepStore } from '@/lib/store'
 import getFormattedDateTime from './CurrentDate'
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 
 function PaymentMethod() {
   const nextStep = useStepStore((state) => state.nextStep)
@@ -62,12 +62,12 @@ function PaymentMethod() {
         <div className="h-2 w-1/3 rounded bg-emerald-400"></div>
       </div>
       <div className="mt-9 grid grid-cols-2 gap-3">
-        <CustomButton className="border bg-zinc-400 py-2" onClick={toggleModal}>
+        <Button className="border bg-zinc-400 py-2" onClick={toggleModal}>
           <span className="text-white">Previous</span>
-        </CustomButton>
-        <CustomButton className="border bg-blue-600 py-2" onClick={nextStep}>
+        </Button>
+        <Button className="border bg-blue-600 py-2" onClick={nextStep}>
           <span className="text-white">Next</span>
-        </CustomButton>
+        </Button>
       </div>
     </div>
   )

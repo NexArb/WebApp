@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 import IncomingOffers from '@/components/HomePage/Arbswap/Dashboard/Offers/IncomingOffers'
 import OffersSent from '@/components/HomePage/Arbswap/Dashboard/Offers/OffersSent'
 import OfferHistory from '@/components/HomePage/Arbswap/Dashboard/Offers/OfferHistory'
@@ -27,7 +27,7 @@ function Offers() {
   return (
     <section className="flex flex-col items-center">
       <div className="my-4 grid grid-cols-6 gap-5">
-        <CustomButton
+        <Button
           className={`${
             selected === 'IncomingOffers' ? 'bg-blue-600' : 'bg-zinc-100'
           } mr-2 flex h-10 w-[140px] justify-center rounded-3xl pt-3`}
@@ -40,8 +40,8 @@ function Offers() {
           >
             INCOMING OFFER
           </span>
-        </CustomButton>
-        <CustomButton
+        </Button>
+        <Button
           className={`${
             selected === 'OffersSent' ? 'bg-blue-600' : 'bg-zinc-100'
           } flex h-10 w-[140px] justify-center rounded-3xl bg-blue-600 pt-3`}
@@ -54,8 +54,8 @@ function Offers() {
           >
             OFFERS SENT
           </span>
-        </CustomButton>
-        <CustomButton
+        </Button>
+        <Button
           className={`${
             selected === 'OfferHistory' ? 'bg-blue-600' : 'bg-zinc-100'
           } flex h-10 w-[140px] justify-center rounded-3xl bg-blue-600 pt-3`}
@@ -68,7 +68,7 @@ function Offers() {
           >
             OFFER HISTORY
           </span>
-        </CustomButton>
+        </Button>
       </div>
       <div className="flex max-h-[691px] w-[1000px] flex-col rounded-3xl bg-zinc-100 p-5">
         {component}

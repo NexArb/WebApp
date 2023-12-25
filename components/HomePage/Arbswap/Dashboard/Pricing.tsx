@@ -1,14 +1,15 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-import { useStepStore } from '@/lib/store'
+import { useModalStore, useStepStore } from '@/lib/store'
 import getFormattedDateTime from './CurrentDate'
-import CustomButton from '@/components/CustomComponents/Button'
+import Button from '@/components/CommonComponents/Button'
 
 function Pricing() {
   const router = useRouter()
 
   const { prevStep } = useStepStore()
+  const { toggleModal } = useModalStore()
 
   return (
     <div className="flex w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
@@ -62,15 +63,18 @@ function Pricing() {
         <div className="h-2 w-2/3 rounded bg-emerald-400"></div>
       </div>
       <div className="mt-9 grid grid-cols-2 gap-3">
-        <CustomButton className="border bg-blue-600 py-2" onClick={prevStep}>
+        <Button className="border bg-blue-600 py-2" onClick={prevStep}>
           <span className="text-white">Previous</span>
-        </CustomButton>
-        <CustomButton
+        </Button>
+        <Button
           className="border bg-blue-600 py-2"
-          onClick={() => router.push('/arbswap/dashboard/offers')}
+          onClick={() => {
+            router.push('/arbswap/dashboard/offers')
+            toggleModal()
+          }}
         >
           <span className="text-white">Next</span>
-        </CustomButton>
+        </Button>
       </div>
     </div>
   )
