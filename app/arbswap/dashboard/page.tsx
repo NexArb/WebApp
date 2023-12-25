@@ -84,11 +84,9 @@ function page() {
               </label>
             </div>
             <div className="flexCenter mt-32 flex-1">
-              <CustomButton
-                classText="text-lg"
-                classButton="h-12 w-60 bg-gradient-button"
-                text="Search for Offers"
-              />
+              <CustomButton className="h-12 w-60 bg-gradient-button">
+                <span className="text-lg">Search for Offers</span>
+              </CustomButton>
             </div>
           </form>
         </div>

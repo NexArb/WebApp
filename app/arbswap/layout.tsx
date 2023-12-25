@@ -8,12 +8,14 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = Readonly<{
   children: React.ReactNode
+  auth: React.ReactNode
 }>
 
-export default function DashboardLayout({ children }: RootLayoutProps) {
+export default function DashboardLayout({ children, auth }: RootLayoutProps) {
   return (
     <section>
       {children}
+      {auth}
     </section>
   )
 }

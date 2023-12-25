@@ -24,11 +24,9 @@ function Hero() {
           process — you don’t have to think about any technical aspects. There
           are no limits and absolutely no coding.{' '}
         </div>
-        <CustomButton
-          classButton="mx-auto mt-4 h-14 rounded-full w-60 bg-gradient-button"
-          classText="text-lg"
-          text="Let's Meet"
-        />
+        <CustomButton className="mx-auto mt-4 h-14 w-60 rounded-full bg-gradient-button">
+          <span className="text-lg">Let's Meet</span>
+        </CustomButton>
       </div>
     </section>
   )

@@ -27,27 +27,27 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
       </td>
       <td>
         <CustomButton
-          classButton="border border-emerald-400 bg-emerald-400 bg-opacity-10 px-8 py-2 mr-6 ml-10"
-          classText="text-xs font-medium !text-emerald-400"
-          text="ACCEPT"
+          className="ml-10 mr-6 border border-emerald-400 bg-emerald-400 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
-        />
+        >
+          <span className="text-emerald-400 ">ACCEPT</span>
+        </CustomButton>
       </td>
       <td>
         <CustomButton
-          classButton="border border-red-600 bg-red-600 bg-opacity-10 px-8 py-2 mr-6"
-          classText="text-xs font-medium !text-red-600"
-          text="REJECT"
+          className="mr-6 border border-red-600 bg-red-600 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
-        />
+        >
+          <span className="text-red-600">REJECT</span>
+        </CustomButton>
       </td>
       <td>
         <CustomButton
-          classButton="border border-blue-600 bg-blue-600 bg-opacity-10 px-8 py-2 mr-5"
-          classText="text-xs font-medium !text-blue-600"
-          text="REPLY"
+          className="mr-5 border border-blue-600 bg-blue-600 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
-        />
+        >
+          <span className="text-blue-600">REPLY</span>
+        </CustomButton>
       </td>
     </tr>
   )

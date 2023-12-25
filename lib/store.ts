@@ -43,7 +43,7 @@ export const useUserStore = create<UserState>()(
       //     // Hash the password on the client side
       //     const hashedPassword = sha256(user.password)
       //     // Send a request to the server to authenticate the user
-      //     const response = await fetch('/api/login', {
+      //     const response = await fetch('/login', {
       //       method: 'POST',
       //       headers: { 'Content-Type': 'application/json' },
       //       body: JSON.stringify({
@@ -89,7 +89,7 @@ export const useUserStore = create<UserState>()(
       logout: () => set({ user: null, error: null })
     }),
     {
-      name: 'auth',
+      name: 'auth'
       // skipHydration: true
     }
   )

@@ -28,29 +28,47 @@ function Offers() {
     <section className="flex flex-col items-center">
       <div className="my-4 grid grid-cols-6 gap-5">
         <CustomButton
-          classButton={`${selected === 'IncomingOffers' ? 'bg-blue-600' : 'bg-zinc-100'
-            } pt-3 h-10 flex w-[140px] justify-center rounded-3xl mr-2`}
-          classText={`${selected === 'IncomingOffers' ? 'text-white' : '!text-blue-600'
-            } text-xs font-medium`}
-          text="INCOMING OFFER"
+          className={`${
+            selected === 'IncomingOffers' ? 'bg-blue-600' : 'bg-zinc-100'
+          } mr-2 flex h-10 w-[140px] justify-center rounded-3xl pt-3`}
           onClick={() => handleClick('IncomingOffers')}
-        />
+        >
+          <span
+            className={`${
+              selected === 'IncomingOffers' ? 'text-white' : '!text-blue-600'
+            } text-xs`}
+          >
+            INCOMING OFFER
+          </span>
+        </CustomButton>
         <CustomButton
-          classButton={`${selected === 'OffersSent' ? 'bg-blue-600' : 'bg-zinc-100'
-            } bg-blue-600 pt-3 h-10 flex w-[140px] justify-center rounded-3xl`}
-          classText={`${selected === 'OffersSent' ? 'text-white' : '!text-blue-600'
-            } text-xs font-medium`}
-          text="OFFERS SENT"
+          className={`${
+            selected === 'OffersSent' ? 'bg-blue-600' : 'bg-zinc-100'
+          } flex h-10 w-[140px] justify-center rounded-3xl bg-blue-600 pt-3`}
           onClick={() => handleClick('OffersSent')}
-        />
-        <CustomButton
-          classButton={`${selected === 'OfferHistory' ? 'bg-blue-600' : 'bg-zinc-100'
-            } bg-blue-600 pt-3 h-10 flex w-[140px] justify-center rounded-3xl`}
-          classText={`${selected === 'OfferHistory' ? 'text-white' : '!text-blue-600'
+        >
+          <span
+            className={`${
+              selected === 'OffersSent' ? 'text-white' : '!text-blue-600'
             } text-xs font-medium`}
-          text="OFFER HISTORY"
+          >
+            OFFERS SENT
+          </span>
+        </CustomButton>
+        <CustomButton
+          className={`${
+            selected === 'OfferHistory' ? 'bg-blue-600' : 'bg-zinc-100'
+          } flex h-10 w-[140px] justify-center rounded-3xl bg-blue-600 pt-3`}
           onClick={() => handleClick('OfferHistory')}
-        />
+        >
+          <span
+            className={`${
+              selected === 'OfferHistory' ? 'text-white' : '!text-blue-600'
+            } text-xs font-medium`}
+          >
+            OFFER HISTORY
+          </span>
+        </CustomButton>
       </div>
       <div className="flex max-h-[691px] w-[1000px] flex-col rounded-3xl bg-zinc-100 p-5">
         {component}

@@ -5,6 +5,9 @@ const nextConfig = {
   },
   eslint: {
     dirs: ['pages', 'utils']
+  },
+  env: {
+
   }
 }
 

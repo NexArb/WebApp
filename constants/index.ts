@@ -33,7 +33,7 @@ export const PROJECTS = [
 
 export const CREW = [
   {
-    name: 'Leah Salomon',
+    name: 'Leah Salomo3n',
     profileImage: '/img/profile-image-1.png',
     job: 'UI Designer',
     icon1: '/img/fa-twitter.svg',
@@ -41,7 +41,7 @@ export const CREW = [
     icon3: '/img/fa-instagram.svg'
   },
   {
-    name: 'Leah Salomon',
+    name: 'Leah Salomo1n',
     profileImage: '/img/profile-image-2.png',
     job: 'UI Designer',
     icon1: '/img/fa-twitter.svg',
@@ -49,7 +49,7 @@ export const CREW = [
     icon3: '/img/fa-instagram.svg'
   },
   {
-    name: 'Leah Salomon',
+    name: 'Leah Salomon1',
     profileImage: '/img/profile-image-3.png',
     job: 'UI Designer',
     icon1: '/img/fa-twitter.svg',
@@ -57,7 +57,7 @@ export const CREW = [
     icon3: '/img/fa-instagram.svg'
   },
   {
-    name: 'Leah Salomon',
+    name: 'Leah Salomon123',
     profileImage: '/img/profile-image-4.png',
     job: 'UI Designer',
     icon1: '/img/fa-twitter.svg',
@@ -251,3 +251,26 @@ export const links = [
     href: 'join'
   }
 ]
+
+export const arbswapNavbarLinks = [
+  {
+    id: 1,
+    link: 'About Us',
+    href: 'about'
+  },
+  {
+    id: 2,
+    link: 'Create Offer',
+    href: 'arbswap/offer'
+  },
+  {
+    id: 3,
+    link: 'Support',
+    href: 'arbswap/support'
+  },
+  {
+    id: 4,
+    link: 'Near',
+    href: 'near'
+  }
+] as const

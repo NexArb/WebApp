@@ -1,31 +1,26 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { useFormStatus } from 'react-dom'
 
 type ButtonProps = Readonly<{
-  classButton: string
-  classText: string
-  text: string
+  className: string
+  children: ReactNode
   onClick?: () => void
 }>
 
-function CustomButton({ classButton, classText, text, onClick }: ButtonProps) {
+function CustomButton({ className, children, onClick }: ButtonProps) {
   const { pending } = useFormStatus()
 
   return (
     <button
       type="submit"
-      className={`rounded-full outline-none ${classButton}`}
+      className={`rounded-full outline-none ${className}`}
       disabled={pending}
       onClick={() => onClick?.()}
     >
       {pending ? (
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white" />
       ) : (
-        <div
-          className={`text-lg font-medium leading-relaxed text-white ${classText}`}
-        >
-          {text}
-        </div>
+        children
       )}
     </button>
   )
