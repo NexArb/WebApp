@@ -3,12 +3,12 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useUserStore } from '@/lib/store'
+import { useModalStore, useUserStore } from '@/lib/store'
 import { arbswapNavbarLinks } from '@/constants'
 
 function ArbSwapNavbar() {
   const [nav, setNav] = useState(false)
-  const { toggleModal } = useUserStore()
+  const { toggleModal } = useModalStore()
 
   return (
     <nav className="z-10 p-10">

@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation'
 
 import { useStepStore } from '@/lib/store'
 import getFormattedDateTime from './CurrentDate'
-import CustomButton from '@/components/CustomButton'
+import CustomButton from '@/components/CustomComponents/Button'
 
 function Pricing() {
   const router = useRouter()

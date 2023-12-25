@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { useDashboardStore, useStepStore } from '@/lib/store'
+import { useModalStore, useStepStore } from '@/lib/store'
 import getFormattedDateTime from './CurrentDate'
-import CustomButton from '@/components/CustomButton'
+import CustomButton from '@/components/CustomComponents/Button'
 
 function PaymentMethod() {
   const nextStep = useStepStore((state) => state.nextStep)
 
-  const { showModal, toggleModal } = useDashboardStore()
+  const { showModal, toggleModal } = useModalStore()
   if (!showModal) return null
 
   return (
@@ -63,10 +63,10 @@ function PaymentMethod() {
       </div>
       <div className="mt-9 grid grid-cols-2 gap-3">
         <CustomButton className="border bg-zinc-400 py-2" onClick={toggleModal}>
-          <span className='text-white'>Previous</span>
+          <span className="text-white">Previous</span>
         </CustomButton>
         <CustomButton className="border bg-blue-600 py-2" onClick={nextStep}>
-          <span className='text-white'>Next</span>
+          <span className="text-white">Next</span>
         </CustomButton>
       </div>
     </div>

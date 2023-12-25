@@ -1,4 +1,4 @@
-export type DashboardState = {
+export type ModalState = {
   showModal: boolean
   toggleModal: () => void
 }
@@ -17,8 +17,6 @@ export type User = {
 }
 
 export type UserState = {
-  showModal: boolean
-  toggleModal: () => void
   rememberDevice: boolean
   setRememberDevice: (value: boolean) => void;
   emailOrPhone: string

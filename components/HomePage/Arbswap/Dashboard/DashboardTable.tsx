@@ -2,13 +2,13 @@ import React from 'react'
 
 import StarRating from './StarRating'
 import { OfferListing } from '@/constants'
-import CustomButton from '@/components/CustomButton'
-import { useDashboardStore } from '@/lib/store'
+import CustomButton from '@/components/CustomComponents/Button'
+import { useModalStore } from '@/lib/store'
 
 type OfferProps = (typeof OfferListing)[number]
 
 function DashboardTable({ seller, payment, amount, price }: OfferProps) {
-  const { toggleModal } = useDashboardStore()
+  const { toggleModal } = useModalStore()
 
   return (
     <tr>

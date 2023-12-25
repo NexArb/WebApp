@@ -2,7 +2,7 @@
 
 import React, { Fragment } from 'react'
 
-import CustomButton from '@/components/CustomButton'
+import CustomButton from '@/components/CustomComponents/Button'
 import { OfferListing } from '@/constants'
 import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
 import Modal from '@/components/HomePage/Arbswap/Dashboard/Modal'

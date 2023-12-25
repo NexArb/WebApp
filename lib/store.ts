@@ -2,9 +2,9 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { sha256 } from 'js-sha256'
 
-import { DashboardState, FormState, UserState } from './types'
+import { ModalState, FormState, UserState } from './types'
 
-export const useDashboardStore = create<DashboardState>((set) => ({
+export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
   toggleModal: () => set((state) => ({ showModal: !state.showModal }))
 }))
@@ -25,8 +25,6 @@ export const useStepStore = create<FormState>((set, get) => ({
 export const useUserStore = create<UserState>()(
   persist(
     (set, get) => ({
-      showModal: false,
-      toggleModal: () => set((state) => ({ showModal: !state.showModal })),
       rememberDevice: false,
       setRememberDevice: (value: boolean) =>
         set((state) => ({ rememberDevice: value })),

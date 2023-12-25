@@ -1,19 +1,20 @@
-import React, { FormEvent, FormEventHandler, Fragment, useEffect } from 'react'
+import React, { FormEvent, FormEventHandler, useEffect } from 'react'
 
-import { useUserStore } from '@/lib/store'
-import CustomButton from '@/components/CustomButton'
+import { useModalStore, useUserStore } from '@/lib/store'
+import CustomButton from '@/components/CustomComponents/Button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function Modal() {
   const {
-    showModal,
-    toggleModal,
     login,
     emailOrPhone,
     setEmailOrPhone,
     rememberDevice,
     setRememberDevice
   } = useUserStore()
+
+  const { showModal, toggleModal } = useModalStore()
 
   // Add event listener on component mount and remove on unmount
   useEffect(() => {
@@ -128,9 +129,12 @@ function Modal() {
         <div className="p-4 text-[15px]">
           <div className="">
             Don't you have an account?{' '}
-            <span className="font-semibold text-emerald-400">
+            <Link
+              className="font-semibold text-emerald-400"
+              href="/arbswap/register"
+            >
               Sign in here!
-            </span>
+            </Link>
           </div>
           <div className="mt-2">
             Forgot Password?{' '}

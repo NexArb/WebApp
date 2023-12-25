@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-import CustomButton from '@/components/CustomButton'
+import CustomButton from '@/components/CustomComponents/Button'
 import IncomingOffers from '@/components/HomePage/Arbswap/Dashboard/Offers/IncomingOffers'
 import OffersSent from '@/components/HomePage/Arbswap/Dashboard/Offers/OffersSent'
 import OfferHistory from '@/components/HomePage/Arbswap/Dashboard/Offers/OfferHistory'

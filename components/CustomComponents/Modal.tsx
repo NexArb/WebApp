@@ -1,12 +1,16 @@
+'use client'
+
+import Link from 'next/link'
 import React, { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { useModalStore } from '@/lib/store'
 
-import { useModalStore, useStepStore } from '@/lib/store'
-import PaymentMethod from './PaymentMethod'
-import Pricing from './Pricing'
+type ModalProp = Readonly<{
+  children: React.ReactNode
+}>
 
-function Modal() {
-  const { step, resetStep } = useStepStore()
-
+const Modal = ({ children }: ModalProp) => {
+  const pathname = usePathname()
   const { showModal, toggleModal } = useModalStore()
 
   // Add event listener on component mount and remove on unmount
@@ -14,7 +18,6 @@ function Modal() {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         toggleModal()
-        resetStep()
       }
     }
 
@@ -24,14 +27,15 @@ function Modal() {
     return () => {
       window.removeEventListener('keydown', handleEsc)
     }
-  }, [resetStep, toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
+  }, [toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
 
+  // If clicked outside don't show modal anymore
   if (!showModal) return null
 
+  // If it's a keyboard event, only handle if 'Enter' or 'Space' was pressed
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLElement
     if (target.id === 'wrapper') {
-      // If it's a keyboard event, only handle if 'Enter' or 'Space' was pressed
       if (
         event instanceof KeyboardEvent &&
         !['Enter', ' '].includes(event.key)
@@ -39,7 +43,6 @@ function Modal() {
         return
       }
       toggleModal()
-      resetStep()
     }
   }
 
@@ -47,21 +50,21 @@ function Modal() {
     const target = event.target as HTMLElement
     if (target.id === 'wrapper') {
       toggleModal()
-      resetStep()
     }
   }
 
+  if (pathname === '/') return null
   return (
-    <button
+    <section
       id="wrapper"
       onKeyDown={handleKeyDown}
       onClick={handleClick}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm"
+      className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
       tabIndex={0}
     >
-      {step === 0 && <PaymentMethod />}
-      {step === 1 && <Pricing />}
-    </button>
+      <Link href="/" className="" />
+      {children}
+    </section>
   )
 }
 

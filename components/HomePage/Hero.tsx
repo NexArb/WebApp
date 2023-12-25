@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomButton from '@/components/CustomButton'
+import CustomButton from '@/components/CustomComponents/Button'
 import CustomNavbar from '@/components/CustomNavbar'
 
 function Hero() {
