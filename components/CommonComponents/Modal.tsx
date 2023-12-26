@@ -1,69 +1,51 @@
 'use client'
 
-import Link from 'next/link'
-import React, { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import React, { useEffect, useRef } from 'react'
 import { useModalStore } from '@/lib/store'
+import { useRouter } from 'next/navigation'
 
 type ModalProp = Readonly<{
   children: React.ReactNode
 }>
 
 const Modal = ({ children }: ModalProp) => {
-  const pathname = usePathname()
+  const ref = useRef<HTMLDivElement | null>(null)
+  const router = useRouter()
   const { showModal, toggleModal } = useModalStore()
 
   // Add event listener on component mount and remove on unmount
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
+    const handleEsc = (event: KeyboardEvent): void => {
       if (event.key === 'Escape') {
         toggleModal()
+        router.back()
+      }
+    }
+    const handleOutSideClick = (event: MouseEvent): void => {
+      if (!ref.current?.contains(event.target as Node)) {
+        toggleModal()
+        router.back()
       }
     }
 
     window.addEventListener('keydown', handleEsc)
-
+    window.addEventListener('mousedown', handleOutSideClick)
     // Clean up event listener on unmount
     return () => {
       window.removeEventListener('keydown', handleEsc)
+      window.removeEventListener('mousedown', handleOutSideClick)
     }
-  }, [toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
+  }, [router, toggleModal])
 
   // If clicked outside don't show modal anymore
   if (!showModal) return null
-
-  // If it's a keyboard event, only handle if 'Enter' or 'Space' was pressed
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLElement
-    if (target.id === 'wrapper') {
-      if (
-        event instanceof KeyboardEvent &&
-        !['Enter', ' '].includes(event.key)
-      ) {
-        return
-      }
-      toggleModal()
-    }
-  }
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLElement
-    if (target.id === 'wrapper') {
-      toggleModal()
-    }
-  }
-
-  if (pathname === '/') return null
   return (
     <section
       id="wrapper"
-      onKeyDown={handleKeyDown}
-      onClick={handleClick}
+      aria-modal="true"
       className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-      tabIndex={0}
     >
-      <Link href="/" className="" />
-      {children}
+      <div ref={ref}>{children}</div>
     </section>
   )
 }

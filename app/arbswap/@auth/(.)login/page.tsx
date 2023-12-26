@@ -79,7 +79,7 @@ function Login() {
           </Button>
         </form>
         <div className="p-4 text-[15px]">
-          <div className="">
+          <div className="mt-2">
             Don't you have an account?{' '}
             <Link
               className="font-semibold text-emerald-400"
@@ -90,7 +90,7 @@ function Login() {
           </div>
           <div className="mt-2">
             Forgot Password?{' '}
-            <span className="font-semibold text-emerald-400">Verify here.</span>
+            <Link className="font-semibold text-emerald-400" href="/arbswap/forgot-password">Verify here.</Link>
           </div>
         </div>
         <Button
