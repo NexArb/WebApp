@@ -5,8 +5,6 @@ import React, { FormEvent, FormEventHandler } from 'react'
 import { useUserStore } from '@/lib/store'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
-import Image from 'next/image'
-import Link from 'next/link'
 
 function Register() {
   const {
@@ -44,7 +42,7 @@ function Register() {
   }
 
   return (
-    <Modal>
+    <Modal routerBack="/arbswap">
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
         <form onSubmit={handleSubmit} className="flex flex-col">
           <span className="px-4 py-2">Email</span>

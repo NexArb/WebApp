@@ -44,7 +44,7 @@ function Login() {
   }
 
   return (
-    <Modal>
+    <Modal routerBack="/arbswap">
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
         <form onSubmit={handleSubmit} className="flex flex-col">
           <span className="px-4 py-2">Email or Phone number</span>
@@ -90,7 +90,12 @@ function Login() {
           </div>
           <div className="mt-2">
             Forgot Password?{' '}
-            <Link className="font-semibold text-emerald-400" href="/arbswap/forgot-password">Verify here.</Link>
+            <Link
+              className="font-semibold text-emerald-400"
+              href="/arbswap/forgot-password"
+            >
+              Verify here.
+            </Link>
           </div>
         </div>
         <Button

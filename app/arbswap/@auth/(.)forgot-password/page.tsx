@@ -4,7 +4,7 @@ import React from 'react'
 
 function ForgotPassword() {
   return (
-    <Modal>
+    <Modal routerBack="/arbswap">
       <></>
       {/* <ForgotPassword /> */}
     </Modal>

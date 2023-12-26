@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useModalStore, useUserStore } from '@/lib/store'
+import { useModalStore } from '@/lib/store'
 import { arbswapNavbarLinks } from '@/constants'
 
 function ArbSwapNavbar() {
