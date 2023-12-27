@@ -5,8 +5,10 @@ import React, { FormEvent, FormEventHandler } from 'react'
 import { useUserStore } from '@/lib/store'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
+import { useRouter } from 'next/navigation'
 
 function Register() {
+  const router = useRouter()
   const {
     login,
     emailOrPhone,
@@ -39,6 +41,10 @@ function Register() {
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const handleNext = () => {
+    router.push('/arbswap/register-wallet')
   }
 
   return (
@@ -82,7 +88,7 @@ function Register() {
           </div>
           <Button
             className="mt-10 h-12 w-full items-center justify-center rounded-[50px] bg-gradient-button text-center shadow"
-            onClick={() => {}}
+            onClick={handleNext}
           >
             <div className="flex flex-row items-center justify-center gap-4">
               Next

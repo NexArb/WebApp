@@ -6,8 +6,22 @@ import Button from '@/components/CommonComponents/Button'
 import { OfferListing } from '@/constants'
 import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
 import getFormattedDateTime from '@/hooks/CurrentDate'
+import { useRouter, usePathname } from 'next/navigation'
+import { useModalStore } from '@/lib/store'
 
 function page() {
+  const pathname = usePathname()
+  const router = useRouter()
+  const { showModal } = useModalStore()
+
+  if (
+    (pathname === '/arbswap/dashboard/payment-method' ||
+      pathname === '/arbswap/dashboard/pricing') &&
+    showModal
+  ) {
+    router.push('/arbswap/dashboard')
+  }
+
   return (
     <section className="flexCenter gap-6 pt-12">
       {/* Left Rectangle */}
