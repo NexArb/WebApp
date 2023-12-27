@@ -11,14 +11,14 @@ import ArbSwapFooter from '@/components/CustomFooter/ArbSwap'
 const Solana = (): React.JSX.Element => {
   return (
     <div className="bg-gradient-to-br from-blue-950 via-black to-purple-900">
-      <ArbSwapNavbar/>
-      <Intro/>
-      <ExchangeRates/>
-      <SolanaStatistics/>
-      <Steps/>
-      <SolanaWorld/>
-      <Confidentiality/>
-      <ArbSwapFooter/>
+      <ArbSwapNavbar />
+      <Intro />
+      <ExchangeRates />
+      <SolanaStatistics />
+      <Steps />
+      <SolanaWorld />
+      <Confidentiality />
+      <ArbSwapFooter />
     </div>
   )
 }

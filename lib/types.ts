@@ -11,7 +11,7 @@ export type User = {
 
 export type UserState = {
   rememberDevice: boolean
-  setRememberDevice: (value: boolean) => void;
+  setRememberDevice: (value: boolean) => void
   emailOrPhone: string
   setEmailOrPhone: (event: React.ChangeEvent<HTMLInputElement>) => void
   isAuthenticated: boolean

@@ -12,7 +12,7 @@
 
 .bridge-edit input {
   color: var(--Beyaz, #fff);
-  font-family: "Electrolize", sans-serif;
+  font-family: 'Electrolize', sans-serif;
   font-size: 18.9px;
   font-style: normal;
   font-weight: 400;
@@ -35,6 +35,5 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color:#6d60c080;
+  background-color: #6d60c080;
 }
-

@@ -35,7 +35,7 @@ const ComposeBridge = () => {
         </p>
       </div>
       <div className="flexCenter mt-20">
-        <button className="h-[55px] rounded-full bg-emerald-400 text-black px-20 md:px-40">
+        <button className="h-[55px] rounded-full bg-emerald-400 px-20 text-black md:px-40">
           Start Bridge
         </button>
       </div>
