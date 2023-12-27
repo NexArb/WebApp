@@ -3,13 +3,6 @@ export type ModalState = {
   toggleModal: () => void
 }
 
-export type FormState = {
-  step: number
-  nextStep: () => void
-  prevStep: () => void
-  resetStep: () => void
-}
-
 export type User = {
   name?: string
   email: string

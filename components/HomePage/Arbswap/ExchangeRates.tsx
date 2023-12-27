@@ -59,7 +59,7 @@ const PriceCard = ({ symbol, name, color }: Coin) => {
       setLowestPrice(res.sort((p1, p2) => p1.value < p2.value ? 1 : -1)[0].value.toFixed(3))
       const _priceChartData = [];
       const newData = {
-        data: res.filter((price)=> price.value != 0).slice(0,20).map((price) => ({
+        data: res.filter((price)=> price.value !== 0).slice(0,20).map((price) => ({
           x: price.value.toFixed(2),
           y: price.timestamp,
         })),
@@ -69,7 +69,7 @@ const PriceCard = ({ symbol, name, color }: Coin) => {
       _priceChartData.push(newData);
       setPriceChartData(_priceChartData);
     })
-  }, [])
+  }, [symbol])
   return (
     <div className="bg-indigo-950 w-80 rounded-2xl p-5">
       <div className="flex justify-between">

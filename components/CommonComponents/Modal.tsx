@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+
 import { useModalStore } from '@/lib/store'
 import { useRouter } from 'next/navigation'
 
@@ -12,7 +13,6 @@ type ModalProp = Readonly<{
 const Modal = ({ children, routerBack }: ModalProp) => {
   const router = useRouter()
   const { showModal, toggleModal } = useModalStore()
-  console.log(routerBack)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLElement

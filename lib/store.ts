@@ -2,24 +2,11 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { sha256 } from 'js-sha256'
 
-import { ModalState, FormState, UserState } from './types'
+import { ModalState, UserState } from './types'
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
   toggleModal: () => set((state) => ({ showModal: !state.showModal }))
-}))
-
-export const useStepStore = create<FormState>((set, get) => ({
-  step: 0,
-  nextStep: () => {
-    const { step } = get()
-    set({ step: step + 1 })
-  },
-  prevStep: () => {
-    const { step } = get()
-    set({ step: step - 1 })
-  },
-  resetStep: () => set({ step: 0 })
 }))
 
 export const useUserStore = create<UserState>()(

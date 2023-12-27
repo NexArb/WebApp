@@ -1,4 +1,7 @@
+'use client'
+
 import React, { ReactNode } from 'react'
+
 import { useFormStatus } from 'react-dom'
 
 type ButtonProps = Readonly<{

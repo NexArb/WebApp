@@ -4,7 +4,7 @@ const Steps = (): React.JSX.Element => {
   return (
     <div>
       <p className="mx-auto mt-48 text-center text-5xl">
-            Simple steps to get started
+        Simple steps to get started
       </p>
       <div className="mt-24 grid grid-flow-col grid-rows-3 justify-evenly gap-20">
         <div>
@@ -47,7 +47,9 @@ const Steps = (): React.JSX.Element => {
             </div>
             <div>
               <p className="text-xl">Start trading</p>
-              <p className="mt-3 opacity-60">Start trading at your desired rate, and get paid.</p>
+              <p className="mt-3 opacity-60">
+                Start trading at your desired rate, and get paid.
+              </p>
             </div>
           </div>
         </div>
