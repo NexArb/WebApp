@@ -2,7 +2,7 @@
 
 import React, { FormEvent, FormEventHandler } from 'react'
 
-import { useUserStore } from '@/lib/store'
+import { useUserStore } from '@/hooks/userStore'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
 import Image from 'next/image'
@@ -16,6 +16,7 @@ function Login() {
     rememberDevice,
     setRememberDevice
   } = useUserStore()
+  console.log(process.env.NEXT_PUBLIC_API_URL)
 
   const handleSubmit: FormEventHandler = async (e: FormEvent) => {
     e.preventDefault()

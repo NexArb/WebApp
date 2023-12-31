@@ -2,7 +2,7 @@
 
 import React, { FormEvent, FormEventHandler } from 'react'
 
-import { useUserStore } from '@/lib/store'
+import { useUserStore } from '@/hooks/userStore'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
 import { useRouter } from 'next/navigation'

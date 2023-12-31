@@ -3,8 +3,8 @@
 import React from 'react'
 
 import { useRouter } from 'next/navigation'
-import { useModalStore } from '@/lib/store'
-import getFormattedDateTime from '@/hooks/CurrentDate'
+import { useModalStore } from '@/hooks/userStore'
+import getFormattedDateTime from '@/hooks/useCurrentDate'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
 

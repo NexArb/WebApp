@@ -331,7 +331,7 @@
     ],
     "no-with": "warn",
     "no-whitespace-before-property": "warn",
-    // "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "warn",
     "require-yield": "warn",
     "rest-spread-spacing": ["warn", "never"],
     "strict": ["warn", "never"],
@@ -361,7 +361,7 @@
     "react/react-in-jsx-scope": "error",
     "react/require-render-return": "error",
     "react/style-prop-object": "warn",
-    // "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "error",
     // "@typescript-eslint/non-nullable-type-assertion-style": "warn",
     "@typescript-eslint/prefer-as-const": "warn",
     "@typescript-eslint/no-redeclare": [

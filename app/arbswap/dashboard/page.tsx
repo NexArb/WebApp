@@ -5,22 +5,11 @@ import React, { Fragment } from 'react'
 import Button from '@/components/CommonComponents/Button'
 import { OfferListing } from '@/constants'
 import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
-import getFormattedDateTime from '@/hooks/CurrentDate'
-import { useRouter, usePathname } from 'next/navigation'
-import { useModalStore } from '@/lib/store'
+import getFormattedDateTime from '@/hooks/useCurrentDate'
+// import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
 
 function page() {
-  const pathname = usePathname()
-  const router = useRouter()
-  const { showModal } = useModalStore()
-
-  if (
-    (pathname === '/arbswap/dashboard/payment-method' ||
-      pathname === '/arbswap/dashboard/pricing') &&
-    showModal
-  ) {
-    router.push('/arbswap/dashboard')
-  }
+  // useRedirectIfModalOpen()
 
   return (
     <section className="flexCenter gap-6 pt-12">

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { OfferListing } from '@/constants'
 import Button from '@/components/CommonComponents/Button'
-import { useModalStore } from '@/lib/store'
+import { useModalStore } from '@/hooks/userStore'
 
 type OfferProps = (typeof OfferListing)[number]
 

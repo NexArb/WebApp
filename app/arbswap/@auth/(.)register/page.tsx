@@ -1,99 +1,136 @@
 'use client'
 
-import React, { FormEvent, FormEventHandler } from 'react'
-
-import { useUserStore } from '@/lib/store'
-import Button from '@/components/CommonComponents/Button'
+import React from 'react'
+import { useForm } from 'react-hook-form'
 import Modal from '@/components/CommonComponents/Modal'
 import { useRouter } from 'next/navigation'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { TRegisterSchema, registerSchema } from '@/types/authValidation.types'
 
 function Register() {
   const router = useRouter()
   const {
-    login,
-    emailOrPhone,
-    setEmailOrPhone,
-    rememberDevice,
-    setRememberDevice
-  } = useUserStore()
-
-  const handleSubmit: FormEventHandler = async (e: FormEvent) => {
-    e.preventDefault()
-    const formData: FormData = new FormData(e.target as HTMLFormElement)
-    const formValues: { [k: string]: FormDataEntryValue } =
-      Object.fromEntries(formData)
-
-    const { username, password } = formValues
-
-    try {
-      const res = await fetch('${}/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-      })
-
-      if (res.status === 201) {
-        const data = await res.json()
-        login(data.access_token)
-      }
-    } catch (err) {
-      console.log(err)
-    }
-  }
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    setError
+  } = useForm<TRegisterSchema>({ resolver: zodResolver(registerSchema) })
 
   const handleNext = () => {
     router.push('/arbswap/register-wallet')
   }
 
+  const onSubmit = async (data: TRegisterSchema) => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/register`,
+        {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      const responseData = await response.json()
+
+      if (!response.ok) {
+        // response status is not 2xx
+        alert('Submitting form failed!')
+        // handleNext()
+      }
+
+      if (responseData.errors) {
+        const errors = responseData.errors
+        if (errors.email) {
+          setError('email', {
+            type: 'server',
+            message: errors.email
+          })
+        } else if (errors.password) {
+          setError('password', {
+            type: 'server',
+            message: errors.password
+          })
+        } else if (errors.confirmPassword) {
+          setError('confirmPassword', {
+            type: 'server',
+            message: errors.confirmPassword
+          })
+        } else {
+          alert('Something went wrong!')
+        }
+      }
+    } catch (err) {
+      console.log(err)
+    }
+
+    reset()
+  }
+
   return (
     <Modal routerBack="/arbswap">
-      <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
-        <form onSubmit={handleSubmit} className="flex flex-col">
-          <span className="px-4 py-2">Email</span>
+      <div className="flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+          <label htmlFor="email" className="px-4 py-2">
+            Email
+          </label>
           <input
+            {...register('email')}
+            aria-label="Enter a valid email"
             type="text"
-            name="username"
+            id="email"
             placeholder="Enter a valid email"
-            value={emailOrPhone}
-            onChange={setEmailOrPhone}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
-            required
           />
-          <span className="mt-6 px-4 py-2">Choose Password</span>
+          {errors.email && (
+            <p className="px-6 pt-2 text-red-500">{`${errors.email.message}`}</p>
+          )}
+          <label htmlFor="password" className="mt-4 px-4 py-2">
+            Choose Password
+          </label>
           <input
+            {...register('password')}
             type="password"
-            name="password"
             placeholder="Enter your password"
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
-            required
           />
-          <span className="mt-6 px-4 py-2">Password Again</span>
+          {errors.password && (
+            <p className="px-6 pt-2 text-red-500">{`${errors.password.message}`}</p>
+          )}
+          <label htmlFor="confirmPassword" className="mt-4 px-4 py-2">
+            Password Again
+          </label>
           <input
+            {...register('confirmPassword')}
             type="password"
-            name="password"
-            placeholder="Enter your password"
+            placeholder="Confirm your password"
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
-            required
           />
-          <div className="mt-2 p-4">
+          {errors.confirmPassword && (
+            <p className="px-6 pt-2 text-red-500">{`${errors.confirmPassword.message}`}</p>
+          )}
+          <label className="mt-2 px-1 py-2">
             <input
               type="checkbox"
-              checked={rememberDevice}
-              onChange={(e) => setRememberDevice(e.target.checked)}
+              {...register('acceptTerms')}
               className="mr-4"
             />
             Accept the terms and conditions...
-          </div>
-          <Button
-            className="mt-10 h-12 w-full items-center justify-center rounded-[50px] bg-gradient-button text-center shadow"
-            onClick={handleNext}
+          </label>
+          {errors.acceptTerms && (
+            <p className="px-6 text-red-500">{`${errors.acceptTerms.message}`}</p>
+          )}
+          <button
+            type="submit"
+            className="mt-6 h-12 w-full items-center justify-center rounded-full bg-gradient-button text-center shadow outline-none"
+            disabled={isSubmitting}
           >
             <div className="flex flex-row items-center justify-center gap-4">
               Next
             </div>
-          </Button>
+          </button>
         </form>
       </div>
     </Modal>
