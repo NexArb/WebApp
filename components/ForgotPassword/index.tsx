@@ -1,54 +1,47 @@
 "use client"
 
 import React, { FormEvent, useState } from 'react'
-import axios from "axios";
+import { sendPasswordResetRequest, setOtpChoice, verifyOtpAndUpdatePassword } from '@/services/ApiService';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [verificationCode, setVerificationCode] = useState("");  
-  const [isEmailSent, setIsEmailSent] = useState(false);
+  const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
   const [isVerificationCodeSubmitted, setIsVerificationCodeSubmitted] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordAgain, setNewPasswordAgain] = useState("");
   
-  const handleSubmitEmail = (e: FormEvent<HTMLFormElement>): void => {
+  const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const otpChoiceResponse = await setOtpChoice(email);
 
-    const body = {
-        email: email
-    };
-
-    //Logic will be applied
-
-    setIsEmailSent(true);
+    if (otpChoiceResponse.data.error_code === -1) {
+      sendPasswordResetRequest();
+      setIsEmailSubmitted(true);
+    }
+                      
   }
 
-  const handleSendVerificationCodeAgain = (e: FormEvent<HTMLFormElement>) => {
-    console.log("Error!");
+  const handleSendVerificationCodeAgain = async (e: FormEvent<HTMLFormElement>) => {
+    sendPasswordResetRequest();
   }
 
-  const handleSubmitVerificationCode = (e: FormEvent<HTMLFormElement>): void => {
+  const handleSubmitVerificationCode = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const body = {
-        verificationCode: verificationCode
-    };
-
-    //Logic will be applied.
-    
-
-    setIsVerificationCodeSubmitted(true);
+    if (verificationCode.length > 0) {
+      setIsVerificationCodeSubmitted(true);
+    }
   }
 
-  const handleChangePassword = (e: FormEvent<HTMLFormElement>): void => {
+  const handleChangePassword = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const body = {
-        newPassword: newPassword,
-        newPasswordAgain: newPasswordAgain
-    };
-
-    //Logic will be applied.
+    if (newPassword === newPasswordAgain) {
+      const verifyOtpAndUpdatePasswordResponse = await verifyOtpAndUpdatePassword(verificationCode, newPassword);
+      if (verifyOtpAndUpdatePasswordResponse.data.error_code === -1) {
+        alert("Password changed successfully!");
+      }
+    }
   }
 
   return (
@@ -64,10 +57,10 @@ const ForgotPassword = () => {
                 </div>
                 <div className="mt-10">
                     <form onSubmit={handleSubmitVerificationCode}>
-                        {isEmailSent ? <label className="ml-4 text-sm" htmlFor="verificationCode">Verification Code</label> : <label className="ml-4 text-sm opacity-50" htmlFor="verificationCode">Verification Code</label>}
-                        {isEmailSent ? <input id="verificationCode" className="w-full rounded-full bg-slate-700 mt-1" type="text" placeholder="Enter verification code" onChange={(e) => setVerificationCode(e.target.value)}/> : <input id="verificationCode" className="w-full rounded-full bg-slate-700 mt-1" type="text" placeholder="Enter verification code" disabled/>}
-                        {isEmailSent ? <p className="text-center text-sm mt-2 mb-20">Don't you get code? <span className="text-green-500">Send again</span></p> : <div className="mb-20"/>}
-                        {isEmailSent ? <button className="bg-gradient-to-r from-purple-700 via-blue-500 to-green-400 w-full rounded-full py-2 px-5" type="submit">Verify</button> : <button className="bg-gray-500 text-gray-400 w-full rounded-full opacity-50 cursor-not-allowed py-2 px-8" disabled>Verify</button>}
+                        {isEmailSubmitted ? <label className="ml-4 text-sm" htmlFor="verificationCode">Verification Code</label> : <label className="ml-4 text-sm opacity-50" htmlFor="verificationCode">Verification Code</label>}
+                        {isEmailSubmitted ? <input id="verificationCode" className="w-full rounded-full bg-slate-700 mt-1" type="text" placeholder="Enter verification code" onChange={(e) => setVerificationCode(e.target.value)}/> : <input id="verificationCode" className="w-full rounded-full bg-slate-700 mt-1" type="text" placeholder="Enter verification code" disabled/>}
+                        {isEmailSubmitted ? <p className="text-center text-sm mt-2 mb-20">Don't you get code? <span onClick={(e) => handleSendVerificationCodeAgain} className="text-green-500">Send again</span></p> : <div className="mb-20"/>}
+                        {isEmailSubmitted ? <button className="bg-gradient-to-r from-purple-700 via-blue-500 to-green-400 w-full rounded-full py-2 px-5" type="submit">Verify</button> : <button className="bg-gray-500 text-gray-400 w-full rounded-full opacity-50 cursor-not-allowed py-2 px-8" disabled>Verify</button>}
                     </form>
                 </div>
             </div>
