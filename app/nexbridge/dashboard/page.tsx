@@ -25,7 +25,7 @@ const Dashboard = () => {
               onClick={() => handleButtonClick(button.key)}
               className={`${
                 initialActiveButton === button.key
-                  ? 'bg-slate-200'
+                  ? 'bg-emerald-400  text-indigo-950'
                   : 'border border-emerald-500 bg-transparent text-emerald-500'
               } h-14 rounded-full `}
             >

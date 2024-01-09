@@ -1,10 +1,11 @@
+import axios from 'axios'
+
+export const register = async (user: string) => {
+  return axios.post('/auth/register', user)
+}
+
 /*
 Examples 
-
------ Function With Body -----
-const register = async (user: string) => {
-    return axios.post("/register", user);
-};
 
 ----- Function With Param -----
 const getUser = async (userId: string) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomButton from '@/components/CustomButton'
+import Button from '@/components/CommonComponents/Button'
 import CustomNavbar from '@/components/CustomNavbar'
 
 function Hero() {
@@ -24,11 +24,9 @@ function Hero() {
           process — you don’t have to think about any technical aspects. There
           are no limits and absolutely no coding.{' '}
         </div>
-        <CustomButton
-          classButton="mx-auto mt-4 h-14 rounded-full w-60 bg-gradient-button"
-          classText="text-lg"
-          text="Let's Meet"
-        />
+        <Button className="mx-auto mt-4 h-14 w-60 rounded-full bg-gradient-button">
+          <span className="text-lg">Let's Meet</span>
+        </Button>
       </div>
     </section>
   )

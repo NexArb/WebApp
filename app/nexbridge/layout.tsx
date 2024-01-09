@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
-import '../globals.css'
 import React from 'react'
 import { Providers } from '../providers'
-import NexBridgeCustomNavbar from '../../components/CustomNavbar/NexBridge'
+import NexBridgeCustomNavbar from '@/components/CustomNavbar/NexBridge'
 
 export const metadata: Metadata = {
   title: 'NexBridge',
@@ -12,11 +11,12 @@ export const metadata: Metadata = {
 type RootLayoutProps = Readonly<{
   children: React.ReactNode
 }>
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <section>
       <Providers>
-        <body
+        <div
           style={{
             background: "url('/img/nexbridge.png')",
             backgroundSize: 'cover'
@@ -24,8 +24,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <NexBridgeCustomNavbar />
           {children}
-        </body>
+        </div>
       </Providers>
-    </html>
+    </section>
   )
 }

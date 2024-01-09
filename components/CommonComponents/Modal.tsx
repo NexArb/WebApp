@@ -1,12 +1,17 @@
+'use client'
+
 import React, { useEffect } from 'react'
 
-import { useModalStore, useStepStore } from '@/lib/store'
-import PaymentMethod from './PaymentMethod'
-import Pricing from './Pricing'
+import { useModalStore } from '@/hooks/userStore'
+import { useRouter } from 'next/navigation'
 
-function Modal() {
-  const { step, resetStep } = useStepStore()
+type ModalProp = Readonly<{
+  children: React.ReactNode
+  routerBack: string
+}>
 
+const Modal = ({ children, routerBack }: ModalProp) => {
+  const router = useRouter()
   const { showModal, toggleModal } = useModalStore()
 
   // Add event listener on component mount and remove on unmount
@@ -14,7 +19,7 @@ function Modal() {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         toggleModal()
-        resetStep()
+        router.push(routerBack)
       }
     }
 
@@ -24,9 +29,7 @@ function Modal() {
     return () => {
       window.removeEventListener('keydown', handleEsc)
     }
-  }, [resetStep, toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
-
-  if (!showModal) return null
+  }, [router, routerBack, toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLElement
@@ -39,29 +42,33 @@ function Modal() {
         return
       }
       toggleModal()
-      resetStep()
     }
   }
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLElement
     if (target.id === 'wrapper') {
-      toggleModal()
-      resetStep()
+      try {
+        toggleModal()
+        router.push(routerBack)
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 
+  if (!showModal) return null
   return (
-    <button
+    <section
+      role="dialog"
       id="wrapper"
+      aria-modal="true"
       onKeyDown={handleKeyDown}
       onClick={handleClick}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm"
-      tabIndex={0}
+      className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
     >
-      {step === 0 && <PaymentMethod />}
-      {step === 1 && <Pricing />}
-    </button>
+      {children}
+    </section>
   )
 }
 
