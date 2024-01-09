@@ -16,12 +16,12 @@ function ArbSwapNavbar() {
     {
       id: 2,
       link: 'Create Offer',
-      href: 'arbswap/offer'
+      href: 'arbswap/dashboard'
     },
     {
       id: 3,
-      link: 'Support',
-      href: 'arbswap/support'
+      link: 'Look at Offers',
+      href: 'arbswap/dashboard'
     },
     {
       id: 4,
@@ -75,11 +75,11 @@ function ArbSwapNavbar() {
           <Link className="px-2 lg:px-5" href="/about">
             About Us
           </Link>
-          <Link className="px-2 lg:px-5" href="/arbswap/offer">
+          <Link className="px-2 lg:px-5" href="/arbswap/dashboard">
             Create Offer
           </Link>
-          <Link className="px-2 lg:px-5" href="/arbswap/support">
-            Support
+          <Link className="px-2 lg:px-5" href="/arbswap/dashboard">
+            Look at Offers
           </Link>
           <Link className="px-1 lg:px-3" href="/solana">
             <div className="rounded-full bg-gradient-button p-px">
