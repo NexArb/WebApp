@@ -25,9 +25,8 @@ function HomeFooter() {
                 Let’s Keep in Touch
               </div>
               <div className="my-8 text-2xl font-medium leading-loose">
-                We have created a new product that will help designers,
-                developers and companies create websites for their startups
-                quickly and easily.
+                We have created a new product that will help blockchain users,
+                developers and companies to swap their assets or send messages on cross chain.
               </div>
               <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-5">
@@ -38,7 +37,7 @@ function HomeFooter() {
                     height={19}
                   />
                   <div className="text-base leading-relaxed">
-                    +1 555 505 5050
+                    +49 176 844 918 89
                   </div>
                 </div>
                 <div className="flex items-center gap-5">
@@ -49,7 +48,7 @@ function HomeFooter() {
                     height={16}
                   />
                   <div className="text-base leading-relaxed">
-                    info@designmodo.com
+                    business@nexarb.com
                   </div>
                 </div>
                 <div className="flex items-center gap-5">
@@ -60,8 +59,7 @@ function HomeFooter() {
                     height={19}
                   />
                   <div className="text-base leading-relaxed">
-                    San Francisco, CA560 Bush St & 20th Ave, Apt5 San Francisco,
-                    230909
+                    Munich, Germany
                   </div>
                 </div>
               </div>

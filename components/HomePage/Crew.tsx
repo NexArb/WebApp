@@ -38,9 +38,7 @@ function Crew() {
     <section className="flexCenter mb-72 mt-96 flex-col">
       <div className="text-center text-5xl font-bold">Startup Crew</div>
       <div className="mt-9 p-8 text-center text-2xl font-medium leading-loose lg:w-[754px]">
-        The most important part of the Startup Framework is the samples. The
-        samples form a set of 25 usable pages you can use as is or you can add
-        new blocks from UI Kit.
+
       </div>
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-20">
         {CREW.map((crew) => (
