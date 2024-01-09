@@ -10,6 +10,31 @@ function ArbSwapNavbar() {
   const [nav, setNav] = useState(false)
   const { toggleModal } = useModalStore()
 
+  const links = [
+    {
+      id: 1,
+      link: 'About Us',
+      href: 'about'
+    },
+    {
+      id: 2,
+      link: 'Create Offer',
+      href: 'arbswap/offer'
+    },
+    {
+      id: 3,
+      link: 'Support',
+      href: 'arbswap/support'
+    },
+    {
+      id: 4,
+      link: 'Near',
+      href: 'near'
+    },
+  ]
+
+  const commonStyles = "block h-1 rounded-sm bg-white transition-all duration-300 ease-out -translate-y-0.5";
+
   return (
     <nav className="z-10 p-10">
       <div className="flex items-center justify-evenly p-0">
@@ -21,20 +46,17 @@ function ArbSwapNavbar() {
         >
           <div className="justify-end space-y-2">
             <span
-              className={`block h-1 w-9 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
+              className={`${commonStyles} w-9 ${
+                      nav ? 'translate-y-1.5 rotate-45' : ''
                     }`}
             />
             <span
-              className={`mx-3 block h-1 w-6 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav ? 'hidden' : '-translate-y-0.5'
+              className={`${commonStyles} mx-3 w-6 ${
+                      nav ? 'hidden' : ''
                     }`}
             />
             <span
-              className={`-mx-1 block h-1 w-10 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
+              className={`${commonStyles} -mx-1 w-10 ${
                       nav
                         ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
                         : '-translate-y-0.5'
