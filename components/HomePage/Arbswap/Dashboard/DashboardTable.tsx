@@ -3,7 +3,7 @@ import React from 'react'
 import StarRating from './StarRating'
 import { OfferListing } from '@/constants'
 import { useModalStore } from '@/hooks/userStore'
-import Button from '@/components/CommonComponents/Button'
+import Link from 'next/link'
 
 type OfferProps = (typeof OfferListing)[number]
 
@@ -29,12 +29,13 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
       <td className="px-4 text-base font-medium text-slate-950">{amount}</td>
       <td className="px-4 text-base font-medium text-slate-950">{price}</td>
       <td>
-        <Button
-          className="bg-blue-600 px-6 py-2 outline-none"
+        <Link
+          className="rounded-full bg-blue-600 px-6 py-2 outline-none"
           onClick={toggleModal}
+          href={'/arbswap/dashboard/payment-method'}
         >
           <span className="text-sm">MAKE AN OFFER</span>
-        </Button>
+        </Link>
       </td>
     </tr>
   )
