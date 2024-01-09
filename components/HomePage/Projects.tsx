@@ -27,9 +27,7 @@ function Projects() {
     <section className="flexCenter mt-36 flex-col">
       <div className="text-5xl font-bold leading-10">Our Works</div>
       <div className="mt-6 text-center text-2xl leading-loose lg:w-[722px]">
-        The most important part of the Startup Framework is the samples. The
-        samples form a set of 20 usable pages you can use as is or you can add
-        new blocks from UI Kit.
+      Our P2P Swap platform and Near Based Cross Change Messaging Platform
       </div>
       <div className="mt-10 grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
         {PROJECTS.map((project) => (
