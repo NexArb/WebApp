@@ -5,11 +5,6 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXJpc3llbmlndW4i
 /*
 Examples 
 
------ Function With Body -----
-const register = async (user: string) => {
-    return axios.post("/register", user);
-};
-
 ----- Function With Param -----
 const getUser = async (userId: string) => {
     return axios.get("/user/" + userId);

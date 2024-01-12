@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { OfferListing } from '@/constants'
-import CustomButton from '@/components/CustomButton'
-import { useModalStore } from '@/lib/store'
+import Button from '@/components/CommonComponents/Button'
+import { useModalStore } from '@/hooks/userStore'
 
 type OfferProps = (typeof OfferListing)[number]
 
@@ -26,28 +26,28 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
         <span>{price}</span>
       </td>
       <td>
-        <CustomButton
-          classButton="border border-emerald-400 bg-emerald-400 bg-opacity-10 px-8 py-2 mr-6 ml-10"
-          classText="text-xs font-medium !text-emerald-400"
-          text="ACCEPT"
+        <Button
+          className="ml-10 mr-6 border border-emerald-400 bg-emerald-400 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
-        />
+        >
+          <span className="text-emerald-400 ">ACCEPT</span>
+        </Button>
       </td>
       <td>
-        <CustomButton
-          classButton="border border-red-600 bg-red-600 bg-opacity-10 px-8 py-2 mr-6"
-          classText="text-xs font-medium !text-red-600"
-          text="REJECT"
+        <Button
+          className="mr-6 border border-red-600 bg-red-600 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
-        />
+        >
+          <span className="text-red-600">REJECT</span>
+        </Button>
       </td>
       <td>
-        <CustomButton
-          classButton="border border-blue-600 bg-blue-600 bg-opacity-10 px-8 py-2 mr-5"
-          classText="text-xs font-medium !text-blue-600"
-          text="REPLY"
+        <Button
+          className="mr-5 border border-blue-600 bg-blue-600 bg-opacity-10 px-8 py-2"
           onClick={toggleModal}
-        />
+        >
+          <span className="text-blue-600">REPLY</span>
+        </Button>
       </td>
     </tr>
   )
