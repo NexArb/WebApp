@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 export const useNexarbApi = <ResponseBody = any, RequestConfig = any>(
   apiFunction: (config?: RequestConfig) => Promise<{ data: ResponseBody }>,
-  requestConfig?: RequestConfig,
+  requestConfig?: RequestConfig
 ) => {
   const [data, setData] = useState<ResponseBody>()
   const [loading, setLoading] = useState<boolean>(true)

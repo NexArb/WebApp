@@ -261,7 +261,7 @@ export const packages = [
       'Limited access',
       'Starter support'
     ],
-    price: "9.50"
+    price: '9.50'
   },
   {
     title: 'MEDIUM',
@@ -271,7 +271,7 @@ export const packages = [
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
       'Priority support'
     ],
-    price: "19.50"
+    price: '19.50'
   },
   {
     title: 'PRO',
@@ -281,10 +281,9 @@ export const packages = [
       'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       'Premium support'
     ],
-    price: "29.50"
+    price: '29.50'
   }
 ]
-
 
 export const arbswapNavbarLinks = [
   {
