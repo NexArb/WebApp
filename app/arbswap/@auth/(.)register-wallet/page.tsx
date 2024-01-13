@@ -2,7 +2,6 @@
 
 import React, { FormEvent, FormEventHandler } from 'react'
 
-import { useUserStore } from '@/hooks/userStore'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
 import { useRouter } from 'next/navigation'
@@ -10,29 +9,10 @@ import Image from 'next/image'
 
 function RegisterWallet() {
   const router = useRouter()
-  const { login } = useUserStore()
 
   const handleSubmit: FormEventHandler = async (e: FormEvent) => {
-    e.preventDefault()
-    const formData: FormData = new FormData(e.target as HTMLFormElement)
-    const formValues: { [k: string]: FormDataEntryValue } =
-      Object.fromEntries(formData)
-
-    const { username, password } = formValues
-
     try {
-      const res = await fetch('${}/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-      })
 
-      if (res.status === 201) {
-        const data = await res.json()
-        login(data.access_token)
-      }
     } catch (err) {
       console.log(err)
     }

@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect, useState } from 'react'
 import redstone from 'redstone-api'
 import { ResponsiveLine } from '@nivo/line'
@@ -66,7 +67,8 @@ const PriceCard = ({ symbol, name, color }: Coin) => {
             x: price.value.toFixed(2),
             y: price.timestamp
           })),
-        id: res.length > 0 ? res[0].symbol : '', // Check if 'res' has elements before accessing 'symbol'
+        // Check if 'res' has elements before accessing 'symbol'
+        id: res.length > 0 ? res[0].symbol : '',
         color: 'hsl(133, 70%, 50%)'
       }
       _priceChartData.push(newData)

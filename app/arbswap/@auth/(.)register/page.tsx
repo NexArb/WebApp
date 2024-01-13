@@ -23,6 +23,7 @@ function Register() {
 
   const onSubmit = async (data: TRegisterSchema) => {
     try {
+      // ApiService function pass data, return response
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/register`,
         {
@@ -38,7 +39,7 @@ function Register() {
       if (!response.ok) {
         // response status is not 2xx
         alert('Submitting form failed!')
-        // handleNext()
+        handleNext()
       }
 
       if (responseData.errors) {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Steps = (): React.JSX.Element => {
+const Steps = () => {
   return (
     <div>
       <p className="mx-auto mt-48 text-center text-5xl">

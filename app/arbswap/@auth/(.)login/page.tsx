@@ -2,43 +2,14 @@
 
 import React, { FormEvent, FormEventHandler } from 'react'
 
-import { useUserStore } from '@/hooks/userStore'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
 import Image from 'next/image'
 import Link from 'next/link'
 
 function Login() {
-  const {
-    login,
-    emailOrPhone,
-    setEmailOrPhone,
-    rememberDevice,
-    setRememberDevice
-  } = useUserStore()
-  console.log(process.env.NEXT_PUBLIC_API_URL)
-
   const handleSubmit: FormEventHandler = async (e: FormEvent) => {
-    e.preventDefault()
-    const formData: FormData = new FormData(e.target as HTMLFormElement)
-    const formValues: { [k: string]: FormDataEntryValue } =
-      Object.fromEntries(formData)
-
-    const { username, password } = formValues
-
     try {
-      const res = await fetch('${}/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-      })
-
-      if (res.status === 201) {
-        const data = await res.json()
-        login(data.access_token)
-      }
     } catch (err) {
       console.log(err)
     }
@@ -53,8 +24,8 @@ function Login() {
             type="text"
             name="username"
             placeholder="Enter your username"
-            value={emailOrPhone}
-            onChange={setEmailOrPhone}
+            // value={emailOrPhone}
+            // onChange={setEmailOrPhone}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
             required
           />
@@ -69,8 +40,8 @@ function Login() {
           <div className="mt-2 p-4">
             <input
               type="checkbox"
-              checked={rememberDevice}
-              onChange={(e) => setRememberDevice(e.target.checked)}
+              // checked={rememberDevice}
+              // onChange={(e) => setRememberDevice(e.target.checked)}
               className="mr-4"
             />
             Remember this device:

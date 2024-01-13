@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const SolanaStatistics = (): React.JSX.Element => {
+const SolanaStatistics = () => {
   return (
     <div>
       <div className="mt-32 flex justify-evenly">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const SolanaWorld = (): React.JSX.Element => {
+const SolanaWorld = () => {
   return (
     <div className="mt-72">
       <div className="flex justify-center">
