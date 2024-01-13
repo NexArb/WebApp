@@ -10,29 +10,6 @@ function ArbSwapNavbar() {
   const [nav, setNav] = useState(false)
   const { toggleModal } = useModalStore()
 
-  const links = [
-    {
-      id: 1,
-      link: 'About Us',
-      href: 'about'
-    },
-    {
-      id: 2,
-      link: 'Create Offer',
-      href: 'arbswap/offer'
-    },
-    {
-      id: 3,
-      link: 'Support',
-      href: 'arbswap/support'
-    },
-    {
-      id: 4,
-      link: 'Near',
-      href: 'near'
-    }
-  ]
-
   const commonStyles =
     'block h-1 rounded-sm bg-white transition-all duration-300 ease-out -translate-y-0.5'
 

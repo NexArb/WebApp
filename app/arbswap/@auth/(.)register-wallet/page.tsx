@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FormEvent, FormEventHandler } from 'react'
+import React from 'react'
 
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
@@ -9,14 +9,6 @@ import Image from 'next/image'
 
 function RegisterWallet() {
   const router = useRouter()
-
-  const handleSubmit: FormEventHandler = async (e: FormEvent) => {
-    try {
-
-    } catch (err) {
-      console.log(err)
-    }
-  }
 
   const handleNext = () => {
     router.push('/arbswap/register-wallet')
@@ -28,7 +20,7 @@ function RegisterWallet() {
         <div className="mx-auto p-10 text-center">
           Connect your Phantom wallet to continue register.
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form onSubmit={() => {}} className="flex flex-col">
           <Button
             className="mt-10 h-12 w-full items-center justify-center rounded-[50px] bg-[#9886E5] text-center shadow"
             onClick={() => {}}

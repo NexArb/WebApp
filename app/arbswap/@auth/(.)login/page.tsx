@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FormEvent, FormEventHandler } from 'react'
+import React from 'react'
 
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
@@ -8,24 +8,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 function Login() {
-  const handleSubmit: FormEventHandler = async (e: FormEvent) => {
-    try {
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   return (
     <Modal routerBack="/arbswap">
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form onSubmit={()=>{}} className="flex flex-col">
           <span className="px-4 py-2">Email or Phone number</span>
           <input
             type="text"
             name="username"
             placeholder="Enter your username"
-            // value={emailOrPhone}
-            // onChange={setEmailOrPhone}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
             required
           />
@@ -40,8 +31,6 @@ function Login() {
           <div className="mt-2 p-4">
             <input
               type="checkbox"
-              // checked={rememberDevice}
-              // onChange={(e) => setRememberDevice(e.target.checked)}
               className="mr-4"
             />
             Remember this device:

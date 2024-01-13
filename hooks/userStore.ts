@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { sha256 } from 'js-sha256'
 
 import { ModalState, UserState } from '@/types/userStore.types'
 
