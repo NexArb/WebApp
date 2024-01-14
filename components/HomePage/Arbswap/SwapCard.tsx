@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 
-const SwapCard = (): React.JSX.Element => {
+const SwapCard = () => {
   const [selectedOption, setSelectedOption] = useState('buy')
 
   return (

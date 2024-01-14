@@ -1,7 +1,7 @@
 import React from 'react'
 import SwapCard from './SwapCard'
 
-const Intro = (): React.JSX.Element => {
+const Intro = () => {
   return (
     <div className="flex flex-col lg:flex-row lg:items-center">
       <div className="lg:w-1/2 lg:pl-24">
