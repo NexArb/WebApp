@@ -1,11 +1,12 @@
 'use client'
 
 import React from 'react'
-import { useForm } from 'react-hook-form'
 import Modal from '@/components/CommonComponents/Modal'
+import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TRegisterSchema, registerSchema } from '@/types/authValidation.types'
+import { registerUser } from '@/services/ApiService'
 
 function Register() {
   const router = useRouter()
@@ -17,29 +18,15 @@ function Register() {
     setError
   } = useForm<TRegisterSchema>({ resolver: zodResolver(registerSchema) })
 
-  const handleNext = () => {
-    router.push('/arbswap/register-wallet')
-  }
-
   const onSubmit = async (data: TRegisterSchema) => {
     try {
       // ApiService function pass data, return response
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/register`,
-        {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-      const responseData = await response.json()
+      const response = await registerUser(data)
+      const responseData = response.data()
 
-      if (!response.ok) {
+      if (response.status < 200 || response.status >= 300) {
         // response status is not 2xx
-        alert('Submitting form failed!')
-        handleNext()
+        alert('Register failed!')
       }
 
       if (responseData.errors) {
@@ -62,9 +49,11 @@ function Register() {
         } else {
           alert('Something went wrong!')
         }
+      } else {
+        router.push('/arbswap/register-wallet')
       }
-    } catch (err) {
-      console.log(err)
+    } catch (e) {
+      console.log(e)
     }
 
     reset()
@@ -81,7 +70,6 @@ function Register() {
             {...register('email')}
             aria-label="Enter a valid email"
             type="text"
-            id="email"
             placeholder="Enter a valid email"
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
           />
@@ -93,6 +81,7 @@ function Register() {
           </label>
           <input
             {...register('password')}
+            aria-label="Enter your password"
             type="password"
             placeholder="Enter your password"
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
@@ -105,6 +94,7 @@ function Register() {
           </label>
           <input
             {...register('confirmPassword')}
+            aria-label="Confirm your password"
             type="password"
             placeholder="Confirm your password"
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
@@ -114,8 +104,9 @@ function Register() {
           )}
           <label className="mt-2 px-1 py-2">
             <input
-              type="checkbox"
               {...register('acceptTerms')}
+              aria-label="Accept the terms and conditions"
+              type="checkbox"
               className="mr-4"
             />
             Accept the terms and conditions...

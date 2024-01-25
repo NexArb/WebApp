@@ -4,8 +4,11 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { links } from '@/constants'
+import { useUserStore } from '@/hooks/useStore'
 
 function AppBar() {
+  // const { user, setUser } = useUserStore()
+  const user = 'sdafsdf'
   const [nav, setNav] = useState(false)
 
   return (
@@ -44,43 +47,76 @@ function AppBar() {
         <div className="mr-0.5 mt-3">
           <Link href="/">
             <Image
-              src="/img/nexarb_logo.png"
-              width={170}
-              height={38}
-              alt="Nexarb Logo"
+              src="/img/gradient-arbswap.png"
+              width={162}
+              height={36}
+              alt="Arbswap Logo"
             />
           </Link>
         </div>
-        <div className="mt-4 hidden items-center text-base font-semibold md:flex">
-          <Link className="px-2 lg:px-5" href="/about">
-            About Us
-          </Link>
-          <Link className="px-2 lg:px-5" href="/team">
-            Our Team
-          </Link>
-          <Link className="px-2 lg:px-5" href="/contact">
-            Contact
-          </Link>
-          <Link className="px-1 lg:px-3" href="/arbswap">
-            <div className="rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                ArbSwap
+        {user ? (
+          <div className="mt-4 hidden items-center text-base font-semibold md:flex">
+            <Link className="px-2 lg:px-5" href="/about">
+              About Us
+            </Link>
+            <Link className="px-2 lg:px-5" href="/team">
+              Our Team
+            </Link>
+            <Link className="px-2 lg:px-5" href="/contact">
+              Contact
+            </Link>
+            <Link className="px-1 lg:px-3" href="/arbswap">
+              <div className="rounded-full bg-gradient-button p-px">
+                <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                  ArbSwap
+                </div>
               </div>
-            </div>
-          </Link>
-          <Link className="px-1 lg:px-3" href="/nexbridge">
-            <div className="mx-2 rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                NexBridge
+            </Link>
+            <Link className="px-1 lg:px-3" href="/nexbridge">
+              <div className="mx-2 rounded-full bg-gradient-button p-px">
+                <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                  NexBridge
+                </div>
               </div>
-            </div>
-          </Link>
-          <Link className="px-1 lg:px-3" href="/join-us">
-            <div className="rounded-full bg-blue-500 px-5 py-1">
-              <span className="text-sm font-medium">Join Us</span>
-            </div>
-          </Link>
-        </div>
+            </Link>
+            <Link className="px-1 lg:px-3" href="/join-us">
+              <div className="rounded-full bg-blue-500 px-5 py-1">
+                <span className="text-sm font-medium">Join Us</span>
+              </div>
+            </Link>
+          </div>
+        ) : (
+          <div className="mt-4 hidden items-center text-base font-semibold md:flex">
+            <Link className="px-2 lg:px-5" href="/about">
+              About Us
+            </Link>
+            <Link className="px-2 lg:px-5" href="/team">
+              Our Team
+            </Link>
+            <Link className="px-2 lg:px-5" href="/contact">
+              Contact
+            </Link>
+            <Link className="px-1 lg:px-3" href="/arbswap">
+              <div className="rounded-full bg-gradient-button p-px">
+                <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                  ArbSwap
+                </div>
+              </div>
+            </Link>
+            <Link className="px-1 lg:px-3" href="/nexbridge">
+              <div className="mx-2 rounded-full bg-gradient-button p-px">
+                <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                  NexBridge
+                </div>
+              </div>
+            </Link>
+            <Link className="px-1 lg:px-3" href="/join-us">
+              <div className="rounded-full bg-blue-500 px-5 py-1">
+                <span className="text-sm font-medium">Join Us</span>
+              </div>
+            </Link>
+          </div>
+        )}
 
         {nav && (
           <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
