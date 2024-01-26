@@ -5,8 +5,9 @@ import { ConnectKitButton } from 'connectkit'
 import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { useAccount } from 'wagmi'
+import { nexBridgeNavbarDictionary } from '@/localesContent'
 
-function NexBridgeCustomNavbar() {
+function NexBridgeCustomNavbar({locale}: {locale: string}) {
   const { address } = useAccount()
 
   useEffect(() => {
@@ -58,7 +59,7 @@ function NexBridgeCustomNavbar() {
                 href="/nexbridge"
                 className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
               >
-                Home
+                {nexBridgeNavbarDictionary[locale]?.home}
               </Link>
             </li>
             {address && (
@@ -67,7 +68,7 @@ function NexBridgeCustomNavbar() {
                   href="/nexbridge/pricing"
                   className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                 >
-                  Pricing
+                  {nexBridgeNavbarDictionary[locale]?.pricing}
                 </Link>
               </li>
             )}
@@ -78,7 +79,7 @@ function NexBridgeCustomNavbar() {
                   as={`/nexbridge/dashboard/${address}`}
                   className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                 >
-                  Dashboard
+                  {nexBridgeNavbarDictionary[locale]?.dashboard}
                 </Link>
               </li>
             )}

@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
+import { arbSwapHomeDictionary } from '@/localesContent'
 
-const SolanaWorld = () => {
+const SolanaWorld = ({locale}: {locale: string}) => {
   return (
     <div className="mt-72">
       <div className="flex justify-center">
@@ -14,17 +15,17 @@ const SolanaWorld = () => {
       </div>
       <div className="flex justify-center">
         <p className="text-center text-5xl">
-          Get ready to explore the <br /> Solana world
+          {arbSwapHomeDictionary[locale]?.solanaWorld}
         </p>
       </div>
       <div className="mt-8 flex justify-center">
         <p>
-          Join <b>NexArb</b> to get the latest news and start trading now.
+          {arbSwapHomeDictionary[locale]?.solanaWorldDescription}
         </p>
       </div>
       <div className="mt-20 flex justify-center">
         <button className="rounded-full bg-blue-600 px-10 py-4">
-          Sign Up Now
+          {arbSwapHomeDictionary[locale]?.signUpNow}
         </button>
       </div>
     </div>

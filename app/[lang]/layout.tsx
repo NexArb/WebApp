@@ -1,7 +1,8 @@
 import './globals.css'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { DM_Sans as dmSansFont } from 'next/font/google'
+import { defaultLocale } from '@/middleware'
 
 const dmSans = dmSansFont({ subsets: ['latin'] })
 
@@ -10,13 +11,9 @@ export const metadata: Metadata = {
   description: 'Digital Solutions for the Future'
 }
 
-type RootLayoutProps = Readonly<{
-  children: React.ReactNode
-}>
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children, params }: {children: ReactNode; params: {lang: string}}) {
   return (
-    <html lang="en">
+    <html lang={params.lang ?? defaultLocale}>
       <body className={`${dmSans.className} text-white`}>{children}</body>
     </html>
   )

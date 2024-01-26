@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
+import { nexBridgeDashboardDictionary } from '@/localesContent'
 
-const ComposeBridge = () => {
+const ComposeBridge = ({locale}: {locale: string}) => {
   return (
     <div>
       <div className="mt-10 w-full px-10 md:px-20 lg:px-40">
         <label htmlFor="fromInput" className="pl-4 text-lg text-white">
-          From :
+          {nexBridgeDashboardDictionary[locale]?.from}
         </label>
         <input
           id="fromInput"
@@ -14,7 +15,7 @@ const ComposeBridge = () => {
         />
 
         <label htmlFor="toInput" className="pl-4 text-lg text-white">
-          To :
+          {nexBridgeDashboardDictionary[locale]?.to}
         </label>
         <input
           id="toInput"
@@ -30,13 +31,12 @@ const ComposeBridge = () => {
         />
 
         <p className="text-sm">
-          We do not store personal data on our servers and never transfer it to
-          third parties.
+          {nexBridgeDashboardDictionary[locale]?.personalData}
         </p>
       </div>
       <div className="flexCenter mt-20">
         <button className="h-14 rounded-full bg-emerald-500 px-20 md:px-40">
-          Start Bridge
+          {nexBridgeDashboardDictionary[locale]?.startBridge}
         </button>
       </div>
     </div>

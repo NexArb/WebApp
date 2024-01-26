@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import redstone from 'redstone-api'
 import { ResponsiveLine } from '@nivo/line'
+import { arbSwapHomeDictionary } from '@/localesContent'
 
 type Coin = {
   symbol: string
@@ -21,10 +22,10 @@ interface PriceChart {
   data: PriceChartData[]
 }
 
-const ExchangeRates = (): React.JSX.Element => {
+const ExchangeRates = ({locale}: {locale: string}): React.JSX.Element => {
   return (
     <div className="mt-72">
-      <p className="text-center text-5xl">Exchange Rates</p>
+      <p className="text-center text-5xl">{arbSwapHomeDictionary[locale]?.exchangeRates}</p>
       <div className="flex justify-center">
         <div className="grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
           <PriceCard symbol="BTC" name="Bitcoin" color="bg-orange-600" />

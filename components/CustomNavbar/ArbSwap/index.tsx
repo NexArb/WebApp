@@ -5,8 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useModalStore } from '@/hooks/userStore'
 import { arbswapNavbarLinks } from '@/constants'
+import { arbswapNavbarDictionary } from '@/localesContent'
 
-function ArbSwapNavbar() {
+function ArbSwapNavbar({locale}: {locale: string}) {
   const [nav, setNav] = useState(false)
   const { toggleModal } = useModalStore()
 
@@ -50,16 +51,16 @@ function ArbSwapNavbar() {
         </div>
         <div className="mt-4 hidden items-center text-base font-semibold md:flex">
           <Link className="px-2 lg:px-5" href="/about">
-            About Us
+            {arbswapNavbarDictionary[locale]?.aboutUs}
           </Link>
           <Link className="px-2 lg:px-5" href="/arbswap/offer">
-            Create Offer
+            {arbswapNavbarDictionary[locale]?.createOffer}
           </Link>
           <Link className="px-2 lg:px-5" href="/arbswap/wallet">
-            Wallet
+            {arbswapNavbarDictionary[locale]?.wallet}
           </Link>
           <Link className="px-2 lg:px-5" href="/arbswap/support">
-            Support
+            {arbswapNavbarDictionary[locale]?.support}
           </Link>
           <Link
             className="px-1 lg:px-3"
@@ -68,7 +69,7 @@ function ArbSwapNavbar() {
           >
             <div className="rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                Login
+                {arbswapNavbarDictionary[locale]?.login}
               </div>
             </div>
           </Link>

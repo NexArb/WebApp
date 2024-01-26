@@ -6,8 +6,9 @@ import Modal from '@/components/CommonComponents/Modal'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TRegisterSchema, registerSchema } from '@/types/authValidation.types'
+import { registerDictionary } from '@/localesContent'
 
-function Register() {
+function Register({params}: {params: {lang: string}}) {
   const router = useRouter()
   const {
     register,
@@ -82,31 +83,31 @@ function Register() {
             aria-label="Enter a valid email"
             type="text"
             id="email"
-            placeholder="Enter a valid email"
+            placeholder={registerDictionary[params.lang]?.enterEmail}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
           />
           {errors.email && (
             <p className="px-6 pt-2 text-red-500">{`${errors.email.message}`}</p>
           )}
           <label htmlFor="password" className="mt-4 px-4 py-2">
-            Choose Password
+            {registerDictionary[params.lang]?.choosePassword}
           </label>
           <input
             {...register('password')}
             type="password"
-            placeholder="Enter your password"
+            placeholder={registerDictionary[params.lang]?.enterPassword}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
           />
           {errors.password && (
             <p className="px-6 pt-2 text-red-500">{`${errors.password.message}`}</p>
           )}
           <label htmlFor="confirmPassword" className="mt-4 px-4 py-2">
-            Password Again
+            {registerDictionary[params.lang]?.passwordAgain}
           </label>
           <input
             {...register('confirmPassword')}
             type="password"
-            placeholder="Confirm your password"
+            placeholder={registerDictionary[params.lang]?.confirmPassword}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
           />
           {errors.confirmPassword && (
@@ -118,7 +119,7 @@ function Register() {
               {...register('acceptTerms')}
               className="mr-4"
             />
-            Accept the terms and conditions...
+            {registerDictionary[params.lang]?.acceptTermsConditions}
           </label>
           {errors.acceptTerms && (
             <p className="px-6 text-red-500">{`${errors.acceptTerms.message}`}</p>
@@ -129,7 +130,7 @@ function Register() {
             disabled={isSubmitting}
           >
             <div className="flex flex-row items-center justify-center gap-4">
-              Next
+              {registerDictionary[params.lang]?.next}
             </div>
           </button>
         </form>

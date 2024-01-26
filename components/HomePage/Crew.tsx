@@ -1,4 +1,5 @@
 import { CREW } from '@/constants'
+import { homeDictionary } from '@/localesContent'
 import Image from 'next/image'
 import React from 'react'
 
@@ -33,14 +34,12 @@ function CrewItem({
   )
 }
 
-function Crew() {
+function Crew({locale}: {locale: string}) {
   return (
     <section className="flexCenter mb-72 mt-96 flex-col">
-      <div className="text-center text-5xl font-bold">Startup Crew</div>
+      <div className="text-center text-5xl font-bold">{homeDictionary[locale]?.startupCrew}</div>
       <div className="mt-9 p-8 text-center text-2xl font-medium leading-loose lg:w-[754px]">
-        The most important part of the Startup Framework is the samples. The
-        samples form a set of 25 usable pages you can use as is or you can add
-        new blocks from UI Kit.
+        {homeDictionary[locale]?.ourWorksDesc}
       </div>
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-20">
         {CREW.map((crew) => (

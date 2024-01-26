@@ -1,10 +1,11 @@
 import React from 'react'
+import { arbSwapHomeDictionary } from '@/localesContent'
 
-const Steps = () => {
+const Steps = ({locale}: {locale: string}) => {
   return (
     <div>
       <p className="mx-auto mt-48 text-center text-5xl">
-        Simple steps to get started
+        {arbSwapHomeDictionary[locale]?.stepsHeader}
       </p>
       <div className="mt-24 grid grid-flow-col grid-rows-3 justify-evenly gap-20">
         <div>
@@ -13,8 +14,8 @@ const Steps = () => {
               <p className="text-5xl opacity-50">01.</p>
             </div>
             <div>
-              <p className="text-xl">Quick sign-up</p>
-              <p className="mt-3 opacity-60">It`ll take you 1 minutes top</p>
+              <p className="text-xl">{arbSwapHomeDictionary[locale]?.quickSignUp}</p>
+              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
             </div>
           </div>
         </div>
@@ -24,8 +25,8 @@ const Steps = () => {
               <p className="text-5xl opacity-50">02.</p>
             </div>
             <div>
-              <p className="text-xl">Security setup</p>
-              <p className="mt-3 opacity-60">It`ll take you 1 minutes top</p>
+              <p className="text-xl">{arbSwapHomeDictionary[locale]?.securitySetup}</p>
+              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
             </div>
           </div>
         </div>
@@ -35,8 +36,8 @@ const Steps = () => {
               <p className="text-5xl opacity-50">03.</p>
             </div>
             <div>
-              <p className="text-xl">Connect Wallet</p>
-              <p className="mt-3 opacity-60">It`ll take you 1 minutes top</p>
+              <p className="text-xl">{arbSwapHomeDictionary[locale]?.connectWallet}</p>
+              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
             </div>
           </div>
         </div>
@@ -46,9 +47,9 @@ const Steps = () => {
               <p className="text-5xl opacity-50">04.</p>
             </div>
             <div>
-              <p className="text-xl">Start trading</p>
+              <p className="text-xl">{arbSwapHomeDictionary[locale]?.startTrading}</p>
               <p className="mt-3 opacity-60">
-                Start trading at your desired rate, and get paid.
+                {arbSwapHomeDictionary[locale]?.startTradingDesc}
               </p>
             </div>
           </div>
@@ -59,8 +60,8 @@ const Steps = () => {
               <p className="text-5xl opacity-50">06.</p>
             </div>
             <div>
-              <p className="text-xl">Quick sign-up</p>
-              <p className="mt-3 opacity-60">It`ll take you 1 minutes top</p>
+              <p className="text-xl">{arbSwapHomeDictionary[locale]?.quickSignUp}</p>
+              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
             </div>
           </div>
         </div>

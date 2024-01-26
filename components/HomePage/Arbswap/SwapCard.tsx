@@ -1,7 +1,8 @@
 'use client'
 import React, { useState } from 'react'
+import { arbSwapHomeDictionary } from '@/localesContent'
 
-const SwapCard = () => {
+const SwapCard = ({locale}: {locale: string}) => {
   const [selectedOption, setSelectedOption] = useState('buy')
 
   return (
@@ -16,7 +17,7 @@ const SwapCard = () => {
             }`}
             onClick={() => setSelectedOption('buy')}
           >
-            Buy SOL
+            {arbSwapHomeDictionary[locale]?.buySOL}
           </button>
           <button
             className={`w-full rounded-b-full p-2 text-white lg:w-48 lg:rounded-r-full ${
@@ -26,7 +27,7 @@ const SwapCard = () => {
             }`}
             onClick={() => setSelectedOption('sell')}
           >
-            Sell SOL
+            {arbSwapHomeDictionary[locale]?.sellSOL}
           </button>
         </div>
         <div className="mt-4 flex flex-col items-center justify-between text-white lg:mt-10 lg:flex-row">
@@ -45,7 +46,7 @@ const SwapCard = () => {
         <div className="relative mt-5">
           <input
             className="w-full rounded-full bg-gray-900 px-5 py-3 text-white backdrop-blur-sm"
-            placeholder="Amount"
+            placeholder={arbSwapHomeDictionary[locale]?.amount}
           />
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
             <span className="rounded-full bg-green-400 px-4 py-1 font-bold text-black">
@@ -61,7 +62,7 @@ const SwapCard = () => {
             className="rounded-full bg-gradient-to-l from-green-500 via-blue-500 to-purple-500 px-8 py-3 text-white"
             type="submit"
           >
-            Search For Offers
+            {arbSwapHomeDictionary[locale]?.searchForOffers}
           </button>
         </div>
       </div>

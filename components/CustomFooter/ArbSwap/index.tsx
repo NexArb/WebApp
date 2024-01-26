@@ -1,6 +1,7 @@
 import React from 'react'
+import { arbSwapFooterDictionary } from '@/localesContent'
 
-const ArbSwapFooter = () => {
+const ArbSwapFooter = ({locale}: {locale: string}) => {
   return (
     <footer className="text-white">
       <div className="pt-12 lg:pt-16">
@@ -18,8 +19,7 @@ const ArbSwapFooter = () => {
               </div>
 
               <p className="mb-6 sm:pr-8">
-                Filler text is dummy text which has no meaning however looks
-                very similar to real text
+                {arbSwapFooterDictionary[locale]?.dummyText}
               </p>
 
               <div className="flex gap-4">
@@ -91,99 +91,99 @@ const ArbSwapFooter = () => {
 
             <div>
               <div className="mb-4 font-bold uppercase tracking-widest">
-                Products
+                {arbSwapFooterDictionary[locale]?.products} 
               </div>
 
               <nav className="flex flex-col gap-4">
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Overview
+                    {arbSwapFooterDictionary[locale]?.overview}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Solutions
+                    {arbSwapFooterDictionary[locale]?.solutions}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Pricing
+                    {arbSwapFooterDictionary[locale]?.pricing}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Customers
+                    {arbSwapFooterDictionary[locale]?.customers}
                   </a>
                 </div>
               </nav>
             </div>
             <div>
               <div className="mb-4 font-bold uppercase tracking-widest">
-                Company
+                {arbSwapFooterDictionary[locale]?.company}
               </div>
 
               <nav className="flex flex-col gap-4">
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    About
+                    {arbSwapFooterDictionary[locale]?.about}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Investor Relations
+                    {arbSwapFooterDictionary[locale]?.inverstorRelations}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Jobs
+                    {arbSwapFooterDictionary[locale]?.jobs}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Press
+                    {arbSwapFooterDictionary[locale]?.press}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Blog
+                    {arbSwapFooterDictionary[locale]?.blog}
                   </a>
                 </div>
               </nav>
             </div>
             <div>
               <div className="mb-4 font-bold uppercase tracking-widest">
-                Support
+                {arbSwapFooterDictionary[locale]?.support}
               </div>
 
               <nav className="flex flex-col gap-4">
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Contact
+                    {arbSwapFooterDictionary[locale]?.contact}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Documentation
+                    {arbSwapFooterDictionary[locale]?.documentation}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Chat
+                    {arbSwapFooterDictionary[locale]?.chat}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    FAQ
+                    {arbSwapFooterDictionary[locale]?.faq}
                   </a>
                 </div>
               </nav>
@@ -191,25 +191,25 @@ const ArbSwapFooter = () => {
 
             <div>
               <div className="mb-4 font-bold uppercase tracking-widest">
-                Legal
+                {arbSwapFooterDictionary[locale]?.legal}
               </div>
 
               <nav className="flex flex-col gap-4">
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Terms of Service
+                    {arbSwapFooterDictionary[locale]?.termsOfService}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Privacy Policy
+                    {arbSwapFooterDictionary[locale]?.privacyPolicy}
                   </a>
                 </div>
 
                 <div>
                   <a href="#" className=" transition duration-100 ">
-                    Cookie settings
+                    {arbSwapFooterDictionary[locale]?.cookieSettings}
                   </a>
                 </div>
               </nav>
@@ -217,7 +217,7 @@ const ArbSwapFooter = () => {
           </div>
 
           <div className="border-t py-8 text-center text-sm ">
-            © 2021 - Present Flowrift. All rights reserved.
+            {arbSwapFooterDictionary[locale]?.copyright}
           </div>
         </div>
       </div>

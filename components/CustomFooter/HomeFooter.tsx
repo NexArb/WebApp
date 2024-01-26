@@ -5,8 +5,9 @@ import React from 'react'
 
 import Contact from '@/components/HomePage/Contact'
 import CustomFooter from '@/components/CustomFooter'
+import { footerDictionary } from '@/localesContent'
 
-function HomeFooter() {
+function HomeFooter({locale}: {locale: string}) {
   return (
     <section
       style={{
@@ -22,12 +23,10 @@ function HomeFooter() {
           <div className="flex w-full min-w-full flex-1 px-6 max-xl:flex-col lg:px-20 xl:px-0">
             <div className="mb-6 w-1/2 px-6">
               <div className="mt-14 text-4xl font-bold leading-10">
-                Let’s Keep in Touch
+                {footerDictionary[locale]?.keepInTouch}
               </div>
               <div className="my-8 text-2xl font-medium leading-loose">
-                We have created a new product that will help designers,
-                developers and companies create websites for their startups
-                quickly and easily.
+                {footerDictionary[locale]?.description}
               </div>
               <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-5">
@@ -66,9 +65,9 @@ function HomeFooter() {
                 </div>
               </div>
             </div>
-            <Contact />
+            <Contact locale={locale} />
           </div>
-          <CustomFooter />
+          <CustomFooter locale={locale} />
         </div>
       </div>
     </section>

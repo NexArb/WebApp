@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { WagmiConfig } from 'wagmi'
 import { ConnectKitProvider } from 'connectkit'
-import { config } from '../wagmi'
+import { config } from '../../wagmi'
 
 type ProvidersProps = Readonly<{
   children: React.ReactNode
