@@ -4,7 +4,11 @@ import Link from 'next/link'
 import React from 'react'
 import { footerDictionary } from '@/localesContent'
 
-function CustomFooter({locale}: {locale: string}) {
+interface CustomFooterProps {
+  readonly locale: string;
+}
+
+function CustomFooter({locale}: CustomFooterProps) {
   return (
     <div className="px-10">
       <div className="mb-10 mt-48 border bg-white bg-opacity-20" />

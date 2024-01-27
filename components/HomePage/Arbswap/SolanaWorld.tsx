@@ -2,7 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
-const SolanaWorld = ({locale}: {locale: string}) => {
+interface SolanaWorldProps {
+  readonly locale: string;
+}
+
+const SolanaWorld: React.FC<SolanaWorldProps> = ({locale}) => {
   return (
     <div className="mt-72">
       <div className="flex justify-center">

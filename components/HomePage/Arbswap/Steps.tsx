@@ -1,7 +1,11 @@
 import React from 'react'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
-const Steps = ({locale}: {locale: string}) => {
+interface StepsProps {
+  readonly locale: string;
+}
+
+const Steps: React.FC<StepsProps> = ({locale}) => {
   return (
     <div>
       <p className="mx-auto mt-48 text-center text-5xl">

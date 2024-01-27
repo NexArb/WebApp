@@ -8,7 +8,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { TRegisterSchema, registerSchema } from '@/types/authValidation.types'
 import { registerDictionary } from '@/localesContent'
 
-function Register({params}: {params: {lang: string}}) {
+interface RegisterProps {
+  readonly params: {
+    lang: string;
+  }
+}
+
+function Register({params}: RegisterProps) {
   const router = useRouter()
   const {
     register,

@@ -3,7 +3,13 @@
 import React from 'react'
 import { nexBridgeHomeDictionary } from '@/localesContent'
 
-function NexBridgeHomePage({params}: {params: {lang: string}}) {
+interface NexBridgeHomePageProps {
+  readonly params: {
+    readonly lang: string
+  }
+}
+
+function NexBridgeHomePage({params}: NexBridgeHomePageProps) {
   return (
     <div className="flex h-screen w-screen flex-col justify-between self-stretch">
       <div className="flex w-3/5 flex-col justify-between self-center ">

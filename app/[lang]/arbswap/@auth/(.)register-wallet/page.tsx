@@ -8,7 +8,13 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { registerWalletDictionary } from '@/localesContent'
 
-function RegisterWallet({params}: {params: {lang: string}}) {
+interface RegisterWalletProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+function RegisterWallet({params}: RegisterWalletProps) {
   const router = useRouter()
 
   const handleNext = () => {

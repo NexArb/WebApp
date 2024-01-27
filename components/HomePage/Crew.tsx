@@ -34,7 +34,11 @@ function CrewItem({
   )
 }
 
-function Crew({locale}: {locale: string}) {
+interface CrewProps {
+  readonly locale: string;
+}
+
+function Crew({locale}: CrewProps) {
   return (
     <section className="flexCenter mb-72 mt-96 flex-col">
       <div className="text-center text-5xl font-bold">{homeDictionary[locale]?.startupCrew}</div>

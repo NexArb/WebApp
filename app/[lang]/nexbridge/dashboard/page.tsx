@@ -5,7 +5,13 @@ import ComposeBridge from '@/components/NexBridgeDashboard/ComposeBridge'
 import React, { useState } from 'react'
 import { nexBridgeDashboardDictionary } from '@/localesContent'
 
-const Dashboard = ({params}: {params: {lang: string}}) => {
+interface DashboardProps {
+  readonly params: {
+    lang: string;
+  }
+}
+
+const Dashboard = ({params}: DashboardProps) => {
   const buttons = [
     { key: 'compose', value: nexBridgeDashboardDictionary[params.lang]?.compose },
     { key: 'bridgeOptions', value: nexBridgeDashboardDictionary[params.lang]?.bridgeOptions }

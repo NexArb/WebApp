@@ -7,7 +7,11 @@ import Contact from '@/components/HomePage/Contact'
 import CustomFooter from '@/components/CustomFooter'
 import { footerDictionary } from '@/localesContent'
 
-function HomeFooter({locale}: {locale: string}) {
+interface HomeFooterProps {
+  readonly locale: string;
+}
+
+function HomeFooter({locale}: HomeFooterProps) {
   return (
     <section
       style={{

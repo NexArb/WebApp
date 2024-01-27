@@ -2,7 +2,11 @@
 import React, { useState } from 'react'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
-const SwapCard = ({locale}: {locale: string}) => {
+interface SwapCardProps {
+  readonly locale: string;
+}
+
+const SwapCard: React.FC<SwapCardProps> = ({locale}) => {
   const [selectedOption, setSelectedOption] = useState('buy')
 
   return (

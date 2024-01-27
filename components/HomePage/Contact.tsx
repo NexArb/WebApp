@@ -4,7 +4,11 @@ import Button from '@/components/CommonComponents/Button'
 import Input from '@/components/HomePage/Input'
 import { footerDictionary } from '@/localesContent'
 
-function Contact({locale}: {locale: string}) {
+interface ContactProps {
+  readonly locale: string;
+}
+
+function Contact({locale}: ContactProps) {
   return (
     <form className="flex w-full flex-col rounded-lg bg-white p-12 lg:mx-12 ">
       <span className="text-sm font-bold uppercase leading-relaxed tracking-widest text-violet-950">

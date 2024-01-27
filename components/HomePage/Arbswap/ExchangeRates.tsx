@@ -22,7 +22,11 @@ interface PriceChart {
   data: PriceChartData[]
 }
 
-const ExchangeRates = ({locale}: {locale: string}): React.JSX.Element => {
+interface ExchangeRatesProps {
+  readonly locale: string;
+}
+
+const ExchangeRates: React.FC<ExchangeRatesProps> = ({locale}): React.JSX.Element => {
   return (
     <div className="mt-72">
       <p className="text-center text-5xl">{arbSwapHomeDictionary[locale]?.exchangeRates}</p>

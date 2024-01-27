@@ -2,7 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
-const SolanaStatistics = ({locale}: {locale: string}) => {
+interface SolanaStatisticsProps {
+  readonly locale: string;
+}
+
+const SolanaStatistics: React.FC<SolanaStatisticsProps> = ({locale}) => {
   return (
     <div>
       <div className="mt-32 flex justify-evenly">

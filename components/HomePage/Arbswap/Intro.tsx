@@ -2,7 +2,11 @@ import React from 'react'
 import SwapCard from './SwapCard'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
-const Intro = ({locale}: {locale: string}) => {
+interface IntroProps {
+  readonly locale: string;
+}
+
+const Intro: React.FC<IntroProps> = ({locale}) => {
   return (
     <div className="flex flex-col lg:flex-row lg:items-center">
       <div className="lg:w-1/2 lg:pl-24">

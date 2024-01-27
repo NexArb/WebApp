@@ -7,7 +7,11 @@ import Image from 'next/image'
 import { useAccount } from 'wagmi'
 import { nexBridgeNavbarDictionary } from '@/localesContent'
 
-function NexBridgeCustomNavbar({locale}: {locale: string}) {
+interface NexBridgeCustomNavbarProps {
+  readonly locale: string;
+}
+
+function NexBridgeCustomNavbar({locale}: NexBridgeCustomNavbarProps) {
   const { address } = useAccount()
 
   useEffect(() => {

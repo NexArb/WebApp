@@ -8,7 +8,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { loginDictionary } from '@/localesContent'
 
-function Login({params}: {params: {lang: string}}) {
+interface LoginProps {
+  readonly params: {
+    lang: string;
+  }
+}
+
+function Login({params}: LoginProps) {
   return (
     <Modal routerBack="/arbswap">
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">

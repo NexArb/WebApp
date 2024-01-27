@@ -84,7 +84,11 @@ const dummyData: Item[] = [
   }
 ]
 
-const BridgeOptions = ({locale}: {locale: string}) => {
+interface BridgeOptionsProps {
+  readonly locale: string;
+}
+
+const BridgeOptions: React.FC<BridgeOptionsProps> = ({locale}) => {
   const [selectedBridge, setSelectedBridge] = React.useState<{
     id?: number
     from?: string

@@ -6,7 +6,11 @@ import Link from 'next/link'
 import { links } from '@/constants'
 import { navbarDictionary } from '@/localesContent'
 
-function AppBar({locale}: {locale: string}) {
+interface AppBarProps {
+  readonly locale: string;
+}
+
+function AppBar({locale}: AppBarProps) {
   const [nav, setNav] = useState(false)
 
   return (

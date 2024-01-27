@@ -4,7 +4,11 @@ import Button from '@/components/CommonComponents/Button'
 import CustomNavbar from '@/components/CustomNavbar'
 import { homeDictionary } from '@/localesContent'
 
-function Hero({locale}: {locale: string}) {
+interface HeroProps {
+  readonly locale: string;
+}
+
+function Hero({locale}: HeroProps) {
   return (
     <section
       style={{

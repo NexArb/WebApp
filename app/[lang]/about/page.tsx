@@ -3,7 +3,13 @@ import Image from 'next/image'
 import AppBar from '@/components/CustomNavbar'
 import { aboutPageDictionary } from '@/localesContent'
 
-function About({params}: {params: {lang: string}}) {
+interface AboutProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+function About({params}: AboutProps) {
   return (
     <div className="min-h-screen bg-gradient-about">
       <AppBar locale={params.lang} />

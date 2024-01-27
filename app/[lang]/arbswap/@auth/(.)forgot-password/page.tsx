@@ -9,7 +9,13 @@ import {
 import Modal from '@/components/CommonComponents/Modal'
 import { forgotPasswordDictionary } from '@/localesContent'
 
-const ForgotPassword = ({params}: {params: {lang: string}}) => {
+interface ForgotPasswordProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+const ForgotPassword = ({params}: ForgotPasswordProps) => {
   const [email, setEmail] = useState('')
   const [verificationCode, setVerificationCode] = useState('')
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false)

@@ -1,7 +1,11 @@
 import React from 'react'
 import { arbSwapFooterDictionary } from '@/localesContent'
 
-const ArbSwapFooter = ({locale}: {locale: string}) => {
+interface ArbSwapFooterProps {
+  readonly locale: string;
+}
+
+const ArbSwapFooter: React.FC<ArbSwapFooterProps> = ({locale}) => {
   return (
     <footer className="text-white">
       <div className="pt-12 lg:pt-16">

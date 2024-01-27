@@ -4,7 +4,13 @@ import Hero from './Hero'
 import Projects from './Projects'
 import Crew from './Crew'
 
-function HomePage({params}: {params: {lang: string}}) {
+interface HomePageProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+function HomePage({params}: HomePageProps) {
   const { lang } = params;
   return (
     <>

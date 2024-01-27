@@ -7,7 +7,11 @@ import { useModalStore } from '@/hooks/userStore'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/localesContent'
 
-function ArbSwapNavbar({locale}: {locale: string}) {
+interface ArbSwapNavbarProps {
+  readonly locale: string;
+}
+
+function ArbSwapNavbar({locale}: ArbSwapNavbarProps) {
   const [nav, setNav] = useState(false)
   const { toggleModal } = useModalStore()
 
