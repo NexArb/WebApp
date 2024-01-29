@@ -8,8 +8,10 @@ export const metadata: Metadata = {
   description: 'Next Gen Bridge'
 }
 
-export default function RootLayout({ children, params }: {children: React.ReactNode, params: {lang: string}}) {
-  const { lang } = params;
+type RootLayoutProps = { children: React.ReactNode; params: { lang: string } }
+
+export default function RootLayout({ children, params }: RootLayoutProps) {
+  const { lang } = params
   return (
     <section>
       <Providers>
