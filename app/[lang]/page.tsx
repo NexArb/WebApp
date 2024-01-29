@@ -2,11 +2,17 @@ import React from 'react'
 import HomePage from '@/components/HomePage'
 import HomeFooter from '@/components/CustomFooter/HomeFooter'
 
-export default function Home() {
+interface HomeProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+export default function Home({params}: HomeProps) {
   return (
     <div className="bg-gradient-main text-white">
-      <HomePage />
-      <HomeFooter />
+      <HomePage params={params}/>
+      <HomeFooter locale={params.lang}/>
     </div>
   )
 }

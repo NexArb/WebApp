@@ -8,11 +8,10 @@ export const metadata: Metadata = {
   description: 'Next Gen Bridge'
 }
 
-type RootLayoutProps = Readonly<{
-  children: React.ReactNode
-}>
+type RootLayoutProps = { children: React.ReactNode; params: { lang: string } }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children, params }: RootLayoutProps) {
+  const { lang } = params
   return (
     <section>
       <Providers>
@@ -22,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             backgroundSize: 'cover'
           }}
         >
-          <NexBridgeCustomNavbar />
+          <NexBridgeCustomNavbar locale={lang} />
           {children}
         </div>
       </Providers>

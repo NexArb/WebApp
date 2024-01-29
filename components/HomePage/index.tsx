@@ -4,12 +4,19 @@ import Hero from './Hero'
 import Projects from './Projects'
 import Crew from './Crew'
 
-function HomePage() {
+interface HomePageProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+function HomePage({params}: HomePageProps) {
+  const { lang } = params;
   return (
     <>
-      <Hero />
-      <Projects />
-      <Crew />
+      <Hero locale={lang}/>
+      <Projects locale={lang} />
+      <Crew locale={lang}/>
     </>
   )
 }
