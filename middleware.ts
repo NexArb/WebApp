@@ -8,6 +8,7 @@ export let defaultLocale = 'en';
 const getLocale = (request: Request): string => {
     const headers = new Headers(request.headers);
     const acceptLanguage = headers.get("accept-language");
+
     if (acceptLanguage) {
         headers.set('accept-language', acceptLanguage.replaceAll("_","-"));
     }
