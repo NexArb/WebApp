@@ -6,8 +6,8 @@ import {
   setOtpChoice,
   verifyOtpAndUpdatePassword
 } from '@/services/ApiService'
-import Modal from '@/components/CommonComponents/Modal'
 import { forgotPasswordDictionary } from '@/localesContent'
+import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
 
 interface ForgotPasswordProps {
   readonly params: {
@@ -60,10 +60,9 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
   }
 
   return (
-    <Modal routerBack="/arbswap">
-      <div className="mt-20 flex justify-center">
+    <Layout>
         {!isVerificationCodeSubmitted ? (
-          <div className="w-80 rounded-3xl bg-slate-700 p-5">
+          <div>
             <div>
               <form onSubmit={handleSubmitEmail}>
                 <label className="ml-4 text-sm" htmlFor="validEmail">
@@ -71,7 +70,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
                 </label>
                 <input
                   id="validEmail"
-                  className="mt-1 w-full rounded-full bg-slate-700"
+                  className="mt-1 w-full rounded-full bg-transparent"
                   type="email"
                   placeholder={
                     forgotPasswordDictionary[params.lang]?.enterEmail
@@ -93,17 +92,14 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
                     {forgotPasswordDictionary[params.lang]?.verificationCode}
                   </label>
                 ) : (
-                  <label
-                    className="ml-4 text-sm opacity-50"
-                    htmlFor="verificationCode"
-                  >
+                  <label className="ml-4 text-sm" htmlFor="verificationCode">
                     {forgotPasswordDictionary[params.lang]?.verificationCode}
                   </label>
                 )}
                 {isEmailSubmitted ? (
                   <input
                     id="verificationCode"
-                    className="mt-1 w-full rounded-full bg-slate-700"
+                    className="mt-1 w-full rounded-full bg-transparent"
                     type="text"
                     placeholder={
                       forgotPasswordDictionary[params.lang]
@@ -190,8 +186,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
             </form>
           </div>
         )}
-      </div>
-    </Modal>
+    </Layout>
   )
 }
 

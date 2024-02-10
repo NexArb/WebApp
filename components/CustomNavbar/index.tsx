@@ -7,10 +7,10 @@ import { links } from '@/constants'
 import { navbarDictionary } from '@/localesContent'
 
 interface AppBarProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function AppBar({locale}: AppBarProps) {
+function AppBar({ locale }: AppBarProps) {
   const [nav, setNav] = useState(false)
 
   return (
@@ -82,7 +82,9 @@ function AppBar({locale}: AppBarProps) {
           </Link>
           <Link className="px-1 lg:px-3" href="/join-us">
             <div className="rounded-full bg-blue-500 px-5 py-1">
-              <span className="text-sm font-medium">{navbarDictionary[locale]?.joinUs}</span>
+              <span className="text-sm font-medium">
+                {navbarDictionary[locale]?.joinUs}
+              </span>
             </div>
           </Link>
         </div>

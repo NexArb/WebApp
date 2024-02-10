@@ -10,11 +10,11 @@ import { registerWalletDictionary } from '@/localesContent'
 
 interface RegisterWalletProps {
   readonly params: {
-    readonly lang: string;
+    readonly lang: string
   }
 }
 
-function RegisterWallet({params}: RegisterWalletProps) {
+function RegisterWallet({ params }: RegisterWalletProps) {
   const router = useRouter()
 
   const handleNext = () => {

@@ -10,16 +10,18 @@ import { loginDictionary } from '@/localesContent'
 
 interface LoginProps {
   readonly params: {
-    lang: string;
+    lang: string
   }
 }
 
-function Login({params}: LoginProps) {
+function Login({ params }: LoginProps) {
   return (
     <Modal routerBack="/arbswap">
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
-        <form onSubmit={()=>{}} className="flex flex-col">
-          <span className="px-4 py-2">{loginDictionary[params.lang]?.emailOrPhoneNumber}</span>
+        <form onSubmit={() => {}} className="flex flex-col">
+          <span className="px-4 py-2">
+            {loginDictionary[params.lang]?.emailOrPhoneNumber}
+          </span>
           <input
             type="text"
             name="username"
@@ -27,7 +29,9 @@ function Login({params}: LoginProps) {
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
             required
           />
-          <span className="mt-6 px-4 py-2">{loginDictionary[params.lang]?.password}</span>
+          <span className="mt-6 px-4 py-2">
+            {loginDictionary[params.lang]?.password}
+          </span>
           <input
             type="password"
             name="password"
@@ -36,10 +40,7 @@ function Login({params}: LoginProps) {
             required
           />
           <div className="mt-2 p-4">
-            <input
-              type="checkbox"
-              className="mr-4"
-            />
+            <input type="checkbox" className="mr-4" />
             {loginDictionary[params.lang]?.rememberThisDevice}
           </div>
           <Button className="mt-4 h-12 bg-gradient-button" onClick={() => {}}>

@@ -8,10 +8,10 @@ import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/localesContent'
 
 interface ArbSwapNavbarProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function ArbSwapNavbar({locale}: ArbSwapNavbarProps) {
+function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
   const [nav, setNav] = useState(false)
   const { toggleModal } = useModalStore()
 

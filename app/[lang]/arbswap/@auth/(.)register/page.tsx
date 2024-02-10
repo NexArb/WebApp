@@ -10,11 +10,11 @@ import { registerDictionary } from '@/localesContent'
 
 interface RegisterProps {
   readonly params: {
-    lang: string;
+    lang: string
   }
 }
 
-function Register({params}: RegisterProps) {
+function Register({ params }: RegisterProps) {
   const router = useRouter()
   const {
     register,

@@ -20,7 +20,7 @@ export type UserState = {
   showModal: boolean
   toggleModal: () => void
   rememberDevice: boolean
-  setRememberDevice: (value: boolean) => void;
+  setRememberDevice: (value: boolean) => void
   emailOrPhone: string
   setEmailOrPhone: (event: React.ChangeEvent<HTMLInputElement>) => void
   isAuthenticated: boolean

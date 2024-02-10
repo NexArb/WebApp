@@ -3,10 +3,10 @@ import React from 'react'
 import { nexBridgeDashboardDictionary } from '@/localesContent'
 
 interface ComposeBridgeProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-const ComposeBridge: React.FC<ComposeBridgeProps> = ({locale}) => {
+const ComposeBridge: React.FC<ComposeBridgeProps> = ({ locale }) => {
   return (
     <div>
       <div className="mt-10 w-full px-10 md:px-20 lg:px-40">
