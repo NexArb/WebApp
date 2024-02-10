@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { persist, createJSONStorage } from 'zustand/middleware'
 
-import { ModalState, UserState } from '@/types/userStore.types'
+import { ModalState, UserState } from '@/types/store.types'
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
@@ -10,15 +10,15 @@ export const useModalStore = create<ModalState>((set) => ({
 
 export const useUserStore = create<UserState>()(
   persist(
-    (set, get) => ({
-      isAuthenticated: false,
+    (set) => ({
       user: null,
       token: null,
-      error: null
+      setUser: (user) => set({ user }),
+      setToken: (token) => set({ token })
     }),
     {
-      name: 'auth'
-      // skipHydration: true
+      name: 'auth',
+      storage: createJSONStorage(() => localStorage)
     }
   )
 )
