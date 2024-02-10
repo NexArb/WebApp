@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "@babel/eslint-parser": "^7.23.3",
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@hookform/resolvers": "^3.3.3",
     "@metamask/sdk-react-ui": "^0.11.2",
     "@nivo/bar": "^0.84.0",
@@ -25,6 +26,7 @@
     "axios": "^1.6.2",
     "connectkit": "^1.5.3",
     "eslint-plugin-jest": "^27.6.0",
+    "negotiator": "^0.6.3",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
@@ -38,6 +40,7 @@
     "@microsoft/eslint-formatter-sarif": "^3.0.0",
     "@next/eslint-plugin-next": "^14.0.3",
     "@tailwindcss/forms": "^0.5.7",
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

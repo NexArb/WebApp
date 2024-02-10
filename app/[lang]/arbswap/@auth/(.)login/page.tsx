@@ -12,7 +12,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { TLoginSchema, loginSchema } from '@/types/authValidation.types'
 import { loginUser } from '@/services/ApiService'
 import { useUserStore } from '@/hooks/useStore'
+import { loginDictionary } from '@/localesContent'
 
+interface LoginProps {
+  readonly params: {
+    lang: string;
+  }
+}
+
+function Login({params}: LoginProps) {
 function Login() {
   const router = useRouter()
   const { setToken } = useUserStore()
@@ -67,26 +75,26 @@ function Login() {
       <div className="h-[595px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
           <label htmlFor="email" className="px-4 py-2">
-            Email or Phone number
+            {loginDictionary[params.lang]?.emailOrPhoneNumber}
           </label>
           <input
             {...register('email')}
             aria-label="Enter your email"
             type="text"
-            placeholder="Enter your email"
+            placeholder={loginDictionary[params.lang]?.enterUsername}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
           />
           {errors.email && (
             <p className="px-6 pt-2 text-red-500">{`${errors.email.message}`}</p>
           )}
           <label htmlFor="password" className="mt-6 px-4 py-2">
-            Password
+            {loginDictionary[params.lang]?.password}
           </label>
           <input
             {...register('password')}
             aria-label="Enter your password"
             type="password"
-            placeholder="Enter your password"
+            placeholder={loginDictionary[params.lang]?.enterPassword}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
             required
           />
@@ -100,7 +108,7 @@ function Login() {
               type="checkbox"
               className="mr-4"
             />
-            Remember this device:
+            {loginDictionary[params.lang]?.rememberThisDevice}:
           </label>
           <button
             type="submit"
@@ -108,27 +116,27 @@ function Login() {
             disabled={isSubmitting}
           >
             <div className="flex flex-row items-center justify-center gap-4">
-              Login
+              {loginDictionary[params.lang]?.login}
             </div>
           </button>
         </form>
         <div className="p-4 text-[15px]">
           <div className="mt-2">
-            Don't you have an account?{' '}
+            {loginDictionary[params.lang]?.dontYouHaveAnAccount}{' '}
             <Link
               className="font-semibold text-emerald-400"
               href="/arbswap/register"
             >
-              Sign in here!
+              {loginDictionary[params.lang]?.signUpHere}
             </Link>
           </div>
           <div className="mt-2">
-            Forgot Password?{' '}
+            {loginDictionary[params.lang]?.forgotPassword}{' '}
             <Link
               className="font-semibold text-emerald-400"
               href="/arbswap/forgot-password"
             >
-              Verify here.
+              {loginDictionary[params.lang]?.verifyHere}
             </Link>
           </div>
         </div>
@@ -144,7 +152,7 @@ function Login() {
               className=""
               src="/img/connect-wallet.png"
             />
-            Connect Wallet
+            {loginDictionary[params.lang]?.connectWallet}
           </div>
         </Button>
       </div>

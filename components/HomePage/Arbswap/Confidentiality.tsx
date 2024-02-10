@@ -1,7 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
+import { arbSwapHomeDictionary } from '@/localesContent'
 
-const Confidentiality = (): React.JSX.Element => {
+interface ConfidentialtyProps {
+  readonly locale: string;
+}
+
+const Confidentiality: React.FC<ConfidentialtyProps> = ({locale}): React.JSX.Element => {
   return (
     <div className="mr-16 mt-48">
       <div className="flex justify-center">
@@ -14,10 +19,9 @@ const Confidentiality = (): React.JSX.Element => {
           />
         </div>
         <div className="mt-36">
-          <p className="text-5xl">Confidentiality</p>
+          <p className="text-5xl">{arbSwapHomeDictionary[locale]?.confidentiality}</p>
           <p className="mt-8 w-96">
-            We do not store personal data on our servers and never transfer it
-            to third parties.
+            {arbSwapHomeDictionary[locale]?.confidentialityDesc}
           </p>
         </div>
       </div>

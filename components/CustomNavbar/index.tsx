@@ -5,9 +5,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { links } from '@/constants'
 import { useUserStore } from '@/hooks/useStore'
+import { navbarDictionary } from '@/localesContent'
 
-function AppBar() {
-  // const { user, setUser } = useUserStore()
+interface AppBarProps {
+  readonly locale: string;
+}
+
+function AppBar({locale}: AppBarProps) {
   const user = 'sdafsdf'
   const [nav, setNav] = useState(false)
 
@@ -57,13 +61,13 @@ function AppBar() {
         {user ? (
           <div className="mt-4 hidden items-center text-base font-semibold md:flex">
             <Link className="px-2 lg:px-5" href="/about">
-              About Us
+                {navbarDictionary[locale]?.aboutUs}
             </Link>
             <Link className="px-2 lg:px-5" href="/team">
-              Our Team
+              {navbarDictionary[locale]?.ourTeam}
             </Link>
             <Link className="px-2 lg:px-5" href="/contact">
-              Contact
+              {navbarDictionary[locale]?.contact}
             </Link>
             <Link className="px-1 lg:px-3" href="/arbswap">
               <div className="rounded-full bg-gradient-button p-px">
@@ -112,7 +116,7 @@ function AppBar() {
             </Link>
             <Link className="px-1 lg:px-3" href="/join-us">
               <div className="rounded-full bg-blue-500 px-5 py-1">
-                <span className="text-sm font-medium">Join Us</span>
+                <span className="text-sm font-medium">{navbarDictionary[locale]?.joinUs}</span>
               </div>
             </Link>
           </div>

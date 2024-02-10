@@ -3,11 +3,18 @@
 import BridgeOptions from '@/components/NexBridgeDashboard/BridgeOptions'
 import ComposeBridge from '@/components/NexBridgeDashboard/ComposeBridge'
 import React, { useState } from 'react'
+import { nexBridgeDashboardDictionary } from '@/localesContent'
 
-const Dashboard = () => {
+interface DashboardProps {
+  readonly params: {
+    lang: string;
+  }
+}
+
+const Dashboard = ({params}: DashboardProps) => {
   const buttons = [
-    { key: 'compose', value: 'Compose' },
-    { key: 'bridgeOptions', value: 'Bridge Options' }
+    { key: 'compose', value: nexBridgeDashboardDictionary[params.lang]?.compose },
+    { key: 'bridgeOptions', value: nexBridgeDashboardDictionary[params.lang]?.bridgeOptions }
   ]
 
   const [initialActiveButton, setInitialActiveButton] = useState(buttons[0].key)
@@ -34,8 +41,8 @@ const Dashboard = () => {
             </button>
           ))}
         </div>
-        {initialActiveButton === 'compose' && <ComposeBridge />}
-        {initialActiveButton === 'bridgeOptions' && <BridgeOptions />}
+        {initialActiveButton === 'compose' && <ComposeBridge locale={params.lang} />}
+        {initialActiveButton === 'bridgeOptions' && <BridgeOptions locale={params.lang} />}
       </div>
     </div>
   )

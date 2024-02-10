@@ -7,8 +7,15 @@ import {
   verifyOtpAndUpdatePassword
 } from '@/services/ApiService'
 import Modal from '@/components/CommonComponents/Modal'
+import { forgotPasswordDictionary } from '@/localesContent'
 
-const ForgotPassword = () => {
+interface ForgotPasswordProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+const ForgotPassword = ({params}: ForgotPasswordProps) => {
   const [email, setEmail] = useState('')
   const [verificationCode, setVerificationCode] = useState('')
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false)
@@ -66,14 +73,14 @@ const ForgotPassword = () => {
                   id="validEmail"
                   className="mt-1 w-full rounded-full bg-slate-700"
                   type="email"
-                  placeholder="Enter your valid email"
+                  placeholder={forgotPasswordDictionary[params.lang]?.enterEmail}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <button
                   className="mt-5 w-full rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-green-400 px-5 py-2"
                   type="submit"
                 >
-                  Send code
+                  {forgotPasswordDictionary[params.lang]?.sendCode}
                 </button>
               </form>
             </div>
@@ -81,14 +88,14 @@ const ForgotPassword = () => {
               <form onSubmit={handleSubmitVerificationCode}>
                 {isEmailSubmitted ? (
                   <label className="ml-4 text-sm" htmlFor="verificationCode">
-                    Verification Code
+                    {forgotPasswordDictionary[params.lang]?.verificationCode}
                   </label>
                 ) : (
                   <label
                     className="ml-4 text-sm opacity-50"
                     htmlFor="verificationCode"
                   >
-                    Verification Code
+                    {forgotPasswordDictionary[params.lang]?.verificationCode}
                   </label>
                 )}
                 {isEmailSubmitted ? (
@@ -96,7 +103,7 @@ const ForgotPassword = () => {
                     id="verificationCode"
                     className="mt-1 w-full rounded-full bg-slate-700"
                     type="text"
-                    placeholder="Enter verification code"
+                    placeholder={forgotPasswordDictionary[params.lang]?.enterVerificationCode}
                     onChange={(e) => setVerificationCode(e.target.value)}
                   />
                 ) : (
@@ -104,18 +111,18 @@ const ForgotPassword = () => {
                     id="verificationCode"
                     className="mt-1 w-full rounded-full bg-slate-700"
                     type="text"
-                    placeholder="Enter verification code"
+                    placeholder={forgotPasswordDictionary[params.lang]?.enterVerificationCode}
                     disabled
                   />
                 )}
                 {isEmailSubmitted ? (
                   <p className="mb-20 mt-2 text-center text-sm">
-                    Don't you get code?{' '}
+                    {forgotPasswordDictionary[params.lang]?.dontYouGetCode}{' '}
                     <button
                       onClick={(e) => handleSendVerificationCodeAgain}
                       className="text-green-500"
                     >
-                      Send again
+                      {forgotPasswordDictionary[params.lang]?.sendAgain}
                     </button>
                   </p>
                 ) : (
@@ -126,14 +133,14 @@ const ForgotPassword = () => {
                     className="w-full rounded-full bg-gradient-to-r from-purple-700 via-blue-500 to-green-400 px-5 py-2"
                     type="submit"
                   >
-                    Verify
+                    {forgotPasswordDictionary[params.lang]?.verify}
                   </button>
                 ) : (
                   <button
                     className="w-full cursor-not-allowed rounded-full bg-gray-500 px-8 py-2 text-gray-400 opacity-50"
                     disabled
                   >
-                    Verify
+                    {forgotPasswordDictionary[params.lang]?.verify}
                   </button>
                 )}
               </form>
@@ -143,30 +150,30 @@ const ForgotPassword = () => {
           <div className="w-80 rounded-3xl bg-slate-700 p-5">
             <form onSubmit={handleChangePassword}>
               <label className="ml-5 text-sm" htmlFor="newPassword">
-                New Password
+                {forgotPasswordDictionary[params.lang]?.newPassword}
               </label>
               <input
                 id="newPassword"
                 className="mb-2 mt-2 w-full rounded-full bg-slate-700"
                 type="password"
-                placeholder="Enter your password"
+                placeholder={forgotPasswordDictionary[params.lang]?.enterPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
               <label className="ml-5 text-sm" htmlFor="newPasswordAgain">
-                New Password Again
+                {forgotPasswordDictionary[params.lang]?.newPasswordAgain}
               </label>
               <input
                 id="newPasswordAgain"
                 className="mt-2 w-full rounded-full bg-slate-700"
                 type="password"
-                placeholder="Enter your password"
+                placeholder={forgotPasswordDictionary[params.lang]?.enterPassword}
                 onChange={(e) => setNewPasswordAgain(e.target.value)}
               />
               <button
                 className="mt-24 w-full rounded-full bg-gradient-to-r from-purple-700 via-blue-500 to-green-400 px-5 py-2"
                 type="submit"
               >
-                Log in
+                {forgotPasswordDictionary[params.lang]?.login}
               </button>
             </form>
           </div>

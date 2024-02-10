@@ -1,25 +1,30 @@
 import React from 'react'
 import Image from 'next/image'
+import { arbSwapHomeDictionary } from '@/localesContent'
 
-const SolanaStatistics = () => {
+interface SolanaStatisticsProps {
+  readonly locale: string;
+}
+
+const SolanaStatistics: React.FC<SolanaStatisticsProps> = ({locale}) => {
   return (
     <div>
       <div className="mt-32 flex justify-evenly">
         <div>
           <h1 className="text-center text-5xl">5M+</h1>
-          <p className="opacity-50">User worldwide</p>
+          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.userWorldwide}</p>
         </div>
         <div>
           <h1 className="text-center text-5xl">120</h1>
-          <p className="opacity-50">Country Supported</p>
+          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.countrySupported}</p>
         </div>
         <div>
           <h1 className="text-center text-5xl">43M+</h1>
-          <p className="opacity-50">Crypto Transactions</p>
+          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.cryptoTransactions}</p>
         </div>
         <div>
           <h1 className="text-center text-5xl">$470B</h1>
-          <p className="opacity-50">Assets on Platform</p>
+          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.assetsOnPlatform}</p>
         </div>
       </div>
       <div className="mt-16 h-[995px] bg-[url('/img/map.png')] bg-cover bg-no-repeat">
@@ -34,10 +39,10 @@ const SolanaStatistics = () => {
           </div>
           <div className="pt-28">
             <p className="text-center text-2xl tracking-widest text-orange-500">
-              SEND AND RECEIEVE
+              {arbSwapHomeDictionary[locale]?.sendAndRecieve}
             </p>
             <p className="mt-10 text-center text-5xl">
-              Easily send and recieve Solana <br /> from everywhere
+              {arbSwapHomeDictionary[locale]?.sendAndRecieveDesc}
             </p>
           </div>
         </div>

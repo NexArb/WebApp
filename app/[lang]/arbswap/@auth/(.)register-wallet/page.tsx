@@ -6,8 +6,15 @@ import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { registerWalletDictionary } from '@/localesContent'
 
-function RegisterWallet() {
+interface RegisterWalletProps {
+  readonly params: {
+    readonly lang: string;
+  }
+}
+
+function RegisterWallet({params}: RegisterWalletProps) {
   const router = useRouter()
 
   const handleNext = () => {
@@ -18,7 +25,7 @@ function RegisterWallet() {
     <Modal routerBack="/arbswap">
       <div className="h-[449px] w-[449px] flex-row rounded-[38px] border border-white bg-indigo-300 bg-opacity-20 p-9 backdrop-blur-[100px]">
         <div className="mx-auto p-10 text-center">
-          Connect your Phantom wallet to continue register.
+          {registerWalletDictionary[params.lang]?.connectPhantomWallet}
         </div>
         <form onSubmit={() => {}} className="flex flex-col">
           <Button
@@ -33,7 +40,7 @@ function RegisterWallet() {
                 className=""
                 src="/img/connect-wallet.png"
               />
-              Connect Wallet
+              {registerWalletDictionary[params.lang]?.connectWallet}
             </div>
           </Button>
           <Button
@@ -41,7 +48,7 @@ function RegisterWallet() {
             onClick={handleNext}
           >
             <div className="flex flex-row items-center justify-center gap-4">
-              Register
+              {registerWalletDictionary[params.lang]?.register}
             </div>
           </Button>
         </form>
