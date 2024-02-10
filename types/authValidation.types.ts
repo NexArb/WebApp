@@ -3,10 +3,11 @@ import { z } from 'zod'
 const passwordSchema = z
   .string()
   .min(10, 'Password must be at least 10 characters long')
+const emailSchema = z.string().email('Invalid email address')
 
 export const registerSchema = z
   .object({
-    email: z.string().email('Invalid email address'),
+    email: emailSchema,
     password: passwordSchema,
     confirmPassword: passwordSchema,
     acceptTerms: z
@@ -18,9 +19,15 @@ export const registerSchema = z
     path: ['confirmPassword']
   })
 
+export const loginSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+  rememberDevice: z.boolean()
+})
+
 export const forgotPasswordSchema = z
   .object({
-    email: z.string().email('Invalid email address'),
+    email: emailSchema,
     password: passwordSchema,
     confirmPassword: passwordSchema
   })
@@ -31,3 +38,4 @@ export const forgotPasswordSchema = z
 
 export type TRegisterSchema = z.infer<typeof registerSchema>
 export type TForgotPasswordSchema = z.infer<typeof forgotPasswordSchema>
+export type TLoginSchema = z.infer<typeof loginSchema>
