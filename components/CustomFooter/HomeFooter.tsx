@@ -1,32 +1,38 @@
 'use client'
 
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
 
 import Contact from '@/components/HomePage/Contact'
 import CustomFooter from '@/components/CustomFooter'
 import { footerDictionary } from '@/localesContent'
 
 interface HomeFooterProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function HomeFooter({locale}: HomeFooterProps) {
+function HomeFooter({ locale }: HomeFooterProps) {
   return (
-    <section
-      style={{
-        background: "url('/img/footer-bg-small.png')",
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
-      }}
-      className="flexCenter "
-    >
-      <div className="flexCenter z-20 flex-col ">
-        <div className="mt-40 flex flex-col">
-          <div className="flex w-full min-w-full flex-1 px-6 max-xl:flex-col lg:px-20 xl:px-0">
+    <section className="flexCenter relative">
+      <Image
+        src="/img/footer-bg.png"
+        alt="mountains"
+        fill
+        className="max-md:hidden"
+        quality={95}
+      />
+      <Image
+        src="/img/footer-bg-small.png"
+        alt="mountains"
+        fill
+        className="md:hidden"
+        quality={95}
+      />
+      <div className="z-20 flex-col">
+        <div className="mt-20 flex flex-col p-20">
+          <div className="flex flex-row px-6 max-xl:flex-col max-xl:items-center max-xl:justify-center lg:px-20 xl:px-0">
             <div className="mb-6 w-1/2 px-6">
-              <div className="mt-14 text-4xl font-bold leading-10">
+              <div className="mt-14 text-4xl font-bold leading-10 max-xl:mt-0">
                 {footerDictionary[locale]?.keepInTouch}
               </div>
               <div className="my-8 text-2xl font-medium leading-loose">

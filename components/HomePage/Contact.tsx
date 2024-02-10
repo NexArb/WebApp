@@ -5,12 +5,12 @@ import Input from '@/components/HomePage/Input'
 import { footerDictionary } from '@/localesContent'
 
 interface ContactProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function Contact({locale}: ContactProps) {
+function Contact({ locale }: ContactProps) {
   return (
-    <form className="flex w-full flex-col rounded-lg bg-white p-12 lg:mx-12 ">
+    <form className="flex w-full max-w-lg flex-col rounded-lg bg-white p-12 max-xl:mt-10 lg:mx-12">
       <span className="text-sm font-bold uppercase leading-relaxed tracking-widest text-violet-950">
         {footerDictionary[locale]?.yourName}
       </span>
