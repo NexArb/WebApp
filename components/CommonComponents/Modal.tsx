@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 
-import { useModalStore } from '@/hooks/userStore'
+import { useModalStore } from '@/hooks/useStore'
 import { useRouter } from 'next/navigation'
 
 type ModalProp = Readonly<{

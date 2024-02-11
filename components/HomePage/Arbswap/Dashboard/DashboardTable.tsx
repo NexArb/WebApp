@@ -2,7 +2,7 @@ import React from 'react'
 
 import StarRating from './StarRating'
 import { OfferListing } from '@/constants'
-import { useModalStore } from '@/hooks/userStore'
+import { useModalStore } from '@/hooks/useStore'
 import Link from 'next/link'
 
 type OfferProps = (typeof OfferListing)[number]

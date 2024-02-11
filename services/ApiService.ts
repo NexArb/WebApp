@@ -1,20 +1,38 @@
 import axios from 'axios'
+import { useUserStore } from '@/hooks/useStore'
 
-const token = 'YOUR_JWT_KEY'
+const token = useUserStore.getState().token
 
-/*
-Examples 
+export const loginUser = async (data: {
+  email: string
+  password: string
+  rememberDevice: boolean
+}) => {
+  const response = await axios.post(
+    'https://platform-omggm8hk.b4a.run/auth/login',
+    {
+      username: data.email,
+      password: data.password
+    }
+  )
+  return response
+}
 
------ Function With Param -----
-const getUser = async (userId: string) => {
-    return axios.get("/user/" + userId);
-};
-
------ Function With Query -----
-const getAvailableUsers = async (isAvailable: string) => {
-    return axios.get("/user?is_available=" + isAvailable);
-};
-*/
+export const registerUser = async (data: {
+  email: string
+  password: string
+  confirmPassword: string
+  acceptTerms: boolean
+}) => {
+  const response = await axios.post(
+    'https://platform-omggm8hk.b4a.run/auth/register',
+    {
+      username: data.email,
+      password: data.password
+    }
+  )
+  return response
+}
 
 export const setOtpChoice = async (otpIdentifier: string) => {
   return axios.post(
