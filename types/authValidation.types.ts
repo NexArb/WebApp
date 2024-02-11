@@ -7,7 +7,7 @@ const emailSchema = z.string().email('Invalid email address')
 
 export const registerSchema = z
   .object({
-    email: emailSchema,
+    username: emailSchema,
     password: passwordSchema,
     confirmPassword: passwordSchema,
     acceptTerms: z

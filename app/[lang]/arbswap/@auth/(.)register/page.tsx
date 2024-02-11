@@ -39,7 +39,7 @@ function Register({ params }: RegisterProps) {
       if (responseData.errors) {
         const errors = responseData.errors
         if (errors.email) {
-          setError('email', {
+          setError('username', {
             type: 'server',
             message: errors.email
           })
@@ -74,14 +74,14 @@ function Register({ params }: RegisterProps) {
             Email
           </label>
           <input
-            {...register('email')}
+            {...register('username')}
             aria-label="Enter a valid email"
             type="text"
             placeholder={registerDictionary[params.lang]?.enterEmail}
             className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
           />
-          {errors.email && (
-            <p className="px-6 pt-2 text-red-500">{`${errors.email.message}`}</p>
+          {errors.username && (
+            <p className="px-6 pt-2 text-red-500">{`${errors.username.message}`}</p>
           )}
           <label htmlFor="password" className="mt-4 px-4 py-2">
             {registerDictionary[params.lang]?.choosePassword}
