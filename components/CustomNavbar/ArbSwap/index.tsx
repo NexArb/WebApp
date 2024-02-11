@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useModalStore } from '@/hooks/userStore'
+import { useModalStore } from '@/hooks/useStore'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/localesContent'
 
@@ -47,10 +47,10 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
         </button>
         <div className="z-20 mr-0.5 mt-3">
           <Image
-            src="/img/nexarb_logo.png"
-            width={170}
-            height={38}
-            alt="Nexarb Logo"
+            src="/img/gradient-arbswap.png"
+            width={162}
+            height={36}
+            alt="Arbswap Logo"
           />
         </div>
         <div className="mt-4 hidden items-center text-base font-semibold md:flex">

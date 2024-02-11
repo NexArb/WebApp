@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { links } from '@/constants'
+import { useUserStore } from '@/hooks/useStore'
 import { navbarDictionary } from '@/localesContent'
 
 interface AppBarProps {
@@ -49,10 +50,10 @@ function AppBar({ locale }: AppBarProps) {
         <div className="mr-0.5 mt-3">
           <Link href="/">
             <Image
-              src="/img/nexarb_logo.png"
-              width={170}
-              height={38}
-              alt="Nexarb Logo"
+              src="/img/gradient-arbswap.png"
+              width={162}
+              height={36}
+              alt="Arbswap Logo"
             />
           </Link>
         </div>
