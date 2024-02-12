@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { links } from '@/constants'
-import { useUserStore } from '@/hooks/useStore'
 import { navbarDictionary } from '@/localesContent'
 
 interface AppBarProps {

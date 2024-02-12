@@ -3,21 +3,19 @@ import { useUserStore } from '@/hooks/useStore'
 
 const token = useUserStore.getState().token
 
-const baseURL = "http://localhost:8080";
+const baseURL = 'http://localhost:8080'
 
 export const loginUser = async (data: {
   email: string
   password: string
   rememberDevice: boolean
 }) => {
-  const formData = new URLSearchParams();
-  formData.append("username", data.email);
-  formData.append("password", data.password);
-  const response = await axios.post(
-    `${baseURL}/auth/login`,
-    formData,
-    {headers: {"Content-Type": "application/x-www-form-urlencode"}}
-  )
+  const formData = new URLSearchParams()
+  formData.append('username', data.email)
+  formData.append('password', data.password)
+  const response = await axios.post(`${baseURL}/auth/login`, formData, {
+    headers: { 'Content-Type': 'application/x-www-form-urlencode' }
+  })
   return response
 }
 
@@ -27,14 +25,12 @@ export const registerUser = async (data: {
   confirmPassword: string
   acceptTerms: boolean
 }) => {
-  const formData = new URLSearchParams();
-  formData.append("username", data.username);
-  formData.append("password", data.password);
-  const response = await axios.post(
-    `${baseURL}/auth/register`,
-    formData,
-    {headers: {"Content-Type": "application/x-www-form-urlencoded"}}
-  )
+  const formData = new URLSearchParams()
+  formData.append('username', data.username)
+  formData.append('password', data.password)
+  const response = await axios.post(`${baseURL}/auth/register`, formData, {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  })
   return response
 }
 
