@@ -29,7 +29,8 @@ const Login = ({ params }: { params: { lang: string } }) => {
     try {
       // ApiService function pass data, return response
       const response = await loginUser(data)
-      const responseData = response.data()
+      const responseData = response.data
+      console.log(responseData);
 
       if (response.status < 200 || response.status >= 300) {
         // response status is not 2xx

@@ -14,7 +14,7 @@ export const loginUser = async (data: {
   formData.append('username', data.email)
   formData.append('password', data.password)
   const response = await axios.post(`${baseURL}/auth/login`, formData, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencode' }
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
   })
   return response
 }

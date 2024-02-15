@@ -29,7 +29,7 @@ function Register({ params }: RegisterProps) {
     try {
       // ApiService function pass data, return response
       const response = await registerUser(data)
-      const responseData = response.data()
+      const responseData = response.data
 
       if (response.status < 200 || response.status >= 300) {
         // response status is not 2xx

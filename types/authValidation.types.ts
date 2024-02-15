@@ -2,7 +2,6 @@ import { z } from 'zod'
 
 const passwordSchema = z
   .string()
-  .min(10, 'Password must be at least 10 characters long')
 const emailSchema = z.string().email('Invalid email address')
 
 export const registerSchema = z
