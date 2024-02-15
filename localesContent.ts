@@ -3,7 +3,8 @@ interface ArbswapNavbar {
   createOffer: string
   wallet: string
   support: string
-  login: string
+  login: string,
+  walletConnected: string
 }
 
 interface NexBridgeNavbar {
@@ -172,21 +173,24 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     createOffer: 'Create Offer',
     wallet: 'Wallet',
     support: 'Support',
-    login: 'Login'
+    login: 'Login',
+    walletConnected: "Wallet Connected"
   },
   tr: {
     aboutUs: 'Hakkımızda',
     createOffer: 'Teklif Oluştur',
     wallet: 'Wallet',
     support: 'Destek',
-    login: 'Giriş Yap'
+    login: 'Giriş Yap',
+    walletConnected: "Wallet Bağlandı"
   },
   de: {
     aboutUs: 'Über Uns',
     createOffer: 'Angebot erstellen',
     wallet: 'Wallet',
     support: 'Unterstützung',
-    login: 'Anmeldung'
+    login: 'Anmeldung',
+    walletConnected: "Wallet verbunden"
   }
 }
 

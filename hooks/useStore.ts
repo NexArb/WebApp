@@ -11,10 +11,10 @@ export const useModalStore = create<ModalState>((set) => ({
 export const useUserStore = create<UserState>()(
   persist(
     (set) => ({
-      user: null,
       token: null,
-      setUser: (user) => set({ user }),
-      setToken: (token) => set({ token })
+      isAuthenticated: false,
+      setToken: (token) => set({ token }),
+      setIsAuthenticated: () => set((state) => ({ isAuthenticated: !state.isAuthenticated }))
     }),
     {
       name: 'auth',

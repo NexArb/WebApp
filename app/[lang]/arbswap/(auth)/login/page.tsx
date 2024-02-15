@@ -16,7 +16,7 @@ import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
 
 const Login = ({ params }: { params: { lang: string } }) => {
   const router = useRouter()
-  const { setToken } = useUserStore()
+  const { setToken, setIsAuthenticated } = useUserStore()
   const {
     register,
     handleSubmit,
@@ -53,8 +53,9 @@ const Login = ({ params }: { params: { lang: string } }) => {
           alert('Something went wrong!')
         }
       } else {
-        const token = responseData.token
+        const token = responseData.access_token
         setToken(token)
+        setIsAuthenticated();
         router.push('/arbswap/dashboard')
       }
     } catch (e) {
