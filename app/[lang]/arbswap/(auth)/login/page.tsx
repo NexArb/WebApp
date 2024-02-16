@@ -30,7 +30,6 @@ const Login = ({ params }: { params: { lang: string } }) => {
       // ApiService function pass data, return response
       const response = await loginUser(data)
       const responseData = response.data
-      console.log(responseData);
 
       if (response.status < 200 || response.status >= 300) {
         // response status is not 2xx
@@ -55,7 +54,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
       } else {
         const token = responseData.access_token
         setToken(token)
-        setIsAuthenticated();
+        setIsAuthenticated()
         router.push('/arbswap/dashboard')
       }
     } catch (e) {

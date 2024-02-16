@@ -14,7 +14,8 @@ export const useUserStore = create<UserState>()(
       token: null,
       isAuthenticated: false,
       setToken: (token) => set({ token }),
-      setIsAuthenticated: () => set((state) => ({ isAuthenticated: !state.isAuthenticated }))
+      setIsAuthenticated: () =>
+        set((state) => ({ isAuthenticated: !state.isAuthenticated }))
     }),
     {
       name: 'auth',

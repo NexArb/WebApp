@@ -3,7 +3,7 @@ interface ArbswapNavbar {
   createOffer: string
   wallet: string
   support: string
-  login: string,
+  login: string
   walletConnected: string
 }
 
@@ -174,7 +174,7 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     wallet: 'Wallet',
     support: 'Support',
     login: 'Login',
-    walletConnected: "Wallet Connected"
+    walletConnected: 'Wallet Connected'
   },
   tr: {
     aboutUs: 'Hakkımızda',
@@ -182,7 +182,7 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     wallet: 'Wallet',
     support: 'Destek',
     login: 'Giriş Yap',
-    walletConnected: "Wallet Bağlandı"
+    walletConnected: 'Wallet Bağlandı'
   },
   de: {
     aboutUs: 'Über Uns',
@@ -190,7 +190,7 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     wallet: 'Wallet',
     support: 'Unterstützung',
     login: 'Anmeldung',
-    walletConnected: "Wallet verbunden"
+    walletConnected: 'Wallet verbunden'
   }
 }
 
