@@ -6,17 +6,17 @@ import Crew from './Crew'
 
 interface HomePageProps {
   readonly params: {
-    readonly lang: string;
+    readonly lang: string
   }
 }
 
-function HomePage({params}: HomePageProps) {
-  const { lang } = params;
+function HomePage({ params }: HomePageProps) {
+  const { lang } = params
   return (
     <>
-      <Hero locale={lang}/>
+      <Hero locale={lang} />
       <Projects locale={lang} />
-      <Crew locale={lang}/>
+      <Crew locale={lang} />
     </>
   )
 }

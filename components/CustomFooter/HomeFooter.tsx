@@ -8,10 +8,10 @@ import CustomFooter from '@/components/CustomFooter'
 import { footerDictionary } from '@/localesContent'
 
 interface HomeFooterProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function HomeFooter({locale}: HomeFooterProps) {
+function HomeFooter({ locale }: HomeFooterProps) {
   return (
     <section
       style={{

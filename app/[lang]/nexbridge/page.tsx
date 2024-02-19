@@ -9,7 +9,7 @@ interface NexBridgeHomePageProps {
   }
 }
 
-function NexBridgeHomePage({params}: NexBridgeHomePageProps) {
+function NexBridgeHomePage({ params }: NexBridgeHomePageProps) {
   return (
     <div className="flex h-screen w-screen flex-col justify-between self-stretch">
       <div className="flex w-3/5 flex-col justify-between self-center ">

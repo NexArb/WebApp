@@ -3,40 +3,40 @@ import { useUserStore } from '@/hooks/useStore'
 
 const token = useUserStore.getState().token
 
+const baseURL = 'http://localhost:8080'
+
 export const loginUser = async (data: {
   email: string
   password: string
   rememberDevice: boolean
 }) => {
-  const response = await axios.post(
-    'https://platform-omggm8hk.b4a.run/auth/login',
-    {
-      username: data.email,
-      password: data.password
-    }
-  )
+  const formData = new URLSearchParams()
+  formData.append('username', data.email)
+  formData.append('password', data.password)
+  const response = await axios.post(`${baseURL}/auth/login`, formData, {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  })
   return response
 }
 
 export const registerUser = async (data: {
-  email: string
+  username: string
   password: string
   confirmPassword: string
   acceptTerms: boolean
 }) => {
-  const response = await axios.post(
-    'https://platform-omggm8hk.b4a.run/auth/register',
-    {
-      username: data.email,
-      password: data.password
-    }
-  )
+  const formData = new URLSearchParams()
+  formData.append('username', data.username)
+  formData.append('password', data.password)
+  const response = await axios.post(`${baseURL}/auth/register`, formData, {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  })
   return response
 }
 
 export const setOtpChoice = async (otpIdentifier: string) => {
   return axios.post(
-    'https://platform-omggm8hk.b4a.run/auth/otp/set',
+    `${baseURL}/auth/otp/set`,
     { otp_type: 'Email', otp_identifier: otpIdentifier },
     { headers: { Authorization: `Bearer ${token}` } }
   )
@@ -44,7 +44,7 @@ export const setOtpChoice = async (otpIdentifier: string) => {
 
 export const sendPasswordResetRequest = () => {
   axios.post(
-    'https://platform-omggm8hk.b4a.run/auth/password-reset/request',
+    `${baseURL}/auth/password-reset/request`,
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   )
@@ -55,7 +55,7 @@ export const verifyOtpAndUpdatePassword = (
   newPassword: string
 ) => {
   return axios.post(
-    `https://platform-omggm8hk.b4a.run/auth/password-reset/verify?otp_code=${otpCode}&new_password=${newPassword}`,
+    `${baseURL}/auth/password-reset/verify?otp_code=${otpCode}&new_password=${newPassword}`,
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   )

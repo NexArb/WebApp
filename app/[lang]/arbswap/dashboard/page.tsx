@@ -8,7 +8,7 @@ import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTab
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 // import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
 
-function page() {
+function Dashboard() {
   // useRedirectIfModalOpen()
 
   return (
@@ -115,4 +115,4 @@ function page() {
   )
 }
 
-export default page
+export default Dashboard

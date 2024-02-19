@@ -5,10 +5,10 @@ import CustomNavbar from '@/components/CustomNavbar'
 import { homeDictionary } from '@/localesContent'
 
 interface HeroProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function Hero({locale}: HeroProps) {
+function Hero({ locale }: HeroProps) {
   return (
     <section
       style={{
@@ -19,7 +19,7 @@ function Hero({locale}: HeroProps) {
       }}
       className="flex w-full flex-col"
     >
-      <CustomNavbar locale={locale}/>
+      <CustomNavbar locale={locale} />
       <div className="flex min-h-[100vh] w-full flex-col items-end justify-center pb-[7vh]">
         <div className="mx-auto mb-6 text-center text-7xl font-bold leading-[86px] lg:w-[692px]">
           {homeDictionary[locale]?.digitalSolutions}

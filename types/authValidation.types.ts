@@ -2,12 +2,12 @@ import { z } from 'zod'
 
 const passwordSchema = z
   .string()
-  .min(10, 'Password must be at least 10 characters long')
+  .min(8, 'Password must be at least 10 characters long')
 const emailSchema = z.string().email('Invalid email address')
 
 export const registerSchema = z
   .object({
-    email: emailSchema,
+    username: emailSchema,
     password: passwordSchema,
     confirmPassword: passwordSchema,
     acceptTerms: z
