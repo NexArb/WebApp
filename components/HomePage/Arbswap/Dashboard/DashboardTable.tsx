@@ -14,7 +14,7 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
     <tr>
       <td className="px-4 font-medium text-slate-950">
         <div className="pl-2 text-base">{seller.name}</div>
-        <div className="mt-1 flex flex-row rounded-xl bg-white p-1 lg:w-28">
+        <div className="mt-1 flex w-28 flex-row rounded-xl bg-white p-1 ">
           <StarRating rating={seller.star} />
           <span className="ml-2 text-xs">{seller.star}</span>
         </div>
