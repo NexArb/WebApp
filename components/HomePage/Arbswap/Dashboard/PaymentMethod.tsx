@@ -63,10 +63,10 @@ function PaymentMethod() {
       </div>
       <div className="mt-9 grid grid-cols-2 gap-3">
         <CustomButton className="border bg-zinc-400 py-2" onClick={toggleModal}>
-          <span className='text-white'>Previous</span>
+          <span className="text-white">Previous</span>
         </CustomButton>
         <CustomButton className="border bg-blue-600 py-2" onClick={nextStep}>
-          <span className='text-white'>Next</span>
+          <span className="text-white">Next</span>
         </CustomButton>
       </div>
     </div>
@@ -74,4 +74,3 @@ function PaymentMethod() {
 }
 
 export default PaymentMethod
-

@@ -3,10 +3,12 @@ import Image from 'next/image'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
 interface ConfidentialtyProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-const Confidentiality: React.FC<ConfidentialtyProps> = ({locale}): React.JSX.Element => {
+const Confidentiality: React.FC<ConfidentialtyProps> = ({
+  locale
+}): React.JSX.Element => {
   return (
     <div className="mr-16 mt-48">
       <div className="flex justify-center">
@@ -19,7 +21,9 @@ const Confidentiality: React.FC<ConfidentialtyProps> = ({locale}): React.JSX.Ele
           />
         </div>
         <div className="mt-36">
-          <p className="text-5xl">{arbSwapHomeDictionary[locale]?.confidentiality}</p>
+          <p className="text-5xl">
+            {arbSwapHomeDictionary[locale]?.confidentiality}
+          </p>
           <p className="mt-8 w-96">
             {arbSwapHomeDictionary[locale]?.confidentialityDesc}
           </p>

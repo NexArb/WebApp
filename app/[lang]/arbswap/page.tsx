@@ -8,16 +8,20 @@ import Steps from '../../../components/HomePage/Arbswap/Steps'
 import ArbSwapNavbar from '@/components/CustomNavbar/ArbSwap'
 import ArbSwapFooter from '@/components/CustomFooter/ArbSwap'
 
-const Solana = ({params}: {params: {lang: string}}): React.JSX.Element => {
-  const { lang } = params;
+const Solana = ({
+  params
+}: {
+  params: { lang: string }
+}): React.JSX.Element => {
+  const { lang } = params
   return (
     <div className="bg-gradient-to-br from-blue-950 via-black to-purple-900">
       <ArbSwapNavbar locale={lang} />
-      <Intro locale={lang}/>
-      <ExchangeRates locale={lang}/>
+      <Intro locale={lang} />
+      <ExchangeRates locale={lang} />
       <SolanaStatistics locale={lang} />
       <Steps locale={lang} />
-      <SolanaWorld locale={lang}/>
+      <SolanaWorld locale={lang} />
       <Confidentiality locale={lang} />
       <ArbSwapFooter locale={lang} />
     </div>

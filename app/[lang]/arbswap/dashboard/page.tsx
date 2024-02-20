@@ -10,8 +10,8 @@ import DashboardFilter from '@/components/HomePage/Arbswap/Dashboard/DashboardFi
 
 // import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
 
-function page() {
-    // useRedirectIfModalOpen()
+function Dashboard() {
+  // useRedirectIfModalOpen()
     const [isModalOpen, setModalOpen] = useState(false);
 
     return (
@@ -60,4 +60,4 @@ function page() {
     )
 }
 
-export default page
+export default Dashboard

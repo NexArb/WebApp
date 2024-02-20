@@ -50,7 +50,6 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
   }
 
   const onSubmit: SubmitHandler<Record<string, any>> = (data) => {
-    console.log(data)
     if (!errors) {
       setIsSubmitting(true)
 

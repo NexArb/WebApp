@@ -24,13 +24,15 @@ function ProjectItem({ title, image, date }: ProjectItemProps) {
 }
 
 interface ProjectsProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function Projects({locale}: ProjectsProps) {
+function Projects({ locale }: ProjectsProps) {
   return (
     <section className="flexCenter mt-36 flex-col">
-      <div className="text-5xl font-bold leading-10">{homeDictionary[locale]?.ourWorks}</div>
+      <div className="text-5xl font-bold leading-10">
+        {homeDictionary[locale]?.ourWorks}
+      </div>
       <div className="mt-6 text-center text-2xl leading-loose lg:w-[722px]">
         {homeDictionary[locale]?.ourWorksDesc}
       </div>

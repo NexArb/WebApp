@@ -23,13 +23,17 @@ interface PriceChart {
 }
 
 interface ExchangeRatesProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-const ExchangeRates: React.FC<ExchangeRatesProps> = ({locale}): React.JSX.Element => {
+const ExchangeRates: React.FC<ExchangeRatesProps> = ({
+  locale
+}): React.JSX.Element => {
   return (
     <div className="mt-72">
-      <p className="text-center text-5xl">{arbSwapHomeDictionary[locale]?.exchangeRates}</p>
+      <p className="text-center text-5xl">
+        {arbSwapHomeDictionary[locale]?.exchangeRates}
+      </p>
       <div className="flex justify-center">
         <div className="grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
           <PriceCard symbol="BTC" name="Bitcoin" color="bg-orange-600" />

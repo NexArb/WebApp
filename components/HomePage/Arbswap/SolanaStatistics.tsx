@@ -3,28 +3,36 @@ import Image from 'next/image'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
 interface SolanaStatisticsProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-const SolanaStatistics: React.FC<SolanaStatisticsProps> = ({locale}) => {
+const SolanaStatistics: React.FC<SolanaStatisticsProps> = ({ locale }) => {
   return (
     <div>
       <div className="mt-32 flex justify-evenly">
         <div>
           <h1 className="text-center text-5xl">5M+</h1>
-          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.userWorldwide}</p>
+          <p className="opacity-50">
+            {arbSwapHomeDictionary[locale]?.userWorldwide}
+          </p>
         </div>
         <div>
           <h1 className="text-center text-5xl">120</h1>
-          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.countrySupported}</p>
+          <p className="opacity-50">
+            {arbSwapHomeDictionary[locale]?.countrySupported}
+          </p>
         </div>
         <div>
           <h1 className="text-center text-5xl">43M+</h1>
-          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.cryptoTransactions}</p>
+          <p className="opacity-50">
+            {arbSwapHomeDictionary[locale]?.cryptoTransactions}
+          </p>
         </div>
         <div>
           <h1 className="text-center text-5xl">$470B</h1>
-          <p className="opacity-50">{arbSwapHomeDictionary[locale]?.assetsOnPlatform}</p>
+          <p className="opacity-50">
+            {arbSwapHomeDictionary[locale]?.assetsOnPlatform}
+          </p>
         </div>
       </div>
       <div className="mt-16 h-[995px] bg-[url('/img/map.png')] bg-cover bg-no-repeat">
