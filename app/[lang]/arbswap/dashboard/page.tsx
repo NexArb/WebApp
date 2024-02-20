@@ -41,7 +41,12 @@ function Dashboard() {
       </Link>
 
       {/* Left Rectangle */}
-      <DashboardFilter isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
+      <Fragment key={'dashboard-filter'}>
+        <DashboardFilter
+          isModalOpen={isModalOpen}
+          setModalOpen={setModalOpen}
+        />
+      </Fragment>
       {/* Right Rectangle */}
       <div className="sm:w-5/5 max-h-[739px] max-w-4xl  rounded-3xl border bg-zinc-100 px-3 py-4 backdrop-blur-[100px] sm:!m-3 md:w-4/5 md:px-7">
         <div className={' custom-scrollbar !scroll-p-6 overflow-y-scroll'}>

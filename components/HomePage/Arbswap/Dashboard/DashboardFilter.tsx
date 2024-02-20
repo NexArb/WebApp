@@ -1,6 +1,7 @@
+import React from 'react'
 import Button from '@/components/CommonComponents/Button'
 import getFormattedDateTime from './CurrentDate'
-import Image from 'next/Image'
+import Image from 'next/image'
 
 type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function }
 
