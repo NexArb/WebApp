@@ -12,14 +12,13 @@ type ModalProp = Readonly<{
 
 const Modal = ({ children, routerBack }: ModalProp) => {
   const router = useRouter()
-  const { showModal, toggleModal } = useModalStore()
+  const { showModal, closeAllModals } = useModalStore()
 
   // Add event listener on component mount and remove on unmount
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        toggleModal()
-        router.push(routerBack)
+        closeAllModals()
       }
     }
 
@@ -29,7 +28,7 @@ const Modal = ({ children, routerBack }: ModalProp) => {
     return () => {
       window.removeEventListener('keydown', handleEsc)
     }
-  }, [router, routerBack, toggleModal]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
+  }, [router, routerBack, closeAllModals]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLElement
@@ -41,7 +40,7 @@ const Modal = ({ children, routerBack }: ModalProp) => {
       ) {
         return
       }
-      toggleModal()
+      closeAllModals()
     }
   }
 
@@ -49,8 +48,7 @@ const Modal = ({ children, routerBack }: ModalProp) => {
     const target = event.target as HTMLElement
     if (target.id === 'wrapper') {
       try {
-        toggleModal()
-        router.push(routerBack)
+        closeAllModals()
       } catch (e) {
         console.log(e)
       }

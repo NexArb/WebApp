@@ -7,12 +7,16 @@ import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTab
 import Link from 'next/link'
 import Image from 'next/image'
 import DashboardFilter from '@/components/HomePage/Arbswap/Dashboard/DashboardFilter'
+import PaymentMethod from '@/components/HomePage/Arbswap/Dashboard/PaymentMethod'
+import { useModalStore } from '@/hooks/useStore'
+import Pricing from '@/components/HomePage/Arbswap/Dashboard/Pricing'
 
 // import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
 
 function Dashboard() {
-  // useRedirectIfModalOpen()
+  const { showModal } = useModalStore()
   const [isModalOpen, setModalOpen] = useState(false)
+
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       setModalOpen(false)
@@ -52,7 +56,7 @@ function Dashboard() {
         <div className={' custom-scrollbar !scroll-p-6 overflow-y-scroll'}>
           <div className=" text-black">
             <div className=" mx-5 my-2 whitespace-nowrap border-0 border-black text-lg font-medium text-neutral-400 md:border-b">
-              <span className="mr-5">Sellera Information</span>
+              <span className="mr-5">Seller Information</span>
               <span className="mr-12">Payment Method</span>
               <span className="mr-24">Amount</span>
               <span className="">Price</span>
@@ -71,6 +75,8 @@ function Dashboard() {
           </div>
         </div>
       </div>
+      {showModal.paymentMethod && <PaymentMethod />}
+      {showModal.pricing && <Pricing />}
     </section>
   )
 }
