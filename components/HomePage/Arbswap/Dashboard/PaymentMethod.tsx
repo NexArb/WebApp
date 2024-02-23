@@ -44,26 +44,35 @@ function PaymentMethod() {
         <form className="flex flex-col">
           <select
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="name"
+            name="paymentMethod"
             defaultValue={'DEFAULT'}
           >
             <option hidden disabled value="DEFAULT">
               Payment Method
             </option>
-            <option value="xd">xd</option>
-            <option value="xd">xd</option>
+            <option value="creditCard">Credit Card</option>
+            <option value="bankCard">Bank Card</option>
+            <option value="paypal">Paypal</option>
+            <option value="applePay">Apple Pay</option>
           </select>
           <select
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="name"
+            name="country"
             defaultValue={'DEFAULT'}
           >
             <option hidden disabled value="DEFAULT">
-              Amount
+              Country
             </option>
-            <option value="xd">xd</option>
-            <option value="xd">xd</option>
+            <option value="tr">Turkey</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kindom</option>
+            <option value="de">Germany</option>
           </select>
+          <input
+            className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
+            type="text"
+            placeholder="Wallet Address"
+          ></input>
         </form>
         <div className="flex flex-col">
           <span className="ml-1 mt-16 text-lg font-medium text-neutral-500">

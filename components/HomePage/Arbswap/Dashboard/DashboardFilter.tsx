@@ -47,11 +47,20 @@ const FilterMenu = ({ isModalOpen, setModalOpen }: FilterMenuProps) => {
             <option value="BankTransfer">Bank Transfer</option>
             <option value="PayPal">PayPal</option>
           </select>
-          <input
-            className="mt-7 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            type="number"
-            placeholder="Amount"
-          ></input>
+          <div className={'relative mt-7 flex items-center'}>
+            <input
+              className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
+              type="number"
+              placeholder="Amount"
+            ></input>
+            <span
+              className={
+                'absolute ml-[175px] flex hidden w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.35rem] text-center text-center align-middle text-[14px] font-bold md:block '
+              }
+            >
+              SOL
+            </span>
+          </div>
           <span className="ml-3 mt-1 text-sm text-neutral-400">
             Minimum : 10 USD
           </span>

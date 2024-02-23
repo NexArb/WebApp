@@ -44,28 +44,54 @@ function Pricing() {
           </div>
         </div>
         <form className="flex flex-col">
-          <select
-            className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="name"
-            defaultValue={'DEFAULT'}
-          >
-            <option hidden disabled value="DEFAULT">
-              Amount
-            </option>
-            <option value="xd">xd</option>
-            <option value="xd">xd</option>
-          </select>
-          <select
-            className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="name"
-            defaultValue={'DEFAULT'}
-          >
-            <option hidden disabled value="DEFAULT">
-              Price
-            </option>
-            <option value="xd">xd</option>
-            <option value="xd">xd</option>
-          </select>
+          <div className={'relative mt-8 flex items-center'}>
+            <input
+              className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
+              type="number"
+              placeholder="Amount"
+            ></input>
+            <span
+              className={
+                'absolute ml-[431px] flex hidden w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.10rem] text-center text-center align-middle text-[14px] font-bold md:block '
+              }
+            >
+              SOL
+            </span>
+          </div>
+          <span className="ml-3 mt-1 text-sm text-neutral-400">
+            Minimum : 10 SOL
+          </span>
+          <div className={'relative mt-8 flex items-center'}>
+            <input
+              className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
+              type="number"
+              placeholder="Price"
+            ></input>
+            <span
+              className={
+                'absolute ml-[431px] flex hidden w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.10rem] text-center text-center align-middle text-[14px] font-bold md:block '
+              }
+            >
+              USD
+            </span>
+          </div>
+          <span className="ml-3 mt-1 text-sm text-neutral-400">
+            Minimum : 10 USD
+          </span>
+          <div className="mt-7 flex flex-row pl-3">
+            <label htmlFor="c1">
+              <div className="flexCenter group rounded-[10px]">
+                <input
+                  id="c1"
+                  type="checkbox"
+                  className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
+                />
+              </div>
+            </label>
+            <span className="pl-4 text-[16px] text-neutral-400">
+              Will the offer be accepted automatically?
+            </span>
+          </div>
         </form>
         <span className="ml-1 mt-16 text-lg font-medium text-neutral-500">
           STEP 2
