@@ -1,16 +1,27 @@
 'use client'
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 
 import Button from '@/components/CommonComponents/Button'
 import { OfferListing } from '@/constants'
 import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
+import { getMyOffers } from '@/services/ApiService'
+import { Offer } from '@/constants/Offer'
 // import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
 
 function Dashboard() {
   // useRedirectIfModalOpen()
+  const [offers, setOffers] = useState<Offer[]>([]);
 
+  useEffect(() => {
+    const getOffersFromApi = async () => {
+      const offersApi = await getMyOffers(false);
+      setOffers(offersApi.data.data);
+    }
+
+    getOffersFromApi();
+  }, [])
   return (
     <section className="flexCenter gap-6 pt-12">
       {/* Left Rectangle */}
@@ -93,20 +104,21 @@ function Dashboard() {
       <div className="max-h-[739px] max-w-4xl flex-grow scroll-p-96 overflow-hidden rounded-3xl border bg-zinc-100 px-7  backdrop-blur-[100px]">
         <div className="text-black">
           <div className="m-5 border-b border-black text-lg font-medium text-neutral-400">
-            <span className="mr-5">Seller Information</span>
+            <span className="mr-5">Seller Username</span>
             <span className="mr-12">Payment Method</span>
             <span className="mr-24">Amount</span>
-            <span className="">Price</span>
           </div>
         </div>
         <div className="custom-scrollbar mx-auto flex h-[739px] w-[850px] flex-col overflow-y-auto rounded-3xl bg-zinc-100 py-3">
           <table>
             <tbody>
-              {OfferListing.map((item) => (
-                <Fragment key={item.id}>
-                  <DashboardTable {...item} />
-                </Fragment>
-              ))}
+              {offers.map((offer) => {
+                return(
+                  <>
+                    <h1 style={{color: "black"}}>Hello World</h1>
+                  </>
+                )
+              })}
             </tbody>
           </table>
         </div>
