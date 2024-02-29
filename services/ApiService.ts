@@ -1,7 +1,9 @@
-import axios from 'axios'
-import { useUserStore } from '@/hooks/useStore'
+'use server'
 
-const token = useUserStore.getState().token
+import axios from 'axios'
+import { cookies } from 'next/headers'
+
+const token = cookies().get('token')
 
 const baseURL = 'http://localhost:8080'
 
@@ -10,13 +12,17 @@ export const loginUser = async (data: {
   password: string
   rememberDevice: boolean
 }) => {
-  const formData = new URLSearchParams()
-  formData.append('username', data.email)
-  formData.append('password', data.password)
-  const response = await axios.post(`${baseURL}/auth/login`, formData, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  })
-  return response
+  try {
+    const formData = new URLSearchParams()
+    formData.append('username', data.email)
+    formData.append('password', data.password)
+    const response = await axios.post(`${baseURL}/auth/login`, formData, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    })
+    return response
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 export const registerUser = async (data: {

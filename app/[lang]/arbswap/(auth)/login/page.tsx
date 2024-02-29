@@ -13,10 +13,11 @@ import { loginUser } from '@/services/ApiService'
 import { useUserStore } from '@/hooks/useStore'
 import { loginDictionary } from '@/localesContent'
 import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
+import create from '@/services/actions'
 
 const Login = ({ params }: { params: { lang: string } }) => {
   const router = useRouter()
-  const { setToken, setIsAuthenticated } = useUserStore()
+  const { setIsAuthenticated } = useUserStore()
   const {
     register,
     handleSubmit,
@@ -29,9 +30,10 @@ const Login = ({ params }: { params: { lang: string } }) => {
     try {
       // ApiService function pass data, return response
       const response = await loginUser(data)
-      const responseData = response.data
+      console.log("Response, ========>>>>>", response)
+      const responseData = response?.data
 
-      if (response.status < 200 || response.status >= 300) {
+      if (responseData.status < 200 || responseData.status >= 300) {
         // response status is not 2xx
         alert('Login failed!')
       }
@@ -53,9 +55,9 @@ const Login = ({ params }: { params: { lang: string } }) => {
         }
       } else {
         const token = responseData.access_token
-        setToken(token)
+        create(token)
         setIsAuthenticated()
-        router.push('/arbswap/dashboard')
+        router.push('/arbswap/register-wallet')
       }
     } catch (e) {
       console.log(e)
@@ -101,7 +103,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
             type="checkbox"
             className="mr-4"
           />
-          {loginDictionary[params.lang]?.rememberThisDevice}:
+          {loginDictionary[params.lang]?.rememberThisDevice}
         </label>
         <button
           type="submit"
