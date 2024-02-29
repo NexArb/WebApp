@@ -13,7 +13,7 @@ import { loginUser } from '@/services/ApiService'
 import { useUserStore } from '@/hooks/useStore'
 import { loginDictionary } from '@/localesContent'
 import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
-import create from '@/services/actions'
+import Cookies from "js-cookie";
 
 const Login = ({ params }: { params: { lang: string } }) => {
   const router = useRouter()
@@ -55,7 +55,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
         }
       } else {
         const token = responseData.access_token
-        create(token)
+        Cookies.set("token", token);
         setIsAuthenticated()
         router.push('/arbswap/register-wallet')
       }

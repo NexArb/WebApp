@@ -1,9 +1,7 @@
-'use server'
-
 import axios from 'axios'
-import { cookies } from 'next/headers'
+import Cookies from "js-cookie";
 
-const token = cookies().get('token')
+const token = Cookies.get("token");
 
 const baseURL = 'http://localhost:8080'
 
