@@ -1,22 +1,26 @@
 import axios from 'axios'
-import { useUserStore } from '@/hooks/useStore'
+import Cookies from "js-cookie";
 
-const token = useUserStore.getState().token
+const token = Cookies.get("token");
 
-const baseURL = 'http://localhost:8080'
+const baseURL = 'http://localhost:8080';
 
 export const loginUser = async (data: {
   email: string
   password: string
   rememberDevice: boolean
 }) => {
-  const formData = new URLSearchParams()
-  formData.append('username', data.email)
-  formData.append('password', data.password)
-  const response = await axios.post(`${baseURL}/auth/login`, formData, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  })
-  return response
+  try {
+    const formData = new URLSearchParams()
+    formData.append('username', data.email)
+    formData.append('password', data.password)
+    const response = await axios.post(`${baseURL}/auth/login`, formData, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    })
+    return response
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 export const registerUser = async (data: {
@@ -59,4 +63,8 @@ export const verifyOtpAndUpdatePassword = (
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   )
+}
+
+export const getMyOffers = (pastOffers: boolean) => {
+  return axios.get(`${baseURL}/offer/my?pastOffers=${pastOffers}`, {headers: {Authorization: `Bearer ${token}`}})
 }
