@@ -3,17 +3,18 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useModalStore } from '@/hooks/useStore'
+import { useModalStore, useUserStore } from '@/hooks/useStore'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/localesContent'
 
 interface ArbSwapNavbarProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function ArbSwapNavbar({locale}: ArbSwapNavbarProps) {
+function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
   const [nav, setNav] = useState(false)
   const { toggleModal } = useModalStore()
+  const { isAuthenticated } = useUserStore()
 
   const commonStyles =
     'block h-1 rounded-sm bg-white transition-all duration-300 ease-out -translate-y-0.5'
@@ -38,9 +39,7 @@ function ArbSwapNavbar({locale}: ArbSwapNavbarProps) {
             />
             <span
               className={`${commonStyles} -mx-1 w-10 ${
-                nav
-                  ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
-                  : '-translate-y-0.5'
+                nav ? 'mx-0 w-9 -translate-y-1.5 -rotate-45' : ''
               }`}
             />
           </div>
@@ -66,17 +65,36 @@ function ArbSwapNavbar({locale}: ArbSwapNavbarProps) {
           <Link className="px-2 lg:px-5" href="/arbswap/support">
             {arbswapNavbarDictionary[locale]?.support}
           </Link>
-          <Link
-            className="px-1 lg:px-3"
-            onClick={toggleModal}
-            href="/arbswap/login"
-          >
-            <div className="rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                {arbswapNavbarDictionary[locale]?.login}
+          {isAuthenticated ? (
+            <Link
+              className="rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-green-600 px-3 py-2 lg:px-5"
+              href="/arbswap/dashboard"
+            >
+              <div className="flex justify-center">
+                {arbswapNavbarDictionary[locale]?.walletConnected}{' '}
+                <span className="ml-3">
+                  <Image
+                    src="/img/wallet-icon.svg"
+                    width={20}
+                    height={20}
+                    alt="Wallet Icon"
+                  />
+                </span>
               </div>
-            </div>
-          </Link>
+            </Link>
+          ) : (
+            <Link
+              className="px-1 lg:px-3"
+              onClick={toggleModal}
+              href="/arbswap/login"
+            >
+              <div className="rounded-full bg-gradient-button p-px">
+                <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+                  {arbswapNavbarDictionary[locale]?.login}
+                </div>
+              </div>
+            </Link>
+          )}
         </div>
         {nav && (
           <ul className="absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">

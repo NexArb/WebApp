@@ -6,10 +6,10 @@ import CustomNavbar from '@/components/CustomNavbar'
 import { homeDictionary } from '@/localesContent'
 
 interface HeroProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function Hero({locale}: HeroProps) {
+function Hero({ locale }: HeroProps) {
   return (
     <section className="flex w-full flex-col">
       <Image

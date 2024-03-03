@@ -8,10 +8,10 @@ import { useAccount } from 'wagmi'
 import { nexBridgeNavbarDictionary } from '@/localesContent'
 
 interface NexBridgeCustomNavbarProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function NexBridgeCustomNavbar({locale}: NexBridgeCustomNavbarProps) {
+function NexBridgeCustomNavbar({ locale }: NexBridgeCustomNavbarProps) {
   const { address } = useAccount()
 
   useEffect(() => {

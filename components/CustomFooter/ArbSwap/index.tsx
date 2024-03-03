@@ -2,10 +2,10 @@ import React from 'react'
 import { arbSwapFooterDictionary } from '@/localesContent'
 
 interface ArbSwapFooterProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-const ArbSwapFooter: React.FC<ArbSwapFooterProps> = ({locale}) => {
+const ArbSwapFooter: React.FC<ArbSwapFooterProps> = ({ locale }) => {
   return (
     <footer className="text-white">
       <div className="pt-12 lg:pt-16">
@@ -95,7 +95,7 @@ const ArbSwapFooter: React.FC<ArbSwapFooterProps> = ({locale}) => {
 
             <div>
               <div className="mb-4 font-bold uppercase tracking-widest">
-                {arbSwapFooterDictionary[locale]?.products} 
+                {arbSwapFooterDictionary[locale]?.products}
               </div>
 
               <nav className="flex flex-col gap-4">

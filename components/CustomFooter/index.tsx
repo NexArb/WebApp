@@ -5,10 +5,10 @@ import React from 'react'
 import { footerDictionary } from '@/localesContent'
 
 interface CustomFooterProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-function CustomFooter({locale}: CustomFooterProps) {
+function CustomFooter({ locale }: CustomFooterProps) {
   return (
     <div className="px-10">
       <div className="mb-10 mt-48 border bg-white bg-opacity-20" />

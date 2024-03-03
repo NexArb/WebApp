@@ -2,10 +2,10 @@ import React from 'react'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
 interface StepsProps {
-  readonly locale: string;
+  readonly locale: string
 }
 
-const Steps: React.FC<StepsProps> = ({locale}) => {
+const Steps: React.FC<StepsProps> = ({ locale }) => {
   return (
     <div>
       <p className="mx-auto mt-48 text-center text-5xl">
@@ -18,8 +18,12 @@ const Steps: React.FC<StepsProps> = ({locale}) => {
               <p className="text-5xl opacity-50">01.</p>
             </div>
             <div>
-              <p className="text-xl">{arbSwapHomeDictionary[locale]?.quickSignUp}</p>
-              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
+              <p className="text-xl">
+                {arbSwapHomeDictionary[locale]?.quickSignUp}
+              </p>
+              <p className="mt-3 opacity-60">
+                {arbSwapHomeDictionary[locale]?.quickSignUpDesc}
+              </p>
             </div>
           </div>
         </div>
@@ -29,8 +33,12 @@ const Steps: React.FC<StepsProps> = ({locale}) => {
               <p className="text-5xl opacity-50">02.</p>
             </div>
             <div>
-              <p className="text-xl">{arbSwapHomeDictionary[locale]?.securitySetup}</p>
-              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
+              <p className="text-xl">
+                {arbSwapHomeDictionary[locale]?.securitySetup}
+              </p>
+              <p className="mt-3 opacity-60">
+                {arbSwapHomeDictionary[locale]?.quickSignUpDesc}
+              </p>
             </div>
           </div>
         </div>
@@ -40,8 +48,12 @@ const Steps: React.FC<StepsProps> = ({locale}) => {
               <p className="text-5xl opacity-50">03.</p>
             </div>
             <div>
-              <p className="text-xl">{arbSwapHomeDictionary[locale]?.connectWallet}</p>
-              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
+              <p className="text-xl">
+                {arbSwapHomeDictionary[locale]?.connectWallet}
+              </p>
+              <p className="mt-3 opacity-60">
+                {arbSwapHomeDictionary[locale]?.quickSignUpDesc}
+              </p>
             </div>
           </div>
         </div>
@@ -51,7 +63,9 @@ const Steps: React.FC<StepsProps> = ({locale}) => {
               <p className="text-5xl opacity-50">04.</p>
             </div>
             <div>
-              <p className="text-xl">{arbSwapHomeDictionary[locale]?.startTrading}</p>
+              <p className="text-xl">
+                {arbSwapHomeDictionary[locale]?.startTrading}
+              </p>
               <p className="mt-3 opacity-60">
                 {arbSwapHomeDictionary[locale]?.startTradingDesc}
               </p>
@@ -64,8 +78,12 @@ const Steps: React.FC<StepsProps> = ({locale}) => {
               <p className="text-5xl opacity-50">06.</p>
             </div>
             <div>
-              <p className="text-xl">{arbSwapHomeDictionary[locale]?.quickSignUp}</p>
-              <p className="mt-3 opacity-60">{arbSwapHomeDictionary[locale]?.quickSignUpDesc}</p>
+              <p className="text-xl">
+                {arbSwapHomeDictionary[locale]?.quickSignUp}
+              </p>
+              <p className="mt-3 opacity-60">
+                {arbSwapHomeDictionary[locale]?.quickSignUpDesc}
+              </p>
             </div>
           </div>
         </div>

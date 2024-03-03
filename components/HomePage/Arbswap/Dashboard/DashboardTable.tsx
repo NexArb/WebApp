@@ -3,18 +3,19 @@ import React from 'react'
 import StarRating from './StarRating'
 import { OfferListing } from '@/constants'
 import { useModalStore } from '@/hooks/useStore'
-import Link from 'next/link'
+import Button from '@/components/CommonComponents/Button'
 
 type OfferProps = (typeof OfferListing)[number]
 
 function DashboardTable({ seller, payment, amount, price }: OfferProps) {
   const { toggleModal } = useModalStore()
+  const modalKey = 'paymentMethod'
 
   return (
     <tr>
       <td className="px-4 font-medium text-slate-950">
         <div className="pl-2 text-base">{seller.name}</div>
-        <div className="mt-1 flex flex-row rounded-xl bg-white p-1 lg:w-28">
+        <div className="mt-1 flex w-28 flex-row rounded-xl bg-white p-1 ">
           <StarRating rating={seller.star} />
           <span className="ml-2 text-xs">{seller.star}</span>
         </div>
@@ -29,13 +30,12 @@ function DashboardTable({ seller, payment, amount, price }: OfferProps) {
       <td className="px-4 text-base font-medium text-slate-950">{amount}</td>
       <td className="px-4 text-base font-medium text-slate-950">{price}</td>
       <td>
-        <Link
+        <Button
           className="rounded-full bg-blue-600 px-6 py-2 outline-none"
-          onClick={toggleModal}
-          href={'/arbswap/dashboard/payment-method'}
+          onClick={() => toggleModal(modalKey)}
         >
           <span className="text-sm">MAKE AN OFFER</span>
-        </Link>
+        </Button>
       </td>
     </tr>
   )
