@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 import Button from '@/components/CommonComponents/Button'
 import CustomNavbar from '@/components/CustomNavbar'
@@ -10,17 +11,23 @@ interface HeroProps {
 
 function Hero({ locale }: HeroProps) {
   return (
-    <section
-      style={{
-        backgroundImage: "url('/img/hero-bg-small.png')",
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
-      }}
-      className="flex w-full flex-col"
-    >
+    <section className="flex w-full flex-col">
+      <Image
+        src="/img/hero-bg.png"
+        alt="mountains"
+        fill
+        className="max-md:hidden"
+        quality={95}
+      />
+      <Image
+        src="/img/hero-bg-small.png"
+        alt="mountains"
+        fill
+        className="md:hidden"
+        quality={95}
+      />
       <CustomNavbar locale={locale} />
-      <div className="flex min-h-[100vh] w-full flex-col items-end justify-center pb-[7vh]">
+      <div className="z-10 flex min-h-[100vh] w-full flex-col items-end justify-center pb-[7vh]">
         <div className="mx-auto mb-6 text-center text-7xl font-bold leading-[86px] lg:w-[692px]">
           {homeDictionary[locale]?.digitalSolutions}
         </div>

@@ -8,7 +8,7 @@ interface PriceBoxProps {
   }
 }
 
-function PriceBox({ package: packageItem }: PriceBoxProps) {
+function PriceBox({ package: packageItem }: Readonly<PriceBoxProps>) {
   return (
     <div className="h-full max-w-sm space-y-10 p-2 text-white">
       <div className="rounded-full bg-gray-800/80 p-5 text-center backdrop-blur-2xl">

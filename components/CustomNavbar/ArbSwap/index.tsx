@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useModalStore, useUserStore } from '@/hooks/useStore'
+import { useUserStore } from '@/hooks/useStore'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/localesContent'
 
@@ -13,7 +13,6 @@ interface ArbSwapNavbarProps {
 
 function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
   const [nav, setNav] = useState(false)
-  const { toggleModal } = useModalStore()
   const { isAuthenticated } = useUserStore()
 
   const commonStyles =
@@ -83,11 +82,7 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
               </div>
             </Link>
           ) : (
-            <Link
-              className="px-1 lg:px-3"
-              onClick={toggleModal}
-              href="/arbswap/login"
-            >
+            <Link className="px-1 lg:px-3" href="/arbswap/login">
               <div className="rounded-full bg-gradient-button p-px">
                 <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
                   {arbswapNavbarDictionary[locale]?.login}

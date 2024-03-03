@@ -52,7 +52,7 @@ function Pricing() {
             ></input>
             <span
               className={
-                'absolute ml-[431px] flex hidden w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.10rem] text-center text-center align-middle text-[14px] font-bold md:block '
+                'absolute ml-[431px] flex w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.10rem] text-center align-middle text-[14px] font-bold md:block '
               }
             >
               SOL
@@ -69,7 +69,7 @@ function Pricing() {
             ></input>
             <span
               className={
-                'absolute ml-[431px] flex hidden w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.10rem] text-center text-center align-middle text-[14px] font-bold md:block '
+                'absolute ml-[431px] flex w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.10rem] text-center align-middle text-[14px] font-bold md:block '
               }
             >
               USD
@@ -79,15 +79,12 @@ function Pricing() {
             Minimum : 10 USD
           </span>
           <div className="mt-7 flex flex-row pl-3">
-            <label htmlFor="c1">
-              <div className="flexCenter group rounded-[10px]">
-                <input
-                  id="c1"
-                  type="checkbox"
-                  className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
-                />
-              </div>
-            </label>
+            <div className="flexCenter group rounded-[10px]">
+              <input
+                type="checkbox"
+                className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
+              />
+            </div>
             <span className="pl-4 text-[16px] text-neutral-400">
               Will the offer be accepted automatically?
             </span>

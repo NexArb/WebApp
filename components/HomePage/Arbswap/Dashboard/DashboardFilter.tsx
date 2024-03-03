@@ -55,7 +55,7 @@ const FilterMenu = ({ isModalOpen, setModalOpen }: FilterMenuProps) => {
             ></input>
             <span
               className={
-                'absolute ml-[175px] flex hidden w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.35rem] text-center text-center align-middle text-[14px] font-bold md:block '
+                'absolute ml-[175px] flex w-[60px] justify-center rounded-3xl  bg-emerald-400 p-[0.35rem] text-center align-middle text-[14px] font-bold md:block '
               }
             >
               SOL
@@ -90,15 +90,12 @@ const FilterMenu = ({ isModalOpen, setModalOpen }: FilterMenuProps) => {
             <span className="text-xl font-medium text-neutral-500">
               Verified Users Only
             </span>
-            <label htmlFor="c1">
-              <div className="flexCenter group rounded-[10px]">
-                <input
-                  id="c1"
-                  type="checkbox"
-                  className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
-                />
-              </div>
-            </label>
+            <div className="flexCenter group rounded-[10px]">
+              <input
+                type="checkbox"
+                className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
+              />
+            </div>
           </div>
           <div className="flexCenter mt-32 flex-1">
             <Button className=" h-12 w-60 bg-gradient-button">

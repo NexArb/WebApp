@@ -10,14 +10,14 @@ import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TLoginSchema, loginSchema } from '@/types/authValidation.types'
 import { loginUser } from '@/services/ApiService'
-import { useUserStore } from '@/hooks/useStore'
 import { loginDictionary } from '@/localesContent'
 import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie'
+import { useUserStore } from '@/hooks/useStore'
 
 const Login = ({ params }: { params: { lang: string } }) => {
-  const router = useRouter()
   const { setIsAuthenticated } = useUserStore()
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -54,7 +54,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
         }
       } else {
         const token = responseData.access_token
-        Cookies.set("token", token);
+        Cookies.set('token', token, { httpOnly: true })
         setIsAuthenticated()
         router.push('/arbswap/register-wallet')
       }

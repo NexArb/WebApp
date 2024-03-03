@@ -1,17 +1,17 @@
 import React from 'react'
 
 import { useModalStore } from '@/hooks/useStore'
-import Link from 'next/link'
 import { Offer } from '@/constants/Offer'
+import Button from '@/components/CommonComponents/Button'
 
-function DashboardTable({offer}: {offer: Offer}) {
+function DashboardTable({ offer }: Readonly<{ offer: Offer }>) {
   const { toggleModal } = useModalStore()
   const modalKey = 'paymentMethod'
 
   return (
     <tr>
       <td className="px-4 font-medium text-slate-950">
-        <div className="pl-2 text-base">{offer.seller_username}</div>
+        {/* <div className="pl-2 text-base">{offer.seller_username}</div> */}
         <div className="mt-1 flex flex-row rounded-xl bg-white p-1 lg:w-28">
           <span className="ml-2 text-xs"></span>
         </div>
