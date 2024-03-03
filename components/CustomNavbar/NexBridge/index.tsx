@@ -79,7 +79,7 @@ function NexBridgeCustomNavbar({ locale }: NexBridgeCustomNavbarProps) {
             {address && (
               <li className="p-3">
                 <Link
-                  href="/nexbridge/dasboard/[address]"
+                  href="/nexbridge/dashboard/[address]"
                   as={`/nexbridge/dashboard/${address}`}
                   className="block rounded text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                 >

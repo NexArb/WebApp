@@ -1,7 +1,7 @@
 export type ModalState = {
-  showModal: Record<string, boolean> // Parametre adına göre boolean değerleri içerecek bir obje
-  toggleModal: (modalName: string) => void // Parametre adına göre modalı açıp kapatmak için
-  closeAllModals: () => void // Tüm modalları kapatmak için
+  showModal: Record<string, boolean> // An object containing boolean values based on parameter names
+  toggleModal: (modalName: string) => void // Function to open or close a modal based on the parameter name
+  closeAllModals: () => void // Function to close all modals
 }
 
 export type UserState = {

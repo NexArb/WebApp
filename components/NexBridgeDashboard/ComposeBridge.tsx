@@ -29,7 +29,7 @@ const ComposeBridge: React.FC<ComposeBridgeProps> = ({ locale }) => {
       <div className=" mx-10 mt-10 flex justify-center space-x-4 text-white lg:ml-40 lg:justify-start lg:text-left">
         <Image
           src="/img/rectangle-857.svg"
-          alt="reactangle icon"
+          alt="rectangle icon"
           height={20}
           width={20}
         />

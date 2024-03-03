@@ -1,9 +1,9 @@
 import axios from 'axios'
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie'
 
-const token = Cookies.get("token");
+const token = Cookies.get('token')
 
-const baseURL = 'http://localhost:8080';
+const baseURL = 'http://localhost:8080'
 
 export const loginUser = async (data: {
   email: string
@@ -66,5 +66,7 @@ export const verifyOtpAndUpdatePassword = (
 }
 
 export const getMyOffers = (pastOffers: boolean) => {
-  return axios.get(`${baseURL}/offer/my?pastOffers=${pastOffers}`, {headers: {Authorization: `Bearer ${token}`}})
+  return axios.get(`${baseURL}/offer/my?pastOffers=${pastOffers}`, {
+    headers: { Authorization: `Bearer ${token}` }
+  })
 }

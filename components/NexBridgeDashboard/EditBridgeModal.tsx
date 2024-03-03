@@ -95,7 +95,7 @@ const EditBridgeModal: React.FC<EditBridgeModalProps> = ({
                   type="text"
                   key={item.key}
                   defaultValue={
-                    selectedBridge[item.key as keyof typeof selectedBridge] ||
+                    selectedBridge[item.key as keyof typeof selectedBridge] ??
                     ''
                   }
                   // onChange={(e) => {}}

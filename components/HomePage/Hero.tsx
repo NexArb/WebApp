@@ -26,7 +26,7 @@ function Hero({ locale }: HeroProps) {
         className="md:hidden"
         quality={95}
       />
-      <CustomNavbar />
+      <CustomNavbar locale={locale} />
       <div className="z-10 flex min-h-[100vh] w-full flex-col items-end justify-center pb-[7vh]">
         <div className="mx-auto mb-6 text-center text-7xl font-bold leading-[86px] lg:w-[692px]">
           {homeDictionary[locale]?.digitalSolutions}
