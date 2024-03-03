@@ -8,12 +8,6 @@ import {
 } from '@/services/ApiService'
 import { forgotPasswordDictionary } from '@/localesContent'
 import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
-import { useForm } from 'react-hook-form'
-import {
-  TForgotPasswordSchema,
-  forgotPasswordSchema
-} from '@/types/authValidation.types'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 interface ForgotPasswordProps {
   readonly params: {
@@ -22,38 +16,19 @@ interface ForgotPasswordProps {
 }
 
 const ForgotPassword = ({ params }: ForgotPasswordProps) => {
-  const {
-    register: registeredEmail,
-    handleSubmit: handleEmail,
-    formState: { errors, isSubmitting },
-    reset,
-    setError
-  } = useForm<TForgotPasswordSchema>({
-    resolver: zodResolver(forgotPasswordSchema)
-  })
-
-  const {
-    register: registerOTP,
-    handleSubmit: handleOTP,
-    formState: { errors: errorsOTP, isSubmitting: isSubmittingOTP },
-    reset,
-    setError
-  } = useForm<TForgotPasswordSchema>({
-    resolver: zodResolver(forgotPasswordSchema)
-  })
-
-  const [newPassword, setNewPassword] = useState('')
-  const [newPasswordAgain, setNewPasswordAgain] = useState('')
-
-  // conditionals
+  const [email, setEmail] = useState('')
+  const [verificationCode, setVerificationCode] = useState('')
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false)
   const [isVerificationCodeSubmitted, setIsVerificationCodeSubmitted] =
     useState(false)
+  const [newPassword, setNewPassword] = useState('')
+  const [newPasswordAgain, setNewPasswordAgain] = useState('')
 
-  const onSubmitEmail = async (data: TForgotPasswordSchema) => {
-    const otpChoiceResponse = await setOtpChoice(data.email)
+  const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const otpChoiceResponse = await setOtpChoice(email)
 
-    if (otpChoiceResponse.data.error_code === -1) {
+    if (otpChoiceResponse.status === 200) {
       sendPasswordResetRequest()
       setIsEmailSubmitted(true)
     }
@@ -78,7 +53,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
     if (newPassword === newPasswordAgain) {
       const verifyOtpAndUpdatePasswordResponse =
         await verifyOtpAndUpdatePassword(verificationCode, newPassword)
-      if (verifyOtpAndUpdatePasswordResponse.data.error_code === -1) {
+      if (verifyOtpAndUpdatePasswordResponse.status === 200) {
         alert('Password changed successfully!')
       }
     }
@@ -88,39 +63,58 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
     <Layout>
       {!isVerificationCodeSubmitted ? (
         <div>
-          <form onSubmit={handleEmail(onSubmitEmail)}>
-            <label className="ml-4 text-sm" htmlFor="email">
-              Email
-            </label>
-            <input
-              {...registeredEmail('email')}
-              className="mt-1 w-full rounded-full bg-transparent"
-              type="email"
-              placeholder={forgotPasswordDictionary[params.lang]?.enterEmail}
-            />
-            <button
-              className="mt-5 w-full rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-green-400 px-5 py-2"
-              type="submit"
-            >
-              {forgotPasswordDictionary[params.lang]?.sendCode}
-            </button>
-          </form>
+          <div>
+            <form onSubmit={handleSubmitEmail}>
+              <label className="ml-4 text-sm" htmlFor="validEmail">
+                Email
+              </label>
+              <input
+                id="validEmail"
+                className="mt-1 w-full rounded-full bg-transparent"
+                type="email"
+                placeholder={forgotPasswordDictionary[params.lang]?.enterEmail}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button
+                className="mt-5 w-full rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-green-400 px-5 py-2"
+                type="submit"
+              >
+                {forgotPasswordDictionary[params.lang]?.sendCode}
+              </button>
+            </form>
+          </div>
           <div className="mt-10">
             <form onSubmit={handleSubmitVerificationCode}>
-              <div className="ml-4 text-sm text-gray-500">
-                {forgotPasswordDictionary[params.lang]?.verificationCode}
-              </div>
-              <input
-                {...register('verificationCode')}
-                className={`mt-1 w-full rounded-full ${
-                  isEmailSubmitted ? 'bg-transparent' : 'bg-slate-700'
-                }`}
-                type="text"
-                placeholder={
-                  forgotPasswordDictionary[params.lang]?.enterVerificationCode
-                }
-                disabled={!isEmailSubmitted}
-              />
+              {isEmailSubmitted ? (
+                <label className="ml-4 text-sm" htmlFor="verificationCode">
+                  {forgotPasswordDictionary[params.lang]?.verificationCode}
+                </label>
+              ) : (
+                <label className="ml-4 text-sm" htmlFor="verificationCode">
+                  {forgotPasswordDictionary[params.lang]?.verificationCode}
+                </label>
+              )}
+              {isEmailSubmitted ? (
+                <input
+                  id="verificationCode"
+                  className="mt-1 w-full rounded-full bg-transparent"
+                  type="text"
+                  placeholder={
+                    forgotPasswordDictionary[params.lang]?.enterVerificationCode
+                  }
+                  onChange={(e) => setVerificationCode(e.target.value)}
+                />
+              ) : (
+                <input
+                  id="verificationCode"
+                  className="mt-1 w-full rounded-full bg-slate-700"
+                  type="text"
+                  placeholder={
+                    forgotPasswordDictionary[params.lang]?.enterVerificationCode
+                  }
+                  disabled
+                />
+              )}
               {isEmailSubmitted ? (
                 <p className="mb-20 mt-2 text-center text-sm">
                   {forgotPasswordDictionary[params.lang]?.dontYouGetCode}{' '}

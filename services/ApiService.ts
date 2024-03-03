@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const token = Cookies.get("token");
 
-const baseURL = 'http://localhost:8080'
+const baseURL = 'https://platform-omggm8hk.b4a.run'
 
 export const loginUser = async (data: {
   email: string
