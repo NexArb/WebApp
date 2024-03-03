@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const token = Cookies.get("token");
 
-const baseURL = 'https://platform-omggm8hk.b4a.run'
+const baseURL = 'http://localhost:8080';
 
 export const loginUser = async (data: {
   email: string
@@ -63,4 +63,8 @@ export const verifyOtpAndUpdatePassword = (
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   )
+}
+
+export const getMyOffers = (pastOffers: boolean) => {
+  return axios.get(`${baseURL}/offer/my?pastOffers=${pastOffers}`, {headers: {Authorization: `Bearer ${token}`}})
 }
