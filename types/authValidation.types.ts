@@ -25,16 +25,9 @@ export const loginSchema = z.object({
   rememberDevice: z.boolean()
 })
 
-export const forgotPasswordSchema = z
-  .object({
-    email: emailSchema,
-    password: passwordSchema,
-    confirmPassword: passwordSchema
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword']
-  })
+export const forgotPasswordSchema = z.object({
+  email: emailSchema.email()
+})
 
 export type TRegisterSchema = z.infer<typeof registerSchema>
 export type TForgotPasswordSchema = z.infer<typeof forgotPasswordSchema>

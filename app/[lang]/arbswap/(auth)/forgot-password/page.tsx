@@ -53,7 +53,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
     if (newPassword === newPasswordAgain) {
       const verifyOtpAndUpdatePasswordResponse =
         await verifyOtpAndUpdatePassword(verificationCode, newPassword)
-      if (verifyOtpAndUpdatePasswordResponse.data.error_code === -1) {
+      if (verifyOtpAndUpdatePasswordResponse.status === 200) {
         alert('Password changed successfully!')
       }
     }

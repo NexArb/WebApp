@@ -15,18 +15,8 @@ export const useModalStore = create<ModalState>((set) => ({
   closeAllModals: () => set({ showModal: {} }) // Tüm modalları kapatma işlemi
 }))
 
-export const useUserStore = create<UserState>()(
-  persist(
-    (set) => ({
-      token: null,
-      isAuthenticated: false,
-      setToken: (token) => set({ token }),
-      setIsAuthenticated: () =>
-        set((state) => ({ isAuthenticated: !state.isAuthenticated }))
-    }),
-    {
-      name: 'auth',
-      storage: createJSONStorage(() => localStorage)
-    }
-  )
-)
+export const useUserStore = create<UserState>()((set) => ({
+  isAuthenticated: false,
+  setIsAuthenticated: () =>
+    set((state) => ({ isAuthenticated: !state.isAuthenticated }))
+}))

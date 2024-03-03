@@ -19,6 +19,7 @@ const getLocale = (request: Request): string => {
 }
 
 export const middleware = (request: NextRequest) => {
+  let cookie = request.cookies
   let locale = getLocale(request) ?? defaultLocale
   const pathname = request.nextUrl.pathname
 
