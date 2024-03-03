@@ -23,7 +23,6 @@ export const middleware = (request: NextRequest) => {
   const pathname = request.nextUrl.pathname
 
   if (pathname.startsWith('/_next/') || pathname.startsWith('/public/')) {
-    console.log('Skipping language rewriting for static asset:', pathname)
     return null // Do not rewrite URLs for static assets
   }
 

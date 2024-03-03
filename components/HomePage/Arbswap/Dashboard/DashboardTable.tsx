@@ -3,9 +3,11 @@ import React from 'react'
 import { useModalStore } from '@/hooks/useStore'
 import Link from 'next/link'
 import { Offer } from '@/constants/Offer'
+import Button from '@/components/CommonComponents/Button'
 
 function DashboardTable({offer}: {offer: Offer}) {
   const { toggleModal } = useModalStore()
+  const modalKey = 'paymentMethod'
 
   return (
     <tr>
@@ -25,13 +27,12 @@ function DashboardTable({offer}: {offer: Offer}) {
       <td className="px-4 text-base font-medium text-slate-950"></td>
       <td className="px-4 text-base font-medium text-slate-950"></td>
       <td>
-        <Link
+        <Button
           className="rounded-full bg-blue-600 px-6 py-2 outline-none"
-          onClick={toggleModal}
-          href={'/arbswap/dashboard/payment-method'}
+          onClick={() => toggleModal(modalKey)}
         >
           <span className="text-sm">MAKE AN OFFER</span>
-        </Link>
+        </Button>
       </td>
     </tr>
   )
