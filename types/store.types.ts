@@ -5,8 +5,6 @@ export type ModalState = {
 }
 
 export type UserState = {
-  token: string | null
   isAuthenticated: boolean
-  setToken: (arg0: string) => void
   setIsAuthenticated: () => void
 }
