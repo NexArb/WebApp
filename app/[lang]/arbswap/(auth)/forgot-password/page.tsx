@@ -27,8 +27,8 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
   const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const otpChoiceResponse = await setOtpChoice(email)
-
-    if (otpChoiceResponse.data.error_code === -1) {
+    
+    if (otpChoiceResponse.status === 200) {
       sendPasswordResetRequest()
       setIsEmailSubmitted(true)
     }

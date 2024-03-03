@@ -3,7 +3,7 @@ import { useUserStore } from '@/hooks/useStore'
 
 const token = useUserStore.getState().token
 
-const baseURL = 'http://localhost:8080'
+const baseURL = 'http://localhost:8080';
 
 export const loginUser = async (data: {
   email: string
@@ -59,4 +59,8 @@ export const verifyOtpAndUpdatePassword = (
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   )
+}
+
+export const getMyOffers = (pastOffers: boolean) => {
+  return axios.get(`${baseURL}/offer/my?pastOffers=${pastOffers}`, {headers: {Authorization: `Bearer ${token}`}})
 }
