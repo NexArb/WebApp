@@ -1,3 +1,4 @@
+import { PublicKey } from '@solana/web3.js'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
@@ -69,4 +70,17 @@ export const getMyOffers = (pastOffers: boolean) => {
   return axios.get(`${baseURL}/offer/my?pastOffers=${pastOffers}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
+}
+
+export const registerWallet = async (pubKey: PublicKey | null) => {
+  return axios.post(
+    `${baseURL}/auth/register/wallet`,
+    { wallet_address: pubKey },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    }
+  )
 }

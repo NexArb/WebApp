@@ -115,6 +115,7 @@ interface Register {
 interface RegisterWallet {
   connectPhantomWallet: string
   connectWallet: string
+  walletConnected: string
   register: string
 }
 
@@ -550,18 +551,21 @@ export const registerWalletDictionary: Record<string, RegisterWallet> = {
   en: {
     connectPhantomWallet: 'Connect your Phantom wallet to continue register.',
     connectWallet: 'Connect Wallet',
+    walletConnected: 'Wallet Connected',
     register: 'Register'
   },
   tr: {
     connectPhantomWallet:
       "Kayıt olmaya devam etmek için Phantom wallet'ınızı bağlayın",
     connectWallet: 'Wallet Bağla',
+    walletConnected: 'Wallet Bağlandı',
     register: 'Kayıt Ol'
   },
   de: {
     connectPhantomWallet:
       'Verbinden Sie Ihr Phantom-Wallet, um mit der Registrierung fortzufahren.',
     connectWallet: 'Wallet verbinden',
+    walletConnected: 'Wallet verbunden',
     register: 'Registrieren'
   }
 }
