@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 
 import { OfferListing } from '@/constants'
 import Image from 'next/image'
+import Button from '@/components/CommonComponents/Button'
 
 type InputProps = 'Received' | 'Sent' | 'Users'
 
@@ -9,7 +10,32 @@ interface ChildProps {
   input: InputProps
 }
 
-const DashboardTable: React.FC<ChildProps> = ({ input }) => {
+const HistoryTable: React.FC<ChildProps> = ({ input }) => {
+  const [openStates, setOpenStates] = useState(
+    Array.from({ length: OfferListing.length }, () => false)
+  )
+
+  const toggleDropdown = (index: number) => {
+    setOpenStates((prevStates) =>
+      prevStates.map((state, i) => (i === index ? !state : state))
+    )
+  }
+
+  const closeDropdown = (e: MouseEvent) => {
+    const dropdownElement = document.querySelector('.dropdown')
+    if (dropdownElement && dropdownElement !== e.target) {
+      setOpenStates(Array.from({ length: OfferListing.length }, () => false))
+    }
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', closeDropdown)
+
+    return () => {
+      document.body.removeEventListener('click', closeDropdown)
+    }
+  }, [])
+
   return (
     <div>
       <div className="px-8">
@@ -19,39 +45,94 @@ const DashboardTable: React.FC<ChildProps> = ({ input }) => {
       <div className="custom-scrollbar flex h-[600px] overflow-y-auto bg-zinc-100">
         <table className="mx-auto max-w-full text-black">
           <tbody>
-            {OfferListing.map((item) => (
-              <Fragment key={item.id}>
-                <tr className="flex items-center justify-center overflow-hidden font-medium">
-                  <td>
-                    <div className="inline-flex">
-                      <span className="p-2">{item.payment.name}</span>
-                      <Image
-                        src={'/img/arrow.svg'}
-                        alt="arrow image"
-                        width={20}
-                        height={2}
-                      />
-                      <span className="p-2">Your Wallet</span>
-                    </div>
-                  </td>
-                  <td className="mt-6 flex flex-col font-medium text-slate-950">
-                    <span>{item.amount}</span>
-                    <span className="p-1">{item.price}</span>
-                  </td>
-                  <td
-                    className={`pl-4 ${
-                      item.payment.check === 'APPROVED'
-                        ? 'text-emerald-400'
-                        : 'text-red-500'
-                    }`}
-                  >
-                    {item.payment.check === 'APPROVED'
-                      ? 'ACCEPTED'
-                      : 'REJECTED'}
-                  </td>
-                </tr>
-              </Fragment>
-            ))}
+            {input !== 'Users' ? (
+              <>
+                {OfferListing.map((item) => (
+                  <Fragment key={item.id}>
+                    <tr className="flex items-center justify-center overflow-hidden font-medium">
+                      <td className="pr-32">
+                        <div className="inline-flex">
+                          <span className="p-2">{item.payment.name}</span>
+                          <Image
+                            src={'/img/arrow.svg'}
+                            alt="arrow image"
+                            width={20}
+                            height={2}
+                          />
+                          <span className="p-2">Your Wallet</span>
+                        </div>
+                      </td>
+                      <td className="mt-6 flex flex-col pr-6 font-medium text-slate-950">
+                        <span>{item.amount}</span>
+                        <span className="p-1">{item.price}</span>
+                      </td>
+                      <td
+                        className={`pl-4 ${
+                          item.payment.check === 'APPROVED'
+                            ? 'text-emerald-400'
+                            : 'text-red-500'
+                        }`}
+                      >
+                        {item.payment.check === 'APPROVED'
+                          ? 'ACCEPTED'
+                          : 'REJECTED'}
+                      </td>
+                    </tr>
+                  </Fragment>
+                ))}
+              </>
+            ) : (
+              <>
+                {OfferListing.map((item, index) => (
+                  <Fragment key={item.id}>
+                    <tr className="flex items-center justify-center overflow-hidden font-medium">
+                      <td className="py-8 pr-16">
+                        <span className="p-2">{item.payment.name}</span>
+                      </td>
+                      <td>
+                        <Button className="ml-5 mr-6 border border-emerald-400 bg-emerald-400 bg-opacity-10 px-4 py-2">
+                          <span className="whitespace-nowrap text-sm text-emerald-400">
+                            New Transaction
+                          </span>
+                        </Button>
+                      </td>
+                      <td>
+                        <Button className="mr-3 border border-red-600 bg-red-600 bg-opacity-10 px-4 py-2">
+                          <span className="whitespace-nowrap text-sm text-red-600">
+                            Delete User
+                          </span>
+                        </Button>
+                      </td>
+                      <td>
+                        <Button className="border border-blue-600 bg-blue-600 bg-opacity-10 px-4 py-2">
+                          <span className="whitespace-nowrap text-sm text-blue-600">
+                            Rate User
+                          </span>
+                        </Button>
+                      </td>
+                      <td>
+                        <Button
+                          className="bg-opacity-10 px-4 py-2"
+                          onClick={() => toggleDropdown(index)}
+                        >
+                          <span className="font-extrabold">...</span>
+                        </Button>
+                        {openStates[index] && (
+                          <ul className="dropdown absolute rounded-xl bg-white p-2 shadow-md">
+                            <li className="rounded-xl p-2 hover:bg-green-200">
+                              User Profile
+                            </li>
+                            <li className="rounded-xl p-2 hover:bg-green-200">
+                              Comment
+                            </li>
+                          </ul>
+                        )}
+                      </td>
+                    </tr>
+                  </Fragment>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
       </div>
@@ -59,4 +140,4 @@ const DashboardTable: React.FC<ChildProps> = ({ input }) => {
   )
 }
 
-export default DashboardTable
+export default HistoryTable

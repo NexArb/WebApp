@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DashboardTable from './HistoryTable'
+import HistoryTable from './HistoryTable'
 
 type InputProps = 'Received' | 'Sent' | 'Users'
 
@@ -10,15 +10,15 @@ function OfferHistory() {
     setActiveComponent(componentName)
   }
   return (
-    <div className="grid grid-cols-12 text-black">
-      <div className="col-span-3 flex flex-col gap-2">
+    <div className="grid grid-cols-12 p-3">
+      <div className="col-span-3 flex flex-col gap-6">
         <button
           onClick={() => handleButtonClick('Received')}
           className={`bg-${
             activeComponent === 'Received' ? 'blue-500' : 'white'
           } text-${activeComponent === 'Received' ? 'white' : 'blue-500'}
-          rounded-full
-          border-2 border-blue-500 px-4 py-2 text-white`}
+          rounded-full border-2
+          border-blue-500 px-4 py-2`}
         >
           RECEIVED
         </button>
@@ -28,7 +28,7 @@ function OfferHistory() {
             activeComponent === 'Sent' ? 'blue-500' : 'white'
           } text-${activeComponent === 'Sent' ? 'white' : 'blue-500'}
           rounded-full
-          border-2 border-blue-500 px-4 py-2 text-white`}
+          border-2 border-blue-500 px-4 py-2 text-blue-500`}
         >
           SENT
         </button>
@@ -38,17 +38,15 @@ function OfferHistory() {
             activeComponent === 'Users' ? 'blue-500' : 'white'
           } text-${activeComponent === 'Users' ? 'white' : 'blue-500'}
           rounded-full
-          border-2 border-blue-500 px-4 py-2 text-white`}
+          border-2 border-blue-500 px-4 py-2 text-blue-500`}
         >
           USERS
         </button>
       </div>
       <div className="col-span-9">
-        {activeComponent === 'Received' && (
-          <DashboardTable input={'Received'} />
-        )}
-        {activeComponent === 'Sent' && <DashboardTable input={'Sent'} />}
-        {activeComponent === 'Users' && <DashboardTable input={'Users'} />}
+        {activeComponent === 'Received' && <HistoryTable input={'Received'} />}
+        {activeComponent === 'Sent' && <HistoryTable input={'Sent'} />}
+        {activeComponent === 'Users' && <HistoryTable input={'Users'} />}
       </div>
     </div>
   )
