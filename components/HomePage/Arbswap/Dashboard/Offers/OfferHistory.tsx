@@ -1,43 +1,54 @@
-import { OfferListing } from '@/constants'
-import React, { Fragment } from 'react'
-import HistoryTable from './HistoryTable'
+import React, { useState } from 'react'
+import DashboardTable from './HistoryTable'
+
+type InputProps = 'Received' | 'Sent' | 'Users'
 
 function OfferHistory() {
+  const [activeComponent, setActiveComponent] = useState('Received')
+
+  const handleButtonClick = (componentName: InputProps) => {
+    setActiveComponent(componentName)
+  }
   return (
-    <div className="grid grid-cols-2 gap-4 text-black">
-      <div>
-        <div className="px-8">
-          <span className="text-lg font-medium text-neutral-400">RECEIVED</span>
-          <div className="w-full border border-neutral-400"></div>
-        </div>
-        <div className="custom-scrollbar mx-auto h-[600px] overflow-y-auto bg-zinc-100">
-          <table className="mx-auto max-w-full text-black">
-            <tbody>
-              {OfferListing.map((item) => (
-                <Fragment key={item.id}>
-                  <HistoryTable {...item} />
-                </Fragment>
-              ))}
-            </tbody>
-          </table>
-        </div>
+    <div className="grid grid-cols-12 text-black">
+      <div className="col-span-3 flex flex-col gap-2">
+        <button
+          onClick={() => handleButtonClick('Received')}
+          className={`bg-${
+            activeComponent === 'Received' ? 'blue-500' : 'white'
+          } text-${activeComponent === 'Received' ? 'white' : 'blue-500'}
+          rounded-full
+          border-2 border-blue-500 px-4 py-2 text-white`}
+        >
+          RECEIVED
+        </button>
+        <button
+          onClick={() => handleButtonClick('Sent')}
+          className={`bg-${
+            activeComponent === 'Sent' ? 'blue-500' : 'white'
+          } text-${activeComponent === 'Sent' ? 'white' : 'blue-500'}
+          rounded-full
+          border-2 border-blue-500 px-4 py-2 text-white`}
+        >
+          SENT
+        </button>
+        <button
+          onClick={() => handleButtonClick('Users')}
+          className={`bg-${
+            activeComponent === 'Users' ? 'blue-500' : 'white'
+          } text-${activeComponent === 'Users' ? 'white' : 'blue-500'}
+          rounded-full
+          border-2 border-blue-500 px-4 py-2 text-white`}
+        >
+          USERS
+        </button>
       </div>
-      <div>
-        <div className="px-8">
-          <span className="text-lg font-medium text-neutral-400">SENT</span>
-          <div className="w-full border border-neutral-400"></div>
-        </div>
-        <div className="custom-scrollbar mx-auto h-[600px] overflow-y-auto bg-zinc-100">
-          <table className="mx-auto max-w-full text-black">
-            <tbody>
-              {OfferListing.map((item) => (
-                <Fragment key={item.id}>
-                  <HistoryTable {...item} />
-                </Fragment>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div className="col-span-9">
+        {activeComponent === 'Received' && (
+          <DashboardTable input={'Received'} />
+        )}
+        {activeComponent === 'Sent' && <DashboardTable input={'Sent'} />}
+        {activeComponent === 'Users' && <DashboardTable input={'Users'} />}
       </div>
     </div>
   )

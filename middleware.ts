@@ -27,8 +27,8 @@ export const middleware = (req: NextRequest) => {
   const pathname = req.nextUrl.pathname
 
   if (!cookie && protectedRoutes.includes(pathname)) {
-    const absoluteURL = new URL('/', req.nextUrl.origin)
-    return NextResponse.redirect(absoluteURL.toString())
+    // const absoluteURL = new URL('/', req.nextUrl.origin)
+    // return NextResponse.redirect(absoluteURL.toString())
   }
 
   if (pathname.startsWith('/_next/') || pathname.startsWith('/public/')) {

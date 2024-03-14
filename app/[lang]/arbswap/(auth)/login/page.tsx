@@ -2,8 +2,8 @@
 
 import React from 'react'
 
-import Button from '@/components/CommonComponents/Button'
-import Image from 'next/image'
+// import Button from '@/components/CommonComponents/Button'
+// import Image from 'next/image'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
@@ -134,7 +134,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
           </Link>
         </div>
       </div>
-      <Button
+      {/* <Button
         className="h-12 w-full items-center justify-center rounded-[50px] bg-[#9886E5] text-center shadow lg:mt-5 xl:mt-10"
         onClick={() => {}}
       >
@@ -148,7 +148,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
           />
           {loginDictionary[params.lang]?.connectWallet}
         </div>
-      </Button>
+      </Button> */}
     </Layout>
   )
 }
