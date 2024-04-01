@@ -1,28 +1,40 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Button from '@/components/CommonComponents/Button'
 import IncomingOffers from '@/components/HomePage/Arbswap/Dashboard/Offers/IncomingOffers'
 import OffersSent from '@/components/HomePage/Arbswap/Dashboard/Offers/OffersSent'
 import OfferHistory from '@/components/HomePage/Arbswap/Dashboard/Offers/OfferHistory'
+import { Offer } from '@/constants/Offer'
+import { getMyOffers } from '@/services/ApiService'
 
 function Offers() {
   const [component, setComponent] = useState<JSX.Element>(<IncomingOffers />)
   const [selected, setSelected] = useState<string>('IncomingOffers')
+  const [offers, setOffers] = useState<Offer[]>([]);
 
   const handleClick = (componentName: string) => {
     if (componentName === 'IncomingOffers') {
       setComponent(<IncomingOffers />)
       setSelected('IncomingOffers')
     } else if (componentName === 'OffersSent') {
-      setComponent(<OffersSent />)
+      setComponent(<OffersSent offers={offers} />)
       setSelected('OffersSent')
     } else if (componentName === 'OfferHistory') {
       setComponent(<OfferHistory />)
       setSelected('OfferHistory')
     }
   }
+
+  useEffect(() => {
+    const getOffersFromApi = async () => {
+      const offersApi = await getMyOffers(false);
+      setOffers(offersApi.data.data);
+    }
+
+    getOffersFromApi();
+  }, [])
 
   return (
     <section className="flex flex-col items-center">

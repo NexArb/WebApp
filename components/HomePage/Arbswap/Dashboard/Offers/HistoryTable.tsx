@@ -2,15 +2,16 @@ import React from 'react'
 
 import { OfferListing } from '@/constants'
 import Image from 'next/image'
+import { Offer } from '@/constants/Offer'
 
 type OfferProps = (typeof OfferListing)[number]
 
-function DashboardTable({ payment, amount, price }: OfferProps) {
+function DashboardTable({offer}: {offer: Offer}) {
   return (
     <tr className="flex items-center justify-center overflow-hidden text-base font-medium">
       <td>
         <div className="inline-flex">
-          <span className="p-2">{payment.name}</span>
+          <span className="p-2">{}</span>
           <Image
             src={'/img/arrow.svg'}
             alt="arrow image"
@@ -21,15 +22,15 @@ function DashboardTable({ payment, amount, price }: OfferProps) {
         </div>
       </td>
       <td className="mt-6 flex flex-col font-medium text-slate-950">
-        <span>{amount}</span>
-        <span className="p-1">{price}</span>
+        <span>{offer.amount}</span>
+        <span className="p-1">{offer.total_price}</span>
       </td>
       <td
         className={`pl-4 ${
-          payment.check === 'APPROVED' ? 'text-emerald-400' : 'text-red-500'
+          offer.is_approved ? 'text-emerald-400' : 'text-red-500'
         }`}
       >
-        {payment.check === 'APPROVED' ? 'ACCEPTED' : 'REJECTED'}
+        {offer.is_approved ? 'ACCEPTED' : 'REJECTED'}
       </td>
     </tr>
   )

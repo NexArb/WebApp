@@ -1,8 +1,21 @@
 import { OfferListing } from '@/constants'
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import HistoryTable from './HistoryTable'
+import { Offer } from '@/constants/Offer'
+import { getMyOffers } from '@/services/ApiService';
 
 function OfferHistory() {
+  const [offers, setOffers] = useState<Offer[]>([]);
+
+  useEffect(() => {
+    const getPastOffers = async () => {
+      const pastOffersApi = await getMyOffers(false);
+      setOffers(pastOffersApi.data.data);
+    }
+
+    getPastOffers();
+  }, [])
+
   return (
     <div className="grid grid-cols-2 gap-4 text-black">
       <div>
@@ -13,11 +26,7 @@ function OfferHistory() {
         <div className="custom-scrollbar mx-auto h-[600px] overflow-y-auto bg-zinc-100">
           <table className="mx-auto max-w-full text-black">
             <tbody>
-              {OfferListing.map((item) => (
-                <Fragment key={item.id}>
-                  <HistoryTable {...item} />
-                </Fragment>
-              ))}
+              
             </tbody>
           </table>
         </div>
@@ -30,11 +39,7 @@ function OfferHistory() {
         <div className="custom-scrollbar mx-auto h-[600px] overflow-y-auto bg-zinc-100">
           <table className="mx-auto max-w-full text-black">
             <tbody>
-              {OfferListing.map((item) => (
-                <Fragment key={item.id}>
-                  <HistoryTable {...item} />
-                </Fragment>
-              ))}
+              
             </tbody>
           </table>
         </div>

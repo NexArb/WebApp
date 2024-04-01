@@ -2,20 +2,22 @@
 
 import React, { Fragment, useEffect, useState } from 'react'
 
-import { OfferListing } from '@/constants'
-import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
 import Link from 'next/link'
 import Image from 'next/image'
 import DashboardFilter from '@/components/HomePage/Arbswap/Dashboard/DashboardFilter'
 import PaymentMethod from '@/components/HomePage/Arbswap/Dashboard/PaymentMethod'
 import { useModalStore } from '@/hooks/useStore'
 import Pricing from '@/components/HomePage/Arbswap/Dashboard/Pricing'
+import { getListings } from '@/services/ApiService'
+import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
+import { Listing } from '@/constants/Listing'
 
 // import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
 
 function Dashboard() {
   const { showModal } = useModalStore()
   const [isModalOpen, setModalOpen] = useState(false)
+  const [listings, setListings] = useState<Listing[]>([]);
 
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
@@ -31,6 +33,15 @@ function Dashboard() {
     }
   }, [isModalOpen])
 
+  useEffect(() => {
+    const getListingsFromApi = async () => {
+      const listingsApi = await getListings();
+      setListings(listingsApi.data.data);
+    }
+
+    getListingsFromApi();
+    
+  }, [])
   return (
     <section className="justify-center pt-12 md:flex">
       {/* Modal toggle */}
@@ -63,13 +74,9 @@ function Dashboard() {
             </div>
           </div>
           <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col  !whitespace-nowrap bg-zinc-100 py-0 ">
-            <table className={' h-[655px]  w-[830px]'}>
+            <table>
               <tbody>
-                {OfferListing.map((item) => (
-                  <Fragment key={item.id}>
-                    <DashboardTable {...item} />
-                  </Fragment>
-                ))}
+                <DashboardTable listing={listings[0]}/>
               </tbody>
             </table>
           </div>

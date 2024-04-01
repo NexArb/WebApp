@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react'
 import {
+  getOtp,
   sendPasswordResetRequest,
   setOtpChoice,
   verifyOtpAndUpdatePassword
@@ -27,10 +28,10 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
   const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const otpChoiceResponse = await setOtpChoice(email)
-    
     if (otpChoiceResponse.status === 200) {
-      sendPasswordResetRequest()
       setIsEmailSubmitted(true)
+      const getOtpResponse = sendPasswordResetRequest();
+      
     }
   }
 
@@ -147,14 +148,14 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
           </div>
         </div>
       ) : (
-        <div className="w-80 rounded-3xl bg-slate-700 p-5">
+        <div className="w-full rounded-3xl p-2">
           <form onSubmit={handleChangePassword}>
             <label className="ml-5 text-sm" htmlFor="newPassword">
               {forgotPasswordDictionary[params.lang]?.newPassword}
             </label>
             <input
               id="newPassword"
-              className="mb-2 mt-2 w-full rounded-full bg-slate-700"
+              className="mb-2 mt-2 w-full rounded-full bg-transparent"
               type="password"
               placeholder={forgotPasswordDictionary[params.lang]?.enterPassword}
               onChange={(e) => setNewPassword(e.target.value)}
@@ -164,7 +165,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
             </label>
             <input
               id="newPasswordAgain"
-              className="mt-2 w-full rounded-full bg-slate-700"
+              className="mt-2 w-full rounded-full bg-transparent"
               type="password"
               placeholder={forgotPasswordDictionary[params.lang]?.enterPassword}
               onChange={(e) => setNewPasswordAgain(e.target.value)}
