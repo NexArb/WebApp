@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 const token = Cookies.get('token')
 
-const baseURL = env.BASE_URL
+const baseURL = env.NEXT_PUBLIC_BASE_URL
 
 export const loginUser = async (data: { email: string; password: string }) => {
   const formData = new URLSearchParams()
