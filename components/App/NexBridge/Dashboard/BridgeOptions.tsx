@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { nexBridgeDashboardDictionary } from '@/localesContent'
 
-import EditBridgeModal from './EditBridgeModal'
+import EditBridgeModal from '@/components/App/NexBridge/Dashboard/EditBridgeModal'
 
 type Item = {
   id: number

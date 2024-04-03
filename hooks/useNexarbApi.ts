@@ -1,29 +1,46 @@
 import { useEffect, useState } from 'react'
-import { AxiosError } from 'axios'
+
+// Extend RequestConfig to include a headers property
+export type ExtendedRequestConfig<RequestConfig> = RequestConfig & {
+  headers?: { [key: string]: string }
+}
 
 export const useNexarbApi = <ResponseBody = any, RequestConfig = any>(
-  apiFunction: (config?: RequestConfig) => Promise<{ data: ResponseBody }>,
-  requestConfig?: RequestConfig
+  url: string,
+  requestConfig?: ExtendedRequestConfig<RequestConfig>
 ) => {
-  const [data, setData] = useState<ResponseBody>()
+  const [data, setData] = useState<ResponseBody | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<AxiosError>()
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     setLoading(true)
-    setError(undefined)
+    setError(null)
 
-    apiFunction(requestConfig)
-      .then((res) => {
-        setData(res.data)
-        setError(undefined)
+    fetch(url, {
+      ...requestConfig,
+      headers: {
+        'Content-Type': 'application/json',
+        ...requestConfig?.headers
+      }
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.message || 'Something went wrong')
+        }
+        return response.json()
+      })
+      .then((responseData) => {
+        setData(responseData)
       })
       .catch((e) => {
         setError(e)
-        setData(undefined)
       })
-      .finally(() => setLoading(false))
-  }, [apiFunction, requestConfig])
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [url, requestConfig])
 
   return { loading, data, error }
 }

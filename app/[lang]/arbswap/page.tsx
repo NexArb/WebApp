@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Confidentiality from '@/components/App/Arbswap/Confidentiality'
-import ExchangeRates from '@/components/App/Arbswap/ExchangeRates'
-import Intro from '@/components/App/Arbswap/Intro'
-import SolanaStatistics from '@/components/App/Arbswap/SolanaStatistics'
-import SolanaWorld from '@/components/App/Arbswap/SolanaWorld'
-import Steps from '@/components/App/Arbswap/Steps'
+import Confidentiality from '@/components/App/ArbSwap/Confidentiality'
+import ExchangeRates from '@/components/App/ArbSwap/ExchangeRates'
+import Intro from '@/components/App/ArbSwap/Intro'
+import SolanaStatistics from '@/components/App/ArbSwap/SolanaStatistics'
+import SolanaWorld from '@/components/App/ArbSwap/SolanaWorld'
+import Steps from '@/components/App/ArbSwap/Steps'
 import ArbSwapFooter from '@/components/CustomFooter/ArbSwap'
 import ArbSwapNavbar from '@/components/CustomNavbar/ArbSwap'
 

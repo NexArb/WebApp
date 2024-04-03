@@ -5,7 +5,7 @@ export function TailwindIndicator(): JSX.Element | null {
   if (env.NODE_ENV === 'production') return null
 
   return (
-    <div className="fixed bottom-1 left-1 z-50 flex h-6 w-6 items-center justify-center rounded-full bg-slate-700 p-3 text-white">
+    <div className="fixed bottom-1 left-1 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-button p-4 font-semibold text-slate-800/80">
       <div className="block sm:hidden">xs</div>
       <div className="hidden sm:block md:hidden lg:hidden xl:hidden 2xl:hidden">
         sm

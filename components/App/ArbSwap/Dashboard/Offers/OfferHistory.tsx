@@ -1,5 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { OfferListing } from '@/constants'
+import React, { useEffect, useState } from 'react'
 import { Offer } from '@/constants/Offer'
 
 import { getMyOffers } from '@/services/ApiService'

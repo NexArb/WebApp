@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import { nexBridgeDashboardDictionary } from '@/localesContent'
 
-import BridgeOptions from '@/components/App/NexBridge/BridgeOptions'
-import ComposeBridge from '@/components/App/NexBridge/ComposeBridge'
+import BridgeOptions from '@/components/App/NexBridge/Dashboard/BridgeOptions'
+import ComposeBridge from '@/components/App/NexBridge/Dashboard/ComposeBridge'
 
 interface DashboardProps {
   readonly params: {

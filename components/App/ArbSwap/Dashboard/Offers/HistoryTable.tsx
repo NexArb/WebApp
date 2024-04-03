@@ -1,9 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { OfferListing } from '@/constants'
 import { Offer } from '@/constants/Offer'
-
-type OfferProps = (typeof OfferListing)[number]
 
 function DashboardTable({ offer }: Readonly<{ offer: Offer }>) {
   return (

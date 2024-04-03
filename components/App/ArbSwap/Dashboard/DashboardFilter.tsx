@@ -2,18 +2,26 @@ import React from 'react'
 import Image from 'next/image'
 
 import Button from '@/components/Common/Button'
-
-import getFormattedDateTime from './CurrentDate'
+import getFormattedDateTime from '@/hooks/useCurrentDate'
 
 type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function }
 
-const FilterMenu = ({ isModalOpen, setModalOpen }: FilterMenuProps) => {
+export default function DashboardFilter({
+  isModalOpen,
+  setModalOpen
+}: FilterMenuProps) {
   const closeModal = () => {
     setModalOpen(false)
   }
 
-  const FilterForm = () => {
-    return (
+  return (
+    <div
+      className={`inset-0 h-[auto] w-[auto] ${
+        isModalOpen
+          ? 'absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50'
+          : 'hidden md:block'
+      }`}
+    >
       <div className="sm:w-5/5 md:w-2/10 mb-4 h-[739px] min-w-[100px] rounded-3xl border bg-zinc-100 p-9 backdrop-blur-3xl sm:!m-3 md:mb-0">
         <div
           className={'absolute block md:hidden'}
@@ -106,20 +114,6 @@ const FilterMenu = ({ isModalOpen, setModalOpen }: FilterMenuProps) => {
           </div>
         </form>
       </div>
-    )
-  }
-
-  return (
-    <div className={'inset-0 h-[auto] w-[auto]'}>
-      {isModalOpen ? (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-          {FilterForm()}
-        </div>
-      ) : (
-        <div className={'hidden md:block'}>{FilterForm()}</div>
-      )}
     </div>
   )
 }
-
-export default FilterMenu

@@ -1,7 +1,7 @@
 import React from 'react'
 import { arbSwapHomeDictionary } from '@/localesContent'
 
-import SwapCard from './SwapCard'
+import SwapCard from '@/components/App/ArbSwap/SwapCard'
 
 interface IntroProps {
   readonly locale: string

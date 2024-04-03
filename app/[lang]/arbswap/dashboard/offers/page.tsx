@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react'
 import { Offer } from '@/constants/Offer'
 
-import IncomingOffers from '@/components/App/Arbswap/Dashboard/Offers/IncomingOffers'
-import OfferHistory from '@/components/App/Arbswap/Dashboard/Offers/OfferHistory'
-import OffersSent from '@/components/App/Arbswap/Dashboard/Offers/OffersSent'
+import IncomingOffers from '@/components/App/ArbSwap/Dashboard/Offers/IncomingOffers'
+import OfferHistory from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory'
+import OffersSent from '@/components/App/ArbSwap/Dashboard/Offers/OffersSent'
 import Button from '@/components/Common/Button'
 import { getMyOffers } from '@/services/ApiService'
 

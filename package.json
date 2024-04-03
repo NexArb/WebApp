@@ -27,7 +27,6 @@
     "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/wallet-adapter-wallets": "^0.19.26",
     "@solana/web3.js": "^1.90.0",
-    "axios": "^1.6.2",
     "connectkit": "^1.5.3",
     "eslint-plugin-jest": "^27.6.0",
     "js-cookie": "^3.0.5",

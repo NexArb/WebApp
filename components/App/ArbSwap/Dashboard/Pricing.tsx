@@ -8,7 +8,7 @@ import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { useModalStore } from '@/hooks/useStore'
 
-function Pricing() {
+export default function Pricing() {
   const router = useRouter()
   const { toggleModal } = useModalStore()
   const modalKey = 'pricing'
@@ -109,5 +109,3 @@ function Pricing() {
     </Modal>
   )
 }
-
-export default Pricing
