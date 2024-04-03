@@ -1,18 +1,18 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-
-import Button from '@/components/CommonComponents/Button'
-import IncomingOffers from '@/components/HomePage/Arbswap/Dashboard/Offers/IncomingOffers'
-import OffersSent from '@/components/HomePage/Arbswap/Dashboard/Offers/OffersSent'
-import OfferHistory from '@/components/HomePage/Arbswap/Dashboard/Offers/OfferHistory'
 import { Offer } from '@/constants/Offer'
+
+import IncomingOffers from '@/components/App/Arbswap/Dashboard/Offers/IncomingOffers'
+import OfferHistory from '@/components/App/Arbswap/Dashboard/Offers/OfferHistory'
+import OffersSent from '@/components/App/Arbswap/Dashboard/Offers/OffersSent'
+import Button from '@/components/Common/Button'
 import { getMyOffers } from '@/services/ApiService'
 
 function Offers() {
   const [component, setComponent] = useState<JSX.Element>(<IncomingOffers />)
   const [selected, setSelected] = useState<string>('IncomingOffers')
-  const [offers, setOffers] = useState<Offer[]>([]);
+  const [offers, setOffers] = useState<Offer[]>([])
 
   const handleClick = (componentName: string) => {
     if (componentName === 'IncomingOffers') {
@@ -29,11 +29,11 @@ function Offers() {
 
   useEffect(() => {
     const getOffersFromApi = async () => {
-      const offersApi = await getMyOffers(false);
-      setOffers(offersApi.data.data);
+      const offersApi = await getMyOffers(false)
+      setOffers(offersApi.data.data)
     }
 
-    getOffersFromApi();
+    getOffersFromApi()
   }, [])
 
   return (

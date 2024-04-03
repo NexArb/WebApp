@@ -1,12 +1,13 @@
 import React from 'react'
-import Intro from '../../../components/HomePage/Arbswap/Intro'
-import ExchangeRates from '../../../components/HomePage/Arbswap/ExchangeRates'
-import SolanaStatistics from '../../../components/HomePage/Arbswap/SolanaStatistics'
-import Confidentiality from '../../../components/HomePage/Arbswap/Confidentiality'
-import SolanaWorld from '../../../components/HomePage/Arbswap/SolanaWorld'
-import Steps from '../../../components/HomePage/Arbswap/Steps'
-import ArbSwapNavbar from '@/components/CustomNavbar/ArbSwap'
+
+import Confidentiality from '@/components/App/Arbswap/Confidentiality'
+import ExchangeRates from '@/components/App/Arbswap/ExchangeRates'
+import Intro from '@/components/App/Arbswap/Intro'
+import SolanaStatistics from '@/components/App/Arbswap/SolanaStatistics'
+import SolanaWorld from '@/components/App/Arbswap/SolanaWorld'
+import Steps from '@/components/App/Arbswap/Steps'
 import ArbSwapFooter from '@/components/CustomFooter/ArbSwap'
+import ArbSwapNavbar from '@/components/CustomNavbar/ArbSwap'
 
 const Solana = ({
   params

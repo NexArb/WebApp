@@ -1,29 +1,29 @@
 'use client'
 
-import React from 'react'
+import { loginSchema, TLoginSchema } from '@/types/authValidation.types'
 
-import Button from '@/components/CommonComponents/Button'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { TLoginSchema, loginSchema } from '@/types/authValidation.types'
-import { loginUser } from '@/services/ApiService'
-import { useUserStore } from '@/hooks/useStore'
 import { loginDictionary } from '@/localesContent'
-import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
-import Cookies from "js-cookie";
+import { zodResolver } from '@hookform/resolvers/zod'
+import Cookies from 'js-cookie'
+import { useForm } from 'react-hook-form'
+
+import Button from '@/components/Common/Button'
+import { useUserStore } from '@/hooks/useStore'
+import { loginUser } from '@/services/ApiService'
 
 const Login = ({ params }: { params: { lang: string } }) => {
-  const router = useRouter()
   const { setIsAuthenticated } = useUserStore()
+  const router = useRouter()
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-    setError
+    formState: { errors, isSubmitting }
+    // reset,
+    // setError
   } = useForm<TLoginSchema>({ resolver: zodResolver(loginSchema) })
 
   const onSubmit = async (data: TLoginSchema) => {
@@ -32,41 +32,46 @@ const Login = ({ params }: { params: { lang: string } }) => {
       const response = await loginUser(data)
       const responseData = response?.data
 
-      if (responseData.status < 200 || responseData.status >= 300) {
+      if (response && (response.status < 200 || response.status >= 300)) {
         // response status is not 2xx
         alert('Login failed!')
-      }
-
-      if (responseData.errors) {
-        const errors = responseData.errors
-        if (errors.email) {
-          setError('email', {
-            type: 'server',
-            message: errors.email
-          })
-        } else if (errors.password) {
-          setError('password', {
-            type: 'server',
-            message: errors.password
-          })
-        } else {
-          alert('Something went wrong!')
-        }
       } else {
         const token = responseData.access_token
-        Cookies.set("token", token);
+        Cookies.set('token', token)
         setIsAuthenticated()
-        router.push('/arbswap/register-wallet')
+        router.push('/arbswap/dashboard')
       }
+
+      // if (response.errors) {
+      //   const errors = response.errors
+      //   if (errors.email) {
+      //     setError('email', {
+      //       type: 'server',
+      //       message: errors.email
+      //     })
+      //   } else if (errors.password) {
+      //     setError('password', {
+      //       type: 'server',
+      //       message: errors.password
+      //     })
+      //   } else {
+      //     alert('Something went wrong!')
+      //   }
+      // } else {
+      //   const token = responseData.access_token
+      //   Cookies.set('token', token)
+      //   setIsAuthenticated()
+      //   router.push('/arbswap/dashboard')
+      // }
     } catch (e) {
-      console.log(e)
+      console.log('Catch --------->', e)
     }
 
-    reset()
+    // reset()
   }
 
   return (
-    <Layout>
+    <>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
         <label htmlFor="email" className="px-4 py-2">
           {loginDictionary[params.lang]?.emailOrPhoneNumber}
@@ -76,7 +81,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
           aria-label="Enter your email"
           type="text"
           placeholder={loginDictionary[params.lang]?.enterUsername}
-          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
+          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 px-4 py-2 placeholder:text-neutral-400"
         />
         {errors.email && (
           <p className="px-6 pt-2 text-red-500">{`${errors.email.message}`}</p>
@@ -89,7 +94,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
           aria-label="Enter your password"
           type="password"
           placeholder={loginDictionary[params.lang]?.enterPassword}
-          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
+          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 px-4 py-2 placeholder:text-neutral-400"
           required
         />
         {errors.password && (
@@ -149,7 +154,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
           {loginDictionary[params.lang]?.connectWallet}
         </div>
       </Button>
-    </Layout>
+    </>
   )
 }
 

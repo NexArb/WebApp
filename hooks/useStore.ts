@@ -1,7 +1,6 @@
-import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
-
 import { ModalState, UserState } from '@/types/store.types'
+
+import { create } from 'zustand'
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: {},
@@ -9,10 +8,10 @@ export const useModalStore = create<ModalState>((set) => ({
     set((state) => ({
       showModal: {
         ...state.showModal,
-        [modalName]: !state.showModal[modalName] // toggleModal(key) triggerlandığında gönderilen key'e ait modalı açmak veya kapatma işlemi
+        [modalName]: !state.showModal[modalName]
       }
     })),
-  closeAllModals: () => set({ showModal: {} }) // Tüm modalları kapatma işlemi
+  closeAllModals: () => set({ showModal: {} })
 }))
 
 export const useUserStore = create<UserState>()((set) => ({

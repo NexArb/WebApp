@@ -1,8 +1,9 @@
 'use client'
 
-import PriceBox from '@/components/NexBridgePricing/PriceBox'
-import { packages } from '@/constants'
 import React from 'react'
+import { packages } from '@/constants'
+
+import PriceBox from '@/components/App/NexBridge/Pricing/PriceBox'
 
 interface Package {
   title: string

@@ -1,9 +1,10 @@
 'use client'
 
-import BridgeOptions from '@/components/NexBridgeDashboard/BridgeOptions'
-import ComposeBridge from '@/components/NexBridgeDashboard/ComposeBridge'
 import React, { useState } from 'react'
 import { nexBridgeDashboardDictionary } from '@/localesContent'
+
+import BridgeOptions from '@/components/App/NexBridge/BridgeOptions'
+import ComposeBridge from '@/components/App/NexBridge/ComposeBridge'
 
 interface DashboardProps {
   readonly params: {

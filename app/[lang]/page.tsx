@@ -1,5 +1,6 @@
 import React from 'react'
-import HomePage from '@/components/HomePage'
+
+import HomePage from '@/components/App/Landing'
 import HomeFooter from '@/components/CustomFooter/HomeFooter'
 
 interface HomeProps {

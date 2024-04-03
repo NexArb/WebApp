@@ -1,13 +1,14 @@
 'use client'
 
+import { registerSchema, TRegisterSchema } from '@/types/authValidation.types'
+
 import React from 'react'
-import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { TRegisterSchema, registerSchema } from '@/types/authValidation.types'
 import { registerDictionary } from '@/localesContent'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+
 import { registerUser } from '@/services/ApiService'
-import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
 
 interface RegisterProps {
   readonly params: {
@@ -67,7 +68,7 @@ function Register({ params }: RegisterProps) {
   }
 
   return (
-    <Layout>
+    <>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
         <label htmlFor="email" className="px-4 py-2">
           Email
@@ -130,7 +131,7 @@ function Register({ params }: RegisterProps) {
           </div>
         </button>
       </form>
-    </Layout>
+    </>
   )
 }
 

@@ -1,12 +1,11 @@
 'use client'
 
 import React from 'react'
-
-import Button from '@/components/CommonComponents/Button'
-import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { registerWalletDictionary } from '@/localesContent'
-import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
+
+import Button from '@/components/Common/Button'
 
 interface RegisterWalletProps {
   readonly params: {
@@ -22,7 +21,7 @@ function RegisterWallet({ params }: RegisterWalletProps) {
   }
 
   return (
-    <Layout>
+    <>
       <div className="mx-auto p-10 text-center">
         {registerWalletDictionary[params.lang]?.connectPhantomWallet}
       </div>
@@ -51,7 +50,7 @@ function RegisterWallet({ params }: RegisterWalletProps) {
           </div>
         </Button>
       </form>
-    </Layout>
+    </>
   )
 }
 

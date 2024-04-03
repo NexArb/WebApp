@@ -1,14 +1,13 @@
 'use client'
 
 import React, { FormEvent, useState } from 'react'
+import { forgotPasswordDictionary } from '@/localesContent'
+
 import {
-  getOtp,
   sendPasswordResetRequest,
   setOtpChoice,
   verifyOtpAndUpdatePassword
 } from '@/services/ApiService'
-import { forgotPasswordDictionary } from '@/localesContent'
-import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
 
 interface ForgotPasswordProps {
   readonly params: {
@@ -28,16 +27,13 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
   const handleSubmitEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const otpChoiceResponse = await setOtpChoice(email)
+
     if (otpChoiceResponse.status === 200) {
       setIsEmailSubmitted(true)
-      const getOtpResponse = sendPasswordResetRequest();
-      
     }
   }
 
-  const handleSendVerificationCodeAgain = async (
-    e: FormEvent<HTMLFormElement>
-  ) => {
+  const handleSendVerificationCodeAgain = async () => {
     sendPasswordResetRequest()
   }
 
@@ -61,7 +57,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
   }
 
   return (
-    <Layout>
+    <>
       {!isVerificationCodeSubmitted ? (
         <div>
           <div>
@@ -120,7 +116,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
                 <p className="mb-20 mt-2 text-center text-sm">
                   {forgotPasswordDictionary[params.lang]?.dontYouGetCode}{' '}
                   <button
-                    onClick={(e) => handleSendVerificationCodeAgain}
+                    onClick={handleSendVerificationCodeAgain}
                     className="text-green-500"
                   >
                     {forgotPasswordDictionary[params.lang]?.sendAgain}
@@ -179,7 +175,7 @@ const ForgotPassword = ({ params }: ForgotPasswordProps) => {
           </form>
         </div>
       )}
-    </Layout>
+    </>
   )
 }
 

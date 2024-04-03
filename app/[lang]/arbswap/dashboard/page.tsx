@@ -1,23 +1,21 @@
 'use client'
 
 import React, { Fragment, useEffect, useState } from 'react'
-
-import Link from 'next/link'
 import Image from 'next/image'
-import DashboardFilter from '@/components/HomePage/Arbswap/Dashboard/DashboardFilter'
-import PaymentMethod from '@/components/HomePage/Arbswap/Dashboard/PaymentMethod'
-import { useModalStore } from '@/hooks/useStore'
-import Pricing from '@/components/HomePage/Arbswap/Dashboard/Pricing'
-import { getListings } from '@/services/ApiService'
-import DashboardTable from '@/components/HomePage/Arbswap/Dashboard/DashboardTable'
+import Link from 'next/link'
 import { Listing } from '@/constants/Listing'
 
-// import useRedirectIfModalOpen from '@/hooks/useRedirectIfModalOpen'
+import DashboardFilter from '@/components/App/Arbswap/Dashboard/DashboardFilter'
+import DashboardTable from '@/components/App/Arbswap/Dashboard/DashboardTable'
+import PaymentMethod from '@/components/App/Arbswap/Dashboard/PaymentMethod'
+import Pricing from '@/components/App/Arbswap/Dashboard/Pricing'
+import { useModalStore } from '@/hooks/useStore'
+import { getListings } from '@/services/ApiService'
 
 function Dashboard() {
   const { showModal } = useModalStore()
   const [isModalOpen, setModalOpen] = useState(false)
-  const [listings, setListings] = useState<Listing[]>([]);
+  const [listings, setListings] = useState<Listing[]>([])
 
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
@@ -35,12 +33,11 @@ function Dashboard() {
 
   useEffect(() => {
     const getListingsFromApi = async () => {
-      const listingsApi = await getListings();
-      setListings(listingsApi.data.data);
+      const listingsApi = await getListings()
+      setListings(listingsApi.data.data)
     }
 
-    getListingsFromApi();
-    
+    getListingsFromApi()
   }, [])
   return (
     <section className="justify-center pt-12 md:flex">
@@ -76,7 +73,7 @@ function Dashboard() {
           <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col  !whitespace-nowrap bg-zinc-100 py-0 ">
             <table>
               <tbody>
-                <DashboardTable listing={listings[0]}/>
+                <DashboardTable listing={listings[0]} />
               </tbody>
             </table>
           </div>

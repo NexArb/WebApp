@@ -1,5 +1,5 @@
-import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
+import { AxiosError } from 'axios'
 
 export const useNexarbApi = <ResponseBody = any, RequestConfig = any>(
   apiFunction: (config?: RequestConfig) => Promise<{ data: ResponseBody }>,

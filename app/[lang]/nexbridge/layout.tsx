@@ -1,7 +1,9 @@
-import { Metadata } from 'next'
 import React from 'react'
-import { Providers } from '../providers'
+import { Metadata } from 'next'
+
 import NexBridgeCustomNavbar from '@/components/CustomNavbar/NexBridge'
+
+import { Providers } from '../providers'
 
 export const metadata: Metadata = {
   title: 'NexBridge',
@@ -10,7 +12,10 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = { children: React.ReactNode; params: { lang: string } }
 
-export default function RootLayout({ children, params }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+  params
+}: Readonly<RootLayoutProps>) {
   const { lang } = params
   return (
     <section>
