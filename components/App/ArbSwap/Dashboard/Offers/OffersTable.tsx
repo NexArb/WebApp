@@ -1,7 +1,5 @@
-import React from 'react';
-import { Offer } from '@/constants/Offer';
-
-
+import React from 'react'
+import { Offer } from '@/constants/Offer'
 
 import Button from '@/components/Common/Button'
 

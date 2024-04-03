@@ -73,7 +73,7 @@ function Dashboard() {
           <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col  !whitespace-nowrap bg-zinc-100 py-0 ">
             <table>
               <tbody>
-                <DashboardTable listing={listings[0]} />
+                <DashboardTable listing={listings?.[0]} />
               </tbody>
             </table>
           </div>
