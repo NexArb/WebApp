@@ -14,12 +14,12 @@ import { getListings } from '@/services/ApiService'
 
 function Dashboard() {
   const { showModal } = useModalStore()
-  const [isModalOpen, setModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [listings, setListings] = useState<Listing[]>([])
 
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      setModalOpen(false)
+      setIsModalOpen(false)
     }
   }
 
@@ -44,7 +44,7 @@ function Dashboard() {
       {/* Modal toggle */}
       <Link
         className="absolute !bottom-5 left-4 z-10 rounded-3xl bg-emerald-400 px-2 py-2 outline-none md:hidden"
-        onClick={() => setModalOpen(true)}
+        onClick={() => setIsModalOpen(true)}
         href={'/arbswap/dashboard'}
       >
         <span className="text-sm">
@@ -56,7 +56,7 @@ function Dashboard() {
       <Fragment key={'dashboard-filter'}>
         <DashboardFilter
           isModalOpen={isModalOpen}
-          setModalOpen={setModalOpen}
+          setModalOpen={setIsModalOpen}
         />
       </Fragment>
       {/* Right Rectangle */}

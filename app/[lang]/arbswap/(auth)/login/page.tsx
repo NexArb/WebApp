@@ -22,8 +22,6 @@ const Login = ({ params }: { params: { lang: string } }) => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting }
-    // reset,
-    // setError
   } = useForm<TLoginSchema>({ resolver: zodResolver(loginSchema) })
 
   const onSubmit = async (data: TLoginSchema) => {
@@ -41,33 +39,9 @@ const Login = ({ params }: { params: { lang: string } }) => {
         setIsAuthenticated()
         router.push('/arbswap/dashboard')
       }
-
-      // if (response.errors) {
-      //   const errors = response.errors
-      //   if (errors.email) {
-      //     setError('email', {
-      //       type: 'server',
-      //       message: errors.email
-      //     })
-      //   } else if (errors.password) {
-      //     setError('password', {
-      //       type: 'server',
-      //       message: errors.password
-      //     })
-      //   } else {
-      //     alert('Something went wrong!')
-      //   }
-      // } else {
-      //   const token = responseData.access_token
-      //   Cookies.set('token', token)
-      //   setIsAuthenticated()
-      //   router.push('/arbswap/dashboard')
-      // }
     } catch (e) {
-      console.log('Catch --------->', e)
+      console.log('Login catch ->', e)
     }
-
-    // reset()
   }
 
   return (

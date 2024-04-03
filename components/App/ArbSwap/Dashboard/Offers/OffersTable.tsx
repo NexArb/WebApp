@@ -1,9 +1,11 @@
-import React from 'react'
-import { Offer } from '@/constants/Offer'
+import React from 'react';
+import { Offer } from '@/constants/Offer';
+
+
 
 import Button from '@/components/Common/Button'
 
-export default function OffersTable({ offer }: { offer: Offer }) {
+export default function OffersTable({ offer }: Readonly<{ offer: Offer }>) {
   return (
     <tr>
       <td className="p-3 font-medium text-slate-950">

@@ -28,7 +28,7 @@ function IncomingOffers() {
           </thead>
           <tbody>
             {offers.map((offer) => {
-              return <OffersTable offer={offer} />
+              return <OffersTable key={offer.amount} offer={offer} />
             })}
           </tbody>
         </table>
