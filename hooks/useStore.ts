@@ -1,6 +1,6 @@
-import { create } from 'zustand'
-
 import { ModalState, UserState } from '@/types/store.types'
+
+import { create } from 'zustand'
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: {},

@@ -1,7 +1,7 @@
-import { FooterSocials } from '@/constants'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { FooterSocials } from '@/constants'
 import { footerDictionary } from '@/localesContent'
 
 interface CustomFooterProps {

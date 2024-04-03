@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { match } from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
 import Cookies from 'js-cookie'
+import Negotiator from 'negotiator'
 
 let locales = ['en', 'tr', 'de']
 export const defaultLocale = 'en'
 
 const protectedRoutes = ['/arbswap/dashboard']
+const publicRoutes = [
+  '/arbswap/login',
+  '/arbswap/register',
+  '/arbswap/register-wallet',
+  '/arbswap/forgot-password'
+]
 
 const getLocale = (request: Request): string => {
   const headers = new Headers(request.headers)
@@ -26,17 +32,25 @@ export const middleware = (req: NextRequest) => {
   let locale = getLocale(req) ?? defaultLocale
   const pathname = req.nextUrl.pathname
 
-  if (!cookie && protectedRoutes.includes(pathname)) {
+  // Redirect logged-in users trying to access public routes to the dashboard
+  if (!cookie && publicRoutes.some((route) => pathname.includes(route))) {
+    const dashboardURL = new URL(`/arbswap/dashboard`, req.nextUrl.origin)
+    return NextResponse.redirect(dashboardURL.toString())
+  }
+
+  // Redirect non-logged-in users trying to access protected routes to the home page
+  if (cookie && protectedRoutes.includes(pathname)) {
     const absoluteURL = new URL('/', req.nextUrl.origin)
     return NextResponse.redirect(absoluteURL.toString())
   }
 
+  // Do not rewrite URLs for static assets
   if (pathname.startsWith('/_next/') || pathname.startsWith('/public/')) {
-    return null // Do not rewrite URLs for static assets
+    return null
   }
 
+  // Rewrite the URL to include the locale
   const newUrl = new URL(`/${locale}${pathname}`, req.nextUrl)
-
   return NextResponse.rewrite(newUrl)
 }
 

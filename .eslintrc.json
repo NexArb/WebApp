@@ -1,6 +1,6 @@
 {
   "root": true,
-  // "parser": "@babel/eslint-parser",
+  "parser": "@babel/eslint-parser",
   "plugins": [
     "react",
     "react-hooks",
@@ -104,7 +104,7 @@
         "@typescript-eslint/no-unused-vars": [
           "warn",
           {
-            "args": "none",
+            "args": "after-used",
             "ignoreRestSiblings": true
           }
         ],
