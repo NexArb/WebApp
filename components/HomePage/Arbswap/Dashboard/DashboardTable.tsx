@@ -5,9 +5,9 @@ import { Offer } from '@/constants/Offer'
 import Button from '@/components/CommonComponents/Button'
 
 function DashboardTable({ offer }: Readonly<{ offer: Offer }>) {
-  const { toggleModal } = useModalStore()
+  const { showModal, toggleModal } = useModalStore()
   const modalKey = 'paymentMethod'
-
+  console.log('show modal', showModal)
   return (
     <tr>
       <td className="px-4 font-medium text-slate-950">

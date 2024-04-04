@@ -1,8 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, MouseEventHandler, useEffect, useState } from 'react'
 
 import { OfferListing } from '@/constants'
 import Image from 'next/image'
 import Button from '@/components/CommonComponents/Button'
+import { useModalStore } from '@/hooks/useStore'
+import PaymentMethod from '../PaymentMethod'
 
 type InputProps = 'Received' | 'Sent' | 'Users'
 
@@ -11,6 +13,9 @@ interface ChildProps {
 }
 
 const HistoryTable: React.FC<ChildProps> = ({ input }) => {
+  const { showModal, toggleModal } = useModalStore()
+  const modalKey = 'paymentMethod'
+  console.log('show modal', showModal)
   const [openStates, setOpenStates] = useState(
     Array.from({ length: OfferListing.length }, () => false)
   )
@@ -28,6 +33,14 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
     }
   }
 
+  const handleUserProfile = (
+    modalKey: string,
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.stopPropagation()
+    toggleModal(modalKey)
+  }
+
   useEffect(() => {
     document.body.addEventListener('click', closeDropdown)
 
@@ -37,7 +50,7 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
   }, [])
 
   return (
-    <div>
+    <section>
       <div className="px-8">
         <span className="text-lg font-medium text-neutral-400">{input}</span>
         <div className="w-full border border-neutral-400"></div>
@@ -119,9 +132,15 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
                         </Button>
                         {openStates[index] && (
                           <ul className="dropdown absolute rounded-xl bg-white p-2 shadow-md">
-                            <li className="rounded-xl p-2 hover:bg-green-200">
-                              User Profile
-                            </li>
+                            <button
+                              onClick={(e) =>
+                                handleUserProfile('paymentMethod', e)
+                              }
+                            >
+                              <li className="rounded-xl p-2 hover:bg-green-200">
+                                User Profile
+                              </li>
+                            </button>
                             <li className="rounded-xl p-2 hover:bg-green-200">
                               Comment
                             </li>
@@ -136,7 +155,8 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
           </tbody>
         </table>
       </div>
-    </div>
+      {showModal.paymentMethod && <PaymentMethod />}
+    </section>
   )
 }
 
