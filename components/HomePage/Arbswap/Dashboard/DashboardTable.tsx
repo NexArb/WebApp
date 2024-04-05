@@ -1,8 +1,8 @@
 import React from 'react'
-
-import { useModalStore } from '@/hooks/useStore'
 import { Offer } from '@/constants/Offer'
-import Button from '@/components/CommonComponents/Button'
+
+import Button from '@/components/Common/Button'
+import { useModalStore } from '@/hooks/useStore'
 
 function DashboardTable({ offer }: Readonly<{ offer: Offer }>) {
   const { showModal, toggleModal } = useModalStore()

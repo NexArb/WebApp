@@ -1,13 +1,12 @@
 'use client'
 
 import React, { useCallback, useEffect, useState } from 'react'
-
-import Button from '@/components/CommonComponents/Button'
-import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { registerWalletDictionary } from '@/localesContent'
-import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
 import { PublicKey } from '@solana/web3.js'
+
+import Button from '@/components/Common/Button'
 import { registerWallet } from '@/services/ApiService'
 
 interface RegisterWalletProps {
@@ -129,7 +128,7 @@ function RegisterWallet({ params }: RegisterWalletProps) {
   }, [provider])
 
   return (
-    <Layout>
+    <>
       <div className="mx-auto p-10 text-center">
         {registerWalletDictionary[params.lang]?.connectPhantomWallet}
       </div>
@@ -150,7 +149,6 @@ function RegisterWallet({ params }: RegisterWalletProps) {
             : registerWalletDictionary[params.lang]?.connectWallet}
         </div>
       </Button>
-      {/* <form onSubmit={() => {}} className="flex flex-col"> */}
       <Button
         className="h-12 w-full items-center justify-center rounded-[50px] bg-gradient-button text-center shadow lg:mt-5 xl:mt-10"
         onClick={handleNext}
@@ -159,8 +157,7 @@ function RegisterWallet({ params }: RegisterWalletProps) {
           {registerWalletDictionary[params.lang]?.register}
         </div>
       </Button>
-      {/* </form> */}
-    </Layout>
+    </>
   )
 }
 

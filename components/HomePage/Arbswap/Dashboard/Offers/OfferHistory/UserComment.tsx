@@ -2,10 +2,10 @@
 
 import React from 'react'
 
-import { useModalStore } from '@/hooks/useStore'
-import getFormattedDateTime from '@/hooks/useCurrentDate'
 import Button from '@/components/CommonComponents/Button'
 import Modal from '@/components/CommonComponents/Modal'
+import getFormattedDateTime from '@/hooks/useCurrentDate'
+import { useModalStore } from '@/hooks/useStore'
 
 function UserComment() {
   const modalKey = 'paymentMethod'

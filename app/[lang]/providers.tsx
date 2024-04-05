@@ -1,8 +1,9 @@
 'use client'
 
 import * as React from 'react'
-import { WagmiConfig } from 'wagmi'
 import { ConnectKitProvider } from 'connectkit'
+import { WagmiConfig } from 'wagmi'
+
 import { config } from '../../wagmi'
 
 type ProvidersProps = Readonly<{

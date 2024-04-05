@@ -1,11 +1,11 @@
 'use client'
 
-import Link from 'next/link'
-import { ConnectKitButton } from 'connectkit'
 import React, { useEffect } from 'react'
 import Image from 'next/image'
-import { useAccount } from 'wagmi'
+import Link from 'next/link'
 import { nexBridgeNavbarDictionary } from '@/localesContent'
+import { ConnectKitButton } from 'connectkit'
+import { useAccount } from 'wagmi'
 
 interface NexBridgeCustomNavbarProps {
   readonly locale: string

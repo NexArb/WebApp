@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  eslint: {
-    dirs: ['pages', 'utils']
-  },
-  env: {}
-}
+const nextConfig = {}
 
 module.exports = nextConfig

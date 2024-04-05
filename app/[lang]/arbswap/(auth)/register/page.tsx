@@ -1,13 +1,14 @@
 'use client'
 
+import { registerSchema, TRegisterSchema } from '@/types/authValidation.types'
+
 import React from 'react'
-import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { TRegisterSchema, registerSchema } from '@/types/authValidation.types'
 import { registerDictionary } from '@/localesContent'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+
 import { registerUser } from '@/services/ApiService'
-import Layout from '@/components/HomePage/Arbswap/Auth/Layout'
 
 interface RegisterProps {
   readonly params: {
@@ -67,70 +68,68 @@ function Register({ params }: RegisterProps) {
   }
 
   return (
-    <Layout>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-        <label htmlFor="email" className="px-4 py-2">
-          Email
-        </label>
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+      <label htmlFor="email" className="px-4 py-2">
+        Email
+      </label>
+      <input
+        {...register('username')}
+        aria-label="Enter a valid email"
+        type="text"
+        placeholder={registerDictionary[params.lang]?.enterEmail}
+        className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
+      />
+      {errors.username && (
+        <p className="px-6 pt-2 text-red-500">{`${errors.username.message}`}</p>
+      )}
+      <label htmlFor="password" className="mt-4 px-4 py-2">
+        {registerDictionary[params.lang]?.choosePassword}
+      </label>
+      <input
+        {...register('password')}
+        aria-label="Enter your password"
+        type="password"
+        placeholder={registerDictionary[params.lang]?.enterPassword}
+        className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
+      />
+      {errors.password && (
+        <p className="px-6 pt-2 text-red-500">{`${errors.password.message}`}</p>
+      )}
+      <label htmlFor="confirmPassword" className="mt-4 px-4 py-2">
+        {registerDictionary[params.lang]?.passwordAgain}
+      </label>
+      <input
+        {...register('confirmPassword')}
+        aria-label="Confirm your password"
+        type="password"
+        placeholder={registerDictionary[params.lang]?.confirmPassword}
+        className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
+      />
+      {errors.confirmPassword && (
+        <p className="px-6 pt-2 text-red-500">{`${errors.confirmPassword.message}`}</p>
+      )}
+      <label className="mt-2 px-1 py-2">
         <input
-          {...register('username')}
-          aria-label="Enter a valid email"
-          type="text"
-          placeholder={registerDictionary[params.lang]?.enterEmail}
-          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
+          {...register('acceptTerms')}
+          aria-label="Accept the terms and conditions"
+          type="checkbox"
+          className="mr-4"
         />
-        {errors.username && (
-          <p className="px-6 pt-2 text-red-500">{`${errors.username.message}`}</p>
-        )}
-        <label htmlFor="password" className="mt-4 px-4 py-2">
-          {registerDictionary[params.lang]?.choosePassword}
-        </label>
-        <input
-          {...register('password')}
-          aria-label="Enter your password"
-          type="password"
-          placeholder={registerDictionary[params.lang]?.enterPassword}
-          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
-        />
-        {errors.password && (
-          <p className="px-6 pt-2 text-red-500">{`${errors.password.message}`}</p>
-        )}
-        <label htmlFor="confirmPassword" className="mt-4 px-4 py-2">
-          {registerDictionary[params.lang]?.passwordAgain}
-        </label>
-        <input
-          {...register('confirmPassword')}
-          aria-label="Confirm your password"
-          type="password"
-          placeholder={registerDictionary[params.lang]?.confirmPassword}
-          className="rounded-3xl border border-zinc-300 bg-white bg-opacity-0 placeholder:text-neutral-400"
-        />
-        {errors.confirmPassword && (
-          <p className="px-6 pt-2 text-red-500">{`${errors.confirmPassword.message}`}</p>
-        )}
-        <label className="mt-2 px-1 py-2">
-          <input
-            {...register('acceptTerms')}
-            aria-label="Accept the terms and conditions"
-            type="checkbox"
-            className="mr-4"
-          />
-          {registerDictionary[params.lang]?.acceptTermsConditions}
-        </label>
-        {errors.acceptTerms && (
-          <p className="px-6 text-red-500">{`${errors.acceptTerms.message}`}</p>
-        )}
-        <button
-          type="submit"
-          className="h-12 w-full items-center justify-center rounded-full bg-gradient-button text-center shadow outline-none lg:mt-3 xl:mt-6"
-          disabled={isSubmitting}
-        >
-          <div className="flex flex-row items-center justify-center gap-4">
-            {registerDictionary[params.lang]?.next}
-          </div>
-        </button>
-      </form>
-    </Layout>
+        {registerDictionary[params.lang]?.acceptTermsConditions}
+      </label>
+      {errors.acceptTerms && (
+        <p className="px-6 text-red-500">{`${errors.acceptTerms.message}`}</p>
+      )}
+      <button
+        type="submit"
+        className="h-12 w-full items-center justify-center rounded-full bg-gradient-button text-center shadow outline-none lg:mt-3 xl:mt-6"
+        disabled={isSubmitting}
+      >
+        <div className="flex flex-row items-center justify-center gap-4">
+          {registerDictionary[params.lang]?.next}
+        </div>
+      </button>
+    </form>
   )
 }
 

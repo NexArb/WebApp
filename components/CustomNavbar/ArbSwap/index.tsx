@@ -3,9 +3,10 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useUserStore } from '@/hooks/useStore'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/localesContent'
+
+import { useUserStore } from '@/hooks/useStore'
 
 interface ArbSwapNavbarProps {
   readonly locale: string
@@ -43,14 +44,14 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
             />
           </div>
         </button>
-        <div className="z-20 mr-0.5 mt-3">
+        <Link className="z-20 mr-0.5 mt-3" href="/">
           <Image
             src="/img/gradient-arbswap.png"
             width={162}
             height={36}
             alt="Arbswap Logo"
           />
-        </div>
+        </Link>
         <div className="mt-4 hidden items-center text-base font-semibold md:flex">
           <Link className="px-2 lg:px-5" href="/about">
             {arbswapNavbarDictionary[locale]?.aboutUs}

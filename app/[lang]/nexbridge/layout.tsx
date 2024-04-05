@@ -1,7 +1,9 @@
-import { Metadata } from 'next'
 import React from 'react'
-import { Providers } from '../providers'
+import { Metadata } from 'next'
+
 import NexBridgeCustomNavbar from '@/components/CustomNavbar/NexBridge'
+
+import { Providers } from '../providers'
 
 export const metadata: Metadata = {
   title: 'NexBridge',

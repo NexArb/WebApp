@@ -160,7 +160,7 @@ export const OfferListing = [
     },
     amount: '567.8901 SOL',
     price: '$789,23'
-  },
+  }
 ] as const
 
 export const links = [

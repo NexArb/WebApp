@@ -2,10 +2,10 @@
 
 import React from 'react'
 import Image from 'next/image'
-
-import Contact from '@/components/HomePage/Contact'
-import CustomFooter from '@/components/CustomFooter'
 import { footerDictionary } from '@/localesContent'
+
+import Contact from '@/components/App/Landing/Contact'
+import CustomFooter from '@/components/CustomFooter'
 
 interface HomeFooterProps {
   readonly locale: string

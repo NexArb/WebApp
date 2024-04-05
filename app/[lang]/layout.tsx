@@ -1,8 +1,11 @@
 import './globals.css'
+
 import React from 'react'
 import type { Metadata } from 'next'
 import { DM_Sans as dmSansFont } from 'next/font/google'
 import { defaultLocale } from '@/middleware'
+
+import { TailwindIndicator } from '@/components/TailwindIndicator'
 
 const dmSans = dmSansFont({ subsets: ['latin'] })
 
@@ -19,7 +22,10 @@ type RootLayoutProps = Readonly<{
 export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <html lang={params.lang ?? defaultLocale}>
-      <body className={`${dmSans.className} text-white`}>{children}</body>
+      <body className={`${dmSans.className} text-white`}>
+        <TailwindIndicator />
+        {children}
+      </body>
     </html>
   )
 }

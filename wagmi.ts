@@ -1,6 +1,6 @@
+import { getDefaultConfig } from 'connectkit'
 import { configureChains, createConfig } from 'wagmi'
 import { goerli, mainnet } from 'wagmi/chains'
-import { getDefaultConfig } from 'connectkit'
 import { publicProvider } from 'wagmi/providers/public'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
