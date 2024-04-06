@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Offer } from '@/constants/Offer'
-
-import { getMyOffers } from '@/services/ApiService'
+import React from 'react'
 
 import OffersTable from './OffersTable'
 
 function IncomingOffers() {
-  const [offers, setOffers] = useState<Offer[]>([])
-
-  useEffect(() => {
-    const getOffersFromApi = async () => {
-      const offersApi = await getMyOffers(false)
-      setOffers(offersApi.data.data)
-    }
-
-    getOffersFromApi()
-  }, [])
-
   return (
     <div>
       <div>
@@ -26,11 +12,7 @@ function IncomingOffers() {
             <th className="text-slate-500">Method</th>
             <th className="text-slate-500">Amount</th>
           </thead>
-          <tbody>
-            {offers.map((offer) => {
-              return <OffersTable key={offer.amount} offer={offer} />
-            })}
-          </tbody>
+          <OffersTable />
         </table>
       </div>
     </div>

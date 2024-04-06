@@ -15,8 +15,9 @@ interface ChildProps {
 
 const HistoryTable: React.FC<ChildProps> = ({ input }) => {
   const { showModal, toggleModal } = useModalStore()
+  console.log('🚀 ~ showModal:', showModal)
   const modalKey = 'paymentMethod'
-  console.log('show modal', showModal)
+
   const [openStates, setOpenStates] = useState(
     Array.from({ length: OfferListing.length }, () => false)
   )
@@ -42,13 +43,14 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
     toggleModal(modalKey)
   }
 
-  useEffect(() => {
-    document.body.addEventListener('click', closeDropdown)
+  // TODO find a better way to do this, this blocks modal to open up
+  // useEffect(() => {
+  //   document.body.addEventListener('click', closeDropdown)
 
-    return () => {
-      document.body.removeEventListener('click', closeDropdown)
-    }
-  }, [])
+  //   return () => {
+  //     document.body.removeEventListener('click', closeDropdown)
+  //   }
+  // }, [])
 
   return (
     <section>
@@ -133,11 +135,7 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
                         </Button>
                         {openStates[index] && (
                           <ul className="dropdown absolute rounded-xl bg-white p-2 shadow-md">
-                            <button
-                              onClick={(e) =>
-                                handleUserProfile('paymentMethod', e)
-                              }
-                            >
+                            <button onClick={() => toggleModal(modalKey)}>
                               <li className="rounded-xl p-2 hover:bg-green-200">
                                 User Profile
                               </li>
@@ -156,7 +154,6 @@ const HistoryTable: React.FC<ChildProps> = ({ input }) => {
           </tbody>
         </table>
       </div>
-      {showModal.paymentMethod && <PaymentMethod />}
     </section>
   )
 }

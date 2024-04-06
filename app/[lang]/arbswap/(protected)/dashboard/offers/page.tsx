@@ -6,7 +6,9 @@ import { Offer } from '@/constants/Offer'
 import IncomingOffers from '@/components/App/ArbSwap/Dashboard/Offers/IncomingOffers'
 import OfferHistory from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory'
 import OffersSent from '@/components/App/ArbSwap/Dashboard/Offers/OffersSent'
+import PaymentMethod from '@/components/App/ArbSwap/Dashboard/PaymentMethod'
 import Button from '@/components/Common/Button'
+import { useModalStore } from '@/hooks/useStore'
 import { getMyOffers } from '@/services/ApiService'
 
 function Offers() {
@@ -14,6 +16,8 @@ function Offers() {
   const [selected, setSelected] = useState<string>('IncomingOffers')
   const [offers, setOffers] = useState<Offer[]>([])
 
+  const { showModal } = useModalStore()
+  console.log('show modal', showModal)
   const handleClick = (componentName: string) => {
     if (componentName === 'IncomingOffers') {
       setComponent(<IncomingOffers />)
@@ -85,6 +89,7 @@ function Offers() {
       <div className="flex max-h-[691px] w-[1000px] flex-col rounded-3xl bg-zinc-100 p-5">
         {component}
       </div>
+      {showModal.paymentMethod && <PaymentMethod />}
     </section>
   )
 }

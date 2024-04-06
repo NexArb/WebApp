@@ -2,8 +2,8 @@
 
 import React from 'react'
 
-import Button from '@/components/CommonComponents/Button'
-import Modal from '@/components/CommonComponents/Modal'
+import Button from '@/components/Common/Button'
+import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { useModalStore } from '@/hooks/useStore'
 

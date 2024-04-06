@@ -1,6 +1,5 @@
 import { env } from '@/env.mjs'
 import { PublicKey } from '@solana/web3.js'
-import axios from 'axios'
 import Cookies from 'js-cookie'
 
 const token = Cookies.get('token')
@@ -131,14 +130,13 @@ export const getListings = async () => {
 }
 
 export const registerWallet = async (pubKey: PublicKey | null) => {
-  return axios.post(
-    `${baseURL}/auth/register/wallet`,
-    { wallet_address: pubKey },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    }
-  )
+  const response = await fetch(`${baseURL}/auth/register/wallet`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ wallet_address: pubKey })
+  })
+  return response.json()
 }

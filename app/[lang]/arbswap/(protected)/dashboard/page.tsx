@@ -70,7 +70,7 @@ function Dashboard() {
               <span className="">Price</span>
             </div>
           </div>
-          <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col  !whitespace-nowrap bg-zinc-100 py-0 ">
+          <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col !whitespace-nowrap bg-zinc-100 py-0 ">
             <table>
               <tbody>
                 <DashboardTable listing={listings?.[0]} />
