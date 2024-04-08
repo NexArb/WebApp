@@ -4,8 +4,8 @@ import React, { ReactNode } from 'react'
 import { useFormStatus } from 'react-dom'
 
 type ButtonProps = Readonly<{
-  className: string
   children: ReactNode
+  className?: string
   onClick?: () => void
 }>
 

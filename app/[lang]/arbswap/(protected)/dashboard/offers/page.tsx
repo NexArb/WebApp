@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from 'react'
 import { Offer } from '@/constants/Offer'
 
-import IncomingOffers from '@/components/App/ArbSwap/Dashboard/Offers/IncomingOffers'
+import IncomingOffers from '@/components/App/ArbSwap/Dashboard/Offers/IncomingOffer'
 import OfferHistory from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory'
+import UserProfile from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/UserProfile'
 import OffersSent from '@/components/App/ArbSwap/Dashboard/Offers/OffersSent'
-import PaymentMethod from '@/components/App/ArbSwap/Dashboard/PaymentMethod'
 import Button from '@/components/Common/Button'
 import { useModalStore } from '@/hooks/useStore'
 import { getMyOffers } from '@/services/ApiService'
@@ -17,13 +17,13 @@ function Offers() {
   const [offers, setOffers] = useState<Offer[]>([])
 
   const { showModal } = useModalStore()
-  console.log('show modal', showModal)
+
   const handleClick = (componentName: string) => {
     if (componentName === 'IncomingOffers') {
       setComponent(<IncomingOffers />)
       setSelected('IncomingOffers')
     } else if (componentName === 'OffersSent') {
-      setComponent(<OffersSent offers={offers} />)
+      setComponent(<OffersSent />)
       setSelected('OffersSent')
     } else if (componentName === 'OfferHistory') {
       setComponent(<OfferHistory />)
@@ -89,7 +89,8 @@ function Offers() {
       <div className="flex max-h-[691px] w-[1000px] flex-col rounded-3xl bg-zinc-100 p-5">
         {component}
       </div>
-      {showModal.paymentMethod && <PaymentMethod />}
+      {/* Modal for offer history component */}
+      {showModal.userProfile && <UserProfile />}
     </section>
   )
 }

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Offer } from '@/constants/Offer'
 
+import Received from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/Received'
+import Sent from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/Sent'
+import Users from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/Users'
 import { getMyOffers } from '@/services/ApiService'
-
-import HistoryTable from './HistoryTable'
 
 type InputProps = 'Received' | 'Sent' | 'Users'
 
@@ -59,9 +60,9 @@ function OfferHistory() {
         </button>
       </div>
       <div className="col-span-9">
-        {activeComponent === 'Received' && <HistoryTable input={'Received'} />}
-        {activeComponent === 'Sent' && <HistoryTable input={'Sent'} />}
-        {activeComponent === 'Users' && <HistoryTable input={'Users'} />}
+        {activeComponent === 'Received' && <Received />}
+        {activeComponent === 'Sent' && <Sent />}
+        {activeComponent === 'Users' && <Users />}
       </div>
     </div>
   )
