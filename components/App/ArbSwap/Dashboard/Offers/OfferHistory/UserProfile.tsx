@@ -18,7 +18,7 @@ export default function UserProfile() {
 
   return (
     // TODO: Add rhf along api service
-    <Modal routerBack="/arbswap/dashboard/offers">
+    <Modal>
       <div className="flex w-[577px] flex-col gap-5 rounded-3xl bg-zinc-200 p-10 text-lg text-black">
         <div className="flex justify-between">
           <span>Dolphin0077</span>

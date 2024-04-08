@@ -23,7 +23,7 @@ export default function Pricing() {
     toggleModal(modalKey)
   }
   return (
-    <Modal routerBack="/arbswap/dashboard">
+    <Modal>
       <div className="flex w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
         <div className="rounded-2xl bg-neutral-800 px-5 py-2 text-white">
           <div className="flex flex-row justify-between">
