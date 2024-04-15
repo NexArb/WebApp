@@ -1,5 +1,5 @@
 import React from 'react'
-import { arbSwapHomeDictionary } from '@/localesContent'
+import { arbSwapHomeDictionary } from '@/constants/localesContent'
 
 interface StepsProps {
   readonly locale: string

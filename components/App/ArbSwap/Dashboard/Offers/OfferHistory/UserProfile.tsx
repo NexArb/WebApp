@@ -5,12 +5,12 @@ import React from 'react'
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import StarRating from '@/components/Common/StarRating'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 export default function UserProfile() {
   const modalKey = 'userProfile'
 
-  const { toggleModal } = useModalStore()
+  const { toggleModal } = modalStore()
 
   const handleClick = () => {
     toggleModal(modalKey)

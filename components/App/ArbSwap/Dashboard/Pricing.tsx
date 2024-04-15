@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation'
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 export default function Pricing() {
   const router = useRouter()
-  const { toggleModal } = useModalStore()
+  const { toggleModal } = modalStore()
   const modalKey = 'pricing'
   const otherModalKey = 'paymentMethod'
   const handlePrevious = () => {

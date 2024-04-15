@@ -2,14 +2,14 @@
 
 import React, { useEffect } from 'react'
 
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 type ModalProp = Readonly<{
   children: React.ReactNode
 }>
 
 const Modal = ({ children }: ModalProp) => {
-  const { showModal, closeAllModals } = useModalStore()
+  const { showModal, closeAllModals } = modalStore()
 
   // Add event listener on component mount and remove on unmount
   useEffect(() => {

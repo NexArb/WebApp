@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FormEvent, useState } from 'react'
-import { forgotPasswordDictionary } from '@/localesContent'
+import { forgotPasswordDictionary } from '@/constants/localesContent'
 
 import {
   sendPasswordResetRequest,

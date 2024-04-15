@@ -1,14 +1,15 @@
 'use client'
 
+import { Offer } from '@/types/dashboard'
+
 import React, { useEffect, useState } from 'react'
-import { Offer } from '@/constants/Offer'
 
 import IncomingOffers from '@/components/App/ArbSwap/Dashboard/Offers/IncomingOffer'
 import OfferHistory from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory'
 import UserProfile from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/UserProfile'
 import OffersSent from '@/components/App/ArbSwap/Dashboard/Offers/OffersSent'
 import Button from '@/components/Common/Button'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 import { getMyOffers } from '@/services/ApiService'
 
 function Offers() {
@@ -16,7 +17,7 @@ function Offers() {
   const [selected, setSelected] = useState<string>('IncomingOffers')
   const [offers, setOffers] = useState<Offer[]>([])
 
-  const { showModal } = useModalStore()
+  const { showModal } = modalStore()
 
   const handleClick = (componentName: string) => {
     if (componentName === 'IncomingOffers') {

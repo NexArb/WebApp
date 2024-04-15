@@ -2,10 +2,10 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { OfferListing } from '@/constants'
 
 import Button from '@/components/Common/Button'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 export default function Users() {
-  const { toggleModal } = useModalStore()
+  const { toggleModal } = modalStore()
   const modalKey = 'userProfile'
 
   const [openStates, setOpenStates] = useState(

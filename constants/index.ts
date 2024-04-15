@@ -181,13 +181,13 @@ export const links = [
   },
   {
     id: 4,
-    link: 'Solana',
-    href: 'solana'
+    link: 'ArbSwap',
+    href: 'arbswap'
   },
   {
     id: 5,
-    link: 'Near',
-    href: 'near'
+    link: 'NexBridge',
+    href: 'nexbridge'
   },
   {
     id: 6,

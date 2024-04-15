@@ -1,11 +1,12 @@
+import { Listing } from '@/types/dashboard'
+
 import React from 'react'
-import { Listing } from '@/constants/Listing'
 
 import Button from '@/components/Common/Button'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 function DashboardTable({ listing }: Readonly<{ listing: Listing }>) {
-  const { toggleModal } = useModalStore()
+  const { toggleModal } = modalStore()
   const modalKey = 'paymentMethod'
 
   return (

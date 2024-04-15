@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { homeDictionary } from '@/localesContent'
+import { homeDictionary } from '@/constants/localesContent'
 
 import Button from '@/components/Common/Button'
 import CustomNavbar from '@/components/CustomNavbar'

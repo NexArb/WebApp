@@ -1,5 +1,6 @@
+import { Offer } from '@/types/dashboard'
+
 import React, { useEffect, useState } from 'react'
-import { Offer } from '@/constants/Offer'
 
 import Button from '@/components/Common/Button'
 import { getMyOffers } from '@/services/ApiService'

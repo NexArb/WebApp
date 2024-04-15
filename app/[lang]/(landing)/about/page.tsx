@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { aboutPageDictionary } from '@/localesContent'
+import { aboutPageDictionary } from '@/constants/localesContent'
 
 import AppBar from '@/components/CustomNavbar'
 

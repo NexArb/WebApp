@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { arbSwapHomeDictionary } from '@/localesContent'
+import { arbSwapHomeDictionary } from '@/constants/localesContent'
 import { ResponsiveLine } from '@nivo/line'
 import redstone from 'redstone-api'
 

@@ -1,172 +1,19 @@
-interface ArbswapNavbar {
-  aboutUs: string
-  createOffer: string
-  wallet: string
-  support: string
-  login: string
-  walletConnected: string
-}
-
-interface NexBridgeNavbar {
-  home: string
-  connectWallet: string
-  pricing: string
-  dashboard: string
-}
-
-interface Navbar {
-  aboutUs: string
-  ourTeam: string
-  contact: string
-  joinUs: string
-}
-
-interface About {
-  aboutNexarb: string
-  description: string
-  manyUsefulComponents: string
-  manyUsefulComponentsDesc: string
-  responsiveLayout: string
-  responsiveLayoutDesc: string
-  retinaReady: string
-  retinaReadyDesc: string
-}
-
-interface ArbSwapHome {
-  introHeader: string
-  introDescription: string
-  getStarted: string
-  buySOL: string
-  sellSOL: string
-  amount: string
-  searchForOffers: string
-  exchangeRates: string
-  userWorldwide: string
-  countrySupported: string
-  cryptoTransactions: string
-  assetsOnPlatform: string
-  sendAndRecieve: string
-  sendAndRecieveDesc: string
-  stepsHeader: string
-  quickSignUp: string
-  quickSignUpDesc: string
-  securitySetup: string
-  connectWallet: string
-  startTrading: string
-  startTradingDesc: string
-  solanaWorld: string
-  solanaWorldDescription: string
-  signUpNow: string
-  confidentiality: string
-  confidentialityDesc: string
-}
-
-interface NexBridgeHome {
-  description: string
-  crossChain: string
-}
-
-interface Home {
-  digitalSolutions: string
-  digitalSolutionsDesc: string
-  letsMeet: string
-  ourWorks: string
-  ourWorksDesc: string
-  startupCrew: string
-}
-
-interface NexBridgeDashboard {
-  compose: string
-  bridgeOptions: string
-  edit: string
-  delete: string
-  from: string
-  to: string
-  personalData: string
-  startBridge: string
-  information: string
-}
-
-interface Login {
-  emailOrPhoneNumber: string
-  enterUsername: string
-  password: string
-  enterPassword: string
-  rememberThisDevice: string
-  login: string
-  loginWithGoogle: string
-  dontYouHaveAnAccount: string
-  signUpHere: string
-  forgotPassword: string
-  verifyHere: string
-  connectWallet: string
-}
-
-interface Register {
-  enterEmail: string
-  choosePassword: string
-  enterPassword: string
-  passwordAgain: string
-  confirmPassword: string
-  acceptTermsConditions: string
-  next: string
-}
-
-interface RegisterWallet {
-  connectPhantomWallet: string
-  connectWallet: string
-  walletConnected: string
-  register: string
-}
-
-interface ForgotPassword {
-  enterEmail: string
-  sendCode: string
-  verificationCode: string
-  enterVerificationCode: string
-  dontYouGetCode: string
-  sendAgain: string
-  verify: string
-  newPassword: string
-  enterPassword: string
-  newPasswordAgain: string
-  login: string
-}
-
-interface ArbSwapFooter {
-  dummyText: string
-  products: string
-  overview: string
-  solutions: string
-  pricing: string
-  customers: string
-  company: string
-  about: string
-  inverstorRelations: string
-  jobs: string
-  press: string
-  blog: string
-  support: string
-  contact: string
-  documentation: string
-  chat: string
-  faq: string
-  legal: string
-  termsOfService: string
-  privacyPolicy: string
-  cookieSettings: string
-  copyright: string
-}
-
-interface Footer {
-  keepInTouch: string
-  description: string
-  yourName: string
-  inputField: string
-  yourMessage: string
-  send: string
-  copyright: string
-}
+import {
+  About,
+  ArbSwapFooter,
+  ArbSwapHome,
+  ArbswapNavbar,
+  Footer,
+  ForgotPassword,
+  Home,
+  Login,
+  Navbar,
+  NexBridgeDashboard,
+  NexBridgeHome,
+  NexBridgeNavbar,
+  Register,
+  RegisterWallet
+} from '@/types/locales'
 
 export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
   en: {
@@ -175,7 +22,8 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     wallet: 'Wallet',
     support: 'Support',
     login: 'Login',
-    walletConnected: 'Wallet Connected'
+    walletConnected: 'Wallet Connected',
+    goToDashboard: 'Go to Dashboard'
   },
   tr: {
     aboutUs: 'Hakkımızda',
@@ -183,7 +31,8 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     wallet: 'Wallet',
     support: 'Destek',
     login: 'Giriş Yap',
-    walletConnected: 'Wallet Bağlandı'
+    walletConnected: 'Wallet Bağlandı',
+    goToDashboard: 'Kontrol paneline git'
   },
   de: {
     aboutUs: 'Über Uns',
@@ -191,7 +40,8 @@ export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
     wallet: 'Wallet',
     support: 'Unterstützung',
     login: 'Anmeldung',
-    walletConnected: 'Wallet verbunden'
+    walletConnected: 'Wallet verbunden',
+    goToDashboard: 'Zum Dashboard'
   }
 }
 

@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { registerWalletDictionary } from '@/localesContent'
+import { registerWalletDictionary } from '@/constants/localesContent'
 import { PublicKey } from '@solana/web3.js'
 
 import Button from '@/components/Common/Button'

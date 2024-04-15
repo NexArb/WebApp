@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { arbSwapHomeDictionary } from '@/localesContent'
+import { arbSwapHomeDictionary } from '@/constants/localesContent'
 
 interface ConfidentialityProps {
   readonly locale: string

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { footerDictionary } from '@/localesContent'
+import { footerDictionary } from '@/constants/localesContent'
 
 import Contact from '@/components/App/Landing/Contact'
 import CustomFooter from '@/components/CustomFooter'

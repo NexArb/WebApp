@@ -1,10 +1,10 @@
 'use client'
 
-import { registerSchema, TRegisterSchema } from '@/types/authValidation.types'
+import { registerSchema, TRegisterSchema } from '@/types/auth'
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import { registerDictionary } from '@/localesContent'
+import { registerDictionary } from '@/constants/localesContent'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { nexBridgeDashboardDictionary } from '@/localesContent'
+import { nexBridgeDashboardDictionary } from '@/constants/localesContent'
 
 import BridgeOptions from '@/components/App/NexBridge/Dashboard/BridgeOptions'
 import ComposeBridge from '@/components/App/NexBridge/Dashboard/ComposeBridge'
