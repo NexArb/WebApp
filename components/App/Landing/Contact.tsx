@@ -1,5 +1,5 @@
 import React from 'react'
-import { footerDictionary } from '@/localesContent'
+import { footerDictionary } from '@/constants/localesContent'
 
 import Input from '@/components/App/Landing/Input'
 import Button from '@/components/Common/Button'

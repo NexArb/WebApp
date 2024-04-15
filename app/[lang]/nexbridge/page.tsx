@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { nexBridgeHomeDictionary } from '@/localesContent'
+import { nexBridgeHomeDictionary } from '@/constants/localesContent'
 
 interface NexBridgeHomePageProps {
   readonly params: {

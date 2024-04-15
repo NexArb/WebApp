@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { nexBridgeDashboardDictionary } from '@/localesContent'
+import { nexBridgeDashboardDictionary } from '@/constants/localesContent'
 
 import EditBridgeModal from '@/components/App/NexBridge/Dashboard/EditBridgeModal'
 

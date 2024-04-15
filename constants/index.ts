@@ -78,6 +78,20 @@ export const FooterSocials = [
 
 export const OfferListing = [
   {
+    id: 0,
+    seller: {
+      name: 'Seller1',
+      star: 2.3
+    },
+    payment: {
+      method: 'Bank Transaction',
+      name: 'COBANK',
+      check: 'APPROVED'
+    },
+    amount: '823.4567 SOL',
+    price: '$712,31'
+  },
+  {
     id: 1,
     seller: {
       name: 'Seller1',
@@ -146,76 +160,6 @@ export const OfferListing = [
     },
     amount: '567.8901 SOL',
     price: '$789,23'
-  },
-  {
-    id: 6,
-    seller: {
-      name: 'Seller6',
-      star: 2.8
-    },
-    payment: {
-      method: 'Bank Transaction',
-      name: 'COBANK',
-      check: 'APPROVED'
-    },
-    amount: '234.5678 SOL',
-    price: '$1234,56'
-  },
-  {
-    id: 7,
-    seller: {
-      name: 'Seller7',
-      star: 4.0
-    },
-    payment: {
-      method: 'Bank Transaction',
-      name: 'COBANK',
-      check: 'DECLINED'
-    },
-    amount: '876.5432 SOL',
-    price: '$165,42'
-  },
-  {
-    id: 8,
-    seller: {
-      name: 'Seller8',
-      star: 1.9
-    },
-    payment: {
-      method: 'Bank Transaction',
-      name: 'COBANK',
-      check: 'APPROVED'
-    },
-    amount: '345.6789 SOL',
-    price: '$1098,76'
-  },
-  {
-    id: 9,
-    seller: {
-      name: 'Seller9',
-      star: 3.5
-    },
-    payment: {
-      method: 'Bank Transaction',
-      name: 'COBANK',
-      check: 'DECLINED'
-    },
-    amount: '901.2345 SOL',
-    price: '$543,21'
-  },
-  {
-    id: 10,
-    seller: {
-      name: 'Seller10',
-      star: 4.7
-    },
-    payment: {
-      method: 'Bank Transaction',
-      name: 'COBANK',
-      check: 'APPROVED'
-    },
-    amount: '678.9012 SOL',
-    price: '$76,54'
   }
 ] as const
 
@@ -237,13 +181,13 @@ export const links = [
   },
   {
     id: 4,
-    link: 'Solana',
-    href: 'solana'
+    link: 'ArbSwap',
+    href: 'arbswap'
   },
   {
     id: 5,
-    link: 'Near',
-    href: 'near'
+    link: 'NexBridge',
+    href: 'nexbridge'
   },
   {
     id: 6,

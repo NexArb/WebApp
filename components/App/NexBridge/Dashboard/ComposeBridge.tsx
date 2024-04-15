@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { nexBridgeDashboardDictionary } from '@/localesContent'
+import { nexBridgeDashboardDictionary } from '@/constants/localesContent'
 
 interface ComposeBridgeProps {
   readonly locale: string

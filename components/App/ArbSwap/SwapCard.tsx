@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { arbSwapHomeDictionary } from '@/localesContent'
+import { arbSwapHomeDictionary } from '@/constants/localesContent'
 
 interface SwapCardProps {
   readonly locale: string

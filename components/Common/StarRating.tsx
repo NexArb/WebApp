@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Star from './Star'
+import Star from '@/components/Common/Star'
 
 type RatingTypes = Readonly<{
   rating: number

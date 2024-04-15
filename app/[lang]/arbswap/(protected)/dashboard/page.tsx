@@ -1,19 +1,20 @@
 'use client'
 
+import { Listing } from '@/types/dashboard'
+
 import React, { Fragment, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Listing } from '@/constants/Listing'
 
 import DashboardFilter from '@/components/App/ArbSwap/Dashboard/DashboardFilter'
 import DashboardTable from '@/components/App/ArbSwap/Dashboard/DashboardTable'
 import PaymentMethod from '@/components/App/ArbSwap/Dashboard/PaymentMethod'
 import Pricing from '@/components/App/ArbSwap/Dashboard/Pricing'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 import { getListings } from '@/services/ApiService'
 
 function Dashboard() {
-  const { showModal } = useModalStore()
+  const { showModal } = modalStore()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [listings, setListings] = useState<Listing[]>([])
 
@@ -70,7 +71,7 @@ function Dashboard() {
               <span className="">Price</span>
             </div>
           </div>
-          <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col  !whitespace-nowrap bg-zinc-100 py-0 ">
+          <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col !whitespace-nowrap bg-zinc-100 py-0 ">
             <table>
               <tbody>
                 <DashboardTable listing={listings?.[0]} />

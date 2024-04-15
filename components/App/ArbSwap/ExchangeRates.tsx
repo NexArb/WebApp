@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { arbSwapHomeDictionary } from '@/localesContent'
+import { arbSwapHomeDictionary } from '@/constants/localesContent'
 import { ResponsiveLine } from '@nivo/line'
 import redstone from 'redstone-api'
 
@@ -65,7 +65,9 @@ const PriceCard = ({ symbol, name, color }: Coin) => {
     })
     getPrices().then((res) => {
       setLowestPrice(
-        res.sort((p1, p2) => (p1.value < p2.value ? 1 : -1))[0].value.toFixed(3)
+        res
+          .toSorted((p1, p2) => (p1.value < p2.value ? 1 : -1))[0]
+          .value.toFixed(3)
       )
       const _priceChartData = []
       const newData = {

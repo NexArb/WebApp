@@ -1,18 +1,15 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 type ModalProp = Readonly<{
   children: React.ReactNode
-  routerBack: string
 }>
 
-const Modal = ({ children, routerBack }: ModalProp) => {
-  const router = useRouter()
-  const { showModal, closeAllModals } = useModalStore()
+const Modal = ({ children }: ModalProp) => {
+  const { showModal, closeAllModals } = modalStore()
 
   // Add event listener on component mount and remove on unmount
   useEffect(() => {
@@ -28,7 +25,7 @@ const Modal = ({ children, routerBack }: ModalProp) => {
     return () => {
       window.removeEventListener('keydown', handleEsc)
     }
-  }, [router, routerBack, closeAllModals]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
+  }, [closeAllModals]) // Empty dependency array ensures this runs once on mount and cleanup on unmount
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLElement

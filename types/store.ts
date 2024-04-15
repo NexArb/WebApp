@@ -5,6 +5,6 @@ export type ModalState = {
 }
 
 export type UserState = {
-  isAuthenticated: boolean
-  setIsAuthenticated: () => void
+  isAuth: boolean
+  setIsAuth: () => void
 }

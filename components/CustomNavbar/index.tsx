@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { links } from '@/constants'
-import { navbarDictionary } from '@/localesContent'
+import { navbarDictionary } from '@/constants/localesContent'
 
 interface AppBarProps {
   readonly locale: string
@@ -14,8 +14,8 @@ function AppBar({ locale }: AppBarProps) {
   const [nav, setNav] = useState(false)
 
   return (
-    <nav className="z-20 p-10">
-      <div className="flex items-center justify-evenly p-0">
+    <nav className="z-20 py-10">
+      <div className="flex items-center justify-around">
         <button
           type="button"
           aria-label="nav"
@@ -56,33 +56,33 @@ function AppBar({ locale }: AppBarProps) {
             />
           </Link>
         </div>
-        <div className="mt-4 hidden items-center text-base font-semibold md:flex">
-          <Link className="px-2 lg:px-5" href="/about">
+        <div className="mt-4 hidden items-center font-medium md:flex">
+          <Link className="px-1 md:px-2 lg:px-4" href="/about">
             {navbarDictionary[locale]?.aboutUs}
           </Link>
-          <Link className="px-2 lg:px-5" href="/team">
+          <Link className="px-1 md:px-2 lg:px-4" href="/team">
             {navbarDictionary[locale]?.ourTeam}
           </Link>
-          <Link className="px-2 lg:px-5" href="/contact">
+          <Link className="px-1 md:px-2 lg:px-4" href="/contact">
             {navbarDictionary[locale]?.contact}
           </Link>
-          <Link className="px-1 lg:px-3" href="/arbswap">
+          <Link className="px-1 lg:px-2" href="/arbswap">
             <div className="rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+              <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
                 ArbSwap
               </div>
             </div>
           </Link>
-          <Link className="px-1 lg:px-3" href="/nexbridge">
+          <Link className="px-1 lg:px-2" href="/nexbridge">
             <div className="mx-2 rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
+              <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
                 NexBridge
               </div>
             </div>
           </Link>
-          <Link className="px-1 lg:px-3" href="/join-us">
-            <div className="rounded-full bg-blue-500 px-5 py-1">
-              <span className="text-sm font-medium">
+          <Link className="px-1 lg:px-2" href="/join-us">
+            <div className="rounded-full bg-blue-500 px-6 py-1">
+              <span className="text-sm font-semibold">
                 {navbarDictionary[locale]?.joinUs}
               </span>
             </div>
@@ -91,9 +91,9 @@ function AppBar({ locale }: AppBarProps) {
 
         {nav && (
           <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
-            {links.map(({ id, link }) => (
+            {links.map(({ id, link, href }) => (
               <li key={id} className="cursor-pointer py-4 text-4xl capitalize">
-                <Link onClick={() => setNav(!nav)} href={link}>
+                <Link onClick={() => setNav(!nav)} href={href}>
                   {link}
                 </Link>
               </li>

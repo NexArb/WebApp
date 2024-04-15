@@ -6,4 +6,7 @@ declare global {
       NEXT_PUBLIC_ALCHEMY_ID: string
     }
   }
+  interface Window {
+    phantom: any // Replace 'any' with the actual type if possible
+  }
 }

@@ -1,8 +1,10 @@
-import { ModalState, UserState } from '@/types/store.types'
+import { ModalState, UserState } from '@/types/store'
 
+import Cookies from 'js-cookie'
 import { create } from 'zustand'
 
-export const useModalStore = create<ModalState>((set) => ({
+const cookie = Cookies.get('token')
+export const modalStore = create<ModalState>((set) => ({
   showModal: {},
   toggleModal: (modalName) =>
     set((state) => ({
@@ -14,8 +16,7 @@ export const useModalStore = create<ModalState>((set) => ({
   closeAllModals: () => set({ showModal: {} })
 }))
 
-export const useUserStore = create<UserState>()((set) => ({
-  isAuthenticated: false,
-  setIsAuthenticated: () =>
-    set((state) => ({ isAuthenticated: !state.isAuthenticated }))
+export const userStore = create<UserState>((set) => ({
+  isAuth: !!cookie,
+  setIsAuth: () => set((state) => ({ isAuth: !state.isAuth }))
 }))

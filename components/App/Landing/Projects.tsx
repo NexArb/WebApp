@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { PROJECTS } from '@/constants'
-import { homeDictionary } from '@/localesContent'
+import { homeDictionary } from '@/constants/localesContent'
 
 type ProjectItemProps = Readonly<{
   title: string

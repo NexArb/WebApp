@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { CREW } from '@/constants'
-import { homeDictionary } from '@/localesContent'
+import { homeDictionary } from '@/constants/localesContent'
 
 type CrewItemProps = Readonly<{
   name: string

@@ -9,7 +9,7 @@ type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function }
 export default function DashboardFilter({
   isModalOpen,
   setModalOpen
-}: FilterMenuProps) {
+}: Readonly<FilterMenuProps>) {
   const closeModal = () => {
     setModalOpen(false)
   }

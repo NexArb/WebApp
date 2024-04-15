@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { nexBridgeNavbarDictionary } from '@/localesContent'
+import { nexBridgeNavbarDictionary } from '@/constants/localesContent'
 import { ConnectKitButton } from 'connectkit'
 import { useAccount } from 'wagmi'
 

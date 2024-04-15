@@ -1,5 +1,5 @@
 import React from 'react'
-import { arbSwapHomeDictionary } from '@/localesContent'
+import { arbSwapHomeDictionary } from '@/constants/localesContent'
 
 import SwapCard from '@/components/App/ArbSwap/SwapCard'
 

@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation'
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
-import { useModalStore } from '@/hooks/useStore'
+import { modalStore } from '@/hooks/useStore'
 
 export default function Pricing() {
   const router = useRouter()
-  const { toggleModal } = useModalStore()
+  const { toggleModal } = modalStore()
   const modalKey = 'pricing'
   const otherModalKey = 'paymentMethod'
   const handlePrevious = () => {
@@ -23,7 +23,7 @@ export default function Pricing() {
     toggleModal(modalKey)
   }
   return (
-    <Modal routerBack="/arbswap/dashboard">
+    <Modal>
       <div className="flex w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
         <div className="rounded-2xl bg-neutral-800 px-5 py-2 text-white">
           <div className="flex flex-row justify-between">

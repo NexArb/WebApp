@@ -1,5 +1,5 @@
 import React from 'react'
-import { arbSwapFooterDictionary } from '@/localesContent'
+import { arbSwapFooterDictionary } from '@/constants/localesContent'
 
 interface ArbSwapFooterProps {
   readonly locale: string
