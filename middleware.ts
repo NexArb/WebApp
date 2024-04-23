@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { match } from '@formatjs/intl-localematcher'
-import Cookies from 'js-cookie'
 import Negotiator from 'negotiator'
 
 let locales = ['en', 'tr', 'de']
 export const defaultLocale = 'en'
 
 const protectedRoutes = ['/arbswap/dashboard']
-const publicRoutes = [
+const authRoutes = [
   '/arbswap/login',
   '/arbswap/register',
   '/arbswap/register-wallet',
@@ -28,19 +27,19 @@ const getLocale = (request: Request): string => {
 }
 
 export const middleware = (req: NextRequest) => {
-  const cookie = Cookies.get('token')
-  let locale = getLocale(req) ?? defaultLocale
+  const cookie = req.cookies.has('token')
   const pathname = req.nextUrl.pathname
+  let locale = getLocale(req) ?? defaultLocale
 
-  // Redirect logged-in users trying to access public routes to the dashboard
-  if (!cookie && publicRoutes.some((route) => pathname.includes(route))) {
+  // Redirect logged-in users trying to access auth routes to the dashboard
+  if (!!cookie && authRoutes.includes(pathname)) {
     const dashboardURL = new URL(`/arbswap/dashboard`, req.nextUrl.origin)
     return NextResponse.redirect(dashboardURL.toString())
   }
 
   // Redirect non-logged-in users trying to access protected routes to the home page
-  if (cookie && protectedRoutes.includes(pathname)) {
-    const absoluteURL = new URL('/', req.nextUrl.origin)
+  if (!cookie && protectedRoutes.includes(pathname)) {
+    const absoluteURL = new URL('/arbswap', req.nextUrl.origin)
     return NextResponse.redirect(absoluteURL.toString())
   }
 

@@ -1,22 +1,23 @@
 'use client'
 
-import { loginSchema, TLoginSchema } from '@/types/authValidation.types'
+import { loginSchema, TLoginSchema } from '@/types/auth'
 
 import React from 'react'
+import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { loginDictionary } from '@/localesContent'
+import { loginDictionary } from '@/constants/localesContent'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Cookies from 'js-cookie'
+import { setCookie } from 'cookies-next'
 import { useForm } from 'react-hook-form'
 
 import Button from '@/components/Common/Button'
-import { useUserStore } from '@/hooks/useStore'
+import { userStore } from '@/hooks/useStore'
 import { loginUser } from '@/services/ApiService'
 
 const Login = ({ params }: { params: { lang: string } }) => {
-  const { setIsAuthenticated } = useUserStore()
+  const { setIsAuth } = userStore()
   const router = useRouter()
   const {
     register,
@@ -26,21 +27,17 @@ const Login = ({ params }: { params: { lang: string } }) => {
 
   const onSubmit = async (data: TLoginSchema) => {
     try {
-      // ApiService function pass data, return response
       const response = await loginUser(data)
-      const responseData = response?.data
-
-      if (response && (response.status < 200 || response.status >= 300)) {
-        // response status is not 2xx
+      console.log('🚀 ~ onSubmit ~ response:', response)
+      if (!response?.status) {
         alert('Login failed!')
       } else {
-        const token = responseData.access_token
-        Cookies.set('token', token)
-        setIsAuthenticated()
+        setIsAuth()
         router.push('/arbswap/dashboard')
       }
     } catch (e) {
-      console.log('Login catch ->', e)
+      console.log('onSubmit form ->', e)
+      alert('Something went wrong. Please try again later.')
     }
   }
 
