@@ -3,9 +3,12 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/constants/localesContent'
+import { getCookie } from 'cookies-next'
 
+import Button from '@/components/Common/Button'
 import { userStore } from '@/hooks/useStore'
 
 interface ArbSwapNavbarProps {
@@ -15,13 +18,15 @@ interface ArbSwapNavbarProps {
 function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
   const [nav, setNav] = useState(false)
   const { isAuth } = userStore()
-
+  const pathname = usePathname()
   const commonStyles =
     'block h-1 rounded-sm bg-white transition-all duration-300 ease-out -translate-y-0.5'
+  const cookie = getCookie('authToken')
 
+  console.log('cookie', !!cookie)
   return (
-    <nav className="z-10 p-10">
-      <div className="flex items-center justify-evenly p-0">
+    <nav className="z-10 py-10">
+      <div className="flex items-center justify-around">
         <button
           type="button"
           aria-label="nav"
@@ -52,55 +57,69 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
             alt="Arbswap Logo"
           />
         </Link>
-        <div className="mt-4 hidden items-center text-base font-semibold md:flex">
-          <Link className="px-2 lg:px-5" href="/about">
+        <div className="mt-4 hidden items-center text-[#8683A4] md:flex">
+          <Link className="px-1 md:px-2 lg:px-4" href="/about">
             {arbswapNavbarDictionary[locale]?.aboutUs}
           </Link>
-          <Link className="px-2 lg:px-5" href="/arbswap/offer">
+          <Link className="px-1 md:px-2 lg:px-4" href="/arbswap/offer">
             {arbswapNavbarDictionary[locale]?.createOffer}
           </Link>
-          <Link className="px-2 lg:px-5" href="/arbswap/wallet">
+          <Link className="px-1 md:px-2 lg:px-4" href="/arbswap/wallet">
             {arbswapNavbarDictionary[locale]?.wallet}
           </Link>
-          <Link className="px-2 lg:px-5" href="/arbswap/support">
+          <Link className="px-1 md:px-2 lg:px-4" href="/arbswap/support">
             {arbswapNavbarDictionary[locale]?.support}
           </Link>
           {isAuth ? (
-            <Link
-              className="rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-green-600 px-3 py-2 lg:px-5"
-              href="/arbswap/dashboard"
-            >
-              <div className="flex justify-center">
-                {arbswapNavbarDictionary[locale]?.walletConnected}{' '}
-                <span className="ml-3">
-                  <Image
-                    src="/img/wallet-icon.svg"
-                    width={20}
-                    height={20}
-                    alt="Wallet Icon"
-                  />
-                </span>
-              </div>
-            </Link>
+            pathname === '/arbswap' ? (
+              <Link
+                className="rounded-full bg-blue-500 px-3 py-2 lg:px-5"
+                href="/arbswap/dashboard"
+              >
+                <div className="flex justify-center text-white">
+                  {arbswapNavbarDictionary[locale]?.goToDashboard}{' '}
+                </div>
+              </Link>
+            ) : (
+              <Link
+                className="rounded-full bg-[#9886E5] px-3 py-2 lg:px-5"
+                href="/arbswap/dashboard"
+              >
+                <div className="flex justify-center font-semibold text-white">
+                  {arbswapNavbarDictionary[locale]?.walletConnected}{' '}
+                  <span className="ml-3">
+                    <Image
+                      src="/img/connect-wallet.png"
+                      width={24}
+                      height={24}
+                      alt="Wallet Icon"
+                    />
+                  </span>
+                </div>
+              </Link>
+            )
           ) : (
             <Link className="px-1 lg:px-3" href="/arbswap/login">
-              <div className="rounded-full bg-gradient-button p-px">
-                <div className="rounded-full bg-gradient-about px-4 py-1 text-center">
-                  {arbswapNavbarDictionary[locale]?.login}
-                </div>
-              </div>
+              <Button className="bg-blue-600 px-8 py-1 text-center text-white">
+                {arbswapNavbarDictionary[locale]?.login}
+              </Button>
             </Link>
           )}
         </div>
         {nav && (
           <ul className="absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
-            {arbswapNavbarLinks.map(({ id, link }) => (
-              <li key={id} className="cursor-pointer py-4 text-4xl capitalize">
-                <Link onClick={() => setNav(!nav)} href={link}>
-                  {link}
-                </Link>
-              </li>
-            ))}
+            <div className="mt-20">
+              {arbswapNavbarLinks.map(({ id, link }) => (
+                <li
+                  key={id}
+                  className="cursor-pointer py-4 text-4xl capitalize"
+                >
+                  <Link onClick={() => setNav(!nav)} href={link}>
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </div>
           </ul>
         )}
       </div>

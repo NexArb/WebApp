@@ -1,9 +1,9 @@
 import { ModalState, UserState } from '@/types/store'
 
-import Cookies from 'js-cookie'
+import { getCookie } from 'cookies-next'
 import { create } from 'zustand'
 
-const cookie = Cookies.get('token')
+const cookie = getCookie('authToken')
 export const modalStore = create<ModalState>((set) => ({
   showModal: {},
   toggleModal: (modalName) =>

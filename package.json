@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 6969",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --fix --max-warnings=0",
@@ -28,8 +28,8 @@
     "@solana/wallet-adapter-wallets": "^0.19.26",
     "@solana/web3.js": "^1.90.0",
     "connectkit": "^1.5.3",
+    "cookies-next": "^4.1.1",
     "eslint-plugin-jest": "^27.6.0",
-    "js-cookie": "^3.0.5",
     "negotiator": "^0.6.3",
     "next": "14.0.1",
     "react": "^18",
