@@ -13,9 +13,8 @@ export const metadata: Metadata = {
 type RootLayoutProps = { children: React.ReactNode; params: { lang: string } }
 
 export default function RootLayout({
-  children
-} // params
-: Readonly<RootLayoutProps>) {
+  children // params
+}: Readonly<RootLayoutProps>) {
   // const { lang } = params
   return (
     <section>

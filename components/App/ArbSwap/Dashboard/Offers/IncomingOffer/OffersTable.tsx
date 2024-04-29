@@ -11,7 +11,7 @@ export default function OffersTable() {
   useEffect(() => {
     const getOffersFromApi = async () => {
       const offersApi = await getMyOffers(false)
-      setOffers(offersApi.data.data)
+      setOffers(offersApi.data)
     }
 
     getOffersFromApi()

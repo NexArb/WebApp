@@ -30,6 +30,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
 
       if (!response?.ok) {
         alert('Login failed!')
+        console.log('Problem')
       } else {
         const responseData = await response.json()
         const token = responseData?.access_token

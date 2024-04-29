@@ -1,8 +1,6 @@
 'use client'
 
-import { Offer } from '@/types/dashboard'
-
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import IncomingOffers from '@/components/App/ArbSwap/Dashboard/Offers/IncomingOffer'
 import OfferHistory from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory'
@@ -10,12 +8,10 @@ import UserProfile from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/
 import OffersSent from '@/components/App/ArbSwap/Dashboard/Offers/OffersSent'
 import Button from '@/components/Common/Button'
 import { modalStore } from '@/hooks/useStore'
-import { getMyOffers } from '@/services/ApiService'
 
 function Offers() {
   const [component, setComponent] = useState<JSX.Element>(<IncomingOffers />)
   const [selected, setSelected] = useState<string>('IncomingOffers')
-  const [offers, setOffers] = useState<Offer[]>([])
 
   const { showModal } = modalStore()
 
@@ -31,15 +27,6 @@ function Offers() {
       setSelected('OfferHistory')
     }
   }
-
-  useEffect(() => {
-    const getOffersFromApi = async () => {
-      const offersApi = await getMyOffers(false)
-      setOffers(offersApi.data.data)
-    }
-
-    getOffersFromApi()
-  }, [])
 
   return (
     <section className="flex flex-col items-center">

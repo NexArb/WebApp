@@ -1,26 +1,12 @@
-import { Offer } from '@/types/dashboard'
-
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import Received from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/Received'
 import Sent from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/Sent'
 import Users from '@/components/App/ArbSwap/Dashboard/Offers/OfferHistory/Users'
-import { getMyOffers } from '@/services/ApiService'
 
 type InputProps = 'Received' | 'Sent' | 'Users'
 
 function OfferHistory() {
-  const [offers, setOffers] = useState<Offer[]>([])
-
-  useEffect(() => {
-    const getPastOffers = async () => {
-      const pastOffersApi = await getMyOffers(false)
-      setOffers(pastOffersApi.data.data)
-    }
-
-    getPastOffers()
-  }, [])
-
   const [activeComponent, setActiveComponent] = useState('Received')
 
   const handleButtonClick = (componentName: InputProps) => {
