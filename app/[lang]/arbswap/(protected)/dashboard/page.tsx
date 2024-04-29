@@ -35,7 +35,7 @@ function Dashboard() {
   useEffect(() => {
     const getListingsFromApi = async () => {
       const listingsApi = await getListings()
-      setListings(listingsApi.data.data)
+      setListings(listingsApi.data)
     }
 
     getListingsFromApi()

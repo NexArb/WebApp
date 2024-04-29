@@ -33,7 +33,7 @@ export const middleware = (req: NextRequest) => {
   const pathname = req.nextUrl.pathname
 
   // Redirect logged-in users trying to access public routes to the dashboard
-  if (!cookie && publicRoutes.some((route) => pathname.includes(route))) {
+  /*if (!cookie && publicRoutes.some((route) => pathname.includes(route))) {
     const dashboardURL = new URL(`/arbswap/dashboard`, req.nextUrl.origin)
     return NextResponse.redirect(dashboardURL.toString())
   }
@@ -42,7 +42,7 @@ export const middleware = (req: NextRequest) => {
   if (cookie && protectedRoutes.includes(pathname)) {
     const absoluteURL = new URL('/', req.nextUrl.origin)
     return NextResponse.redirect(absoluteURL.toString())
-  }
+  }*/
 
   // Do not rewrite URLs for static assets
   if (pathname.startsWith('/_next/') || pathname.startsWith('/public/')) {

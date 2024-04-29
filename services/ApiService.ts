@@ -109,7 +109,7 @@ export const getMyOffers = async (pastOffers: boolean) => {
         }
       }
     )
-    return await response.json()
+    return response.json()
   } catch (error) {
     console.error('Error getting my offers:', error)
   }
