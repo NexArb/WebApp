@@ -1,6 +1,6 @@
-import { env } from '@/env.mjs';
+import { env } from '@/env.mjs'
 import { PublicKey } from '@solana/web3.js'
-import { getCookie, setCookie } from 'cookies-next'
+import { getCookie } from 'cookies-next'
 
 const token = getCookie('authToken')
 
@@ -17,19 +17,9 @@ export const loginUser = async (data: { email: string; password: string }) => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formData
     })
-    console.log('🚀 ~ loginUser ~ response:', response)
-    const responseData = await response.json()
-    const token = responseData?.access_token
-    setCookie('authToken', token, {
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Set an appropriate expiration (e.g., 7 day)
-      secure: env.NODE_ENV === 'production', // Only sent over HTTPS
-      httpOnly: true, // Not accessible via JavaScript
-      sameSite: env.NODE_ENV === 'production' ? 'strict' : 'lax' // Prevent CSRF
-    })
-
-    return responseData
+    return response
   } catch (e) {
-    console.error('login user error', e)
+    console.error('loginUser error', e)
   }
 }
 

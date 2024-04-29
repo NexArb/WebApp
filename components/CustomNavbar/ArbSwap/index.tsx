@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/constants/localesContent'
-import Cookies from 'js-cookie'
+import { getCookie } from 'cookies-next'
 
 import Button from '@/components/Common/Button'
 import { userStore } from '@/hooks/useStore'
@@ -21,7 +21,8 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
   const pathname = usePathname()
   const commonStyles =
     'block h-1 rounded-sm bg-white transition-all duration-300 ease-out -translate-y-0.5'
-  const cookie = Cookies.get('token')
+  const cookie = getCookie('authToken')
+
   console.log('cookie', !!cookie)
   return (
     <nav className="z-10 py-10">

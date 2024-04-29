@@ -73,13 +73,13 @@ function AppBar({ locale }: AppBarProps) {
               </div>
             </div>
           </Link>
-          <Link className="px-1 lg:px-2" href="/nexbridge">
+          {/* <Link className="px-1 lg:px-2" href="/nexbridge">
             <div className="mx-2 rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
                 NexBridge
               </div>
             </div>
-          </Link>
+          </Link> */}
           <Link className="px-1 lg:px-2" href="/join-us">
             <div className="rounded-full bg-blue-500 px-6 py-1">
               <span className="text-sm font-semibold">

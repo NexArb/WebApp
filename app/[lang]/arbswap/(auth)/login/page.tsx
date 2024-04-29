@@ -3,8 +3,7 @@
 import { loginSchema, TLoginSchema } from '@/types/auth'
 
 import React from 'react'
-import { cookies } from 'next/headers'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { loginDictionary } from '@/constants/localesContent'
@@ -12,7 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { setCookie } from 'cookies-next'
 import { useForm } from 'react-hook-form'
 
-import Button from '@/components/Common/Button'
+// import Button from '@/components/Common/Button'
 import { userStore } from '@/hooks/useStore'
 import { loginUser } from '@/services/ApiService'
 
@@ -28,10 +27,16 @@ const Login = ({ params }: { params: { lang: string } }) => {
   const onSubmit = async (data: TLoginSchema) => {
     try {
       const response = await loginUser(data)
-      console.log('🚀 ~ onSubmit ~ response:', response)
-      if (!response?.status) {
+
+      if (!response?.ok) {
         alert('Login failed!')
       } else {
+        const responseData = await response.json()
+        const token = responseData?.access_token
+
+        setCookie('authToken', token, {
+          expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+        })
         setIsAuth()
         router.push('/arbswap/dashboard')
       }
@@ -40,6 +45,8 @@ const Login = ({ params }: { params: { lang: string } }) => {
       alert('Something went wrong. Please try again later.')
     }
   }
+
+  // const handleWallet = () => {}
 
   return (
     <>
@@ -110,9 +117,9 @@ const Login = ({ params }: { params: { lang: string } }) => {
           </Link>
         </div>
       </div>
-      <Button
+      {/* <Button
         className="h-12 w-full items-center justify-center rounded-[50px] bg-[#9886E5] text-center shadow lg:mt-5 xl:mt-10"
-        onClick={() => {}}
+        onClick={() => handleWallet()}
       >
         <div className="flex flex-row items-center justify-center gap-4">
           <Image
@@ -124,7 +131,7 @@ const Login = ({ params }: { params: { lang: string } }) => {
           />
           {loginDictionary[params.lang]?.connectWallet}
         </div>
-      </Button>
+      </Button> */}
     </>
   )
 }

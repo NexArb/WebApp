@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { match } from '@formatjs/intl-localematcher'
+import { getCookie } from 'cookies-next'
 import Negotiator from 'negotiator'
 
 let locales = ['en', 'tr', 'de']
@@ -27,18 +28,19 @@ const getLocale = (request: Request): string => {
 }
 
 export const middleware = (req: NextRequest) => {
-  const cookie = req.cookies.has('token')
+  const cookie = getCookie('authToken')
+
   const pathname = req.nextUrl.pathname
   let locale = getLocale(req) ?? defaultLocale
 
   // Redirect logged-in users trying to access auth routes to the dashboard
-  if (!!cookie && authRoutes.includes(pathname)) {
+  if (!cookie && authRoutes.includes(pathname)) {
     const dashboardURL = new URL(`/arbswap/dashboard`, req.nextUrl.origin)
     return NextResponse.redirect(dashboardURL.toString())
   }
 
   // Redirect non-logged-in users trying to access protected routes to the home page
-  if (!cookie && protectedRoutes.includes(pathname)) {
+  if (cookie && protectedRoutes.includes(pathname)) {
     const absoluteURL = new URL('/arbswap', req.nextUrl.origin)
     return NextResponse.redirect(absoluteURL.toString())
   }
