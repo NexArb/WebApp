@@ -1,15 +1,17 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { modalStore } from '@/hooks/useStore'
+import redstone from "redstone-api";
 
 function PaymentMethod() {
   const modalKey = 'paymentMethod'
   const otherModalKey = 'pricing'
+  const [solToUSD, setSolToUSD] = useState(0.0);
 
   const { toggleModal } = modalStore()
 
@@ -17,19 +19,31 @@ function PaymentMethod() {
     toggleModal(modalKey)
     toggleModal(otherModalKey)
   }
+
+
   const handleClose = () => {
     toggleModal(modalKey)
   }
+
+  const fetchSolToUSD = async () => {
+    const price = await redstone.getPrice("SOL");
+    setSolToUSD(price.value);
+  }
+
+  useEffect(() => {
+    fetchSolToUSD();
+  })
+
   return (
     <Modal>
       <div className="w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
         <div className="rounded-2xl bg-neutral-800 px-5 py-2 text-white">
           <div className="flex flex-row justify-between">
-            <div className="">1 SOL = 24,324 USD</div>
+            <div className="">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
             <div>{getFormattedDateTime()}</div>
           </div>
           <div className="flex flex-row justify-between">
-            <div>1 SOL = 24,324 USD</div>
+            <div>{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
             <div>{getFormattedDateTime()}</div>
           </div>
         </div>
