@@ -33,47 +33,63 @@ export const PROJECTS = [
 
 export const CREW = [
   {
-    name: 'Leah Salomo3n',
-    profileImage: '/img/profile-image-1.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Doğukan Ali Gündoğan',
+    profileImage: '/img/DogukanAliGundogan.jpeg',
+    job: 'Co-Founder'
   },
   {
-    name: 'Leah Salomo1n',
-    profileImage: '/img/profile-image-2.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Cem Denizsel',
+    profileImage: '/img/CemDenizsel.jpg',
+    job: 'Co-Founder'
   },
   {
-    name: 'Leah Salomon1',
-    profileImage: '/img/profile-image-3.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Çelik Küçük',
+    profileImage: '/img/CelikKucuk.png',
+    job: 'UI/UX Designer'
   },
   {
-    name: 'Leah Salomon123',
-    profileImage: '/img/profile-image-4.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Barış Yenigün',
+    profileImage: '/img/BarisYenigun.jpeg',
+    job: 'Frontend Developer'
+  },
+  {
+    name: 'Mustafa Karataş',
+    profileImage: '/img/MustafaKaratas.jpeg',
+    job: 'Backend Developer'
+  },
+  {
+    name: 'Behzat Bilgin Erdem',
+    profileImage: '/img/BehzatBilginErdem.png',
+    job: 'Frontend Developer'
+  },
+  {
+    name: 'Bersu Varol',
+    profileImage: '/img/BersuVarol.jpeg',
+    job: 'Business Manager'
   }
 ]
 
 export const FooterSocials = [
   {
-    svg: '/img/Facebook.svg'
+    svg: '/img/Facebook.svg',
+    link: ""
   },
-  { svg: '/img/Twitter.svg' },
-  { svg: '/img/Instagram.svg' },
-  { svg: '/img/Linkedin.svg' },
-  { svg: '/img/YouTube.svg' }
+  { 
+    svg: '/img/Twitter.svg', 
+    link: "https://x.com/nexarb_?s=21"
+  },
+  { 
+    svg: '/img/Instagram.svg',
+    link: "" 
+  },
+  { 
+    svg: '/img/Linkedin.svg',
+    link: "https://www.linkedin.com/company/nexarb/" 
+  },
+  { 
+    svg: '/img/YouTube.svg',
+    link: "https://youtube.com/@nexarb_?si=QKKC5bW_HMJcQ-r2 "
+  }
 ]
 
 export const OfferListing = [

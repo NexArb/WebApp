@@ -12,7 +12,8 @@ import {
   NexBridgeHome,
   NexBridgeNavbar,
   Register,
-  RegisterWallet
+  RegisterWallet,
+  UnderConstruction
 } from '@/types/locales'
 
 export const arbswapNavbarDictionary: Record<string, ArbswapNavbar> = {
@@ -459,6 +460,21 @@ export const forgotPasswordDictionary: Record<string, ForgotPassword> = {
     enterPassword: 'Geben Sie Ihr Passwort ein',
     newPasswordAgain: 'Neues Passwort nochmal',
     login: 'Anmeldung'
+  }
+}
+
+export const underConstructionDictionary: Record<string, UnderConstruction> = {
+  en: {
+    underConstruction: "This Page Is Under Construction",
+    promoVideoDesc: "You can watch our promo video."
+  },
+  tr: {
+    underConstruction: "Bu Sayfa Yapım Aşamasındadır",
+    promoVideoDesc: "Tanıtım videomuzu izleyebilirsiniz."
+  },
+  de: {
+    underConstruction: "Diese Seite befindet sich im Aufbau",
+    promoVideoDesc: "Sie können sich unser Promo-Video ansehen."
   }
 }
 

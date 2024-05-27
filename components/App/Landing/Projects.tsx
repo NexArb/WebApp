@@ -36,7 +36,7 @@ function Projects({ locale }: ProjectsProps) {
       <div className="mt-6 text-center text-2xl leading-loose lg:w-[722px]">
         {homeDictionary[locale]?.ourWorksDesc}
       </div>
-      <div className="mt-10 grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
+      {/*<div className="mt-10 grid gap-10 p-10 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-20">
         {PROJECTS.map((project) => (
           <ProjectItem
             key={project.title}
@@ -45,7 +45,7 @@ function Projects({ locale }: ProjectsProps) {
             date={project.date}
           />
         ))}
-      </div>
+        </div>*/}
     </section>
   )
 }

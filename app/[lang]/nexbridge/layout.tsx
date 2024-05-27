@@ -26,7 +26,7 @@ export default function RootLayout({
             backgroundSize: 'cover'
           }}
         >
-          <NexBridgeCustomNavbar locale={lang} />
+          {/*<NexBridgeCustomNavbar locale={lang} />*/}
           {children}
         </div>
       </Providers>

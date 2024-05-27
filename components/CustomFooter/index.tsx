@@ -18,7 +18,7 @@ function CustomFooter({ locale }: CustomFooterProps) {
         </div>
         <div className="flex flex-row gap-6">
           {FooterSocials.map((e) => (
-            <Link href="/" key={e.svg}>
+            <Link href={e.link} key={e.svg}>
               <div className="flexCenter h-9 w-9 rounded-lg bg-white bg-opacity-20">
                 <Image src={e.svg} alt="logo" width={19} height={19} />
               </div>

@@ -58,7 +58,7 @@ function HomeFooter({ locale }: HomeFooterProps) {
                     height={16}
                   />
                   <div className="text-base leading-relaxed">
-                    info@designmodo.com
+                    nexarb.business@gmail.com
                   </div>
                 </div>
                 <div className="flex items-center gap-5">
@@ -69,8 +69,7 @@ function HomeFooter({ locale }: HomeFooterProps) {
                     height={19}
                   />
                   <div className="text-base leading-relaxed">
-                    San Francisco, CA560 Bush St & 20th Ave, Apt5 San Francisco,
-                    230909
+                    Munich, Bavaria, Germany
                   </div>
                 </div>
               </div>

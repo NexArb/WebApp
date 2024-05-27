@@ -80,13 +80,6 @@ function AppBar({ locale }: AppBarProps) {
               </div>
             </div>
           </Link>
-          <Link className="px-1 lg:px-2" href="/join-us">
-            <div className="rounded-full bg-blue-500 px-6 py-1">
-              <span className="text-sm font-semibold">
-                {navbarDictionary[locale]?.joinUs}
-              </span>
-            </div>
-          </Link>
         </div>
 
         {nav && (
