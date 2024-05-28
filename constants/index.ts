@@ -1,33 +1,13 @@
 export const PROJECTS = [
   {
-    title: 'Nextarb SOL',
-    date: 'OCTOBER 2023',
-    image: '/img/project-1.png'
+    title: 'ArbSwap',
+    date: '2023',
+    image: '/img/DASHBOARD.png'
   },
   {
-    title: 'Project 2',
+    title: 'NexBridge',
     date: '2024',
-    image: '/img/project-2.png'
-  },
-  {
-    title: 'Project 3',
-    date: '2024',
-    image: '/img/project-3.png'
-  },
-  {
-    title: 'Project 4',
-    date: '2024',
-    image: '/img/project-4.png'
-  },
-  {
-    title: 'Project 5',
-    date: '2025',
-    image: '/img/project-5.png'
-  },
-  {
-    title: 'Project 6',
-    date: '2026',
-    image: '/img/project-6.png'
+    image: '/img/BRIDGE OPTIONS.png'
   }
 ]
 
@@ -48,9 +28,9 @@ export const CREW = [
     job: 'UI/UX Designer'
   },
   {
-    name: 'Barış Yenigün',
-    profileImage: '/img/BarisYenigun.jpeg',
-    job: 'Frontend Developer'
+    name: 'Bersu Varol',
+    profileImage: '/img/BersuVarol.jpeg',
+    job: 'Business Manager'
   },
   {
     name: 'Mustafa Karataş',
@@ -63,24 +43,16 @@ export const CREW = [
     job: 'Frontend Developer'
   },
   {
-    name: 'Bersu Varol',
-    profileImage: '/img/BersuVarol.jpeg',
-    job: 'Business Manager'
+    name: 'Barış Yenigün',
+    profileImage: '/img/BarisYenigun.jpeg',
+    job: 'Frontend Developer'
   }
 ]
 
 export const FooterSocials = [
-  {
-    svg: '/img/Facebook.svg',
-    link: ""
-  },
   { 
     svg: '/img/Twitter.svg', 
     link: "https://x.com/nexarb_?s=21"
-  },
-  { 
-    svg: '/img/Instagram.svg',
-    link: "" 
   },
   { 
     svg: '/img/Linkedin.svg',

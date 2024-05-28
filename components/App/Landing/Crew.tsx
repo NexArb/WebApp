@@ -30,7 +30,7 @@ interface CrewProps {
 
 function Crew({ locale }: CrewProps) {
   return (
-    <section className="flexCenter mb-72 mt-96 flex-col">
+    <section id='crew' className="flexCenter mb-72 mt-96 flex-col">
       <div className="text-center text-5xl font-bold">
         {homeDictionary[locale]?.startupCrew}
       </div>

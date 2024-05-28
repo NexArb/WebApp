@@ -24,7 +24,7 @@ function NexBridgeHomePage({ params }: NexBridgeHomePageProps) {
             <h1 className="text-6xl font-bold mt-5">{underConstructionDictionary[params.lang]?.underConstruction}</h1>
             <p className="text-3xl mt-20">{underConstructionDictionary[params.lang]?.promoVideoDesc}</p>
             <video width={750} height={550} className="mt-10" controls preload='none'>
-              <source src='/public/img/nexarb-promo.mp4' type='video/mp4'/>
+              <source src='img/nexarb-promo.mp4' type='video/mp4'/>
             </video>
           </div>
         </div>

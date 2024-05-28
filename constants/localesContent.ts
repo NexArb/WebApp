@@ -92,44 +92,44 @@ export const aboutPageDictionary: Record<string, About> = {
   en: {
     aboutNexarb: 'About NexArb',
     description:
-      'Advantages include excellent sound quality, and the fact that they do not require any batteries. Gamers often prefer wired headphones so they never have to worry about batteries dying in the middle of a heated match.',
-    manyUsefulComponents: 'Many Useful Components',
+      'NexArb is an innovative startup project located in Germany, specializing in the blockchain domain. With its two products, ArbSwap and NexBridge, NexArb aims to make trading with Blockchain technology process much easier, safer and more comfortable.',
+    manyUsefulComponents: 'Secure Transfer',
     manyUsefulComponentsDesc:
-      'Startup Framework contains components and complex blocks which can be easily be integrated into almost any design.',
-    responsiveLayout: 'Responsive Layout',
+      'Our main product, ArbSwap, enables swift and secure P2P Swaps between the Solana and Ethereum networks at minimal fees.',
+    responsiveLayout: 'Seamless Swaps',
     responsiveLayoutDesc:
-      'We haven`t forgotten about responsive layout. With Startup Framework, you can create a website with full mobile support.',
-    retinaReady: 'Retina Ready',
+      'Our second offering, NexBridge, facilitates the smooth transfer of assets across Near and other chains.',
+    retinaReady: 'Easy Transactions',
     retinaReadyDesc:
-      'Startup Framework works on devices supporting Retina Display. Feel the clarity in each pixel.'
+      'Our platforms, ArbSwap and NexBridge, let you trade and transfer across blockchain networks quickly and securely without the hassle.'
   },
   tr: {
     aboutNexarb: 'NexArb Hakkında',
     description:
-      'Avantajlar kusursuz ses kalitesi ile hiçbir bataryaya gereksinim olmamasını içerir. Oyuncular sıklıkla kablolu kulaklıkları tercih eder bu yüzden çekişmeli bir oyunun ortasında bataryanın tükenmesinden endişe etmelerine gerek yok.',
-    manyUsefulComponents: 'Birçok Kullanışlı Bileşenler',
+      "NexArb, Almanya'da bulunan ve blockchain alanında uzmanlaşmış yenilikçi bir başlangıç ​​projesidir. NexArb, ArbSwap ve NexBridge adlı iki ürünüyle Blockchain teknolojisiyle alım satım sürecini çok daha kolay, güvenli ve konforlu hale getirmeyi hedefliyor.",
+    manyUsefulComponents: 'Güvenli Transfer',
     manyUsefulComponentsDesc:
-      'Startup Framework herhangi bir tasarıma kolaylıkla entegre olabilen bileşenler ve kompleks bloklar içerir.',
-    responsiveLayout: 'Duyarlı Sayfa Düzeni',
+      "Ana ürünümüz ArbSwap, Solana ve Ethereum ağları arasında minimum ücretle hızlı ve güvenli P2P Swap'lara olanak tanır.",
+    responsiveLayout: 'Kesintisiz Takaslar',
     responsiveLayoutDesc:
-      'Duyarlı sayfa düzenini de unutmadık. Startup Framework ile tam mobil destekli bir website geliştirebilirsiniz.',
-    retinaReady: 'Retina Hazır',
+      'İkinci teklifimiz NexBridge, varlıkların Near ve diğer zincirler arasında sorunsuz şekilde aktarılmasını kolaylaştırır.',
+    retinaReady: 'Kolay İşlemler',
     retinaReadyDesc:
-      'Startup Framework Retina ekranını destekleyen cihazlarda çalışır. Her bir pikselde netliği hissedin.'
+      'Platformlarımız ArbSwap ve NexBridge, blockchain ağları arasında sorunsuz ve hızlı bir şekilde işlem yapmanıza ve aktarım yapmanıza olanak tanır.'
   },
   de: {
     aboutNexarb: 'Über NexArb',
     description:
       'Zu den Vorteilen zählen die hervorragende Klangqualität und die Tatsache, dass keine Batterien erforderlich sind. Gamer bevorzugen häufig kabelgebundene Kopfhörer, sodass sie sich nie Sorgen machen müssen, dass die Batterien mitten in einem hitzigen Spiel leer werden.',
-    manyUsefulComponents: 'Viele nützliche Komponenten',
+    manyUsefulComponents: 'Sichere Übertragung',
     manyUsefulComponentsDesc:
-      'Das Startup Framework enthält Komponenten und komplexe Blöcke, die problemlos in nahezu jedes Design integriert werden können.',
-    responsiveLayout: 'Responsive Layout',
+      'Unser Hauptprodukt ArbSwap ermöglicht schnelle und sichere P2P-Swaps zwischen den Netzwerken Solana und Ethereum zu minimalen Gebühren.',
+    responsiveLayout: 'Nahtlose Swaps',
     responsiveLayoutDesc:
-      'Wir haben das responsive Layout nicht vergessen. Mit Startup Framework können Sie eine Website mit vollständiger Mobilunterstützung erstellen.',
-    retinaReady: 'Retina Bereit',
+      'Unser zweites Angebot, NexBridge, erleichtert die reibungslose Übertragung von Vermögenswerten zwischen Near- und anderen Ketten.',
+    retinaReady: 'Einfache Transaktionen',
     retinaReadyDesc:
-      'Das Startup Framework funktioniert auf Geräten, die Retina Display unterstützen. Spüren Sie die Klarheit in jedem Pixel.'
+      'Mit unseren Plattformen ArbSwap und NexBridge können Sie schnell, sicher und problemlos über Blockchain-Netzwerke handeln und übertragen.'
   }
 }
 
@@ -251,34 +251,34 @@ export const nexBridgeHomeDictionary: Record<string, NexBridgeHome> = {
 
 export const homeDictionary: Record<string, Home> = {
   en: {
-    digitalSolutions: 'Digital Solutions for the Future',
+    digitalSolutions: 'Seamless Swaps and Cross-Chain Transactions Made Easy',
     digitalSolutionsDesc:
-      'Startup Framework gives you complete freedom over your creative process — you don’t have to think about any technical aspects. There are no limits and absolutely no coding.',
+      'NexArb, where technology meets user-friendly solutions. Our platforms, ArbSwap and NexBridge, let you trade and transfer across blockchain networks quickly and securely without the hassle. Whether you`re trading on Solana or bridging to NEAR, we make it simple.',
     letsMeet: "Let's Meet",
     ourWorks: 'Our Works',
     ourWorksDesc:
-      'The most important part of the Startup Framework is the samples. The samples form a set of 20 usable pages you can use as is or you can add new blocks from UI Kit.',
-    startupCrew: 'Startup Crew'
+      'Our main product, ArbSwap, enables swift and secure P2P Swaps between the Solana and Ethereum networks at minimal fees. Our second offering, NexBridge, facilitates the smooth transfer of assets across Near and other chains. We prioritize simplicity and security, ensuring that our tools are user-friendly and reliable for all users even new to Web3 ecosystem.',
+    startupCrew: 'Our Crew'
   },
   tr: {
-    digitalSolutions: 'Gelecek İçin Dijital Çözümler',
+    digitalSolutions: 'Kesintisiz Takaslar ve Zincirler Arası İşlemler Kolaylaştı',
     digitalSolutionsDesc:
-      'Startup Framework size yaratıcı sürecinizde tam özgürlük verir - herhangi bir teknik durum hakkında düşünmek zorunda değilsiniz. Hiçbir sınır ve kodlama yoktur.',
+      'Teknolojinin kullanıcı dostu çözümlerle buluştuğu NexArb. Platformlarımız ArbSwap ve NexBridge, blockchain ağları arasında sorunsuz ve hızlı bir şekilde işlem yapmanıza ve aktarım yapmanıza olanak tanır. İster Solana`da işlem yapıyor olun ister NEAR`a köprü oluşturuyor olun, bunu kolaylaştırıyoruz.',
     letsMeet: 'Haydi Buluşalım',
     ourWorks: 'Çalışmalarımız',
     ourWorksDesc:
-      "Startup Framework'ün en önemli yönü örneklerdir. Örnekler olduğu gibi kullanabileceğiniz 20 kullanılabilir sayfaya şekil verir veya UI Kit'ten yeni bloklar ekleyebilirsiniz.",
-    startupCrew: 'Startup Ekibi'
+      "Ana ürünümüz ArbSwap, Solana ve Ethereum ağları arasında minimum ücretle hızlı ve güvenli P2P Swap'lara olanak tanır. İkinci teklifimiz NexBridge, varlıkların Near ve diğer zincirler arasında sorunsuz şekilde aktarılmasını kolaylaştırır. Basitliğe ve güvenliğe öncelik veriyoruz, araçlarımızın Web3 ekosisteminde yeni olanlar dahil tüm kullanıcılar için kullanıcı dostu ve güvenilir olmasını sağlıyoruz.",
+    startupCrew: 'Ekibimiz'
   },
   de: {
-    digitalSolutions: 'Digitale Lösungen für die Zukunft“',
+    digitalSolutions: 'Nahtlose Swaps und Cross-Chain-Transaktionen leicht gemacht',
     digitalSolutionsDesc:
-      'Das Startup Framework gibt Ihnen völlige Freiheit bei Ihrem kreativen Prozess – Sie müssen sich keine Gedanken über technische Aspekte machen. Es gibt keine Grenzen und absolut keine Codierung.',
+      'NexArb, wo Technologie auf benutzerfreundliche Lösungen trifft. Mit unseren Plattformen ArbSwap und NexBridge können Sie schnell, sicher und problemlos über Blockchain-Netzwerke handeln und übertragen. Egal, ob Sie auf Solana handeln oder eine Brücke zu NEAR schlagen, wir machen es Ihnen einfach.',
     letsMeet: 'Lass uns treffen',
     ourWorks: 'Unsere Arbeiten',
     ourWorksDesc:
-      'Der wichtigste Teil des Startup Frameworks sind die Beispiele. Die Beispiele bilden einen Satz von 20 verwendbaren Seiten, die Sie unverändert verwenden oder neue Blöcke aus dem UI-Kit hinzufügen können.',
-    startupCrew: 'Startup-Crew'
+      'Unser Hauptprodukt ArbSwap ermöglicht schnelle und sichere P2P-Swaps zwischen den Netzwerken Solana und Ethereum zu minimalen Gebühren. Unser zweites Angebot, NexBridge, erleichtert die reibungslose Übertragung von Vermögenswerten zwischen Near- und anderen Ketten. Wir legen Wert auf Einfachheit und Sicherheit und stellen sicher, dass unsere Tools für alle Benutzer benutzerfreundlich und zuverlässig sind, auch für Neulinge im Web3-Ökosystem.',
+    startupCrew: 'Unsere Mannschaft'
   }
 }
 
@@ -560,19 +560,19 @@ export const footerDictionary: Record<string, Footer> = {
   en: {
     keepInTouch: "Let's Keep in Touch",
     description:
-      'We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily.',
+      'You can keep in touch with us via information below or form on the side.',
     yourName: 'Your Name',
-    inputField: 'INPUT FIELD',
-    yourMessage: 'YOUR MESSAGE',
+    inputField: 'Your Email',
+    yourMessage: 'Your Message',
     send: 'Send',
     copyright: '© 2023 NexArb. All Rights Reserved.'
   },
   tr: {
     keepInTouch: 'Haydi İletişime Geçelim',
     description:
-      'Tasarımcılara, geliştiricilere ve şirketlere startupları için hızlı ve kolayca website geliştirmelerinde yardım edecek yeni bir ürün oluşturduk.',
+      'Bizimle alttaki bilgiler ya da yandaki form aracılığıyla iletişime geçebilirsiniz.',
     yourName: 'İsminiz',
-    inputField: 'GİRDİ ALANI',
+    inputField: 'Emailiniz',
     yourMessage: 'Mesajınız',
     send: 'Gönder',
     copyright: '© 2023 NexArb. Tüm hakları saklıdır.'
@@ -580,10 +580,10 @@ export const footerDictionary: Record<string, Footer> = {
   de: {
     keepInTouch: 'Lass uns in Kontakt bleiben',
     description:
-      'Wir haben ein neues Produkt entwickelt, das Designern, Entwicklern und Unternehmen dabei hilft, schnell und einfach Websites für ihre Startups zu erstellen.',
-    yourName: 'Dein Name',
-    inputField: 'EINGABEFELD',
-    yourMessage: 'IHRE NACHRICHT',
+      'Sie können über die unten stehenden Informationen oder das nebenstehende Formular mit uns in Kontakt bleiben.',
+    yourName: 'Ihr Name',
+    inputField: 'Ihre E-Mail',
+    yourMessage: 'Ihre Nachricht',
     send: 'Schicken',
     copyright: '© 2023 NexArb. Alle Rechte vorbehalten.'
   }

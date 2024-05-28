@@ -29,7 +29,7 @@ const Solana = ({
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-6xl font-bold text-white mt-20">{underConstructionDictionary[lang]?.underConstruction}</h1>
         <p className="text-white text-3xl mt-20">{underConstructionDictionary[lang]?.promoVideoDesc}</p>
-        <video src="/public/img/nexarb-promo.mp4" width={750} height={550} className="mt-10" controls preload='none'>
+        <video src="img/nexarb-promo.mp4" width={750} height={550} className="mt-10" controls preload='none'>
         </video>
       </div>
       

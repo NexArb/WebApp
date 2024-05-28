@@ -60,10 +60,10 @@ function AppBar({ locale }: AppBarProps) {
           <Link className="px-1 md:px-2 lg:px-4" href="/about">
             {navbarDictionary[locale]?.aboutUs}
           </Link>
-          <Link className="px-1 md:px-2 lg:px-4" href="/team">
+          <Link className="px-1 md:px-2 lg:px-4" href="#crew">
             {navbarDictionary[locale]?.ourTeam}
           </Link>
-          <Link className="px-1 md:px-2 lg:px-4" href="/contact">
+          <Link className="px-1 md:px-2 lg:px-4" href="#contact">
             {navbarDictionary[locale]?.contact}
           </Link>
           <Link className="px-1 lg:px-2" href="/arbswap">

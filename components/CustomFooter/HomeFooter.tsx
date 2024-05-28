@@ -13,7 +13,7 @@ interface HomeFooterProps {
 
 function HomeFooter({ locale }: HomeFooterProps) {
   return (
-    <section className="flexCenter relative">
+    <section id='contact' className="flexCenter relative">
       <Image
         src="/img/footer-bg.png"
         alt="mountains"
@@ -32,24 +32,13 @@ function HomeFooter({ locale }: HomeFooterProps) {
         <div className="mt-20 flex flex-col p-20">
           <div className="flex flex-row px-6 max-xl:flex-col max-xl:items-center max-xl:justify-center lg:px-20 xl:px-0">
             <div className="mb-6 w-1/2 px-6">
-              <div className="mt-14 text-4xl font-bold leading-10 max-xl:mt-0">
+              <div className="mt-14 text-4xl w-4/5 font-bold leading-10 max-xl:mt-0">
                 {footerDictionary[locale]?.keepInTouch}
               </div>
               <div className="my-8 text-2xl font-medium leading-loose">
                 {footerDictionary[locale]?.description}
               </div>
               <div className="flex flex-col gap-5">
-                <div className="flex items-center gap-5">
-                  <Image
-                    src="/img/fa-phone.svg"
-                    alt="logo"
-                    width={19}
-                    height={19}
-                  />
-                  <div className="text-base leading-relaxed">
-                    +1 555 505 5050
-                  </div>
-                </div>
                 <div className="flex items-center gap-5">
                   <Image
                     src="/img/fa-envelope.svg"
