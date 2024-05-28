@@ -172,11 +172,11 @@ export const links = [
     link: 'ArbSwap',
     href: 'arbswap'
   },
-  {
-    id: 5,
-    link: 'NexBridge',
-    href: 'nexbridge'
-  },
+  // {
+  //   id: 5,
+  //   link: 'NexBridge',
+  //   href: 'nexbridge'
+  // },
   {
     id: 6,
     link: 'Join Us',

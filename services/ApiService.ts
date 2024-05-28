@@ -1,8 +1,8 @@
 import { env } from '@/env.mjs'
 import { PublicKey } from '@solana/web3.js'
-import Cookies from 'js-cookie'
+import { getCookie } from 'cookies-next'
 
-const token = Cookies.get('token')
+const token = getCookie('authToken')
 
 const baseURL = env.NEXT_PUBLIC_BASE_URL
 
@@ -17,10 +17,9 @@ export const loginUser = async (data: { email: string; password: string }) => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formData
     })
-    const responseData = await response.json()
-    return responseData
+    return response
   } catch (e) {
-    console.error('login user ---->', e)
+    console.error('loginUser error', e)
   }
 }
 
