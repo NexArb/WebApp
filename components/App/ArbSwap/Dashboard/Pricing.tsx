@@ -1,37 +1,50 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { modalStore } from '@/hooks/useStore'
+import redstone from "redstone-api";
 
 export default function Pricing() {
   const router = useRouter()
   const { toggleModal } = modalStore()
+  const [solToUSD, setSolToUSD] = useState(0.0);
   const modalKey = 'pricing'
   const otherModalKey = 'paymentMethod'
+  
   const handlePrevious = () => {
     toggleModal(modalKey)
     toggleModal(otherModalKey)
   }
 
+  const fetchSolToUSD = async () => {
+    const price = await redstone.getPrice("SOL");
+    setSolToUSD(price.value);
+  }
+  
   const handleNext = () => {
     router.push('/arbswap/dashboard/offers')
     toggleModal(modalKey)
   }
+
+  useEffect(() => {
+    fetchSolToUSD();
+  })
+
   return (
     <Modal>
       <div className="flex w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
         <div className="rounded-2xl bg-neutral-800 px-5 py-2 text-white">
           <div className="flex flex-row justify-between">
-            <div className="">1 SOL = 24,324 USD</div>
+            <div className="">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
             <div>{getFormattedDateTime()}</div>
           </div>
           <div className="flex flex-row justify-between">
-            <div>1 SOL = 24,324 USD</div>
+            <div>{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
             <div>{getFormattedDateTime()}</div>
           </div>
         </div>

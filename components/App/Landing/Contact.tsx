@@ -15,7 +15,7 @@ function Contact({ locale }: ContactProps) {
         {footerDictionary[locale]?.yourName}
       </span>
       <Input
-        className="mt-4 h-14"
+        className="mt-4 h-14 text-black"
         name="name"
         type="name"
         placeholder="Full name"
@@ -24,7 +24,7 @@ function Contact({ locale }: ContactProps) {
         {footerDictionary[locale]?.inputField}
       </span>
       <Input
-        className="mt-4 h-14"
+        className="mt-4 h-14 text-black"
         name="senderEmail"
         type="email"
         placeholder="name@mail.com"
@@ -33,7 +33,7 @@ function Contact({ locale }: ContactProps) {
         {footerDictionary[locale]?.yourMessage}
       </span>
       <textarea
-        className="my-3 mt-4 h-52 rounded-lg border border-black/10 p-4"
+        className="my-3 mt-4 h-52 rounded-lg border border-black/10 p-4 text-black"
         name="message"
         required
         maxLength={500}

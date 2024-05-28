@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import Button from '@/components/Common/Button'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
+import redstone from "redstone-api";
 
 type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function }
 
@@ -10,9 +11,21 @@ export default function DashboardFilter({
   isModalOpen,
   setModalOpen
 }: Readonly<FilterMenuProps>) {
+  const [solToUSD, setSolToUSD] = useState(0.0);
+
   const closeModal = () => {
     setModalOpen(false)
   }
+
+  const fetchSolToUSD = async () => {
+    const price = await redstone.getPrice("SOL");
+    setSolToUSD(price.value);
+  }
+
+  useEffect(() => {
+    fetchSolToUSD();
+  })
+
 
   return (
     <div
@@ -37,7 +50,7 @@ export default function DashboardFilter({
           </button>
         </div>
         <div className="text-[32px] font-bold text-slate-950">Buy SOL</div>
-        <div className="mt-8 text-xl text-neutral-500">1 SOL = 24,342 USD</div>
+        <div className="mt-8 text-xl text-neutral-500">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
         <div className="mt-3 text-xl text-neutral-500">
           <span>{getFormattedDateTime()}</span>
         </div>

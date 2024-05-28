@@ -134,6 +134,11 @@ export interface ForgotPassword {
   login: string
 }
 
+export interface UnderConstruction {
+  underConstruction: string,
+  promoVideoDesc: string
+}
+
 export interface ArbSwapFooter {
   dummyText: string
   products: string
@@ -168,3 +173,5 @@ export interface Footer {
   send: string
   copyright: string
 }
+
+

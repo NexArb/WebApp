@@ -1,79 +1,67 @@
 export const PROJECTS = [
   {
-    title: 'Nextarb SOL',
-    date: 'OCTOBER 2023',
-    image: '/img/project-1.png'
+    title: 'ArbSwap',
+    date: '2023',
+    image: '/img/DASHBOARD.png'
   },
   {
-    title: 'Project 2',
+    title: 'NexBridge',
     date: '2024',
-    image: '/img/project-2.png'
-  },
-  {
-    title: 'Project 3',
-    date: '2024',
-    image: '/img/project-3.png'
-  },
-  {
-    title: 'Project 4',
-    date: '2024',
-    image: '/img/project-4.png'
-  },
-  {
-    title: 'Project 5',
-    date: '2025',
-    image: '/img/project-5.png'
-  },
-  {
-    title: 'Project 6',
-    date: '2026',
-    image: '/img/project-6.png'
+    image: '/img/BRIDGE OPTIONS.png'
   }
 ]
 
 export const CREW = [
   {
-    name: 'Leah Salomo3n',
-    profileImage: '/img/profile-image-1.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Doğukan Ali Gündoğan',
+    profileImage: '/img/DogukanAliGundogan.jpeg',
+    job: 'Co-Founder'
   },
   {
-    name: 'Leah Salomo1n',
-    profileImage: '/img/profile-image-2.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Cem Denizsel',
+    profileImage: '/img/CemDenizsel.jpg',
+    job: 'Co-Founder'
   },
   {
-    name: 'Leah Salomon1',
-    profileImage: '/img/profile-image-3.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Çelik Küçük',
+    profileImage: '/img/CelikKucuk.png',
+    job: 'UI/UX Designer'
   },
   {
-    name: 'Leah Salomon123',
-    profileImage: '/img/profile-image-4.png',
-    job: 'UI Designer',
-    icon1: '/img/fa-twitter.svg',
-    icon2: '/img/fa-facebook-square.svg',
-    icon3: '/img/fa-instagram.svg'
+    name: 'Bersu Varol',
+    profileImage: '/img/BersuVarol.jpeg',
+    job: 'Business Manager'
+  },
+  {
+    name: 'Mustafa Karataş',
+    profileImage: '/img/MustafaKaratas.jpeg',
+    job: 'Backend Developer'
+  },
+  {
+    name: 'Behzat Bilgin Erdem',
+    profileImage: '/img/BehzatBilginErdem.png',
+    job: 'Frontend Developer'
+  },
+  {
+    name: 'Barış Yenigün',
+    profileImage: '/img/BarisYenigun.jpeg',
+    job: 'Frontend Developer'
   }
 ]
 
 export const FooterSocials = [
-  {
-    svg: '/img/Facebook.svg'
+  { 
+    svg: '/img/Twitter.svg', 
+    link: "https://x.com/nexarb_?s=21"
   },
-  { svg: '/img/Twitter.svg' },
-  { svg: '/img/Instagram.svg' },
-  { svg: '/img/Linkedin.svg' },
-  { svg: '/img/YouTube.svg' }
+  { 
+    svg: '/img/Linkedin.svg',
+    link: "https://www.linkedin.com/company/nexarb/" 
+  },
+  { 
+    svg: '/img/YouTube.svg',
+    link: "https://youtube.com/@nexarb_?si=QKKC5bW_HMJcQ-r2 "
+  }
 ]
 
 export const OfferListing = [
