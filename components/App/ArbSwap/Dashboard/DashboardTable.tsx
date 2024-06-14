@@ -12,20 +12,20 @@ function DashboardTable({ listing }: Readonly<{ listing: Listing }>) {
   return (
     <tr>
       <td className="px-4 font-medium text-slate-950">
-        <div className="pl-2 text-base">{listing?.seller_username}</div>
+        <div className="pl-2 text-base">{listing.seller_username}</div>
       </td>
       <td className="px-10 py-5">
         <div className="ml-5 text-base font-medium">
-          <span className="text-slate-950">{listing?.amount}</span>
+          <span className="text-slate-950">{listing.amount}</span>
           <div className="mt-2 text-indigo-500">COBANK</div>
           <span className="text-emerald-400">APPROVED</span>
         </div>
       </td>
       <td className="mr-5 px-5 text-base font-medium text-slate-950">
-        {listing?.amount}
+        {listing.amount}
       </td>
       <td className="ml-1 px-10 text-base font-medium text-slate-950">
-        {listing?.currency}
+        {listing.currency}
       </td>
       <td>
         <Button

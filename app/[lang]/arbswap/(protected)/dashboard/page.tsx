@@ -13,6 +13,7 @@ import Pricing from '@/components/App/ArbSwap/Dashboard/Pricing'
 import { modalStore } from '@/hooks/useStore'
 import { getListings } from '@/services/ApiService'
 
+
 function Dashboard() {
   const { showModal } = modalStore()
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -24,6 +25,16 @@ function Dashboard() {
     }
   }
 
+  const { toggleModal } = modalStore()
+  const modalKey = 'paymentMethod'
+
+  const getListingsFromApi = async () => {
+    const listingsApi = await getListings()
+    console.log(listingsApi);
+    setListings(listingsApi?.data)
+    console.log(listings);
+  }
+
   useEffect(() => {
     if (isModalOpen) {
       window.addEventListener('keydown', handleEsc)
@@ -33,11 +44,6 @@ function Dashboard() {
   }, [isModalOpen])
 
   useEffect(() => {
-    const getListingsFromApi = async () => {
-      const listingsApi = await getListings()
-      setListings(listingsApi.data)
-    }
-
     getListingsFromApi()
   }, [])
   return (
@@ -74,14 +80,23 @@ function Dashboard() {
           <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col !whitespace-nowrap bg-zinc-100 py-0 ">
             <table>
               <tbody>
-                <DashboardTable listing={listings?.[0]} />
+                {listings.map((listing) => {
+                  return (
+                    <DashboardTable listing={listing}/>
+                  )
+                })}
               </tbody>
             </table>
           </div>
         </div>
+        <div className="w-full h-10 inset-x-0 absolute bottom-0 rounded-b-3xl bg-blue-600 flex justify-center gap-10">
+          <button onClick={() => toggleModal(modalKey)}>Create New Listing</button>
+          <button onClick={() => window.location.reload()}>Refresh Page</button>
+        </div>
       </div>
       {showModal.paymentMethod && <PaymentMethod />}
       {showModal.pricing && <Pricing />}
+      
     </section>
   )
 }
