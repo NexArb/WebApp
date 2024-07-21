@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { arbswapNavbarLinks } from '@/constants'
 import { arbswapNavbarDictionary } from '@/constants/localesContent'
-import { getCookie } from 'cookies-next'
 
 import Button from '@/components/Common/Button'
 import { userStore } from '@/hooks/useStore'
@@ -17,13 +16,11 @@ interface ArbSwapNavbarProps {
 
 function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
   const [nav, setNav] = useState(false)
-  const { isAuth } = userStore()
+  const { isAuth } = userStore();
   const pathname = usePathname()
   const commonStyles =
     'block h-1 rounded-sm bg-white transition-all duration-300 ease-out -translate-y-0.5'
-  const cookie = getCookie('authToken')
-
-  console.log('cookie', !!cookie)
+  
   return (
     <nav className="z-10 py-10">
       <div className="flex items-center justify-around">
@@ -73,30 +70,26 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
           {isAuth ? (
             pathname === '/arbswap' ? (
               <Link
-                className="rounded-full bg-blue-500 px-3 py-2 lg:px-5"
+                className="rounded-full bg-blue-500 text-white px-3 py-2 lg:px-5"
                 href="/arbswap/dashboard"
               >
-                <div className="flex justify-center text-white">
-                  {arbswapNavbarDictionary[locale]?.goToDashboard}{' '}
-                </div>
+                {arbswapNavbarDictionary[locale]?.goToDashboard}{' '}
               </Link>
             ) : (
-              <Link
-                className="rounded-full bg-[#9886E5] px-3 py-2 lg:px-5"
-                href="/arbswap/dashboard"
-              >
-                <div className="flex justify-center font-semibold text-white">
-                  {arbswapNavbarDictionary[locale]?.walletConnected}{' '}
-                  <span className="ml-3">
-                    <Image
-                      src="/img/connect-wallet.png"
-                      width={24}
-                      height={24}
-                      alt="Wallet Icon"
-                    />
-                  </span>
-                </div>
-              </Link>
+              <div className="rounded-full bg-[#9886E5] px-3 py-2 lg:px-5 flex gap-2 text-white">
+                <Image
+                  src="/img/connect-wallet.png"
+                  width={24}
+                  height={24}
+                  alt="Wallet Icon"
+                />
+                <Link
+                  href="/arbswap/dashboard"
+                >
+                  {arbswapNavbarDictionary[locale]?.walletConnected}
+                </Link>
+              </div>
+              
             )
           ) : (
             <Link className="px-1 lg:px-3" href="/arbswap/login">

@@ -12,6 +12,7 @@ import PaymentMethod from '@/components/App/ArbSwap/Dashboard/PaymentMethod'
 import Pricing from '@/components/App/ArbSwap/Dashboard/Pricing'
 import { modalStore } from '@/hooks/useStore'
 import { getListings } from '@/services/ApiService'
+import CreateListing from '@/components/App/ArbSwap/Dashboard/CreateListing'
 
 
 function Dashboard() {
@@ -26,13 +27,11 @@ function Dashboard() {
   }
 
   const { toggleModal } = modalStore()
-  const modalKey = 'paymentMethod'
+  const modalKey = 'createListing'
 
   const getListingsFromApi = async () => {
-    const listingsApi = await getListings()
-    console.log(listingsApi);
+    const listingsApi = await getListings();
     setListings(listingsApi?.data)
-    console.log(listings);
   }
 
   useEffect(() => {
@@ -67,35 +66,36 @@ function Dashboard() {
         />
       </Fragment>
       {/* Right Rectangle */}
-      <div className="sm:w-5/5 max-h-[739px] max-w-4xl  rounded-3xl border bg-zinc-100 px-3 py-4 backdrop-blur-[100px] sm:!m-3 md:w-4/5 md:px-7">
-        <div className={' custom-scrollbar !scroll-p-6 overflow-y-scroll'}>
-          <div className=" text-black">
-            <div className=" mx-5 my-2 whitespace-nowrap border-0 border-black text-lg font-medium text-neutral-400 md:border-b">
-              <span className="mr-5">Seller Information</span>
-              <span className="mr-12">Payment Method</span>
-              <span className="mr-24">Amount</span>
-              <span className="">Price</span>
-            </div>
+      <div className="sm:w-5/5 max-h-[739px] max-w-4xl rounded-3xl border bg-zinc-100 px-3 py-4 backdrop-blur-[100px] sm:!m-3 md:w-4/5 md:px-7">
+        <div className={'custom-scrollbar overflow-y-auto scroll-smooth max-h-[calc(100%-64px)]'}>
+          <table className="table-auto w-full">
+            <thead>
+              <tr className="text-black">
+                <th>Seller Information</th>
+                <th>Payment Method</th>
+                <th>Amount</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {listings?.map((listing) => {
+                
+                return (
+                  <DashboardTable listing={listing}/>
+                  
+                )
+              })}
+            </tbody>
+          </table>
+          <div className="w-full h-16 inset-x-0 absolute bottom-0 rounded-b-3xl bg-blue-600 flex justify-center gap-10">
+            <button onClick={() => toggleModal(modalKey)}>Create New Listing</button>
+            <button onClick={() => window.location.reload()}>Refresh Page</button>
           </div>
-          <div className="custom-scrollbar h-[655px] w-[830px] scroll-p-96  flex-col !whitespace-nowrap bg-zinc-100 py-0 ">
-            <table>
-              <tbody>
-                {listings.map((listing) => {
-                  return (
-                    <DashboardTable listing={listing}/>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="w-full h-10 inset-x-0 absolute bottom-0 rounded-b-3xl bg-blue-600 flex justify-center gap-10">
-          <button onClick={() => toggleModal(modalKey)}>Create New Listing</button>
-          <button onClick={() => window.location.reload()}>Refresh Page</button>
         </div>
       </div>
       {showModal.paymentMethod && <PaymentMethod />}
       {showModal.pricing && <Pricing />}
+      {showModal.createListing && <CreateListing/>}
       
     </section>
   )

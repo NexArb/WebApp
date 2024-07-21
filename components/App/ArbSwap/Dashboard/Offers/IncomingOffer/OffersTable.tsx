@@ -8,12 +8,12 @@ import { getMyOffers } from '@/services/ApiService'
 export default function OffersTable() {
   const [offers, setOffers] = useState<Offer[]>([])
 
-  useEffect(() => {
-    const getOffersFromApi = async () => {
-      const offersApi = await getMyOffers(false)
-      setOffers(offersApi.data)
-    }
+  const getOffersFromApi = async () => {
+    const offersApi = await getMyOffers(false)
+    setOffers(offersApi.data)
+  }
 
+  useEffect(() => {
     getOffersFromApi()
   }, [])
 
@@ -35,7 +35,7 @@ export default function OffersTable() {
           </td>
           <td className="p-5 text-base font-medium text-slate-950">
             <div>{offer.amount} SOL</div>
-            <div>{offer.total_price} $</div>
+            <div>${offer.total_price}</div>
           </td>
           <td className="pr-5">
             <Button className="border border-emerald-400 bg-emerald-400 bg-opacity-10 px-8 py-2">

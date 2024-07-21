@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import Button from '@/components/Common/Button'
@@ -8,11 +8,14 @@ import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { modalStore } from '@/hooks/useStore'
 import redstone from "redstone-api";
+import { useFormData } from '@/context/offerFormDataContext'
+import { createOffer } from '@/services/ApiService'
 
 export default function Pricing() {
   const router = useRouter()
   const { toggleModal } = modalStore()
   const [solToUSD, setSolToUSD] = useState(0.0);
+  const { formData, updateFormData } = useFormData();
   const modalKey = 'pricing'
   const otherModalKey = 'paymentMethod'
   
@@ -25,10 +28,33 @@ export default function Pricing() {
     const price = await redstone.getPrice("SOL");
     setSolToUSD(price.value);
   }
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    updateFormData({ [name]: value });
+  }
   
-  const handleNext = () => {
-    router.push('/arbswap/dashboard/offers')
-    toggleModal(modalKey)
+  const handleNext = async () => {
+    try {
+      
+      const offerData = {
+        listing_id: formData.listing_id,
+        seller_username: formData.seller_username,
+        amount: formData.amount
+      }
+
+      console.log(offerData);
+      const response = await createOffer(offerData);
+
+      if (response.ok) {
+        router.push('/arbswap/dashboard/offers')
+        toggleModal(modalKey)
+      }
+    }
+    catch (err) {
+      console.error(err);
+    }
+    
   }
 
   useEffect(() => {
@@ -62,6 +88,9 @@ export default function Pricing() {
               className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
               type="number"
               placeholder="Amount"
+              name="amount"
+              value={formData.amount}
+              onChange={handleChange}
             ></input>
             <span
               className={
@@ -79,6 +108,9 @@ export default function Pricing() {
               className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
               type="number"
               placeholder="Price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
             ></input>
             <span
               className={
@@ -96,6 +128,9 @@ export default function Pricing() {
               <input
                 type="checkbox"
                 className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
+                name='autoAccept'
+                checked={formData.autoAccept}
+                onChange={(e) => updateFormData({autoAccept: e.target.checked})}
               />
             </div>
             <span className="pl-4 text-[16px] text-neutral-400">

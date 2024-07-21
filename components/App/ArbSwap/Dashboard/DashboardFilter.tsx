@@ -95,8 +95,10 @@ export default function DashboardFilter({
             <option hidden disabled value="DEFAULT">
               Offer Location
             </option>
-            <option value="xd">xd</option>
-            <option value="xd">xd</option>
+            <option value="tr">Turkey</option>
+            <option value="de">Germany</option>
+            <option value="uk">United Kingdom</option>
+            <option value="us">United States</option>
           </select>
           <select
             className="mt-7 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
@@ -106,8 +108,10 @@ export default function DashboardFilter({
             <option hidden disabled value="DEFAULT">
               Offer Owner Location
             </option>
-            <option value="xd">xd</option>
-            <option value="xd">xd</option>
+            <option value="tr">Turkey</option>
+            <option value="de">Germany</option>
+            <option value="uk">United Kingdom</option>
+            <option value="us">United States</option>
           </select>
           <div className="mt-7 flex flex-row justify-around">
             <span className="text-xl font-medium text-neutral-500">
