@@ -3,7 +3,14 @@ import { modalStore } from '@/hooks/useStore';
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import React, { useState, useEffect } from 'react'
 import redstone from "redstone-api";
-import { createListing } from '@/services/ApiService';
+//import { createListing } from '@/services/ApiService';
+import { AnchorWallet, useWallet } from '@solana/wallet-adapter-react';
+import idl from "@/target/idl/anchor_escrow.json";
+import { AnchorEscrow } from '@/target/types/anchor_escrow';
+import * as anchor from "@coral-xyz/anchor";
+import { clusterApiUrl, Connection, Keypair, PublicKey } from '@solana/web3.js';
+import { randomBytes } from 'crypto';
+import { createMint, getAssociatedTokenAddressSync, getMint, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
 
 const CreateListing = () => {
   const modalKey = 'createListing';
@@ -11,9 +18,10 @@ const CreateListing = () => {
 
   const [solToUSD, setSolToUSD] = useState(0.0);
   const [solToETH, setSolToETH] = useState(0.0);
+  const wallet = useWallet();
 
   const [amount, setAmount] = useState(0);
-  const [currency, setCurrency] = useState("SOL");
+  //const [currency, setCurrency] = useState("SOL");
 
   const fetchSolToUSD = async () => {
     const price = await redstone.getPrice("SOL");
@@ -33,7 +41,78 @@ const CreateListing = () => {
     toggleModal(modalKey);
   }
 
-  const createListingFromApi = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleMake = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const idlJson = idl as anchor.Idl;
+    const connection = new Connection("https://api.devnet.solana.com", "confirmed");
+    const provider = new anchor.AnchorProvider(connection, wallet as AnchorWallet);
+    const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)), provider);
+    
+    if (!wallet?.publicKey) {
+      throw new Error("Wallet public key is null");
+    }
+
+    const seedBuffer = new anchor.BN(randomBytes(8));
+    const seed = new anchor.BN(seedBuffer);
+    const maker = wallet.publicKey;
+    const mintA = Keypair.generate().publicKey;
+    const mintB = Keypair.generate().publicKey;
+    const makerAtaA = new PublicKey(getAssociatedTokenAddressSync(mintA, maker, false, TOKEN_2022_PROGRAM_ID));
+    const escrow = PublicKey.findProgramAddressSync(
+      [Buffer.from("escrow"), maker.toBuffer(), seedBuffer],
+      program.programId
+    )[0];
+    const vault = new PublicKey(getAssociatedTokenAddressSync(mintA, escrow, true, TOKEN_2022_PROGRAM_ID));
+            
+    try {
+      const tx = await program.methods
+            .make(seed, new anchor.BN(amount), new anchor.BN(amount))
+            .accounts(
+              {
+                maker: maker, 
+                mintA: mintA, 
+                mintB: mintB, 
+                makerAtaA: makerAtaA,
+                vault: vault,
+                tokenProgram: TOKEN_2022_PROGRAM_ID,
+              }
+            )
+            .rpc();
+      console.log(tx);
+    }
+    catch (err) {
+      console.error(err);
+    }
+  }
+
+  const handleRefund = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const idlJson = idl as anchor.Idl;
+    const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+    const provider = new anchor.AnchorProvider(connection, wallet as AnchorWallet);
+    const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)), provider);
+    const tx = await program.methods
+        .refund()
+        .rpc();
+    
+    console.log(tx);
+  }
+
+  const handleTake = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const idlJson = idl as anchor.Idl;
+    const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+    const provider = new anchor.AnchorProvider(connection, wallet as AnchorWallet);
+    const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)),provider);
+
+    const tx = await program.methods
+        .take()
+        .rpc();
+    
+    console.log(tx);
+  }
+
+  /*const createListingFromApi = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const body = {
       amount: amount,
@@ -50,7 +129,7 @@ const CreateListing = () => {
     catch (err) {
       console.error(err);
     }
-  }
+  }*/
 
   useEffect(() => {
     fetchSolToUSD();
@@ -78,7 +157,7 @@ const CreateListing = () => {
             Sell SOL
           </div>
         </div>
-        <form onSubmit={createListingFromApi} className="flex flex-col">
+        <form onSubmit={handleMake} className="flex flex-col">
           <select
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             name="paymentMethod"
@@ -109,6 +188,8 @@ const CreateListing = () => {
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             type="text"
             placeholder="Wallet Address"
+            value={String(wallet.publicKey)}
+            readOnly
           ></input>
           <div className="relative mt-8">
             <input
@@ -124,7 +205,7 @@ const CreateListing = () => {
             </div>
           </div>
           <label className="text-sm opacity-30 ml-8 mt-2">Minimum: 10 SOL</label>
-          <div className="relative mt-5">
+          {/*<div className="relative mt-5">
             <input
               className="w-full rounded-full border-zinc-300 bg-white text-neutral-500 px-5 py-3 backdrop-blur-sm"
               placeholder="Price"
@@ -135,7 +216,7 @@ const CreateListing = () => {
               </span>
             </div>
           </div>
-          <label className="text-sm opacity-30 ml-8 mt-2">Minimum: 10 USD</label>
+          <label className="text-sm opacity-30 ml-8 mt-2">Minimum: 10 USD</label>*/}
           <div className="mt-7 ml-4 flex flex-row gap-5">
             <div className="flexCenter group rounded-[10px]">
               <input

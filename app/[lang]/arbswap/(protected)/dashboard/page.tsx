@@ -14,11 +14,11 @@ import { modalStore } from '@/hooks/useStore'
 import { getListings } from '@/services/ApiService'
 import CreateListing from '@/components/App/ArbSwap/Dashboard/CreateListing'
 
-
 function Dashboard() {
   const { showModal } = modalStore()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [listings, setListings] = useState<Listing[]>([])
+  
 
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
@@ -81,7 +81,7 @@ function Dashboard() {
               {listings?.map((listing) => {
                 
                 return (
-                  <DashboardTable listing={listing}/>
+                  <DashboardTable key={listing.id} listing={listing}/>
                   
                 )
               })}
@@ -101,4 +101,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Dashboard;

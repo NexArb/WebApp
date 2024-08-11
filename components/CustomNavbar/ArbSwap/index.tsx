@@ -9,6 +9,8 @@ import { arbswapNavbarDictionary } from '@/constants/localesContent'
 
 import Button from '@/components/Common/Button'
 import { userStore } from '@/hooks/useStore'
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+//import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 
 interface ArbSwapNavbarProps {
   readonly locale: string
@@ -44,6 +46,7 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
                 nav ? 'mx-0 w-9 -translate-y-1.5 -rotate-45' : ''
               }`}
             />
+            
           </div>
         </button>
         <Link className="z-20 mr-0.5 mt-3" href="/">
@@ -54,6 +57,7 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
             alt="Arbswap Logo"
           />
         </Link>
+        {/*<WalletMultiButton/>*/}
         <div className="mt-4 hidden items-center text-[#8683A4] md:flex">
           <Link className="px-1 md:px-2 lg:px-4" href="/about">
             {arbswapNavbarDictionary[locale]?.aboutUs}
@@ -69,6 +73,7 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
           </Link>
           {isAuth ? (
             pathname === '/arbswap' ? (
+
               <Link
                 className="rounded-full bg-blue-500 text-white px-3 py-2 lg:px-5"
                 href="/arbswap/dashboard"
@@ -76,18 +81,9 @@ function ArbSwapNavbar({ locale }: ArbSwapNavbarProps) {
                 {arbswapNavbarDictionary[locale]?.goToDashboard}{' '}
               </Link>
             ) : (
-              <div className="rounded-full bg-[#9886E5] px-3 py-2 lg:px-5 flex gap-2 text-white">
-                <Image
-                  src="/img/connect-wallet.png"
-                  width={24}
-                  height={24}
-                  alt="Wallet Icon"
-                />
-                <Link
-                  href="/arbswap/dashboard"
-                >
-                  {arbswapNavbarDictionary[locale]?.walletConnected}
-                </Link>
+              <div>
+                
+                <WalletMultiButton/>
               </div>
               
             )
