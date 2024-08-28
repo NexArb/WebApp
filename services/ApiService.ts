@@ -97,6 +97,24 @@ export const verifyOtpAndUpdatePassword = async (
   }
 }
 
+export const createOffer = async (data: {listing_id: string, seller_username: string, amount: number}) => {
+  try {
+    console.log(data);
+    const response = await fetch(`${baseURL}/offer`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+  catch (err) {
+    throw err;
+  }
+}
+
 export const getMyOffers = async (pastOffers: boolean) => {
   try {
     const response = await fetch(
@@ -104,7 +122,7 @@ export const getMyOffers = async (pastOffers: boolean) => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          Accept: 'application/json'
+          'Content-Type': 'application/json'
         }
       }
     )
@@ -112,6 +130,18 @@ export const getMyOffers = async (pastOffers: boolean) => {
   } catch (error) {
     console.error('Error getting my offers:', error)
   }
+}
+
+export const createListing = async (data: {amount: number, currency: string}) => {
+  const response = await fetch(`${baseURL}/listing`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify({amount: data.amount, currency: data.currency}),
+  });
+  return response.status;
 }
 
 export const getListings = async () => {

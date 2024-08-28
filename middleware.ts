@@ -34,7 +34,7 @@ export const middleware = (req: NextRequest) => {
   let locale = getLocale(req) ?? defaultLocale
 
   // Redirect logged-in users trying to access auth routes to the dashboard
-  if (!cookie && authRoutes.includes(pathname)) {
+  if (cookie && authRoutes.includes(pathname)) {
     const dashboardURL = new URL(`/arbswap/dashboard`, req.nextUrl.origin)
     return NextResponse.redirect(dashboardURL.toString())
   }

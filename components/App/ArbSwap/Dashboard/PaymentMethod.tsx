@@ -1,12 +1,13 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { modalStore } from '@/hooks/useStore'
 import redstone from "redstone-api";
+import { useFormData } from '@/context/offerFormDataContext'
 
 function PaymentMethod() {
   const modalKey = 'paymentMethod'
@@ -15,11 +16,12 @@ function PaymentMethod() {
 
   const { toggleModal } = modalStore()
 
+  const { formData, updateFormData } = useFormData();
+
   const handleNext = () => {
     toggleModal(modalKey)
     toggleModal(otherModalKey)
   }
-
 
   const handleClose = () => {
     toggleModal(modalKey)
@@ -33,6 +35,11 @@ function PaymentMethod() {
   useEffect(() => {
     fetchSolToUSD();
   })
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+    const { name, value } = e.target;
+    updateFormData({[name]: value});
+  }
 
   return (
     <Modal>
@@ -60,6 +67,7 @@ function PaymentMethod() {
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             name="paymentMethod"
             defaultValue={'DEFAULT'}
+            onChange={handleChange}
           >
             <option hidden disabled value="DEFAULT">
               Payment Method
@@ -73,19 +81,23 @@ function PaymentMethod() {
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             name="country"
             defaultValue={'DEFAULT'}
+            onChange={handleChange}
           >
             <option hidden disabled value="DEFAULT">
               Country
             </option>
             <option value="tr">Turkey</option>
             <option value="us">United States</option>
-            <option value="uk">United Kindom</option>
+            <option value="uk">United Kingdom</option>
             <option value="de">Germany</option>
           </select>
           <input
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             type="text"
             placeholder="Wallet Address"
+            name="walletAddress"
+            value={formData.walletAddress}
+            onChange={handleChange}
           ></input>
         </form>
         <div className="flex flex-col">

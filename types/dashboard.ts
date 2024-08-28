@@ -10,6 +10,7 @@ export interface Listing {
 }
 
 export interface Offer {
+  id: string,
   user_id: string
   status: string
   listing_id: string
