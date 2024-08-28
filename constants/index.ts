@@ -13,14 +13,9 @@ export const PROJECTS = [
 
 export const CREW = [
   {
-    name: 'Doğukan Ali Gündoğan',
+    name: 'Doğukan Gündoğan',
     profileImage: '/img/DogukanAliGundogan.jpeg',
-    job: 'Co-Founder'
-  },
-  {
-    name: 'Cem Denizsel',
-    profileImage: '/img/CemDenizsel.jpg',
-    job: 'Co-Founder'
+    job: 'Founder'
   },
   {
     name: 'Çelik Küçük',
@@ -31,21 +26,6 @@ export const CREW = [
     name: 'Bersu Varol',
     profileImage: '/img/BersuVarol.jpeg',
     job: 'Business Manager'
-  },
-  {
-    name: 'Mustafa Karataş',
-    profileImage: '/img/MustafaKaratas.jpeg',
-    job: 'Backend Developer'
-  },
-  {
-    name: 'Behzat Bilgin Erdem',
-    profileImage: '/img/BehzatBilginErdem.png',
-    job: 'Frontend Developer'
-  },
-  {
-    name: 'Barış Yenigün',
-    profileImage: '/img/BarisYenigun.jpeg',
-    job: 'Frontend Developer'
   }
 ]
 
