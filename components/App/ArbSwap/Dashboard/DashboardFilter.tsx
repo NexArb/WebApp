@@ -4,14 +4,22 @@ import Image from 'next/image'
 import Button from '@/components/Common/Button'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import redstone from "redstone-api";
+import { methods } from '@/components/Common/PaymentMethods';
 
-type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function }
+export type SearchParams = {
+  payment_method:string;
+  amount:number
+}
+
+type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function,onSearch:(filter:SearchParams)=>void }
 
 export default function DashboardFilter({
   isModalOpen,
-  setModalOpen
+  setModalOpen,
+  onSearch
 }: Readonly<FilterMenuProps>) {
   const [solToUSD, setSolToUSD] = useState(0.0);
+  const [filter,setFilter] = useState<SearchParams>({payment_method:"",amount:0})
 
   const closeModal = () => {
     setModalOpen(false)
@@ -56,24 +64,34 @@ export default function DashboardFilter({
         </div>
         <div className={'w-5 text-black'}></div>
 
-        <form className="mt-8 flex w-full flex-col rounded-lg">
+        <div className="mt-8 flex w-full flex-col rounded-lg">
           <select
             className="rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             name="name"
+            onChange={(event)=>setFilter({
+              ...filter,
+              payment_method:event.target.value,
+            })}
             defaultValue={'DEFAULT'}
           >
             <option hidden disabled value="DEFAULT">
               Payment Method
             </option>
-            <option value="">All</option>
-            <option value="CreditCard">Credit Card</option>
-            <option value="BankTransfer">Bank Transfer</option>
-            <option value="PayPal">PayPal</option>
+            {methods.map((method) => {
+              return (
+                <option value={method.value}>{method.label}</option>
+              )
+            })
+            }
           </select>
           <div className={'relative mt-7 flex items-center'}>
             <input
               className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
               type="number"
+              onChange={(event)=>setFilter({
+                ...filter,
+                amount:Number(event.target.value),
+              })}
               placeholder="Amount"
             ></input>
             <span
@@ -84,35 +102,6 @@ export default function DashboardFilter({
               SOL
             </span>
           </div>
-          <span className="ml-3 mt-1 text-sm text-neutral-400">
-            Minimum : 10 USD
-          </span>
-          <select
-            className="mt-5 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="name"
-            defaultValue={'DEFAULT'}
-          >
-            <option hidden disabled value="DEFAULT">
-              Offer Location
-            </option>
-            <option value="tr">Turkey</option>
-            <option value="de">Germany</option>
-            <option value="uk">United Kingdom</option>
-            <option value="us">United States</option>
-          </select>
-          <select
-            className="mt-7 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="name"
-            defaultValue={'DEFAULT'}
-          >
-            <option hidden disabled value="DEFAULT">
-              Offer Owner Location
-            </option>
-            <option value="tr">Turkey</option>
-            <option value="de">Germany</option>
-            <option value="uk">United Kingdom</option>
-            <option value="us">United States</option>
-          </select>
           <div className="mt-7 flex flex-row justify-around">
             <span className="text-xl font-medium text-neutral-500">
               Verified Users Only
@@ -125,11 +114,11 @@ export default function DashboardFilter({
             </div>
           </div>
           <div className="flexCenter mt-32 flex-1">
-            <Button className=" h-12 w-60 bg-gradient-button">
+            <Button onClick={()=>onSearch(filter)} className=" h-12 w-60 bg-gradient-button">
               <span className="text-lg">Search for Offers</span>
             </Button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   )

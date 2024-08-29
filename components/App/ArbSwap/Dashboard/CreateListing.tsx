@@ -11,16 +11,24 @@ import * as anchor from "@coral-xyz/anchor";
 import { clusterApiUrl, Connection, Keypair, PublicKey } from '@solana/web3.js';
 import { randomBytes } from 'crypto';
 import { createMint, getAssociatedTokenAddressSync, getMint, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
+import { createListing } from '@/services/ApiService';
+import { methods } from '@/components/Common/PaymentMethods';
+
+
 
 const CreateListing = () => {
   const modalKey = 'createListing';
   const { toggleModal } = modalStore();
-
+  
   const [solToUSD, setSolToUSD] = useState(0.0);
   const [solToETH, setSolToETH] = useState(0.0);
   const wallet = useWallet();
 
   const [amount, setAmount] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState(methods[0].value);
+  const [iban, setIban] = useState("");
+  const [value, setValue] = useState(0);
+
   //const [currency, setCurrency] = useState("SOL");
 
   const fetchSolToUSD = async () => {
@@ -43,45 +51,16 @@ const CreateListing = () => {
 
   const handleMake = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const idlJson = idl as anchor.Idl;
-    const connection = new Connection("https://api.devnet.solana.com", "confirmed");
-    const provider = new anchor.AnchorProvider(connection, wallet as AnchorWallet);
-    const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)), provider);
-    
-    if (!wallet?.publicKey) {
-      throw new Error("Wallet public key is null");
-    }
-
-    const seedBuffer = new anchor.BN(randomBytes(8));
-    const seed = new anchor.BN(seedBuffer);
-    const maker = wallet.publicKey;
-    const mintA = Keypair.generate().publicKey;
-    const mintB = Keypair.generate().publicKey;
-    const makerAtaA = new PublicKey(getAssociatedTokenAddressSync(mintA, maker, false, TOKEN_2022_PROGRAM_ID));
-    const escrow = PublicKey.findProgramAddressSync(
-      [Buffer.from("escrow"), maker.toBuffer(), seedBuffer],
-      program.programId
-    )[0];
-    const vault = new PublicKey(getAssociatedTokenAddressSync(mintA, escrow, true, TOKEN_2022_PROGRAM_ID));
-            
-    try {
-      const tx = await program.methods
-            .make(seed, new anchor.BN(amount), new anchor.BN(amount))
-            .accounts(
-              {
-                maker: maker, 
-                mintA: mintA, 
-                mintB: mintB, 
-                makerAtaA: makerAtaA,
-                vault: vault,
-                tokenProgram: TOKEN_2022_PROGRAM_ID,
-              }
-            )
-            .rpc();
-      console.log(tx);
-    }
-    catch (err) {
-      console.error(err);
+    const response = await createListing({
+      amount:amount,
+      payment_method:paymentMethod,
+      value:value,
+      currency:"USD",
+      iban:iban,
+      wallet:wallet.publicKey?.toString() ?? ""
+    })
+    if(response){
+      toggleModal("createListing")
     }
   }
 
@@ -92,9 +71,9 @@ const CreateListing = () => {
     const provider = new anchor.AnchorProvider(connection, wallet as AnchorWallet);
     const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)), provider);
     const tx = await program.methods
-        .refund()
-        .rpc();
-    
+      .refund()
+      .rpc();
+
     console.log(tx);
   }
 
@@ -103,12 +82,12 @@ const CreateListing = () => {
     const idlJson = idl as anchor.Idl;
     const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
     const provider = new anchor.AnchorProvider(connection, wallet as AnchorWallet);
-    const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)),provider);
+    const program = new anchor.Program<AnchorEscrow>(JSON.parse(JSON.stringify(idlJson)), provider);
 
     const tx = await program.methods
-        .take()
-        .rpc();
-    
+      .take()
+      .rpc();
+
     console.log(tx);
   }
 
@@ -149,47 +128,31 @@ const CreateListing = () => {
             <div>{getFormattedDateTime()}</div>
           </div>
         </div>
-        <div className="mt-8 grid grid-cols-2">
-          <div className="rounded-bl-3xl rounded-tl-3xl border border-blue-600 bg-blue-600 py-1 text-center text-white">
-            Buy SOL
-          </div>
-          <div className="rounded-br-3xl rounded-tr-3xl border-2 border-blue-600 bg-white py-1 text-center text-blue-600">
-            Sell SOL
-          </div>
-        </div>
+
         <form onSubmit={handleMake} className="flex flex-col">
           <select
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             name="paymentMethod"
+            onChange={(event)=>setPaymentMethod(event.target.value)}
             defaultValue={'DEFAULT'}
           >
             <option hidden disabled value="DEFAULT">
               Payment Method
             </option>
-            <option value="creditCard">Credit Card</option>
-            <option value="bankCard">Bank Card</option>
-            <option value="paypal">Paypal</option>
-            <option value="applePay">Apple Pay</option>
-          </select>
-          <select
-            className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
-            name="country"
-            defaultValue={'DEFAULT'}
-          >
-            <option hidden disabled value="DEFAULT">
-              Country
-            </option>
-            <option value="tr">Turkey</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kindom</option>
-            <option value="de">Germany</option>
+            {methods.map((method) => {
+              return (
+                <option value={method.value}>{method.label}</option>
+              )
+            })
+            }
           </select>
           <input
             className="mt-8 rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             type="text"
-            placeholder="Wallet Address"
-            value={String(wallet.publicKey)}
-            readOnly
+            placeholder={paymentMethod == methods[0].value ? "Iban" : "Wallet Address"}
+            onChange={(event)=>setIban(event.target.value)}
+            value={paymentMethod == methods[0].value ? iban : String(wallet.publicKey)}
+            readOnly={paymentMethod != methods[0].value}
           ></input>
           <div className="relative mt-8">
             <input
@@ -204,10 +167,10 @@ const CreateListing = () => {
               </span>
             </div>
           </div>
-          <label className="text-sm opacity-30 ml-8 mt-2">Minimum: 10 SOL</label>
-          {/*<div className="relative mt-5">
+          <div className="relative mt-5">
             <input
               className="w-full rounded-full border-zinc-300 bg-white text-neutral-500 px-5 py-3 backdrop-blur-sm"
+              onChange={(event)=>setValue(Number(event.target.value))}
               placeholder="Price"
             />
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -216,8 +179,7 @@ const CreateListing = () => {
               </span>
             </div>
           </div>
-          <label className="text-sm opacity-30 ml-8 mt-2">Minimum: 10 USD</label>*/}
-          <div className="mt-7 ml-4 flex flex-row gap-5">
+          {/*<div className="mt-7 ml-4 flex flex-row gap-5">
             <div className="flexCenter group rounded-[10px]">
               <input
                 type="checkbox"
@@ -227,7 +189,7 @@ const CreateListing = () => {
             <span className="text-lg font-medium text-neutral-500">
               Will the offer be accepted automatically?
             </span>
-          </div>
+          </div>*/}
           <div className="flex justify-center text-white gap-4 mt-7">
             <button type="reset" onClick={handleClose} className="p-2 w-56 rounded-full bg-gray-600">Cancel</button>
             <button type="submit" className="p-2 w-56 rounded-full bg-blue-600">Save Listing</button>

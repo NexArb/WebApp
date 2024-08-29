@@ -2,11 +2,11 @@
 
 import { Listing } from '@/types/dashboard'
 
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import DashboardFilter from '@/components/App/ArbSwap/Dashboard/DashboardFilter'
+import DashboardFilter, { SearchParams } from '@/components/App/ArbSwap/Dashboard/DashboardFilter'
 import DashboardTable from '@/components/App/ArbSwap/Dashboard/DashboardTable'
 import PaymentMethod from '@/components/App/ArbSwap/Dashboard/PaymentMethod'
 import Pricing from '@/components/App/ArbSwap/Dashboard/Pricing'
@@ -18,7 +18,17 @@ function Dashboard() {
   const { showModal } = modalStore()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [listings, setListings] = useState<Listing[]>([])
-  
+  const [filter,setFilter] = useState<SearchParams>()
+  const searchedParam = useMemo(()=>{
+    let tempList = listings;
+    if(filter?.amount){
+      tempList = tempList.filter((listing) => listing.amount > filter.amount)
+    }
+    if(filter?.payment_method){
+      tempList = tempList.filter((listing)=>listing.payment_method == filter.payment_method)
+    }
+    return tempList
+  },[filter,listings])
 
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
@@ -61,6 +71,9 @@ function Dashboard() {
       {/* Left Rectangle */}
       <Fragment key={'dashboard-filter'}>
         <DashboardFilter
+          onSearch={(searhParam:SearchParams)=>{
+            setFilter(searhParam)
+          }}
           isModalOpen={isModalOpen}
           setModalOpen={setIsModalOpen}
         />
@@ -78,11 +91,9 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {listings?.map((listing) => {
-                
+              {searchedParam?.map((listing) => {
                 return (
                   <DashboardTable key={listing.id} listing={listing}/>
-                  
                 )
               })}
             </tbody>

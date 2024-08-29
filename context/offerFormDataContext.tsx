@@ -5,7 +5,9 @@ import React, { createContext, useContext, useState } from "react";
 interface FormData {
     listing_id: string;
     seller_username: string;
-    paymentMethod: string;
+    seller_wallet:string;
+    iban:string;
+    payment_method: string;
     country: string;
     walletAddress: string;
     amount: number;
@@ -36,7 +38,9 @@ export const FormDataProvider = ({children}: FormDataProviderProps): JSX.Element
     const [formData, setFormData] = useState<FormData>({
         listing_id: '',
         seller_username: '',
-        paymentMethod: '',
+        payment_method: '',
+        seller_wallet:'',
+        iban:'',
         country: '',
         walletAddress: '',
         amount: 0,

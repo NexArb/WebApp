@@ -16,7 +16,6 @@ export default function Home({ params }: HomeProps) {
   return (
     <div className="bg-gradient-main text-white">
       <Hero locale={lang} />
-      <Projects locale={lang} />
       <Crew locale={lang} />
       <HomeFooter locale={params.lang} />
     </div>

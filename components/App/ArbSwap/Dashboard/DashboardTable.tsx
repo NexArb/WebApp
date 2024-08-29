@@ -18,16 +18,14 @@ function DashboardTable({ listing }: Readonly<{ listing: Listing }>) {
       </td>
       <td className="px-10 py-5">
         <div className="ml-1 text-base font-medium">
-          <span className="text-slate-950">Bank Transaction</span>
-          <div className="mt-2 text-indigo-500">COBANK</div>
-          <span className="text-emerald-400">APPROVED</span>
+          <span className="text-slate-950">{listing.payment_method}</span>
         </div>
       </td>
       <td className="mr-5 px-5 text-base font-medium text-slate-950">
         {listing.amount} SOL
       </td>
       <td className="ml-3 px-5 text-base font-medium text-slate-950">
-        ${listing.total_price}
+        ${listing.price}
       </td>
       <td>
         <Button

@@ -2,8 +2,11 @@ export interface Listing {
   id: string
   user_id: string
   seller_username: string
+  seller_wallet:string
+  payment_method:string
+  iban:string
   amount: number
-  total_price: number
+  price: number
   currency: string
   is_deleted: boolean
   is_active: boolean

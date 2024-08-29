@@ -97,7 +97,7 @@ export const verifyOtpAndUpdatePassword = async (
   }
 }
 
-export const createOffer = async (data: {listing_id: string, seller_username: string, amount: number}) => {
+export const createOffer = async (data: { listing_id: string, seller_username: string, amount: number }) => {
   try {
     console.log(data);
     const response = await fetch(`${baseURL}/offer`, {
@@ -132,14 +132,14 @@ export const getMyOffers = async (pastOffers: boolean) => {
   }
 }
 
-export const createListing = async (data: {amount: number, currency: string}) => {
+export const createListing = async (data: { amount: number, payment_method: string, value: number, currency: string, iban: string, wallet: string }) => {
   const response = await fetch(`${baseURL}/listing`, {
     headers: {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
     method: 'POST',
-    body: JSON.stringify({amount: data.amount, currency: data.currency}),
+    body: JSON.stringify({ amount: data.amount, currency: data.currency, payment_method: data.payment_method, value: data.value, iban: data.iban, seller_wallet: data.wallet }),
   });
   return response.status;
 }
