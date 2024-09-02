@@ -4,6 +4,7 @@ import React from 'react'
 import type { Metadata } from 'next'
 import { DM_Sans as dmSansFont } from 'next/font/google'
 import { defaultLocale } from '@/middleware'
+import JotFormFeedback from '@/components/App/Landing/JotFormFeedback'
 
 import { TailwindIndicator } from '@/components/TailwindIndicator'
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
     <html lang={params.lang ?? defaultLocale}>
       <body className={`${dmSans.className} text-white`}>
         <TailwindIndicator />
+        <JotFormFeedback />
           {children}
       </body>
     </html>
