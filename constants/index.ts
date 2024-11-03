@@ -14,19 +14,14 @@ export const PROJECTS = [
 export const CREW = [
   {
     name: 'Doğukan Gündoğan',
-    profileImage: '/img/DogukanAliGundogan.jpeg',
-    job: 'Founder'
+    profileImage: '/img/Ben.jpg',
+    job: 'Co-Founder'
   },
   {
-    name: 'Çelik Küçük',
-    profileImage: '/img/CelikKucuk.png',
-    job: 'UI/UX Designer'
+    name: 'Atamert Rahma',
+    profileImage: '/img/Ata.jpg',
+    job: 'Co-Founder'
   },
-  {
-    name: 'Bersu Varol',
-    profileImage: '/img/BersuVarol.jpeg',
-    job: 'Business Manager'
-  }
 ]
 
 export const FooterSocials = [

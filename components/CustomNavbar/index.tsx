@@ -66,17 +66,10 @@ function AppBar({ locale }: AppBarProps) {
           <Link className="px-1 lg:px-2" href="/arbswap">
             <div className="rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
-                ArbSwap
+              NexBond
               </div>
             </div>
           </Link>
-          {/*<Link className="px-1 lg:px-2" href="/nexbridge">
-            <div className="mx-2 rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
-                NexBridge
-              </div>
-            </div>
-                  </Link>*/}
         </div>
 
         {nav && (
