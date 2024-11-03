@@ -565,7 +565,7 @@ export const footerDictionary: Record<string, Footer> = {
     inputField: 'Your Email',
     yourMessage: 'Your Message',
     send: 'Send',
-    copyright: '© 2023 NexArb. All Rights Reserved.'
+    copyright: '© 2024 NexArb. All Rights Reserved.'
   },
   tr: {
     keepInTouch: 'Haydi İletişime Geçelim',
@@ -575,7 +575,7 @@ export const footerDictionary: Record<string, Footer> = {
     inputField: 'Emailiniz',
     yourMessage: 'Mesajınız',
     send: 'Gönder',
-    copyright: '© 2023 NexArb. Tüm hakları saklıdır.'
+    copyright: '© 2024 NexArb. Tüm hakları saklıdır.'
   },
   de: {
     keepInTouch: 'Lass uns in Kontakt bleiben',
@@ -585,6 +585,6 @@ export const footerDictionary: Record<string, Footer> = {
     inputField: 'Ihre E-Mail',
     yourMessage: 'Ihre Nachricht',
     send: 'Schicken',
-    copyright: '© 2023 NexArb. Alle Rechte vorbehalten.'
+    copyright: '© 2024 NexArb. Alle Rechte vorbehalten.'
   }
 }
