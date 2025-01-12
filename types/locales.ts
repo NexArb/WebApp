@@ -16,6 +16,7 @@ export interface NexBridgeNavbar {
 }
 
 export interface Navbar {
+  home: string
   aboutUs: string
   ourTeam: string
   contact: string

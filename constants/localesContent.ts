@@ -69,18 +69,21 @@ export const nexBridgeNavbarDictionary: Record<string, NexBridgeNavbar> = {
 
 export const navbarDictionary: Record<string, Navbar> = {
   en: {
+    home: "Home",
     aboutUs: 'About Us',
     ourTeam: 'Our Team',
     contact: 'Contact',
     joinUs: 'Join Us'
   },
   tr: {
+    home: 'Anasayfa',
     aboutUs: 'Hakkımızda',
     ourTeam: 'Ekibimiz',
     contact: 'İletişim',
     joinUs: 'Bize Katılın'
   },
   de: {
+    home: 'Home',
     aboutUs: 'Über Uns',
     ourTeam: 'Unser Team',
     contact: 'Kommunikation',

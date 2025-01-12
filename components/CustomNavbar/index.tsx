@@ -57,19 +57,20 @@ function AppBar({ locale }: AppBarProps) {
           </Link>
         </div>
         <div className="mt-4 hidden items-center font-medium md:flex">
-          <Link className="px-1 md:px-2 lg:px-4" href="/about">
-            {navbarDictionary[locale]?.aboutUs}
+          <Link className="px-1 md:px-2 lg:px-4" href="/">
+            {navbarDictionary[locale]?.home}
           </Link>
-          <Link className="px-1 md:px-2 lg:px-4" href="#crew">
-            {navbarDictionary[locale]?.ourTeam}
-          </Link>
-          <Link className="px-1 md:px-2 lg:px-4" href="#contact">
-            {navbarDictionary[locale]?.contact}
-          </Link>
-          <Link className="px-1 lg:px-2" href="/arbswap">
+          <Link className="px-1 lg:px-2" href="/soon/nexswab">
             <div className="rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
-                NexBond
+                NexSwap (Soon)
+              </div>
+            </div>
+          </Link>
+          <Link className="px-1 lg:px-2" href="/soon/nexcarb">
+            <div className="rounded-full bg-gradient-button p-px">
+              <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
+                NexCarb (Soon)
               </div>
             </div>
           </Link>
