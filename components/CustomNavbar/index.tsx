@@ -25,20 +25,23 @@ function AppBar({ locale }: AppBarProps) {
           <div className="justify-end space-y-2">
             <span
               className={`block h-1 w-9 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
-                }`}
+                    transition-all duration-300 ease-out ${
+                      nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
+                    }`}
             />
             <span
               className={`mx-3 block h-1 w-6 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${nav ? 'hidden' : '-translate-y-0.5'
-                }`}
+                    transition-all duration-300 ease-out ${
+                      nav ? 'hidden' : '-translate-y-0.5'
+                    }`}
             />
             <span
               className={`-mx-1 block h-1 w-10 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${nav
-                  ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
-                  : '-translate-y-0.5'
-                }`}
+                    transition-all duration-300 ease-out ${
+                      nav
+                        ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
+                        : '-translate-y-0.5'
+                    }`}
             />
           </div>
         </button>
@@ -66,7 +69,7 @@ function AppBar({ locale }: AppBarProps) {
           <Link className="px-1 lg:px-2" href="/arbswap">
             <div className="rounded-full bg-gradient-button p-px">
               <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
-              NexBond
+                NexBond
               </div>
             </div>
           </Link>

@@ -1,14 +1,14 @@
 import { Listing } from '@/types/dashboard'
 
 import React from 'react'
+import { useFormData } from '@/context/offerFormDataContext'
 
 import Button from '@/components/Common/Button'
 import { modalStore } from '@/hooks/useStore'
-import { useFormData } from '@/context/offerFormDataContext'
 
 function DashboardTable({ listing }: Readonly<{ listing: Listing }>) {
   const { toggleModal } = modalStore()
-  const { formData, updateFormData } = useFormData();
+  const { updateFormData } = useFormData()
   const modalKey = 'paymentMethod'
 
   return (
@@ -31,7 +31,10 @@ function DashboardTable({ listing }: Readonly<{ listing: Listing }>) {
         <Button
           className="rounded-full bg-blue-600 px-6 py-2 outline-none"
           onClick={() => {
-            updateFormData({listing_id: listing.id, seller_username: listing.seller_username})
+            updateFormData({
+              listing_id: listing.id,
+              seller_username: listing.seller_username
+            })
             toggleModal(modalKey)
           }}
         >

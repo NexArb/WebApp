@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react'
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 text-center mb-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h1 className="mb-8 text-center text-4xl font-bold text-gray-900">
           Privacy Policy
         </h1>
-        <p className="text-gray-600 text-sm text-center mb-8">
-          {new Date().toLocaleDateString("en-US")}
+        <p className="mb-8 text-center text-sm text-gray-600">
+          {new Date().toLocaleDateString('en-US')}
         </p>
         <div className="space-y-6">
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               1. Information We Collect
             </h2>
             <p className="text-gray-700">
               We may collect the following types of information:
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mt-2">
+            <ul className="mt-2 list-inside list-disc space-y-2 text-gray-700">
               <li>
                 <strong>Personal Information:</strong> Name, email address,
                 phone number, and any other information you provide directly.
@@ -37,29 +37,31 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               2. How We Use Your Information
             </h2>
             <p className="text-gray-700">
               We use the collected information to:
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mt-2">
+            <ul className="mt-2 list-inside list-disc space-y-2 text-gray-700">
               <li>Provide and maintain our services.</li>
               <li>Improve user experience.</li>
-              <li>Communicate with you about updates or promotional content.</li>
+              <li>
+                Communicate with you about updates or promotional content.
+              </li>
               <li>Comply with legal obligations.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               3. How We Share Your Information
             </h2>
             <p className="text-gray-700">
               We do not sell your personal information. We may share your
               information in the following ways:
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mt-2">
+            <ul className="mt-2 list-inside list-disc space-y-2 text-gray-700">
               <li>
                 <strong>Service Providers:</strong> With third parties that help
                 us operate our services.
@@ -76,13 +78,13 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               4. Your Rights and Choices
             </h2>
             <p className="text-gray-700">
               You have the following rights and choices:
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mt-2">
+            <ul className="mt-2 list-inside list-disc space-y-2 text-gray-700">
               <li>
                 <strong>Access and Update:</strong> You can access and update
                 your information.
@@ -99,7 +101,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               5. Data Security
             </h2>
             <p className="text-gray-700">
@@ -110,7 +112,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               6. Children's Privacy
             </h2>
             <p className="text-gray-700">
@@ -120,7 +122,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               7. Changes to This Privacy Policy
             </h2>
             <p className="text-gray-700">
@@ -130,14 +132,14 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-800">
               8. Contact Us
             </h2>
             <p className="text-gray-700">
               If you have any questions about this Privacy Policy, please
               contact us:
             </p>
-            <ul className="list-none text-gray-700 space-y-2 mt-2">
+            <ul className="mt-2 list-none space-y-2 text-gray-700">
               <li>
                 <strong>Email:</strong> help@nexarb.com
               </li>
@@ -146,7 +148,7 @@ const PrivacyPolicy = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PrivacyPolicy;
+export default PrivacyPolicy

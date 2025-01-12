@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Next Gen Bridge'
 }
 
-type RootLayoutProps = { children: React.ReactNode, params: { lang: string } }
+type RootLayoutProps = { children: React.ReactNode; params: { lang: string } }
 
 export default function RootLayout({
   children // params

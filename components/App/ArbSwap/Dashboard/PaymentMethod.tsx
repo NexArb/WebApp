@@ -1,22 +1,22 @@
 'use client'
 
 import React, { ChangeEvent, useEffect, useState } from 'react'
+import { useFormData } from '@/context/offerFormDataContext'
+import redstone from 'redstone-api'
 
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { modalStore } from '@/hooks/useStore'
-import redstone from "redstone-api";
-import { useFormData } from '@/context/offerFormDataContext'
 
 function PaymentMethod() {
   const modalKey = 'paymentMethod'
   const otherModalKey = 'pricing'
-  const [solToUSD, setSolToUSD] = useState(0.0);
+  const [solToUSD, setSolToUSD] = useState(0.0)
 
   const { toggleModal } = modalStore()
 
-  const { formData, updateFormData } = useFormData();
+  const { formData, updateFormData } = useFormData()
 
   const handleNext = () => {
     toggleModal(modalKey)
@@ -28,17 +28,19 @@ function PaymentMethod() {
   }
 
   const fetchSolToUSD = async () => {
-    const price = await redstone.getPrice("SOL");
-    setSolToUSD(price.value);
+    const price = await redstone.getPrice('SOL')
+    setSolToUSD(price.value)
   }
 
   useEffect(() => {
-    fetchSolToUSD();
+    fetchSolToUSD()
   })
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-    const { name, value } = e.target;
-    updateFormData({[name]: value});
+  const handleChange = (
+    e: ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
+    const { name, value } = e.target
+    updateFormData({ [name]: value })
   }
 
   return (
@@ -46,11 +48,19 @@ function PaymentMethod() {
       <div className="w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
         <div className="rounded-2xl bg-neutral-800 px-5 py-2 text-white">
           <div className="flex flex-row justify-between">
-            <div className="">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
+            <div className="">
+              {solToUSD !== 0.0
+                ? `1 SOL = ${solToUSD.toFixed(3)} USD`
+                : 'Loading...'}
+            </div>
             <div>{getFormattedDateTime()}</div>
           </div>
           <div className="flex flex-row justify-between">
-            <div>{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
+            <div>
+              {solToUSD !== 0.0
+                ? `1 SOL = ${solToUSD.toFixed(3)} USD`
+                : 'Loading...'}
+            </div>
             <div>{getFormattedDateTime()}</div>
           </div>
         </div>

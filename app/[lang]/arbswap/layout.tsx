@@ -10,12 +10,6 @@ type RootLayoutProps = Readonly<{
   children: React.ReactNode
 }>
 
-
 export default function DashboardLayout({ children }: RootLayoutProps) {
-  return (
-    <section>
-      {children}
-    </section>
-        
-)
+  return <section>{children}</section>
 }

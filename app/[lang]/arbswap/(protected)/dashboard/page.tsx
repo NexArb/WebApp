@@ -6,29 +6,33 @@ import React, { Fragment, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import DashboardFilter, { SearchParams } from '@/components/App/ArbSwap/Dashboard/DashboardFilter'
+import CreateListing from '@/components/App/ArbSwap/Dashboard/CreateListing'
+import DashboardFilter, {
+  SearchParams
+} from '@/components/App/ArbSwap/Dashboard/DashboardFilter'
 import DashboardTable from '@/components/App/ArbSwap/Dashboard/DashboardTable'
 import PaymentMethod from '@/components/App/ArbSwap/Dashboard/PaymentMethod'
 import Pricing from '@/components/App/ArbSwap/Dashboard/Pricing'
 import { modalStore } from '@/hooks/useStore'
 import { getListings } from '@/services/ApiService'
-import CreateListing from '@/components/App/ArbSwap/Dashboard/CreateListing'
 
 function Dashboard() {
   const { showModal } = modalStore()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [listings, setListings] = useState<Listing[]>([])
-  const [filter,setFilter] = useState<SearchParams>()
-  const searchedParam = useMemo(()=>{
-    let tempList = listings;
-    if(filter?.amount){
+  const [filter, setFilter] = useState<SearchParams>()
+  const searchedParam = useMemo(() => {
+    let tempList = listings
+    if (filter?.amount) {
       tempList = tempList.filter((listing) => listing.amount > filter.amount)
     }
-    if(filter?.payment_method){
-      tempList = tempList.filter((listing)=>listing.payment_method == filter.payment_method)
+    if (filter?.payment_method) {
+      tempList = tempList.filter(
+        (listing) => listing.payment_method === filter.payment_method
+      )
     }
     return tempList
-  },[filter,listings])
+  }, [filter, listings])
 
   const handleEsc = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
@@ -40,7 +44,7 @@ function Dashboard() {
   const modalKey = 'createListing'
 
   const getListingsFromApi = async () => {
-    const listingsApi = await getListings();
+    const listingsApi = await getListings()
     setListings(listingsApi?.data)
   }
 
@@ -71,7 +75,7 @@ function Dashboard() {
       {/* Left Rectangle */}
       <Fragment key={'dashboard-filter'}>
         <DashboardFilter
-          onSearch={(searhParam:SearchParams)=>{
+          onSearch={(searhParam: SearchParams) => {
             setFilter(searhParam)
           }}
           isModalOpen={isModalOpen}
@@ -80,8 +84,12 @@ function Dashboard() {
       </Fragment>
       {/* Right Rectangle */}
       <div className="sm:w-5/5 max-h-[739px] max-w-4xl rounded-3xl border bg-zinc-100 px-3 py-4 backdrop-blur-[100px] sm:!m-3 md:w-4/5 md:px-7">
-        <div className={'custom-scrollbar overflow-y-auto scroll-smooth max-h-[calc(100%-64px)]'}>
-          <table className="table-auto w-full">
+        <div
+          className={
+            'custom-scrollbar max-h-[calc(100%-64px)] overflow-y-auto scroll-smooth'
+          }
+        >
+          <table className="w-full table-auto">
             <thead>
               <tr className="text-black">
                 <th>Seller Information</th>
@@ -92,24 +100,25 @@ function Dashboard() {
             </thead>
             <tbody>
               {searchedParam?.map((listing) => {
-                return (
-                  <DashboardTable key={listing.id} listing={listing}/>
-                )
+                return <DashboardTable key={listing.id} listing={listing} />
               })}
             </tbody>
           </table>
-          <div className="w-full h-16 inset-x-0 absolute bottom-0 rounded-b-3xl bg-blue-600 flex justify-center gap-10">
-            <button onClick={() => toggleModal(modalKey)}>Create New Listing</button>
-            <button onClick={() => window.location.reload()}>Refresh Page</button>
+          <div className="absolute inset-x-0 bottom-0 flex h-16 w-full justify-center gap-10 rounded-b-3xl bg-blue-600">
+            <button onClick={() => toggleModal(modalKey)}>
+              Create New Listing
+            </button>
+            <button onClick={() => window.location.reload()}>
+              Refresh Page
+            </button>
           </div>
         </div>
       </div>
       {showModal.paymentMethod && <PaymentMethod />}
       {showModal.pricing && <Pricing />}
-      {showModal.createListing && <CreateListing/>}
-      
+      {showModal.createListing && <CreateListing />}
     </section>
   )
 }
 
-export default Dashboard;
+export default Dashboard

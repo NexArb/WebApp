@@ -1,39 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import redstone from 'redstone-api'
 
 import Button from '@/components/Common/Button'
+import { methods } from '@/components/Common/PaymentMethods'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
-import redstone from "redstone-api";
-import { methods } from '@/components/Common/PaymentMethods';
 
 export type SearchParams = {
-  payment_method:string;
-  amount:number
+  payment_method: string
+  amount: number
 }
 
-type FilterMenuProps = { isModalOpen: boolean; setModalOpen: Function,onSearch:(filter:SearchParams)=>void }
+type FilterMenuProps = {
+  isModalOpen: boolean
+  setModalOpen: Function
+  onSearch: (filter: SearchParams) => void
+}
 
 export default function DashboardFilter({
   isModalOpen,
   setModalOpen,
   onSearch
 }: Readonly<FilterMenuProps>) {
-  const [solToUSD, setSolToUSD] = useState(0.0);
-  const [filter,setFilter] = useState<SearchParams>({payment_method:"",amount:0})
+  const [solToUSD, setSolToUSD] = useState(0.0)
+  const [filter, setFilter] = useState<SearchParams>({
+    payment_method: '',
+    amount: 0
+  })
 
   const closeModal = () => {
     setModalOpen(false)
   }
 
   const fetchSolToUSD = async () => {
-    const price = await redstone.getPrice("SOL");
-    setSolToUSD(price.value);
+    const price = await redstone.getPrice('SOL')
+    setSolToUSD(price.value)
   }
 
   useEffect(() => {
-    fetchSolToUSD();
+    fetchSolToUSD()
   })
-
 
   return (
     <div
@@ -58,7 +64,11 @@ export default function DashboardFilter({
           </button>
         </div>
         <div className="text-[32px] font-bold text-slate-950">Buy SOL</div>
-        <div className="mt-8 text-xl text-neutral-500">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
+        <div className="mt-8 text-xl text-neutral-500">
+          {solToUSD !== 0.0
+            ? `1 SOL = ${solToUSD.toFixed(3)} USD`
+            : 'Loading...'}
+        </div>
         <div className="mt-3 text-xl text-neutral-500">
           <span>{getFormattedDateTime()}</span>
         </div>
@@ -68,30 +78,31 @@ export default function DashboardFilter({
           <select
             className="rounded-3xl border border-zinc-300 bg-white text-neutral-500"
             name="name"
-            onChange={(event)=>setFilter({
-              ...filter,
-              payment_method:event.target.value,
-            })}
+            onChange={(event) =>
+              setFilter({
+                ...filter,
+                payment_method: event.target.value
+              })
+            }
             defaultValue={'DEFAULT'}
           >
             <option hidden disabled value="DEFAULT">
               Payment Method
             </option>
             {methods.map((method) => {
-              return (
-                <option value={method.value}>{method.label}</option>
-              )
-            })
-            }
+              return <option value={method.value}>{method.label}</option>
+            })}
           </select>
           <div className={'relative mt-7 flex items-center'}>
             <input
               className="w-full rounded-3xl border border-zinc-300 bg-white text-neutral-500"
               type="number"
-              onChange={(event)=>setFilter({
-                ...filter,
-                amount:Number(event.target.value),
-              })}
+              onChange={(event) =>
+                setFilter({
+                  ...filter,
+                  amount: Number(event.target.value)
+                })
+              }
               placeholder="Amount"
             ></input>
             <span
@@ -114,7 +125,10 @@ export default function DashboardFilter({
             </div>
           </div>
           <div className="flexCenter mt-32 flex-1">
-            <Button onClick={()=>onSearch(filter)} className=" h-12 w-60 bg-gradient-button">
+            <Button
+              onClick={() => onSearch(filter)}
+              className=" h-12 w-60 bg-gradient-button"
+            >
               <span className="text-lg">Search for Offers</span>
             </Button>
           </div>

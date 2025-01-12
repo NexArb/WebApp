@@ -2,63 +2,60 @@
 
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { useFormData } from '@/context/offerFormDataContext'
+import redstone from 'redstone-api'
 
 import Button from '@/components/Common/Button'
 import Modal from '@/components/Common/Modal'
 import getFormattedDateTime from '@/hooks/useCurrentDate'
 import { modalStore } from '@/hooks/useStore'
-import redstone from "redstone-api";
-import { useFormData } from '@/context/offerFormDataContext'
 import { createOffer } from '@/services/ApiService'
 
 export default function Pricing() {
   const router = useRouter()
   const { toggleModal } = modalStore()
-  const [solToUSD, setSolToUSD] = useState(0.0);
-  const { formData, updateFormData } = useFormData();
+  const [solToUSD, setSolToUSD] = useState(0.0)
+  const { formData, updateFormData } = useFormData()
   const modalKey = 'pricing'
   const otherModalKey = 'paymentMethod'
-  
+
   const handlePrevious = () => {
     toggleModal(modalKey)
     toggleModal(otherModalKey)
   }
 
   const fetchSolToUSD = async () => {
-    const price = await redstone.getPrice("SOL");
-    setSolToUSD(price.value);
+    const price = await redstone.getPrice('SOL')
+    setSolToUSD(price.value)
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    updateFormData({ [name]: value });
+    const { name, value } = e.target
+    updateFormData({ [name]: value })
   }
-  
+
   const handleNext = async () => {
     try {
-      
       const offerData = {
         listing_id: formData.listing_id,
         seller_username: formData.seller_username,
         amount: formData.amount
       }
 
-      console.log(offerData);
-      const response = await createOffer(offerData);
+      console.log(offerData)
+      const response = await createOffer(offerData)
 
       if (response.ok) {
         router.push('/arbswap/dashboard/offers')
         toggleModal(modalKey)
       }
+    } catch (err) {
+      console.error(err)
     }
-    catch (err) {
-      console.error(err);
-    }
-    
   }
 
   useEffect(() => {
-    fetchSolToUSD();
+    fetchSolToUSD()
   })
 
   return (
@@ -66,11 +63,19 @@ export default function Pricing() {
       <div className="flex w-[577px] flex-col rounded-3xl bg-zinc-100 p-10 text-lg text-black">
         <div className="rounded-2xl bg-neutral-800 px-5 py-2 text-white">
           <div className="flex flex-row justify-between">
-            <div className="">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
+            <div className="">
+              {solToUSD !== 0.0
+                ? `1 SOL = ${solToUSD.toFixed(3)} USD`
+                : 'Loading...'}
+            </div>
             <div>{getFormattedDateTime()}</div>
           </div>
           <div className="flex flex-row justify-between">
-            <div>{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(3)} USD` : 'Loading...'}</div>
+            <div>
+              {solToUSD !== 0.0
+                ? `1 SOL = ${solToUSD.toFixed(3)} USD`
+                : 'Loading...'}
+            </div>
             <div>{getFormattedDateTime()}</div>
           </div>
         </div>
@@ -128,9 +133,11 @@ export default function Pricing() {
               <input
                 type="checkbox"
                 className="h-6 w-6 cursor-pointer appearance-none rounded-[10px] bg-teal-400 text-teal-400 focus:ring-teal-100"
-                name='autoAccept'
+                name="autoAccept"
                 checked={formData.autoAccept}
-                onChange={(e) => updateFormData({autoAccept: e.target.checked})}
+                onChange={(e) =>
+                  updateFormData({ autoAccept: e.target.checked })
+                }
               />
             </div>
             <span className="pl-4 text-[16px] text-neutral-400">

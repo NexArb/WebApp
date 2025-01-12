@@ -1,28 +1,28 @@
-"use client";
+'use client'
 
 import React, { useMemo } from 'react'
+import { FormDataProvider } from '@/context/offerFormDataContext'
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
+import {
+  ConnectionProvider,
+  WalletProvider
+} from '@solana/wallet-adapter-react'
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
+import { clusterApiUrl } from '@solana/web3.js'
 
 import ArbSwapNavbar from '@/components/CustomNavbar/ArbSwap'
-import { FormDataProvider } from '@/context/offerFormDataContext'
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { clusterApiUrl } from '@solana/web3.js';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-require("@solana/wallet-adapter-react-ui/styles.css");
+
+require('@solana/wallet-adapter-react-ui/styles.css')
 
 type RootLayoutProps = Readonly<{
   children: React.ReactNode
   params: { lang: string }
 }>
 
-
-
 export default function DashboardLayout({ children, params }: RootLayoutProps) {
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-  const wallets = useMemo(() => [
-    
-  ], [network]);
+  const network = WalletAdapterNetwork.Devnet
+  const endpoint = useMemo(() => clusterApiUrl(network), [network])
+  const wallets = useMemo(() => [], [])
 
   return (
     <ConnectionProvider endpoint={endpoint}>

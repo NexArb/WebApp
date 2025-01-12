@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Confidentiality from '@/components/App/ArbSwap/Confidentiality'
 import ExchangeRates from '@/components/App/ArbSwap/ExchangeRates'
 import Intro from '@/components/App/ArbSwap/Intro'
@@ -8,7 +7,6 @@ import SolanaWorld from '@/components/App/ArbSwap/SolanaWorld'
 import Steps from '@/components/App/ArbSwap/Steps'
 import ArbSwapFooter from '@/components/CustomFooter/ArbSwap'
 import ArbSwapNavbar from '@/components/CustomNavbar/ArbSwap'
-import { underConstructionDictionary } from '@/constants/localesContent'
 
 const Solana = ({
   params
@@ -32,7 +30,6 @@ const Solana = ({
         <video src="img/nexarb-promo.mp4" width={750} height={550} className="mt-10" controls preload='none'>
         </video>
     </div>*/}
-      
     </div>
   )
 }

@@ -7,19 +7,24 @@ type CrewItemProps = Readonly<{
   name: string
   profileImage: string
   job: string
-  
 }>
 
-function CrewItem({
-  name,
-  job,
-  profileImage
-}: CrewItemProps) {
+function CrewItem({ name, job, profileImage }: CrewItemProps) {
   return (
-    <li className="flex w-full flex-1 flex-col items-start max-lg:p-10">
-      <Image src={profileImage} alt="profile image" width={150} height={150} className="rounded-full" />
-      <h2 className="mt-4 text-2xl text-center items-center font-medium leading-loose">{name}</h2>
-      <p className="mt-1 text-center items-center leading-relaxed">{job}</p>
+    <li className="flex w-full flex-1 flex-col items-center max-lg:p-10">
+      <div className="h-40 w-40 overflow-hidden rounded-full">
+        <Image
+          src={profileImage}
+          alt="profile image"
+          width={150}
+          height={150}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <h2 className="mt-4 text-center text-2xl font-medium leading-loose">
+        {name}
+      </h2>
+      <p className="mt-1 text-center leading-relaxed">{job}</p>
     </li>
   )
 }
@@ -30,7 +35,7 @@ interface CrewProps {
 
 function Crew({ locale }: CrewProps) {
   return (
-    <section id='crew' className="flexCenter mb-72 mt-96 flex-col">
+    <section id="crew" className="flexCenter mb-72 mt-96 flex-col">
       <div className="text-center text-5xl font-bold">
         {homeDictionary[locale]?.startupCrew}
       </div>

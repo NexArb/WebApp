@@ -1,63 +1,67 @@
 'use client'
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from 'react'
 
 interface FormData {
-    listing_id: string;
-    seller_username: string;
-    seller_wallet:string;
-    iban:string;
-    payment_method: string;
-    country: string;
-    walletAddress: string;
-    amount: number;
-    price: string;
-    autoAccept: boolean;
+  listing_id: string
+  seller_username: string
+  seller_wallet: string
+  iban: string
+  payment_method: string
+  country: string
+  walletAddress: string
+  amount: number
+  price: string
+  autoAccept: boolean
 }
 
 interface FormDataContextProps {
-    formData: FormData;
-    updateFormData: (newData: Partial<FormData>) => void;
+  formData: FormData
+  updateFormData: (newData: Partial<FormData>) => void
 }
 
-const FormDataContext = createContext<FormDataContextProps | undefined>(undefined);
+const FormDataContext = createContext<FormDataContextProps | undefined>(
+  undefined
+)
 
 export const useFormData = (): FormDataContextProps => {
-    const context = useContext(FormDataContext);
-    if (!context) {
-        throw new Error('useFormData must be used within a FormDataProvider');
-    }
-    return context;
+  const context = useContext(FormDataContext)
+  if (!context) {
+    throw new Error('useFormData must be used within a FormDataProvider')
+  }
+  return context
 }
 
 interface FormDataProviderProps {
-    children: React.ReactNode;
+  children: React.ReactNode
 }
 
-export const FormDataProvider = ({children}: FormDataProviderProps): JSX.Element => {
-    const [formData, setFormData] = useState<FormData>({
-        listing_id: '',
-        seller_username: '',
-        payment_method: '',
-        seller_wallet:'',
-        iban:'',
-        country: '',
-        walletAddress: '',
-        amount: 0,
-        price: '',
-        autoAccept: false,
-    })
+export const FormDataProvider = ({
+  children
+}: FormDataProviderProps): JSX.Element => {
+  const [formData, setFormData] = useState<FormData>({
+    listing_id: '',
+    seller_username: '',
+    payment_method: '',
+    seller_wallet: '',
+    iban: '',
+    country: '',
+    walletAddress: '',
+    amount: 0,
+    price: '',
+    autoAccept: false
+  })
 
-    const updateFormData = (newData: Partial<FormData>) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            ...newData,
-        }))
-    }
+  const updateFormData = (newData: Partial<FormData>) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      ...newData
+    }))
+  }
 
-    return (
-        <FormDataContext.Provider value={{formData, updateFormData}}>
-            {children}
-        </FormDataContext.Provider>
-    )
+  return (
+    <FormDataContext.Provider value={{ formData, updateFormData }}>
+      {children}
+    </FormDataContext.Provider>
+  )
 }

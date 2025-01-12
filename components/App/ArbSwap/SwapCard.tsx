@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { arbSwapHomeDictionary } from '@/constants/localesContent'
-import redstone from "redstone-api";
+import redstone from 'redstone-api'
 
 interface SwapCardProps {
   readonly locale: string
@@ -10,15 +10,15 @@ interface SwapCardProps {
 
 const SwapCard: React.FC<SwapCardProps> = ({ locale }) => {
   const [selectedOption, setSelectedOption] = useState('buy')
-  const [solToUSD, setSolToUSD] = useState(0.0);
+  const [solToUSD, setSolToUSD] = useState(0.0)
 
   const fetchSolToUSD = async () => {
-    const price = await redstone.getPrice("SOL");
-    setSolToUSD(price.value);
+    const price = await redstone.getPrice('SOL')
+    setSolToUSD(price.value)
   }
 
   useEffect(() => {
-    fetchSolToUSD();
+    fetchSolToUSD()
   })
 
   return (
@@ -47,7 +47,11 @@ const SwapCard: React.FC<SwapCardProps> = ({ locale }) => {
           </button>
         </div>
         <div className="mt-4 flex flex-col items-center justify-between text-white lg:mt-10 lg:flex-row">
-          <span className="mb-2 lg:mb-0">{solToUSD !== 0.0 ? `1 SOL = ${solToUSD.toFixed(2)} USD` : 'Loading...'}</span>
+          <span className="mb-2 lg:mb-0">
+            {solToUSD !== 0.0
+              ? `1 SOL = ${solToUSD.toFixed(2)} USD`
+              : 'Loading...'}
+          </span>
           <span>12.10.2023 - 22:12</span>
         </div>
         <select

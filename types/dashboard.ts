@@ -2,9 +2,9 @@ export interface Listing {
   id: string
   user_id: string
   seller_username: string
-  seller_wallet:string
-  payment_method:string
-  iban:string
+  seller_wallet: string
+  payment_method: string
+  iban: string
   amount: number
   price: number
   currency: string
@@ -13,7 +13,7 @@ export interface Listing {
 }
 
 export interface Offer {
-  id: string,
+  id: string
   user_id: string
   status: string
   listing_id: string

@@ -135,7 +135,7 @@ export interface ForgotPassword {
 }
 
 export interface UnderConstruction {
-  underConstruction: string,
+  underConstruction: string
   promoVideoDesc: string
 }
 
@@ -173,5 +173,3 @@ export interface Footer {
   send: string
   copyright: string
 }
-
-

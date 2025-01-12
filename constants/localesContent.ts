@@ -261,7 +261,8 @@ export const homeDictionary: Record<string, Home> = {
     startupCrew: 'Our Crew'
   },
   tr: {
-    digitalSolutions: 'Kesintisiz Takaslar ve Zincirler Arası İşlemler Kolaylaştı',
+    digitalSolutions:
+      'Kesintisiz Takaslar ve Zincirler Arası İşlemler Kolaylaştı',
     digitalSolutionsDesc:
       'Teknolojinin kullanıcı dostu çözümlerle buluştuğu NexArb. Platformlarımız ArbSwap ve NexBridge, blockchain ağları arasında sorunsuz ve hızlı bir şekilde işlem yapmanıza ve aktarım yapmanıza olanak tanır. İster Solana`da işlem yapıyor olun ister NEAR`a köprü oluşturuyor olun, bunu kolaylaştırıyoruz.',
     letsMeet: 'Haydi Buluşalım',
@@ -271,7 +272,8 @@ export const homeDictionary: Record<string, Home> = {
     startupCrew: 'Ekibimiz'
   },
   de: {
-    digitalSolutions: 'Nahtlose Swaps und Cross-Chain-Transaktionen leicht gemacht',
+    digitalSolutions:
+      'Nahtlose Swaps und Cross-Chain-Transaktionen leicht gemacht',
     digitalSolutionsDesc:
       'NexArb, wo Technologie auf benutzerfreundliche Lösungen trifft. Mit unseren Plattformen ArbSwap und NexBridge können Sie schnell, sicher und problemlos über Blockchain-Netzwerke handeln und übertragen. Egal, ob Sie auf Solana handeln oder eine Brücke zu NEAR schlagen, wir machen es Ihnen einfach.',
     letsMeet: 'Lass uns treffen',
@@ -465,16 +467,16 @@ export const forgotPasswordDictionary: Record<string, ForgotPassword> = {
 
 export const underConstructionDictionary: Record<string, UnderConstruction> = {
   en: {
-    underConstruction: "This Page Is Under Construction",
-    promoVideoDesc: "You can watch our promo video."
+    underConstruction: 'This Page Is Under Construction',
+    promoVideoDesc: 'You can watch our promo video.'
   },
   tr: {
-    underConstruction: "Bu Sayfa Yapım Aşamasındadır",
-    promoVideoDesc: "Tanıtım videomuzu izleyebilirsiniz."
+    underConstruction: 'Bu Sayfa Yapım Aşamasındadır',
+    promoVideoDesc: 'Tanıtım videomuzu izleyebilirsiniz.'
   },
   de: {
-    underConstruction: "Diese Seite befindet sich im Aufbau",
-    promoVideoDesc: "Sie können sich unser Promo-Video ansehen."
+    underConstruction: 'Diese Seite befindet sich im Aufbau',
+    promoVideoDesc: 'Sie können sich unser Promo-Video ansehen.'
   }
 }
 

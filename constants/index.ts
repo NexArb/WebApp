@@ -1,13 +1,13 @@
 export const PROJECTS = [
   {
-    title: 'ArbSwap',
-    date: '2023',
+    title: 'NexUtils',
+    date: '2024',
     image: '/img/DASHBOARD.png'
   },
   {
-    title: 'NexBridge',
-    date: '2024',
-    image: '/img/BRIDGE OPTIONS.png'
+    title: 'NexCarb',
+    date: '2025',
+    image: '/img/DASHBOARD.png'
   }
 ]
 
@@ -15,27 +15,27 @@ export const CREW = [
   {
     name: 'Doğukan Gündoğan',
     profileImage: '/img/Ben.jpg',
-    job: 'Co-Founder'
+    job: 'CEO'
   },
   {
-    name: 'Atamert Rahma',
-    profileImage: '/img/Ata.jpg',
-    job: 'Co-Founder'
-  },
+    name: 'Bersu Varol',
+    profileImage: '/img/BersuVarol.jpeg',
+    job: 'Business Manager'
+  }
 ]
 
 export const FooterSocials = [
-  { 
-    svg: '/img/Twitter.svg', 
-    link: "https://x.com/nexarb_?s=21"
+  {
+    svg: '/img/Twitter.svg',
+    link: 'https://x.com/nexarb_?s=21'
   },
-  { 
+  {
     svg: '/img/Linkedin.svg',
-    link: "https://www.linkedin.com/company/nexarb/" 
+    link: 'https://www.linkedin.com/company/nexarb/'
   },
-  { 
+  {
     svg: '/img/YouTube.svg',
-    link: "https://youtube.com/@nexarb_?si=QKKC5bW_HMJcQ-r2 "
+    link: 'https://youtube.com/@nexarb_?si=QKKC5bW_HMJcQ-r2 '
   }
 ]
 

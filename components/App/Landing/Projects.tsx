@@ -11,7 +11,7 @@ type ProjectItemProps = Readonly<{
 
 function ProjectItem({ title, image, date }: ProjectItemProps) {
   return (
-    <li className="flex w-full flex-1 flex-col justify-center items-center lg:ml-64">
+    <li className="flex w-full flex-1 flex-col items-center justify-center lg:ml-64">
       <Image src={image} alt="map" width={550} height={400} />
       <div className="mx-auto items-center justify-center">
         <h2 className="mt-5 text-2xl font-medium leading-loose">{title}</h2>
@@ -45,7 +45,7 @@ function Projects({ locale }: ProjectsProps) {
             date={project.date}
           />
         ))}
-        </div>
+      </div>
     </section>
   )
 }

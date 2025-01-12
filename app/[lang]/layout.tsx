@@ -19,13 +19,12 @@ type RootLayoutProps = Readonly<{
   params: { lang: string }
 }>
 
-
 export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <html lang={params.lang ?? defaultLocale}>
       <body className={`${dmSans.className} text-white`}>
         <TailwindIndicator />
-          {children}
+        {children}
       </body>
     </html>
   )

@@ -1,7 +1,9 @@
 'use client'
 
 import React from 'react'
-import { nexBridgeHomeDictionary, underConstructionDictionary } from '@/constants/localesContent'
+import {
+  underConstructionDictionary
+} from '@/constants/localesContent'
 
 interface NexBridgeHomePageProps {
   readonly params: {
@@ -21,11 +23,21 @@ function NexBridgeHomePage({ params }: NexBridgeHomePageProps) {
             <div className="relative w-full text-center text-6xl font-bold leading-[86px] tracking-[-1] text-white">
               {nexBridgeHomeDictionary[params.lang]?.crossChain}
             </div>*/}
-            <h1 className="text-6xl font-bold mt-5">{underConstructionDictionary[params.lang]?.underConstruction}</h1>
-            <p className="text-3xl mt-20">{underConstructionDictionary[params.lang]?.promoVideoDesc}</p>
-            <video width={750} height={550} className="mt-10" controls preload='none'>
-              <source src='img/nexarb-promo.mp4' type='video/mp4'/>
-          </video>
+            <h1 className="mt-5 text-6xl font-bold">
+              {underConstructionDictionary[params.lang]?.underConstruction}
+            </h1>
+            <p className="mt-20 text-3xl">
+              {underConstructionDictionary[params.lang]?.promoVideoDesc}
+            </p>
+            <video
+              width={750}
+              height={550}
+              className="mt-10"
+              controls
+              preload="none"
+            >
+              <source src="img/nexarb-promo.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

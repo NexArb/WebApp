@@ -35,7 +35,7 @@ function Hero({ locale }: HeroProps) {
         <div className="mx-auto mb-6 text-center text-7xl font-bold leading-[86px] lg:w-4/5">
           {homeDictionary[locale]?.digitalSolutions}
         </div>
-        <div className="mx-auto mt-10 mb-16 text-center text-2xl font-medium leading-loose lg:w-[794.88px]">
+        <div className="mx-auto mb-16 mt-10 text-center text-2xl font-medium leading-loose lg:w-[794.88px]">
           {homeDictionary[locale]?.digitalSolutionsDesc}{' '}
         </div>
         <Button className="mx-auto mt-4 h-14 w-60 rounded-full bg-gradient-button">
