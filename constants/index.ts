@@ -1,13 +1,13 @@
 export const PROJECTS = [
   {
-    title: 'NexUtils',
+    title: 'NexSwap',
     date: '2024',
     image: '/img/DASHBOARD.png'
   },
   {
     title: 'NexCarb',
     date: '2025',
-    image: '/img/DASHBOARD.png'
+    image: '/img/nexcarb.png'
   }
 ]
 

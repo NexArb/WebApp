@@ -256,33 +256,33 @@ export const homeDictionary: Record<string, Home> = {
   en: {
     digitalSolutions: 'Seamless Swaps and Cross-Chain Transactions Made Easy',
     digitalSolutionsDesc:
-      'NexArb, where technology meets user-friendly solutions. Our platforms, ArbSwap and NexBridge, let you trade and transfer across blockchain networks quickly and securely without the hassle. Whether you`re trading on Solana or bridging to NEAR, we make it simple.',
+      'Our platforms, NexSwap and NexCarb, enable seamless, fast, and secure transactions across blockchain networks while enhancing the accuracy of carbon measurement. Whether you\'re trading on Solana or monitoring carbon emissions in cities, we make the process simple and accessible for you.',
     letsMeet: "Let's Meet",
     ourWorks: 'Our Works',
     ourWorksDesc:
-      'Our main product, ArbSwap, enables swift and secure P2P Swaps between the Solana and Ethereum networks at minimal fees. Our second offering, NexBridge, facilitates the smooth transfer of assets across Near and other chains. We prioritize simplicity and security, ensuring that our tools are user-friendly and reliable for all users even new to Web3 ecosystem.',
+      'Our main product, NexSwap, enables swift and secure P2P Swaps between the Solana and Ethereum networks at minimal fees. Our second offering, NexCarb is a project that improves the accuracy of carbon measurement in cities by using advanced technologies to help municipalities make better sustainability decisions. We prioritize simplicity and security, ensuring that our tools are user-friendly and reliable for all users even new to Web3 ecosystem.',
     startupCrew: 'Our Crew'
   },
   tr: {
     digitalSolutions:
       'Kesintisiz Takaslar ve Zincirler Arası İşlemler Kolaylaştı',
     digitalSolutionsDesc:
-      'Teknolojinin kullanıcı dostu çözümlerle buluştuğu NexArb. Platformlarımız ArbSwap ve NexBridge, blockchain ağları arasında sorunsuz ve hızlı bir şekilde işlem yapmanıza ve aktarım yapmanıza olanak tanır. İster Solana`da işlem yapıyor olun ister NEAR`a köprü oluşturuyor olun, bunu kolaylaştırıyoruz.',
+      'Platformlarımız NexSwap ve NexCarb, blockchain ağları arasında sorunsuz, hızlı ve güvenli işlemler yapmanıza ve karbon ölçümünü daha doğru hale getirmenize olanak tanır. İster Solana’da işlem yapın, ister şehirlerin karbon salınımını takip edin, süreci sizin için kolay ve erişilebilir hale getiriyoruz.',
     letsMeet: 'Haydi Buluşalım',
     ourWorks: 'Çalışmalarımız',
     ourWorksDesc:
-      "Ana ürünümüz ArbSwap, Solana ve Ethereum ağları arasında minimum ücretle hızlı ve güvenli P2P Swap'lara olanak tanır. İkinci teklifimiz NexBridge, varlıkların Near ve diğer zincirler arasında sorunsuz şekilde aktarılmasını kolaylaştırır. Basitliğe ve güvenliğe öncelik veriyoruz, araçlarımızın Web3 ekosisteminde yeni olanlar dahil tüm kullanıcılar için kullanıcı dostu ve güvenilir olmasını sağlıyoruz.",
+      "Ana ürünümüz ArbSwap, Solana ve Ethereum ağları arasında minimum ücretle hızlı ve güvenli P2P Swap'lara olanak tanır. İkinci teklifimiz NexCarb, şehirlerde karbon ölçümünü daha doğru hale getiren ve belediyelerin daha sürdürülebilir kararlar almasına yardımcı olan bir projedir.",
     startupCrew: 'Ekibimiz'
   },
   de: {
     digitalSolutions:
       'Nahtlose Swaps und Cross-Chain-Transaktionen leicht gemacht',
     digitalSolutionsDesc:
-      'NexArb, wo Technologie auf benutzerfreundliche Lösungen trifft. Mit unseren Plattformen ArbSwap und NexBridge können Sie schnell, sicher und problemlos über Blockchain-Netzwerke handeln und übertragen. Egal, ob Sie auf Solana handeln oder eine Brücke zu NEAR schlagen, wir machen es Ihnen einfach.',
+      'Unsere Plattformen NexSwap und NexCarb ermöglichen nahtlose, schnelle und sichere Transaktionen zwischen Blockchain-Netzwerken und verbessern die Genauigkeit der Kohlenstoffmessung. Ob Sie auf Solana handeln oder die Kohlenstoffemissionen in Städten überwachen, wir machen den Prozess für Sie einfach und zugänglich.',
     letsMeet: 'Lass uns treffen',
     ourWorks: 'Unsere Arbeiten',
     ourWorksDesc:
-      'Unser Hauptprodukt ArbSwap ermöglicht schnelle und sichere P2P-Swaps zwischen den Netzwerken Solana und Ethereum zu minimalen Gebühren. Unser zweites Angebot, NexBridge, erleichtert die reibungslose Übertragung von Vermögenswerten zwischen Near- und anderen Ketten. Wir legen Wert auf Einfachheit und Sicherheit und stellen sicher, dass unsere Tools für alle Benutzer benutzerfreundlich und zuverlässig sind, auch für Neulinge im Web3-Ökosystem.',
+      'Unser Hauptprodukt NexSwap ermöglicht schnelle und sichere P2P-Swaps zwischen den Netzwerken Solana und Ethereum zu minimalen Gebühren. Unser zweites Angebot, NexCarb ist ein Projekt, das die Genauigkeit der Kohlenstoffmessung in Städten verbessert und Kommunen dabei unterstützt, nachhaltigere Entscheidungen zu treffen. Wir legen Wert auf Einfachheit und Sicherheit und stellen sicher, dass unsere Tools für alle Benutzer benutzerfreundlich und zuverlässig sind, auch für Neulinge im Web3-Ökosystem.',
     startupCrew: 'Unsere Mannschaft'
   }
 }

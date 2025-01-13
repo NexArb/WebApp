@@ -12,7 +12,14 @@ type ProjectItemProps = Readonly<{
 function ProjectItem({ title, image, date }: ProjectItemProps) {
   return (
     <li className="flex w-full flex-1 flex-col items-center justify-center lg:ml-64">
-      <Image src={image} alt="map" width={550} height={400} />
+      <div className="relative w-[550px] h-[400px]">
+        <Image
+          src={image}
+          alt="map"
+          width={550}
+          height={400}
+          style={{ objectFit: 'contain', width: '550px', height: '400px' }} />
+      </div>
       <div className="mx-auto items-center justify-center">
         <h2 className="mt-5 text-2xl font-medium leading-loose">{title}</h2>
         <p className="mt-2 text-center text-sm leading-relaxed tracking-widest lg:mt-4 lg:bg-none">
@@ -20,6 +27,7 @@ function ProjectItem({ title, image, date }: ProjectItemProps) {
         </p>
       </div>
     </li>
+
   )
 }
 
