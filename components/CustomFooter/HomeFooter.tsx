@@ -1,11 +1,8 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
 import { footerDictionary } from '@/constants/localesContent'
-
-import Contact from '@/components/App/Landing/Contact'
-import CustomFooter from '@/components/CustomFooter'
 
 interface HomeFooterProps {
   readonly locale: string
@@ -13,62 +10,85 @@ interface HomeFooterProps {
 
 function HomeFooter({ locale }: HomeFooterProps) {
   return (
-    <section id="contact" className="flexCenter relative">
-      <Image
-        src="/img/footer-bg.png"
-        alt="mountains"
-        fill
-        className="max-md:hidden"
-        quality={95}
-      />
-      <Image
-        src="/img/footer-bg-small.png"
-        alt="mountains"
-        fill
-        className="md:hidden"
-        quality={95}
-      />
-      <div className="z-20 flex-col">
-        <div className="mt-20 flex flex-col p-20">
-          <div className="flex flex-row px-6 max-xl:flex-col max-xl:items-center max-xl:justify-center lg:px-20 xl:px-0">
-            <div className="mb-6 w-1/2 px-6">
-              <div className="mt-14 w-4/5 text-4xl font-bold leading-10 max-xl:mt-0">
-                {footerDictionary[locale]?.keepInTouch}
-              </div>
-              <div className="my-8 text-2xl font-medium leading-loose">
-                {footerDictionary[locale]?.description}
-              </div>
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center gap-5">
-                  <Image
-                    src="/img/fa-envelope.svg"
-                    alt="logo"
-                    width={21}
-                    height={16}
-                  />
-                  <div className="text-base leading-relaxed">
-                    nexarb.business@gmail.com
-                  </div>
-                </div>
-                <div className="flex items-center gap-5">
-                  <Image
-                    src="/img/fa-building-o.svg"
-                    alt="logo"
-                    width={19}
-                    height={19}
-                  />
-                  <div className="text-base leading-relaxed">
-                    Munich, Bavaria, Germany
-                  </div>
-                </div>
-              </div>
-            </div>
-            <Contact locale={locale} />
+    <footer className="bg-gradient-about py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Products */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Products</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="https://wallet.nexarb.com"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  NexWallet
+                </Link>
+              </li>
+              <li>
+                <span className="text-gray-400">
+                  NexCarb (Coming Soon)
+                </span>
+              </li>
+            </ul>
           </div>
-          <CustomFooter locale={locale} />
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="/docs"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  Documentation
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/blog"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Community</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href="https://twitter.com/nexarb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://discord.gg/nexarb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  Discord
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} NexArb. All rights reserved.</p>
         </div>
       </div>
-    </section>
+    </footer>
   )
 }
 

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { links } from '@/constants'
 import { navbarDictionary } from '@/constants/localesContent'
+import { ModeToggle } from '../mode-toggle'
 
 interface AppBarProps {
   readonly locale: string
@@ -14,78 +15,79 @@ function AppBar({ locale }: AppBarProps) {
   const [nav, setNav] = useState(false)
 
   return (
-    <nav className="z-20 py-10">
-      <div className="flex items-center justify-around">
-        <button
-          type="button"
-          aria-label="nav"
-          onClick={() => setNav(!nav)}
-          className="z-10 pr-4 text-gray-500 md:hidden"
-        >
-          <div className="justify-end space-y-2">
-            <span
-              className={`block h-1 w-9 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav ? 'translate-y-1.5 rotate-45' : '-translate-y-0.5'
-                    }`}
-            />
-            <span
-              className={`mx-3 block h-1 w-6 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav ? 'hidden' : '-translate-y-0.5'
-                    }`}
-            />
-            <span
-              className={`-mx-1 block h-1 w-10 rounded-sm bg-white 
-                    transition-all duration-300 ease-out ${
-                      nav
-                        ? 'mx-0 w-9 -translate-y-1.5 -rotate-45'
-                        : '-translate-y-0.5'
-                    }`}
-            />
-          </div>
-        </button>
-
-        <div className="mr-0.5 mt-3">
-          <Link href="/">
+    <nav className="fixed top-0 w-full z-50 bg-gradient-main border-b border-gray-800">
+      <div className="container mx-auto px-4">
+        <div className="flex h-16 items-center justify-between">
+          <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/img/gradient-arbswap.png"
-              width={162}
-              height={36}
-              alt="Arbswap Logo"
+              alt="NexArb Logo"
+              width={120}
+              height={32}
             />
           </Link>
-        </div>
-        <div className="mt-4 hidden items-center font-medium md:flex">
-          <Link className="px-1 md:px-2 lg:px-4" href="/">
-            {navbarDictionary[locale]?.home}
-          </Link>
-          <Link className="px-1 lg:px-2" href="/soon/nexswab">
-            <div className="rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
-                NexSwap (Soon)
-              </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-6">
+            <Link href="/" className="text-white hover:text-gray-300 transition">
+              {navbarDictionary[locale]?.home}
+            </Link>
+            <Link 
+              href="https://ai.nexarb.com"
+              className="px-4 py-2 bg-gradient-button rounded-full font-semibold hover:opacity-90 transition"
+            >
+              NexWallet
+            </Link>
+            <Link 
+              href="/soon/nexcarb"
+              className="px-4 py-2 bg-gradient-about rounded-full font-semibold hover:opacity-90 transition"
+            >
+              NexCarb (Soon)
+            </Link>
+            <ModeToggle />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            className="md:hidden text-white"
+            onClick={() => setNav(!nav)}
+          >
+            <div className="space-y-2">
+              <span className={`block h-0.5 w-8 bg-current transform transition duration-300 ${nav ? 'rotate-45 translate-y-1.5' : ''}`} />
+              <span className={`block h-0.5 w-8 bg-current transition duration-300 ${nav ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 w-8 bg-current transform transition duration-300 ${nav ? '-rotate-45 -translate-y-1.5' : ''}`} />
             </div>
-          </Link>
-          <Link className="px-1 lg:px-2" href="/soon/nexcarb">
-            <div className="rounded-full bg-gradient-button p-px">
-              <div className="rounded-full bg-gradient-about px-3 py-1 text-center font-semibold">
-                NexCarb (Soon)
-              </div>
-            </div>
-          </Link>
+          </button>
         </div>
 
+        {/* Mobile Menu */}
         {nav && (
-          <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-gradient-main">
-            {links.map(({ id, link, href }) => (
-              <li key={id} className="cursor-pointer py-4 text-4xl capitalize">
-                <Link onClick={() => setNav(!nav)} href={href}>
-                  {link}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <Link
+                href="/"
+                className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+                onClick={() => setNav(false)}
+              >
+                {navbarDictionary[locale]?.home}
+              </Link>
+              <Link
+                href="https://wallet.nexarb.com"
+                className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+                onClick={() => setNav(false)}
+              >
+                NexWallet
+              </Link>
+              <Link
+                href="/soon/nexcarb"
+                className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+                onClick={() => setNav(false)}
+              >
+                NexCarb (Soon)
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </nav>
