@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { CREW } from '@/constants'
 import { homeDictionary } from '@/constants/localesContent'
 
@@ -11,21 +12,32 @@ type CrewItemProps = Readonly<{
 
 function CrewItem({ name, job, profileImage }: CrewItemProps) {
   return (
-    <li className="flex w-full flex-1 flex-col items-center max-lg:p-10">
-      <div className="h-40 w-40 overflow-hidden rounded-full">
-        <Image
-          src={profileImage}
-          alt="profile image"
-          width={150}
-          height={150}
-          className="h-full w-full object-cover"
-        />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative group"
+    >
+      <div className="relative overflow-hidden rounded-xl bg-gradient-card backdrop-blur-sm border border-gray-800/50">
+        <div className="relative h-72 w-full overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-button opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+          <Image
+            src={profileImage}
+            alt={name}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
+            {name}
+          </h3>
+          <p className="text-gray-300 text-sm mb-4">{job}</p>
+        </div>
       </div>
-      <h2 className="mt-4 text-center text-2xl font-medium leading-loose">
-        {name}
-      </h2>
-      <p className="mt-1 text-center leading-relaxed">{job}</p>
-    </li>
+      <div className="absolute inset-0 rounded-xl bg-gradient-button opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
+    </motion.div>
   )
 }
 
@@ -35,19 +47,39 @@ interface CrewProps {
 
 function Crew({ locale }: CrewProps) {
   return (
-    <section id="crew" className="flexCenter mb-72 mt-96 flex-col">
-      <div className="text-center text-5xl font-bold">
-        {homeDictionary[locale]?.startupCrew}
-      </div>
-      <div className="mt-10 grid gap-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-20">
-        {CREW.map((crew) => (
-          <CrewItem
-            key={crew.name}
-            name={crew.name}
-            profileImage={crew.profileImage}
-            job={crew.job}
-          />
-        ))}
+    <section className="relative py-24 overflow-hidden" id="crew">
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent opacity-50" />
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+            {homeDictionary[locale]?.startupCrew}
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Our dedicated team brings together expertise in blockchain technology, business strategy, and technical innovation. Together, we're building the future of decentralized AI solutions.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {CREW.map((crew, index) => (
+            <motion.div
+              key={crew.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <CrewItem
+                name={crew.name}
+                profileImage={crew.profileImage}
+                job={crew.job}
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

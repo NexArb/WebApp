@@ -15,12 +15,17 @@ export const CREW = [
   {
     name: 'Doğukan Gündoğan',
     profileImage: '/img/Ben.jpg',
-    job: 'CEO'
+    job: 'CEO - Co-Founder'
   },
   {
     name: 'Bersu Varol',
     profileImage: '/img/BersuVarol.jpeg',
     job: 'Business Manager'
+  },
+  {
+    name: 'Cem Denizsel',
+    profileImage: '/img/CemDenizsel.jpg',
+    job: 'CTO - Co-Founder'
   }
 ]
 
